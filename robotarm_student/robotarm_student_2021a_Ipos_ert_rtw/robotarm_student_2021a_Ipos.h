@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.130
+ * Model version              : 2.132
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 14 15:51:43 2025
+ * C source code generated on : Fri Mar 14 16:34:55 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,6 +27,7 @@
 #ifndef robotarm_student_2021a_Ipos_COMMON_INCLUDES_
 #define robotarm_student_2021a_Ipos_COMMON_INCLUDES_
 #include "rtwtypes.h"
+#include "zero_crossing_types.h"
 #include "simstruc.h"
 #include "fixedpoint.h"
 #include "dt_info.h"
@@ -241,6 +242,9 @@ typedef struct {
   real_T y_b;                          /* '<S19>/Angle2Z' */
   real_T Selector2[9];                 /* '<S4>/Selector2' */
   real_T Selector[3];                  /* '<S4>/Selector' */
+  real_T Selector_g;                   /* '<S1>/Selector' */
+  real_T Selector1;                    /* '<S1>/Selector1' */
+  real_T Selector2_i;                  /* '<S1>/Selector2' */
   real_T SignalConversion1;            /* '<S1>/Signal Conversion1' */
   real_T Gain1_c;                      /* '<S9>/Gain1' */
   real_T Dctpd2;                       /* '<S9>/Dctpd2' */
@@ -278,7 +282,7 @@ typedef struct {
   real_T TSamp_k;                      /* '<S34>/TSamp' */
   real_T LimitAcceleration;            /* '<S47>/Limit Acceleration' */
   real_T LimitAcceleration_b;          /* '<S37>/Limit Acceleration' */
-  real_T Add2;                         /* '<S13>/Add2' */
+  int8_T VacuumOff;                    /* '<S1>/Stateflow ' */
   boolean_T RelationalOperator;        /* '<S19>/Relational Operator' */
   boolean_T RelationalOperator_f;      /* '<S20>/Relational Operator' */
   boolean_T RelationalOperator_k;      /* '<S21>/Relational Operator' */
@@ -313,6 +317,12 @@ typedef struct {
   real_T currentcarPos;                /* '<S21>/Supervisor' */
   real_T currentcarPos_d;              /* '<S20>/Supervisor2' */
   real_T currentcarPos_l;              /* '<S19>/Supervisor' */
+  real_T x;                            /* '<S1>/Stateflow ' */
+  real_T z;                            /* '<S1>/Stateflow ' */
+  real_T y;                            /* '<S1>/Stateflow ' */
+  real_T Z_pos;                        /* '<S1>/Stateflow ' */
+  real_T X_pos;                        /* '<S1>/Stateflow ' */
+  real_T Y_pos;                        /* '<S1>/Stateflow ' */
   real_T Dctintegrator_RWORK[2];       /* '<S28>/Dctintegrator' */
   real_T Dctleadlag_RWORK[2];          /* '<S28>/Dctleadlag' */
   real_T Dct1lowpass_RWORK[2];         /* '<S28>/Dct1lowpass' */
@@ -364,9 +374,9 @@ typedef struct {
   uint32_T is_c16_robotarm_student_2021a_I;/* '<S20>/Supervisor2' */
   uint32_T is_c12_robotarm_student_2021a_I;/* '<S19>/Supervisor' */
   uint32_T is_Object_Detection;        /* '<S1>/Stateflow ' */
-  uint32_T is_Belt;                    /* '<S1>/Stateflow ' */
   uint32_T is_Robot_Arm;               /* '<S1>/Stateflow ' */
   uint32_T is_Vacuum;                  /* '<S1>/Stateflow ' */
+  uint32_T is_Belt;                    /* '<S1>/Stateflow ' */
   uint16_T temporalCounter_i1;         /* '<S22>/Supervisor' */
   uint16_T temporalCounter_i1_m;       /* '<S21>/Supervisor' */
   uint16_T temporalCounter_i1_me;      /* '<S20>/Supervisor2' */
@@ -375,6 +385,7 @@ typedef struct {
   int8_T IfActionSubsystem1_SubsysRanBC;/* '<S25>/If Action Subsystem1' */
   int8_T IfActionSubsystem_SubsysRanBC;/* '<S25>/If Action Subsystem' */
   int8_T Controller_SubsysRanBC;       /* '<Root>/Controller' */
+  int8_T Stateflow_SubsysRanBC;        /* '<S1>/Stateflow ' */
   int8_T EnabledSubsystem_SubsysRanBC; /* '<S4>/Enabled Subsystem' */
   uint8_T is_active_c1_robotarm_student_2;/* '<S22>/Supervisor' */
   uint8_T is_active_c18_robotarm_student_;/* '<S21>/Supervisor' */
@@ -382,14 +393,19 @@ typedef struct {
   uint8_T is_active_c12_robotarm_student_;/* '<S19>/Supervisor' */
   uint8_T is_active_c3_robotarm_student_2;/* '<S1>/Stateflow ' */
   uint8_T is_active_Object_Detection;  /* '<S1>/Stateflow ' */
-  uint8_T is_active_Belt;              /* '<S1>/Stateflow ' */
   uint8_T is_active_Robot_Arm;         /* '<S1>/Stateflow ' */
   uint8_T is_active_Vacuum;            /* '<S1>/Stateflow ' */
+  uint8_T is_active_Belt;              /* '<S1>/Stateflow ' */
   boolean_T doneDoubleBufferReInit;    /* '<S1>/Stateflow ' */
   boolean_T Controller_MODE;           /* '<Root>/Controller' */
   DW_SerialWrite1_robotarm_stud_T SerialWrite;/* '<S26>/Serial Write1' */
   DW_SerialWrite1_robotarm_stud_T SerialWrite1;/* '<S26>/Serial Write1' */
 } DW_robotarm_student_2021a_Ipos_T;
+
+/* Zero-crossing (trigger) state */
+typedef struct {
+  ZCSigState Stateflow_Trig_ZCE;       /* '<S1>/Stateflow ' */
+} PrevZCX_robotarm_student_2021a_Ipos_T;
 
 /* Parameters (default storage) */
 struct P_robotarm_student_2021a_Ipos_T_ {
@@ -436,7 +452,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
                                         * Referenced by: '<S1>/Blow//suck [-]'
                                         */
   real_T Objectdetectionmatrix_Value[12];
-  /* Expression: [0                    0                    0      1709314849.7653;0  0  0  0;0  0  0  0]
+  /* Expression: [0                    0                    0      1737999199.4103;0  0  0  0;0  0  0  0]
    * Referenced by: '<S4>/Object detection matrix'
    */
   real_T ReferenceXrad_Value;          /* Expression: 0
@@ -1821,6 +1837,9 @@ extern B_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_B;
 
 /* Block states (default storage) */
 extern DW_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_DW;
+
+/* Zero-crossing (trigger) state */
+extern PrevZCX_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_PrevZCX;
 
 /* Model entry point functions */
 extern void robotarm_student_2021a_Ipos_initialize(void);

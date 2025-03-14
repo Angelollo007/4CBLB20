@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.130
+ * Model version              : 2.132
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 14 15:51:43 2025
+ * C source code generated on : Fri Mar 14 16:34:55 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -22,6 +22,7 @@
 #define RTW_HEADER_robotarm_student_2021a_Ipos_types_h_
 #include "rtwtypes.h"
 #include "multiword_types.h"
+#include "zero_crossing_types.h"
 
 /* Model Code Variants */
 

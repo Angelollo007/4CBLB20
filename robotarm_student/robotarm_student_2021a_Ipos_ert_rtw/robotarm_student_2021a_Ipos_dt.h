@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.130
+ * Model version              : 2.132
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 14 15:51:43 2025
+ * C source code generated on : Fri Mar 14 16:34:55 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -66,7 +66,9 @@ static const char_T * rtDataTypeNames[] = {
 static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&robotarm_student_2021a_Ipos_B.ManualSwitch1[0]), 15, 0, 256 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_B.SFunction), 0, 0, 134 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_B.SFunction), 0, 0, 137 },
+
+  { (char_T *)(&robotarm_student_2021a_Ipos_B.VacuumOff), 2, 0, 1 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_B.RelationalOperator), 8, 0, 6 }
   ,
@@ -76,7 +78,7 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0]), 15, 0, 1 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_DW.PrevY), 0, 0, 59 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_DW.PrevY), 0, 0, 65 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.Scope_PWORK.LoggedData), 11, 0, 4
   },
@@ -88,7 +90,7 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.temporalCounter_i1), 5, 0, 4 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC), 2, 0, 5
+  { (char_T *)(&robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC), 2, 0, 6
   },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2),
@@ -110,7 +112,7 @@ static DataTypeTransition rtBTransitions[] = {
 
 /* data type transition table for block I/O structure */
 static DataTypeTransitionTable rtBTransTable = {
-  17U,
+  18U,
   rtBTransitions
 };
 

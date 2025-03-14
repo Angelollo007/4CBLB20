@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.130
+ * Model version              : 2.132
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 14 15:51:43 2025
+ * C source code generated on : Fri Mar 14 16:34:55 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -23,16 +23,11 @@
 #include "robotarm_student_2021a_Ipos_dt.h"
 
 /* Named constants for Chart: '<S1>/Stateflow ' */
-#define robotarm_stude_event_GetProduct (0)
-#define robotarm_studen_event_ScanAgain (5)
 #define robotarm_student_202_CALL_EVENT (-1)
-#define robotarm_student_202_IN_Move_XY (1U)
 #define robotarm_student_202_IN_Seeking (1U)
 #define robotarm_student_2_IN_Belt_Home (1U)
-#define robotarm_student_IN_WaitSeeking (2U)
 #define robotarm_student__IN_Start_Home (2U)
 #define robotarm_student__IN_Vacuum_Off (1U)
-#define robotarm_student_event_VacuumOn (6)
 
 /* Named constants for Chart: '<S19>/Supervisor' */
 #define robotarm__IN_EnableRunAndSafety (6U)
@@ -87,6 +82,9 @@ B_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_B;
 /* Block states (default storage) */
 DW_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_DW;
 
+/* Previous zero-crossings (trigger) states */
+PrevZCX_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_PrevZCX;
+
 /* Real-time model */
 static RT_MODEL_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_M_;
 RT_MODEL_robotarm_student_2021a_Ipos_T *const robotarm_student_2021a_Ipos_M =
@@ -94,9 +92,6 @@ RT_MODEL_robotarm_student_2021a_Ipos_T *const robotarm_student_2021a_Ipos_M =
 
 /* Forward declaration for local functions */
 static void robotarm_stude_SystemCore_setup(codertarget_raspi_internal_SC_T *obj);
-
-/* Forward declaration for local functions */
-static void c3_robotarm_student_2021a_Ipos(void);
 static void robotarm_stude_SystemCore_setup(codertarget_raspi_internal_SC_T *obj)
 {
   MW_SCI_Parity_Type ParityValue;
@@ -175,62 +170,11 @@ void robotarm_stud_SerialWrite1_Term(DW_SerialWrite1_robotarm_stud_T *localDW)
   /* End of Terminate for MATLABSystem: '<S26>/Serial Write1' */
 }
 
-/* Function for Chart: '<S1>/Stateflow ' */
-static void c3_robotarm_student_2021a_Ipos(void)
-{
-  int32_T c_previousEvent;
-  if (robotarm_student_2021a_Ipos_DW.is_active_Object_Detection != 0U) {
-    switch (robotarm_student_2021a_Ipos_DW.is_Object_Detection) {
-     case robotarm_student_202_IN_Seeking:
-      break;
-
-     case robotarm_student_IN_WaitSeeking:
-      if (robotarm_student_2021a_Ipos_DW.sfEvent_c ==
-          robotarm_studen_event_ScanAgain) {
-        robotarm_student_2021a_Ipos_DW.is_Object_Detection =
-          robotarm_student_202_IN_Seeking;
-      }
-      break;
-
-     default:
-      /* Unreachable state, for coverage only */
-      robotarm_student_2021a_Ipos_DW.is_Object_Detection = 0U;
-      break;
-    }
-  }
-
-  if (robotarm_student_2021a_Ipos_DW.is_active_Robot_Arm != 0U) {
-    switch (robotarm_student_2021a_Ipos_DW.is_Robot_Arm) {
-     case robotarm_student_202_IN_Move_XY:
-      break;
-
-     case robotarm_student__IN_Start_Home:
-      if (robotarm_student_2021a_Ipos_DW.sfEvent_c ==
-          robotarm_stude_event_GetProduct) {
-        robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
-          robotarm_student_202_IN_Move_XY;
-        c_previousEvent = robotarm_student_2021a_Ipos_DW.sfEvent_c;
-        robotarm_student_2021a_Ipos_DW.sfEvent_c =
-          robotarm_student_event_VacuumOn;
-
-        /* Chart: '<S1>/Stateflow ' */
-        c3_robotarm_student_2021a_Ipos();
-        robotarm_student_2021a_Ipos_DW.sfEvent_c = c_previousEvent;
-      }
-      break;
-
-     default:
-      /* Unreachable state, for coverage only */
-      robotarm_student_2021a_Ipos_DW.is_Robot_Arm = 0U;
-      break;
-    }
-  }
-}
-
 /* Model step function */
 void robotarm_student_2021a_Ipos_step(void)
 {
   /* local block i/o variables */
+  real_T rtb_Add2;
   real_T rtb_Add;
   real_T rtb_Saturation;
   int32_T Selector2_tmp;
@@ -1170,14 +1114,13 @@ void robotarm_student_2021a_Ipos_step(void)
    *  Gain: '<S13>/Gain'
    *  Logic: '<S13>/NOT'
    */
-  robotarm_student_2021a_Ipos_B.Add2 =
-    (((robotarm_student_2021a_Ipos_P.Gain_Gain_m *
-       robotarm_student_2021a_Ipos_B.airBagEnabled_f +
-       robotarm_student_2021a_Ipos_P.Gain_Gain_m *
-       robotarm_student_2021a_Ipos_B.airBagEnabled_o) +
-      robotarm_student_2021a_Ipos_P.Gain_Gain_m *
-      robotarm_student_2021a_Ipos_B.airBagEnabled) + (real_T)
-     !(robotarm_student_2021a_Ipos_B.Add1 != 0.0)) +
+  rtb_Add2 = (((robotarm_student_2021a_Ipos_P.Gain_Gain_m *
+                robotarm_student_2021a_Ipos_B.airBagEnabled_f +
+                robotarm_student_2021a_Ipos_P.Gain_Gain_m *
+                robotarm_student_2021a_Ipos_B.airBagEnabled_o) +
+               robotarm_student_2021a_Ipos_P.Gain_Gain_m *
+               robotarm_student_2021a_Ipos_B.airBagEnabled) + (real_T)
+              !(robotarm_student_2021a_Ipos_B.Add1 != 0.0)) +
     robotarm_student_2021a_Ipos_B.homingBusy_l;
 
   /* Gain: '<S12>/Gain3' */
@@ -1244,6 +1187,24 @@ void robotarm_student_2021a_Ipos_step(void)
       robotarm_student_2021a_Ipos_B.Selector[i] =
         robotarm_student_2021a_Ipos_B.fy2_tmp;
     }
+
+    /* Selector: '<S1>/Selector' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector_g =
+      robotarm_student_2021a_Ipos_B.Selector2[0];
+
+    /* Selector: '<S1>/Selector1' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector1 =
+      robotarm_student_2021a_Ipos_B.Selector2[1];
+
+    /* Selector: '<S1>/Selector2' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector2_i =
+      robotarm_student_2021a_Ipos_B.Selector2[2];
 
     /* SignalConversion: '<S1>/Signal Conversion1' */
     robotarm_student_2021a_Ipos_B.SignalConversion1 =
@@ -1374,10 +1335,6 @@ void robotarm_student_2021a_Ipos_step(void)
      */
     robotarm_student_2021a_Ipos_B.Sum_m = robotarm_student_2021a_Ipos_B.In1 -
       robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[9];
-
-    /* Chart: '<S1>/Stateflow ' */
-    robotarm_student_2021a_Ipos_DW.sfEvent_c = robotarm_student_202_CALL_EVENT;
-    c3_robotarm_student_2021a_Ipos();
 
     /* Sum: '<S1>/Sum6' incorporates:
      *  Constant: '<S1>/Feedfoward Z [V]'
@@ -2371,8 +2328,7 @@ void robotarm_student_2021a_Ipos_step(void)
   /* End of Update for SubSystem: '<Root>/Controller' */
 
   /* Update for UnitDelay: '<S13>/Unit Delay1' */
-  robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE =
-    robotarm_student_2021a_Ipos_B.Add2;
+  robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE = rtb_Add2;
 
   /* Update for Delay: '<S24>/Delay' */
   strncpy(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0],
@@ -2529,10 +2485,10 @@ void robotarm_student_2021a_Ipos_initialize(void)
   robotarm_student_2021a_Ipos_M->Timing.stepSize1 = 0.00048828125;
 
   /* External mode info */
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[0] = (3544721400U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[1] = (3209373826U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[2] = (1075965127U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[3] = (3899837776U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[0] = (3197638456U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[1] = (1945319294U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[2] = (816361199U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[3] = (1611764293U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -2544,7 +2500,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
     systemRan[1] = (sysRanDType *)
       &robotarm_student_2021a_Ipos_DW.EnabledSubsystem_SubsysRanBC;
     systemRan[2] = (sysRanDType *)
-      &robotarm_student_2021a_Ipos_DW.Controller_SubsysRanBC;
+      &robotarm_student_2021a_Ipos_DW.Stateflow_SubsysRanBC;
     systemRan[3] = (sysRanDType *)
       &robotarm_student_2021a_Ipos_DW.Controller_SubsysRanBC;
     systemRan[4] = (sysRanDType *)
@@ -8174,6 +8130,31 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
+  /* ConstCode for Enabled SubSystem: '<Root>/Controller' */
+  /* ConstCode for Chart: '<S1>/Stateflow ' */
+  robotarm_student_2021a_Ipos_DW.x = 0.0;
+  robotarm_student_2021a_Ipos_DW.z = 0.0;
+  robotarm_student_2021a_Ipos_DW.y = 0.0;
+  robotarm_student_2021a_Ipos_DW.Z_pos = 0.0;
+  robotarm_student_2021a_Ipos_DW.X_pos = 0.0;
+  robotarm_student_2021a_Ipos_DW.Y_pos = 0.0;
+  robotarm_student_2021a_Ipos_DW.sfEvent_c = robotarm_student_202_CALL_EVENT;
+
+  /* Chart: '<S1>/Stateflow ' */
+  robotarm_student_2021a_Ipos_DW.is_active_c3_robotarm_student_2 = 1U;
+  robotarm_student_2021a_Ipos_DW.is_active_Object_Detection = 1U;
+  robotarm_student_2021a_Ipos_DW.is_Object_Detection =
+    robotarm_student_202_IN_Seeking;
+  robotarm_student_2021a_Ipos_DW.is_active_Robot_Arm = 1U;
+  robotarm_student_2021a_Ipos_DW.is_Robot_Arm = robotarm_student_2_IN_Belt_Home;
+  robotarm_student_2021a_Ipos_DW.is_active_Vacuum = 1U;
+  robotarm_student_2021a_Ipos_DW.is_Vacuum = robotarm_student__IN_Start_Home;
+  robotarm_student_2021a_Ipos_DW.is_active_Belt = 1U;
+  robotarm_student_2021a_Ipos_DW.is_Belt = robotarm_student__IN_Vacuum_Off;
+
+  /* End of ConstCode for SubSystem: '<Root>/Controller' */
+  robotarm_student_2021a_Ipos_PrevZCX.Stateflow_Trig_ZCE = UNINITIALIZED_ZCSIG;
+
   {
     int32_T i;
 
@@ -8338,22 +8319,6 @@ void robotarm_student_2021a_Ipos_initialize(void)
     robotarm_student_2021a_Ipos_B.In1 = robotarm_student_2021a_Ipos_P.Delays_Y0;
 
     /* End of SystemInitialize for SubSystem: '<S4>/Enabled Subsystem' */
-
-    /* SystemInitialize for Chart: '<S1>/Stateflow ' */
-    robotarm_student_2021a_Ipos_DW.sfEvent_c = robotarm_student_202_CALL_EVENT;
-
-    /* Chart: '<S1>/Stateflow ' */
-    robotarm_student_2021a_Ipos_DW.is_active_c3_robotarm_student_2 = 1U;
-    robotarm_student_2021a_Ipos_DW.is_active_Object_Detection = 1U;
-    robotarm_student_2021a_Ipos_DW.is_Object_Detection =
-      robotarm_student_202_IN_Seeking;
-    robotarm_student_2021a_Ipos_DW.is_active_Belt = 1U;
-    robotarm_student_2021a_Ipos_DW.is_Belt = robotarm_student_2_IN_Belt_Home;
-    robotarm_student_2021a_Ipos_DW.is_active_Robot_Arm = 1U;
-    robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
-      robotarm_student__IN_Start_Home;
-    robotarm_student_2021a_Ipos_DW.is_active_Vacuum = 1U;
-    robotarm_student_2021a_Ipos_DW.is_Vacuum = robotarm_student__IN_Vacuum_Off;
 
     /* SystemInitialize for Sum: '<S1>/Sum4' incorporates:
      *  Outport: '<S1>/Robot [V]'

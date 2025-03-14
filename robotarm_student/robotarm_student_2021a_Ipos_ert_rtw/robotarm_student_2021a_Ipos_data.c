@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.130
+ * Model version              : 2.132
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 14 15:51:43 2025
+ * C source code generated on : Fri Mar 14 16:34:55 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -88,10 +88,10 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.0,
 
-  /* Expression: [0                    0                    0      1709314849.7653;0  0  0  0;0  0  0  0]
+  /* Expression: [0                    0                    0      1737999199.4103;0  0  0  0;0  0  0  0]
    * Referenced by: '<S4>/Object detection matrix'
    */
-  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7093148497653E+9, 0.0, 0.0 },
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7379991994103E+9, 0.0, 0.0 },
 
   /* Expression: 0
    * Referenced by: '<S1>/Reference X [rad]'

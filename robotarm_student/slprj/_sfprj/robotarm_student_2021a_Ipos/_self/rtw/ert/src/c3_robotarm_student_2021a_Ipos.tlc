@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   11 \
+    NumChartData   17 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -52,22 +52,6 @@
       IsTestPoint  1\
     }\
     ChartData {\
-      Name         "is_Belt"\
-      Description  "StateActiveChild"\
-      SFName       "is_Belt"\
-      Path         "Belt.is_Belt"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_active_Belt"\
-      Description  "StateIsActive"\
-      SFName       "is_active_Belt"\
-      Path         "Belt.is_active_Belt"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
       Name         "is_Robot_Arm"\
       Description  "StateActiveChild"\
       SFName       "is_Robot_Arm"\
@@ -98,6 +82,64 @@
       Path         "Vacuum.is_active_Vacuum"\
       SrcLocation  ""\
       IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Belt"\
+      Description  "StateActiveChild"\
+      SFName       "is_Belt"\
+      Path         "Belt.is_Belt"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Belt"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Belt"\
+      Path         "Belt.is_active_Belt"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "x"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "x"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "z"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "z"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "y"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "y"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Z_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Z_pos"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "X_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "X_pos"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y_pos"\
+      SrcLocation  ""\
     }\
   }
   %return ChartDataElements
