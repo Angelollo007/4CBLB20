@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.130
+ * Model version              : 2.139
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 14 15:26:04 2025
+ * C source code generated on : Mon Mar 17 13:21:56 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -25,7 +25,7 @@
 
 /* Model Code Variants */
 
-/* Custom Type definition for MATLABSystem: '<S26>/Serial Write1' */
+/* Custom Type definition for MATLABSystem: '<S27>/Serial Write1' */
 #include "MW_SVD.h"
 #ifndef struct_tag_vB8gURpcbTUBlHcczw228B
 #define struct_tag_vB8gURpcbTUBlHcczw228B

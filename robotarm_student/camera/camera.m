@@ -13,8 +13,8 @@
 %% Set detection variables; ONLY MAKE CHANGES IN THIS SECTION!
 % Color; change to exported color threshold function from the app "Color
 % Thresholder" per object
-mask_object_1 = @example_mask_red;
-mask_object_2 = @example_mask_yellow;
+mask_object_1 = @final_blue_mask;
+mask_object_2 = @final_yellow_mask;
 mask_object_3 = @example_mask_blue;
 
 % Blob area; minimum and maximum area for the blob analysis per object

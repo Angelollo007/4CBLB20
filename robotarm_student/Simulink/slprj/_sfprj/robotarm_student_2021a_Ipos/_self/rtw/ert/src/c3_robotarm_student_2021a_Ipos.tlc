@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   11 \
+    NumChartData   25 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -98,6 +98,108 @@
       Path         "Vacuum.is_active_Vacuum"\
       SrcLocation  ""\
       IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_inreach"\
+      Description  "StateActiveChild"\
+      SFName       "is_inreach"\
+      Path         "inreach.is_inreach"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_inreach"\
+      Description  "StateIsActive"\
+      SFName       "is_active_inreach"\
+      Path         "inreach.is_active_inreach"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Invkin"\
+      Description  "StateActiveChild"\
+      SFName       "is_Invkin"\
+      Path         "Invkin.is_Invkin"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Invkin"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Invkin"\
+      Path         "Invkin.is_active_Invkin"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "treshold"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "treshold"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "x"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "x"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "y"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "y"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "z"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "z"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "X_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "X_pos"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y_pos"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Z_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Z_pos"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "isNotInit"\
+      Description  "HasOutputsRun"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
     }\
   }
   %return ChartDataElements
