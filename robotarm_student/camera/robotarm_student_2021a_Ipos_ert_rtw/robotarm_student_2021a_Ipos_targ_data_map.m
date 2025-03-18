@@ -73,355 +73,355 @@
 	  section.data(1).logicalSrcIdx = 6;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Suck_Value
+	  ;% robotarm_student_2021a_Ipos_P.RobotV_Y0
 	  section.data(2).logicalSrcIdx = 7;
 	  section.data(2).dtTransOffset = 1;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Blow_Value
+	  ;% robotarm_student_2021a_Ipos_P.ConveyorV_Y0
 	  section.data(3).logicalSrcIdx = 8;
 	  section.data(3).dtTransOffset = 2;
 	
-	  ;% robotarm_student_2021a_Ipos_P.RobotV_Y0
+	  ;% robotarm_student_2021a_Ipos_P.VacuumV_Y0
 	  section.data(4).logicalSrcIdx = 9;
 	  section.data(4).dtTransOffset = 3;
 	
-	  ;% robotarm_student_2021a_Ipos_P.ConveyorV_Y0
+	  ;% robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value
 	  section.data(5).logicalSrcIdx = 10;
 	  section.data(5).dtTransOffset = 4;
 	
-	  ;% robotarm_student_2021a_Ipos_P.VacuumV_Y0
+	  ;% robotarm_student_2021a_Ipos_P.Constant1_Value
 	  section.data(6).logicalSrcIdx = 11;
-	  section.data(6).dtTransOffset = 5;
+	  section.data(6).dtTransOffset = 16;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Blowsuck_Y0
+	  ;% robotarm_student_2021a_Ipos_P.FeedfowardXV_Value
 	  section.data(7).logicalSrcIdx = 12;
-	  section.data(7).dtTransOffset = 6;
+	  section.data(7).dtTransOffset = 17;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value
+	  ;% robotarm_student_2021a_Ipos_P.Constant_Value
 	  section.data(8).logicalSrcIdx = 13;
-	  section.data(8).dtTransOffset = 7;
+	  section.data(8).dtTransOffset = 18;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain
+	  ;% robotarm_student_2021a_Ipos_P.FeedfowardRV_Value
 	  section.data(9).logicalSrcIdx = 14;
 	  section.data(9).dtTransOffset = 19;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P1_Size
+	  ;% robotarm_student_2021a_Ipos_P.Constant2_Value
 	  section.data(10).logicalSrcIdx = 15;
 	  section.data(10).dtTransOffset = 20;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P1
+	  ;% robotarm_student_2021a_Ipos_P.FeedfowardZV_Value
 	  section.data(11).logicalSrcIdx = 16;
-	  section.data(11).dtTransOffset = 22;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P2_Size
-	  section.data(12).logicalSrcIdx = 17;
-	  section.data(12).dtTransOffset = 23;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P2
-	  section.data(13).logicalSrcIdx = 18;
-	  section.data(13).dtTransOffset = 25;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P3_Size
-	  section.data(14).logicalSrcIdx = 19;
-	  section.data(14).dtTransOffset = 26;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P3
-	  section.data(15).logicalSrcIdx = 20;
-	  section.data(15).dtTransOffset = 28;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_Size
-	  section.data(16).logicalSrcIdx = 21;
-	  section.data(16).dtTransOffset = 29;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1
-	  section.data(17).logicalSrcIdx = 22;
-	  section.data(17).dtTransOffset = 31;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_Size
-	  section.data(18).logicalSrcIdx = 23;
-	  section.data(18).dtTransOffset = 32;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P2
-	  section.data(19).logicalSrcIdx = 24;
-	  section.data(19).dtTransOffset = 34;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P1_Size
-	  section.data(20).logicalSrcIdx = 25;
-	  section.data(20).dtTransOffset = 35;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P1
-	  section.data(21).logicalSrcIdx = 26;
-	  section.data(21).dtTransOffset = 37;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P2_Size
-	  section.data(22).logicalSrcIdx = 27;
-	  section.data(22).dtTransOffset = 38;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P2
-	  section.data(23).logicalSrcIdx = 28;
-	  section.data(23).dtTransOffset = 40;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P3_Size
-	  section.data(24).logicalSrcIdx = 29;
-	  section.data(24).dtTransOffset = 41;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P3
-	  section.data(25).logicalSrcIdx = 30;
-	  section.data(25).dtTransOffset = 43;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P4_Size
-	  section.data(26).logicalSrcIdx = 31;
-	  section.data(26).dtTransOffset = 44;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P4
-	  section.data(27).logicalSrcIdx = 32;
-	  section.data(27).dtTransOffset = 46;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P5_Size
-	  section.data(28).logicalSrcIdx = 33;
-	  section.data(28).dtTransOffset = 47;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P5
-	  section.data(29).logicalSrcIdx = 34;
-	  section.data(29).dtTransOffset = 49;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P1_Size
-	  section.data(30).logicalSrcIdx = 35;
-	  section.data(30).dtTransOffset = 50;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P1
-	  section.data(31).logicalSrcIdx = 36;
-	  section.data(31).dtTransOffset = 52;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P2_Size
-	  section.data(32).logicalSrcIdx = 37;
-	  section.data(32).dtTransOffset = 53;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P2
-	  section.data(33).logicalSrcIdx = 38;
-	  section.data(33).dtTransOffset = 55;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P3_Size
-	  section.data(34).logicalSrcIdx = 39;
-	  section.data(34).dtTransOffset = 56;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P3
-	  section.data(35).logicalSrcIdx = 40;
-	  section.data(35).dtTransOffset = 58;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_k
-	  section.data(36).logicalSrcIdx = 41;
-	  section.data(36).dtTransOffset = 59;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P1_Size
-	  section.data(37).logicalSrcIdx = 42;
-	  section.data(37).dtTransOffset = 60;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P1
-	  section.data(38).logicalSrcIdx = 43;
-	  section.data(38).dtTransOffset = 62;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P2_Size
-	  section.data(39).logicalSrcIdx = 44;
-	  section.data(39).dtTransOffset = 63;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P2
-	  section.data(40).logicalSrcIdx = 45;
-	  section.data(40).dtTransOffset = 65;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P3_Size
-	  section.data(41).logicalSrcIdx = 46;
-	  section.data(41).dtTransOffset = 66;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P3
-	  section.data(42).logicalSrcIdx = 47;
-	  section.data(42).dtTransOffset = 68;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P1_Size
-	  section.data(43).logicalSrcIdx = 48;
-	  section.data(43).dtTransOffset = 69;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P1
-	  section.data(44).logicalSrcIdx = 49;
-	  section.data(44).dtTransOffset = 71;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P2_Size
-	  section.data(45).logicalSrcIdx = 50;
-	  section.data(45).dtTransOffset = 72;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P2
-	  section.data(46).logicalSrcIdx = 51;
-	  section.data(46).dtTransOffset = 74;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P3_Size
-	  section.data(47).logicalSrcIdx = 52;
-	  section.data(47).dtTransOffset = 75;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P3
-	  section.data(48).logicalSrcIdx = 53;
-	  section.data(48).dtTransOffset = 77;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_e
-	  section.data(49).logicalSrcIdx = 54;
-	  section.data(49).dtTransOffset = 78;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P1_Size_k
-	  section.data(50).logicalSrcIdx = 55;
-	  section.data(50).dtTransOffset = 79;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P1_p
-	  section.data(51).logicalSrcIdx = 56;
-	  section.data(51).dtTransOffset = 81;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P2_Size_i
-	  section.data(52).logicalSrcIdx = 57;
-	  section.data(52).dtTransOffset = 82;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P2_e
-	  section.data(53).logicalSrcIdx = 58;
-	  section.data(53).dtTransOffset = 84;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P3_Size_f
-	  section.data(54).logicalSrcIdx = 59;
-	  section.data(54).dtTransOffset = 85;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P3_b
-	  section.data(55).logicalSrcIdx = 60;
-	  section.data(55).dtTransOffset = 87;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P1_Size_n
-	  section.data(56).logicalSrcIdx = 61;
-	  section.data(56).dtTransOffset = 88;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P1_h
-	  section.data(57).logicalSrcIdx = 62;
-	  section.data(57).dtTransOffset = 90;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P2_Size_p
-	  section.data(58).logicalSrcIdx = 63;
-	  section.data(58).dtTransOffset = 91;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P2_h
-	  section.data(59).logicalSrcIdx = 64;
-	  section.data(59).dtTransOffset = 93;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P3_Size_e
-	  section.data(60).logicalSrcIdx = 65;
-	  section.data(60).dtTransOffset = 94;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P3_g
-	  section.data(61).logicalSrcIdx = 66;
-	  section.data(61).dtTransOffset = 96;
+	  section.data(11).dtTransOffset = 21;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Discreteintegrator_gainval
-	  section.data(62).logicalSrcIdx = 67;
-	  section.data(62).dtTransOffset = 97;
+	  section.data(12).logicalSrcIdx = 17;
+	  section.data(12).dtTransOffset = 22;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Discreteintegrator_IC
-	  section.data(63).logicalSrcIdx = 68;
-	  section.data(63).dtTransOffset = 98;
+	  section.data(13).logicalSrcIdx = 18;
+	  section.data(13).dtTransOffset = 23;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_g
-	  section.data(64).logicalSrcIdx = 69;
-	  section.data(64).dtTransOffset = 99;
+	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain
+	  section.data(14).logicalSrcIdx = 19;
+	  section.data(14).dtTransOffset = 24;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_Size_d
-	  section.data(65).logicalSrcIdx = 70;
-	  section.data(65).dtTransOffset = 100;
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_Size
+	  section.data(15).logicalSrcIdx = 20;
+	  section.data(15).dtTransOffset = 25;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_k
-	  section.data(66).logicalSrcIdx = 71;
-	  section.data(66).dtTransOffset = 102;
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1
+	  section.data(16).logicalSrcIdx = 21;
+	  section.data(16).dtTransOffset = 27;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_Size_c
-	  section.data(67).logicalSrcIdx = 72;
-	  section.data(67).dtTransOffset = 103;
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_Size
+	  section.data(17).logicalSrcIdx = 22;
+	  section.data(17).dtTransOffset = 28;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_g
-	  section.data(68).logicalSrcIdx = 73;
-	  section.data(68).dtTransOffset = 105;
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P2
+	  section.data(18).logicalSrcIdx = 23;
+	  section.data(18).dtTransOffset = 30;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size
-	  section.data(69).logicalSrcIdx = 74;
-	  section.data(69).dtTransOffset = 106;
+	  section.data(19).logicalSrcIdx = 24;
+	  section.data(19).dtTransOffset = 31;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dct1lowpass_P1
-	  section.data(70).logicalSrcIdx = 75;
-	  section.data(70).dtTransOffset = 108;
+	  section.data(20).logicalSrcIdx = 25;
+	  section.data(20).dtTransOffset = 33;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size
-	  section.data(71).logicalSrcIdx = 76;
-	  section.data(71).dtTransOffset = 109;
+	  section.data(21).logicalSrcIdx = 26;
+	  section.data(21).dtTransOffset = 34;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dct1lowpass_P2
-	  section.data(72).logicalSrcIdx = 77;
-	  section.data(72).dtTransOffset = 111;
+	  section.data(22).logicalSrcIdx = 27;
+	  section.data(22).dtTransOffset = 36;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size
-	  section.data(73).logicalSrcIdx = 78;
-	  section.data(73).dtTransOffset = 112;
+	  section.data(23).logicalSrcIdx = 28;
+	  section.data(23).dtTransOffset = 37;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag_P1
-	  section.data(74).logicalSrcIdx = 79;
-	  section.data(74).dtTransOffset = 114;
+	  section.data(24).logicalSrcIdx = 29;
+	  section.data(24).dtTransOffset = 39;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size
-	  section.data(75).logicalSrcIdx = 80;
-	  section.data(75).dtTransOffset = 115;
+	  section.data(25).logicalSrcIdx = 30;
+	  section.data(25).dtTransOffset = 40;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag_P2
-	  section.data(76).logicalSrcIdx = 81;
-	  section.data(76).dtTransOffset = 117;
+	  section.data(26).logicalSrcIdx = 31;
+	  section.data(26).dtTransOffset = 42;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size
-	  section.data(77).logicalSrcIdx = 82;
-	  section.data(77).dtTransOffset = 118;
+	  section.data(27).logicalSrcIdx = 32;
+	  section.data(27).dtTransOffset = 43;
 	
 	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag_P3
+	  section.data(28).logicalSrcIdx = 33;
+	  section.data(28).dtTransOffset = 45;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_e
+	  section.data(29).logicalSrcIdx = 34;
+	  section.data(29).dtTransOffset = 46;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P1_Size
+	  section.data(30).logicalSrcIdx = 35;
+	  section.data(30).dtTransOffset = 47;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P1
+	  section.data(31).logicalSrcIdx = 36;
+	  section.data(31).dtTransOffset = 49;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P2_Size
+	  section.data(32).logicalSrcIdx = 37;
+	  section.data(32).dtTransOffset = 50;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P2
+	  section.data(33).logicalSrcIdx = 38;
+	  section.data(33).dtTransOffset = 52;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P3_Size
+	  section.data(34).logicalSrcIdx = 39;
+	  section.data(34).dtTransOffset = 53;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P3
+	  section.data(35).logicalSrcIdx = 40;
+	  section.data(35).dtTransOffset = 55;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P1_Size
+	  section.data(36).logicalSrcIdx = 41;
+	  section.data(36).dtTransOffset = 56;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P1
+	  section.data(37).logicalSrcIdx = 42;
+	  section.data(37).dtTransOffset = 58;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P2_Size
+	  section.data(38).logicalSrcIdx = 43;
+	  section.data(38).dtTransOffset = 59;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P2
+	  section.data(39).logicalSrcIdx = 44;
+	  section.data(39).dtTransOffset = 61;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P3_Size
+	  section.data(40).logicalSrcIdx = 45;
+	  section.data(40).dtTransOffset = 62;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P3
+	  section.data(41).logicalSrcIdx = 46;
+	  section.data(41).dtTransOffset = 64;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_k
+	  section.data(42).logicalSrcIdx = 47;
+	  section.data(42).dtTransOffset = 65;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P1_Size_c
+	  section.data(43).logicalSrcIdx = 48;
+	  section.data(43).dtTransOffset = 66;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P1_c
+	  section.data(44).logicalSrcIdx = 49;
+	  section.data(44).dtTransOffset = 68;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P2_Size_g
+	  section.data(45).logicalSrcIdx = 50;
+	  section.data(45).dtTransOffset = 69;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P2_n
+	  section.data(46).logicalSrcIdx = 51;
+	  section.data(46).dtTransOffset = 71;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P3_Size_i
+	  section.data(47).logicalSrcIdx = 52;
+	  section.data(47).dtTransOffset = 72;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd2_P3_a
+	  section.data(48).logicalSrcIdx = 53;
+	  section.data(48).dtTransOffset = 74;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P1_Size_l
+	  section.data(49).logicalSrcIdx = 54;
+	  section.data(49).dtTransOffset = 75;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P1_e
+	  section.data(50).logicalSrcIdx = 55;
+	  section.data(50).dtTransOffset = 77;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P2_Size_c
+	  section.data(51).logicalSrcIdx = 56;
+	  section.data(51).dtTransOffset = 78;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P2_p
+	  section.data(52).logicalSrcIdx = 57;
+	  section.data(52).dtTransOffset = 80;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P3_Size_i
+	  section.data(53).logicalSrcIdx = 58;
+	  section.data(53).dtTransOffset = 81;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag3_P3_j
+	  section.data(54).logicalSrcIdx = 59;
+	  section.data(54).dtTransOffset = 83;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_ea
+	  section.data(55).logicalSrcIdx = 60;
+	  section.data(55).dtTransOffset = 84;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P1_Size
+	  section.data(56).logicalSrcIdx = 61;
+	  section.data(56).dtTransOffset = 85;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P1
+	  section.data(57).logicalSrcIdx = 62;
+	  section.data(57).dtTransOffset = 87;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P2_Size
+	  section.data(58).logicalSrcIdx = 63;
+	  section.data(58).dtTransOffset = 88;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P2
+	  section.data(59).logicalSrcIdx = 64;
+	  section.data(59).dtTransOffset = 90;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P3_Size
+	  section.data(60).logicalSrcIdx = 65;
+	  section.data(60).dtTransOffset = 91;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctleadlag2_P3
+	  section.data(61).logicalSrcIdx = 66;
+	  section.data(61).dtTransOffset = 93;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_Size_b
+	  section.data(62).logicalSrcIdx = 67;
+	  section.data(62).dtTransOffset = 94;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_j
+	  section.data(63).logicalSrcIdx = 68;
+	  section.data(63).dtTransOffset = 96;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_Size_c
+	  section.data(64).logicalSrcIdx = 69;
+	  section.data(64).dtTransOffset = 97;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_b
+	  section.data(65).logicalSrcIdx = 70;
+	  section.data(65).dtTransOffset = 99;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P1_Size
+	  section.data(66).logicalSrcIdx = 71;
+	  section.data(66).dtTransOffset = 100;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P1
+	  section.data(67).logicalSrcIdx = 72;
+	  section.data(67).dtTransOffset = 102;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P2_Size
+	  section.data(68).logicalSrcIdx = 73;
+	  section.data(68).dtTransOffset = 103;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P2
+	  section.data(69).logicalSrcIdx = 74;
+	  section.data(69).dtTransOffset = 105;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P3_Size
+	  section.data(70).logicalSrcIdx = 75;
+	  section.data(70).dtTransOffset = 106;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P3
+	  section.data(71).logicalSrcIdx = 76;
+	  section.data(71).dtTransOffset = 108;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P4_Size
+	  section.data(72).logicalSrcIdx = 77;
+	  section.data(72).dtTransOffset = 109;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P4
+	  section.data(73).logicalSrcIdx = 78;
+	  section.data(73).dtTransOffset = 111;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P5_Size
+	  section.data(74).logicalSrcIdx = 79;
+	  section.data(74).dtTransOffset = 112;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctnotch4_P5
+	  section.data(75).logicalSrcIdx = 80;
+	  section.data(75).dtTransOffset = 114;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P1_Size
+	  section.data(76).logicalSrcIdx = 81;
+	  section.data(76).dtTransOffset = 115;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P1
+	  section.data(77).logicalSrcIdx = 82;
+	  section.data(77).dtTransOffset = 117;
+	
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P2_Size
 	  section.data(78).logicalSrcIdx = 83;
-	  section.data(78).dtTransOffset = 120;
+	  section.data(78).dtTransOffset = 118;
 	
-	  ;% robotarm_student_2021a_Ipos_P.FeedfowardZV_Value
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P2
 	  section.data(79).logicalSrcIdx = 84;
-	  section.data(79).dtTransOffset = 121;
+	  section.data(79).dtTransOffset = 120;
 	
-	  ;% robotarm_student_2021a_Ipos_P.FeedfowardXV_Value
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P3_Size
 	  section.data(80).logicalSrcIdx = 85;
-	  section.data(80).dtTransOffset = 122;
+	  section.data(80).dtTransOffset = 121;
 	
-	  ;% robotarm_student_2021a_Ipos_P.FeedfowardRV_Value
+	  ;% robotarm_student_2021a_Ipos_P.Dctpd5_P3
 	  section.data(81).logicalSrcIdx = 86;
 	  section.data(81).dtTransOffset = 123;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Conveyorspeedmms_Value
+	  ;% robotarm_student_2021a_Ipos_P.Object_Value
 	  section.data(82).logicalSrcIdx = 87;
 	  section.data(82).dtTransOffset = 124;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Saturation_UpperSat
+	  ;% robotarm_student_2021a_Ipos_P.Plot_Value
 	  section.data(83).logicalSrcIdx = 88;
 	  section.data(83).dtTransOffset = 125;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Saturation_LowerSat
+	  ;% robotarm_student_2021a_Ipos_P.Stop_Value
 	  section.data(84).logicalSrcIdx = 89;
 	  section.data(84).dtTransOffset = 126;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Object_Value
+	  ;% robotarm_student_2021a_Ipos_P.ReferenceVacuumbar_Value
 	  section.data(85).logicalSrcIdx = 90;
 	  section.data(85).dtTransOffset = 127;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Plot_Value
+	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_b
 	  section.data(86).logicalSrcIdx = 91;
 	  section.data(86).dtTransOffset = 128;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Stop_Value
+	  ;% robotarm_student_2021a_Ipos_P.Conveyorspeedmms_Value
 	  section.data(87).logicalSrcIdx = 92;
 	  section.data(87).dtTransOffset = 129;
 	
-	  ;% robotarm_student_2021a_Ipos_P.ReferenceVacuumbar_Value
+	  ;% robotarm_student_2021a_Ipos_P.Saturation_UpperSat
 	  section.data(88).logicalSrcIdx = 93;
 	  section.data(88).dtTransOffset = 130;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_b
+	  ;% robotarm_student_2021a_Ipos_P.Saturation_LowerSat
 	  section.data(89).logicalSrcIdx = 94;
 	  section.data(89).dtTransOffset = 131;
 	
@@ -473,7 +473,7 @@
 	  section.data(101).logicalSrcIdx = 106;
 	  section.data(101).dtTransOffset = 146;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Constant1_Value
+	  ;% robotarm_student_2021a_Ipos_P.Constant1_Value_b
 	  section.data(102).logicalSrcIdx = 107;
 	  section.data(102).dtTransOffset = 147;
 	
@@ -489,11 +489,11 @@
 	  section.data(105).logicalSrcIdx = 110;
 	  section.data(105).dtTransOffset = 150;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Constant_Value
+	  ;% robotarm_student_2021a_Ipos_P.Constant_Value_i
 	  section.data(106).logicalSrcIdx = 111;
 	  section.data(106).dtTransOffset = 151;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_g2
+	  ;% robotarm_student_2021a_Ipos_P.Gain1_Gain_g
 	  section.data(107).logicalSrcIdx = 112;
 	  section.data(107).dtTransOffset = 152;
 	
@@ -561,19 +561,19 @@
 	  section.data(123).logicalSrcIdx = 128;
 	  section.data(123).dtTransOffset = 168;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Constant_Value_m
+	  ;% robotarm_student_2021a_Ipos_P.Gain3_Gain
 	  section.data(124).logicalSrcIdx = 129;
 	  section.data(124).dtTransOffset = 169;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Gain3_Gain
+	  ;% robotarm_student_2021a_Ipos_P.Gain4_Gain
 	  section.data(125).logicalSrcIdx = 130;
 	  section.data(125).dtTransOffset = 170;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Gain4_Gain
+	  ;% robotarm_student_2021a_Ipos_P.Gain5_Gain
 	  section.data(126).logicalSrcIdx = 131;
 	  section.data(126).dtTransOffset = 171;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Gain5_Gain
+	  ;% robotarm_student_2021a_Ipos_P.Constant_Value_m
 	  section.data(127).logicalSrcIdx = 132;
 	  section.data(127).dtTransOffset = 172;
 	
@@ -981,7 +981,7 @@
 	  section.data(228).logicalSrcIdx = 233;
 	  section.data(228).dtTransOffset = 313;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_j
+	  ;% robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_ji
 	  section.data(229).logicalSrcIdx = 234;
 	  section.data(229).dtTransOffset = 315;
 	
@@ -1184,24 +1184,20 @@
       paramMap.sections(4) = section;
       clear section
       
-      section.nData     = 4;
-      section.data(4)  = dumData; %prealloc
+      section.nData     = 3;
+      section.data(3)  = dumData; %prealloc
       
-	  ;% robotarm_student_2021a_Ipos_P.ManualSwitch_CurrentSetting
+	  ;% robotarm_student_2021a_Ipos_P.ManualSwitch1_CurrentSetting
 	  section.data(1).logicalSrcIdx = 282;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% robotarm_student_2021a_Ipos_P.ManualSwitch1_CurrentSetting
+	  ;% robotarm_student_2021a_Ipos_P.Constant1_Value_j
 	  section.data(2).logicalSrcIdx = 283;
 	  section.data(2).dtTransOffset = 1;
 	
-	  ;% robotarm_student_2021a_Ipos_P.Constant1_Value_j
+	  ;% robotarm_student_2021a_Ipos_P.Constant_Value_d
 	  section.data(3).logicalSrcIdx = 284;
 	  section.data(3).dtTransOffset = 2;
-	
-	  ;% robotarm_student_2021a_Ipos_P.Constant_Value_d
-	  section.data(4).logicalSrcIdx = 285;
-	  section.data(4).dtTransOffset = 3;
 	
       nTotData = nTotData + section.nData;
       paramMap.sections(5) = section;
@@ -1225,7 +1221,7 @@
   ;%**************************
       
     nTotData      = 0; %add to this count as we go
-    nTotSects     = 3;
+    nTotSects     = 6;
     sectIdxOffset = 0;
     
     ;%
@@ -1259,8 +1255,8 @@
       sigMap.sections(1) = section;
       clear section
       
-      section.nData     = 137;
-      section.data(137)  = dumData; %prealloc
+      section.nData     = 134;
+      section.data(134)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_B.SFunction
 	  section.data(1).logicalSrcIdx = 1;
@@ -1298,363 +1294,363 @@
 	  section.data(9).logicalSrcIdx = 9;
 	  section.data(9).dtTransOffset = 8;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum
+	  ;% robotarm_student_2021a_Ipos_B.Sum2
 	  section.data(10).logicalSrcIdx = 10;
 	  section.data(10).dtTransOffset = 9;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum2
+	  ;% robotarm_student_2021a_Ipos_B.Gain1
 	  section.data(11).logicalSrcIdx = 11;
 	  section.data(11).dtTransOffset = 10;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1
+	  ;% robotarm_student_2021a_Ipos_B.Constant1_e
 	  section.data(12).logicalSrcIdx = 12;
 	  section.data(12).dtTransOffset = 11;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Constant1_e
+	  ;% robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e
 	  section.data(13).logicalSrcIdx = 13;
 	  section.data(13).dtTransOffset = 12;
 	
-	  ;% robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e
+	  ;% robotarm_student_2021a_Ipos_B.Sum2_a
 	  section.data(14).logicalSrcIdx = 14;
 	  section.data(14).dtTransOffset = 13;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum_p
+	  ;% robotarm_student_2021a_Ipos_B.Gain2
 	  section.data(15).logicalSrcIdx = 15;
 	  section.data(15).dtTransOffset = 14;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum2_a
+	  ;% robotarm_student_2021a_Ipos_B.Constant1_f
 	  section.data(16).logicalSrcIdx = 16;
 	  section.data(16).dtTransOffset = 15;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain2
+	  ;% robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p
 	  section.data(17).logicalSrcIdx = 17;
 	  section.data(17).dtTransOffset = 16;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Constant1_f
+	  ;% robotarm_student_2021a_Ipos_B.Sum2_e
 	  section.data(18).logicalSrcIdx = 18;
 	  section.data(18).dtTransOffset = 17;
 	
-	  ;% robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p
+	  ;% robotarm_student_2021a_Ipos_B.set_robot_calibration_r
 	  section.data(19).logicalSrcIdx = 19;
 	  section.data(19).dtTransOffset = 18;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum_o
+	  ;% robotarm_student_2021a_Ipos_B.set_robot_calibration_x
 	  section.data(20).logicalSrcIdx = 20;
 	  section.data(20).dtTransOffset = 19;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum2_e
+	  ;% robotarm_student_2021a_Ipos_B.set_robot_calibration_z
 	  section.data(21).logicalSrcIdx = 21;
 	  section.data(21).dtTransOffset = 20;
 	
-	  ;% robotarm_student_2021a_Ipos_B.set_robot_calibration_r
+	  ;% robotarm_student_2021a_Ipos_B.Gain3
 	  section.data(22).logicalSrcIdx = 22;
 	  section.data(22).dtTransOffset = 21;
 	
-	  ;% robotarm_student_2021a_Ipos_B.set_robot_calibration_x
+	  ;% robotarm_student_2021a_Ipos_B.Gain5
 	  section.data(23).logicalSrcIdx = 23;
 	  section.data(23).dtTransOffset = 22;
 	
-	  ;% robotarm_student_2021a_Ipos_B.set_robot_calibration_z
+	  ;% robotarm_student_2021a_Ipos_B.Gain_h
 	  section.data(24).logicalSrcIdx = 24;
 	  section.data(24).dtTransOffset = 23;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Add1
+	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator
 	  section.data(25).logicalSrcIdx = 25;
 	  section.data(25).dtTransOffset = 24;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain3
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag
 	  section.data(26).logicalSrcIdx = 26;
 	  section.data(26).dtTransOffset = 25;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain5
+	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass
 	  section.data(27).logicalSrcIdx = 27;
 	  section.data(27).dtTransOffset = 26;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain_h
+	  ;% robotarm_student_2021a_Ipos_B.Gain_p
 	  section.data(28).logicalSrcIdx = 28;
 	  section.data(28).dtTransOffset = 27;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_l
 	  section.data(29).logicalSrcIdx = 29;
 	  section.data(29).dtTransOffset = 28;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag
+	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_i
 	  section.data(30).logicalSrcIdx = 30;
 	  section.data(30).dtTransOffset = 29;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass
+	  ;% robotarm_student_2021a_Ipos_B.Saturation1
 	  section.data(31).logicalSrcIdx = 31;
 	  section.data(31).dtTransOffset = 30;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain_p
+	  ;% robotarm_student_2021a_Ipos_B.Gain1_p
 	  section.data(32).logicalSrcIdx = 32;
 	  section.data(32).dtTransOffset = 31;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_l
+	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator_g
 	  section.data(33).logicalSrcIdx = 33;
 	  section.data(33).dtTransOffset = 32;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_i
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_h
 	  section.data(34).logicalSrcIdx = 34;
 	  section.data(34).dtTransOffset = 33;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Saturation1
+	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_k
 	  section.data(35).logicalSrcIdx = 35;
 	  section.data(35).dtTransOffset = 34;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1_p
+	  ;% robotarm_student_2021a_Ipos_B.Gain1_o
 	  section.data(36).logicalSrcIdx = 36;
 	  section.data(36).dtTransOffset = 35;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator_g
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_b
 	  section.data(37).logicalSrcIdx = 37;
 	  section.data(37).dtTransOffset = 36;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_h
+	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_j
 	  section.data(38).logicalSrcIdx = 38;
 	  section.data(38).dtTransOffset = 37;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_k
+	  ;% robotarm_student_2021a_Ipos_B.Saturation1_n
 	  section.data(39).logicalSrcIdx = 39;
 	  section.data(39).dtTransOffset = 38;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1_o
+	  ;% robotarm_student_2021a_Ipos_B.Gain_i
 	  section.data(40).logicalSrcIdx = 40;
 	  section.data(40).dtTransOffset = 39;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_b
+	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator_i
 	  section.data(41).logicalSrcIdx = 41;
 	  section.data(41).dtTransOffset = 40;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_j
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_m
 	  section.data(42).logicalSrcIdx = 42;
 	  section.data(42).dtTransOffset = 41;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Saturation1_n
+	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_p
 	  section.data(43).logicalSrcIdx = 43;
 	  section.data(43).dtTransOffset = 42;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain_i
+	  ;% robotarm_student_2021a_Ipos_B.Gain_f
 	  section.data(44).logicalSrcIdx = 44;
 	  section.data(44).dtTransOffset = 43;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator_i
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_e
 	  section.data(45).logicalSrcIdx = 45;
 	  section.data(45).dtTransOffset = 44;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_m
+	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_a
 	  section.data(46).logicalSrcIdx = 46;
 	  section.data(46).dtTransOffset = 45;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_p
+	  ;% robotarm_student_2021a_Ipos_B.Saturation1_a
 	  section.data(47).logicalSrcIdx = 47;
 	  section.data(47).dtTransOffset = 46;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain_f
+	  ;% robotarm_student_2021a_Ipos_B.Gain1_a
 	  section.data(48).logicalSrcIdx = 48;
 	  section.data(48).dtTransOffset = 47;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_e
+	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator3
 	  section.data(49).logicalSrcIdx = 49;
 	  section.data(49).dtTransOffset = 48;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_a
+	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_g
 	  section.data(50).logicalSrcIdx = 50;
 	  section.data(50).dtTransOffset = 49;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Saturation1_a
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_k
 	  section.data(51).logicalSrcIdx = 51;
 	  section.data(51).dtTransOffset = 50;
 	
-	  ;% robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_i
+	  ;% robotarm_student_2021a_Ipos_B.Saturation1_d
 	  section.data(52).logicalSrcIdx = 52;
 	  section.data(52).dtTransOffset = 51;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1_a
+	  ;% robotarm_student_2021a_Ipos_B.jogSpeed
 	  section.data(53).logicalSrcIdx = 53;
 	  section.data(53).dtTransOffset = 52;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator3
+	  ;% robotarm_student_2021a_Ipos_B.homeControllerEnabled
 	  section.data(54).logicalSrcIdx = 54;
 	  section.data(54).dtTransOffset = 53;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_g
+	  ;% robotarm_student_2021a_Ipos_B.resetEnc
 	  section.data(55).logicalSrcIdx = 55;
 	  section.data(55).dtTransOffset = 54;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_k
+	  ;% robotarm_student_2021a_Ipos_B.homingBusy
 	  section.data(56).logicalSrcIdx = 56;
 	  section.data(56).dtTransOffset = 55;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Saturation1_d
+	  ;% robotarm_student_2021a_Ipos_B.Ready
 	  section.data(57).logicalSrcIdx = 57;
 	  section.data(57).dtTransOffset = 56;
 	
-	  ;% robotarm_student_2021a_Ipos_B.jogSpeed
+	  ;% robotarm_student_2021a_Ipos_B.StopSim
 	  section.data(58).logicalSrcIdx = 58;
 	  section.data(58).dtTransOffset = 57;
 	
-	  ;% robotarm_student_2021a_Ipos_B.homeControllerEnabled
+	  ;% robotarm_student_2021a_Ipos_B.jogSpeed_i
 	  section.data(59).logicalSrcIdx = 59;
 	  section.data(59).dtTransOffset = 58;
 	
-	  ;% robotarm_student_2021a_Ipos_B.resetEnc
+	  ;% robotarm_student_2021a_Ipos_B.toPoint
 	  section.data(60).logicalSrcIdx = 60;
 	  section.data(60).dtTransOffset = 59;
 	
-	  ;% robotarm_student_2021a_Ipos_B.homingBusy
+	  ;% robotarm_student_2021a_Ipos_B.homeControllerEnabled_b
 	  section.data(61).logicalSrcIdx = 61;
 	  section.data(61).dtTransOffset = 60;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Ready
+	  ;% robotarm_student_2021a_Ipos_B.resetEnc_g
 	  section.data(62).logicalSrcIdx = 62;
 	  section.data(62).dtTransOffset = 61;
 	
-	  ;% robotarm_student_2021a_Ipos_B.StopSim
+	  ;% robotarm_student_2021a_Ipos_B.homingBusy_n
 	  section.data(63).logicalSrcIdx = 63;
 	  section.data(63).dtTransOffset = 62;
 	
-	  ;% robotarm_student_2021a_Ipos_B.jogSpeed_i
+	  ;% robotarm_student_2021a_Ipos_B.airBagEnabled
 	  section.data(64).logicalSrcIdx = 64;
 	  section.data(64).dtTransOffset = 63;
 	
-	  ;% robotarm_student_2021a_Ipos_B.toPoint
+	  ;% robotarm_student_2021a_Ipos_B.airBagRef
 	  section.data(65).logicalSrcIdx = 65;
 	  section.data(65).dtTransOffset = 64;
 	
-	  ;% robotarm_student_2021a_Ipos_B.homeControllerEnabled_b
+	  ;% robotarm_student_2021a_Ipos_B.controlEnabled
 	  section.data(66).logicalSrcIdx = 66;
 	  section.data(66).dtTransOffset = 65;
 	
-	  ;% robotarm_student_2021a_Ipos_B.resetEnc_g
+	  ;% robotarm_student_2021a_Ipos_B.Ready_n
 	  section.data(67).logicalSrcIdx = 67;
 	  section.data(67).dtTransOffset = 66;
 	
-	  ;% robotarm_student_2021a_Ipos_B.homingBusy_n
+	  ;% robotarm_student_2021a_Ipos_B.StopSim_n
 	  section.data(68).logicalSrcIdx = 68;
 	  section.data(68).dtTransOffset = 67;
 	
-	  ;% robotarm_student_2021a_Ipos_B.airBagEnabled
+	  ;% robotarm_student_2021a_Ipos_B.y
 	  section.data(69).logicalSrcIdx = 69;
 	  section.data(69).dtTransOffset = 68;
 	
-	  ;% robotarm_student_2021a_Ipos_B.airBagRef
+	  ;% robotarm_student_2021a_Ipos_B.jogSpeed_c
 	  section.data(70).logicalSrcIdx = 70;
 	  section.data(70).dtTransOffset = 69;
 	
-	  ;% robotarm_student_2021a_Ipos_B.controlEnabled
+	  ;% robotarm_student_2021a_Ipos_B.toPoint_e
 	  section.data(71).logicalSrcIdx = 71;
 	  section.data(71).dtTransOffset = 70;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Ready_n
+	  ;% robotarm_student_2021a_Ipos_B.homeControllerEnabled_k
 	  section.data(72).logicalSrcIdx = 72;
 	  section.data(72).dtTransOffset = 71;
 	
-	  ;% robotarm_student_2021a_Ipos_B.StopSim_n
+	  ;% robotarm_student_2021a_Ipos_B.resetEnc_c
 	  section.data(73).logicalSrcIdx = 73;
 	  section.data(73).dtTransOffset = 72;
 	
-	  ;% robotarm_student_2021a_Ipos_B.y
-	  section.data(74).logicalSrcIdx = 74;
+	  ;% robotarm_student_2021a_Ipos_B.homingBusy_j
+	  section.data(74).logicalSrcIdx = 75;
 	  section.data(74).dtTransOffset = 73;
 	
-	  ;% robotarm_student_2021a_Ipos_B.jogSpeed_c
-	  section.data(75).logicalSrcIdx = 75;
+	  ;% robotarm_student_2021a_Ipos_B.airBagEnabled_o
+	  section.data(75).logicalSrcIdx = 76;
 	  section.data(75).dtTransOffset = 74;
 	
-	  ;% robotarm_student_2021a_Ipos_B.toPoint_e
-	  section.data(76).logicalSrcIdx = 76;
+	  ;% robotarm_student_2021a_Ipos_B.airBagRef_a
+	  section.data(76).logicalSrcIdx = 77;
 	  section.data(76).dtTransOffset = 75;
 	
-	  ;% robotarm_student_2021a_Ipos_B.homeControllerEnabled_k
-	  section.data(77).logicalSrcIdx = 77;
+	  ;% robotarm_student_2021a_Ipos_B.controlEnabled_a
+	  section.data(77).logicalSrcIdx = 78;
 	  section.data(77).dtTransOffset = 76;
 	
-	  ;% robotarm_student_2021a_Ipos_B.resetEnc_c
-	  section.data(78).logicalSrcIdx = 78;
+	  ;% robotarm_student_2021a_Ipos_B.Ready_i
+	  section.data(78).logicalSrcIdx = 79;
 	  section.data(78).dtTransOffset = 77;
 	
-	  ;% robotarm_student_2021a_Ipos_B.homingBusy_j
+	  ;% robotarm_student_2021a_Ipos_B.StopSim_o
 	  section.data(79).logicalSrcIdx = 80;
 	  section.data(79).dtTransOffset = 78;
 	
-	  ;% robotarm_student_2021a_Ipos_B.airBagEnabled_o
+	  ;% robotarm_student_2021a_Ipos_B.jogSpeed_o
 	  section.data(80).logicalSrcIdx = 81;
 	  section.data(80).dtTransOffset = 79;
 	
-	  ;% robotarm_student_2021a_Ipos_B.airBagRef_a
+	  ;% robotarm_student_2021a_Ipos_B.toPoint_b
 	  section.data(81).logicalSrcIdx = 82;
 	  section.data(81).dtTransOffset = 80;
 	
-	  ;% robotarm_student_2021a_Ipos_B.controlEnabled_a
+	  ;% robotarm_student_2021a_Ipos_B.homeControllerEnabled_o
 	  section.data(82).logicalSrcIdx = 83;
 	  section.data(82).dtTransOffset = 81;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Ready_i
+	  ;% robotarm_student_2021a_Ipos_B.resetEnc_k
 	  section.data(83).logicalSrcIdx = 84;
 	  section.data(83).dtTransOffset = 82;
 	
-	  ;% robotarm_student_2021a_Ipos_B.StopSim_o
+	  ;% robotarm_student_2021a_Ipos_B.freddy_k
 	  section.data(84).logicalSrcIdx = 85;
 	  section.data(84).dtTransOffset = 83;
 	
-	  ;% robotarm_student_2021a_Ipos_B.jogSpeed_o
+	  ;% robotarm_student_2021a_Ipos_B.homingBusy_l
 	  section.data(85).logicalSrcIdx = 86;
 	  section.data(85).dtTransOffset = 84;
 	
-	  ;% robotarm_student_2021a_Ipos_B.toPoint_b
+	  ;% robotarm_student_2021a_Ipos_B.airBagEnabled_f
 	  section.data(86).logicalSrcIdx = 87;
 	  section.data(86).dtTransOffset = 85;
 	
-	  ;% robotarm_student_2021a_Ipos_B.homeControllerEnabled_o
+	  ;% robotarm_student_2021a_Ipos_B.airBagRef_g
 	  section.data(87).logicalSrcIdx = 88;
 	  section.data(87).dtTransOffset = 86;
 	
-	  ;% robotarm_student_2021a_Ipos_B.resetEnc_k
+	  ;% robotarm_student_2021a_Ipos_B.controlEnabled_l
 	  section.data(88).logicalSrcIdx = 89;
 	  section.data(88).dtTransOffset = 87;
 	
-	  ;% robotarm_student_2021a_Ipos_B.freddy_k
+	  ;% robotarm_student_2021a_Ipos_B.Ready_a
 	  section.data(89).logicalSrcIdx = 90;
 	  section.data(89).dtTransOffset = 88;
 	
-	  ;% robotarm_student_2021a_Ipos_B.homingBusy_l
+	  ;% robotarm_student_2021a_Ipos_B.StopSim_j
 	  section.data(90).logicalSrcIdx = 91;
 	  section.data(90).dtTransOffset = 89;
 	
-	  ;% robotarm_student_2021a_Ipos_B.airBagEnabled_f
+	  ;% robotarm_student_2021a_Ipos_B.y_b
 	  section.data(91).logicalSrcIdx = 92;
 	  section.data(91).dtTransOffset = 90;
 	
-	  ;% robotarm_student_2021a_Ipos_B.airBagRef_g
+	  ;% robotarm_student_2021a_Ipos_B.Selector2
 	  section.data(92).logicalSrcIdx = 93;
 	  section.data(92).dtTransOffset = 91;
 	
-	  ;% robotarm_student_2021a_Ipos_B.controlEnabled_l
-	  section.data(93).logicalSrcIdx = 94;
-	  section.data(93).dtTransOffset = 92;
-	
-	  ;% robotarm_student_2021a_Ipos_B.Ready_a
-	  section.data(94).logicalSrcIdx = 95;
-	  section.data(94).dtTransOffset = 93;
-	
-	  ;% robotarm_student_2021a_Ipos_B.StopSim_j
-	  section.data(95).logicalSrcIdx = 96;
-	  section.data(95).dtTransOffset = 94;
-	
-	  ;% robotarm_student_2021a_Ipos_B.y_b
-	  section.data(96).logicalSrcIdx = 97;
-	  section.data(96).dtTransOffset = 95;
-	
-	  ;% robotarm_student_2021a_Ipos_B.Selector2
-	  section.data(97).logicalSrcIdx = 98;
-	  section.data(97).dtTransOffset = 96;
-	
 	  ;% robotarm_student_2021a_Ipos_B.Selector
-	  section.data(98).logicalSrcIdx = 99;
-	  section.data(98).dtTransOffset = 105;
+	  section.data(93).logicalSrcIdx = 94;
+	  section.data(93).dtTransOffset = 100;
 	
 	  ;% robotarm_student_2021a_Ipos_B.Selector_g
+	  section.data(94).logicalSrcIdx = 95;
+	  section.data(94).dtTransOffset = 103;
+	
+	  ;% robotarm_student_2021a_Ipos_B.SFunctionBuilder
+	  section.data(95).logicalSrcIdx = 96;
+	  section.data(95).dtTransOffset = 104;
+	
+	  ;% robotarm_student_2021a_Ipos_B.Selector1
+	  section.data(96).logicalSrcIdx = 97;
+	  section.data(96).dtTransOffset = 105;
+	
+	  ;% robotarm_student_2021a_Ipos_B.Selector2_i
+	  section.data(97).logicalSrcIdx = 98;
+	  section.data(97).dtTransOffset = 106;
+	
+	  ;% robotarm_student_2021a_Ipos_B.SignalConversion1
+	  section.data(98).logicalSrcIdx = 99;
+	  section.data(98).dtTransOffset = 107;
+	
+	  ;% robotarm_student_2021a_Ipos_B.Sum5
 	  section.data(99).logicalSrcIdx = 100;
 	  section.data(99).dtTransOffset = 108;
 	
@@ -1662,153 +1658,141 @@
 	  section.data(100).logicalSrcIdx = 101;
 	  section.data(100).dtTransOffset = 109;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1_oz
+	  ;% robotarm_student_2021a_Ipos_B.Sum4
 	  section.data(101).logicalSrcIdx = 102;
 	  section.data(101).dtTransOffset = 110;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag2
+	  ;% robotarm_student_2021a_Ipos_B.SignalConversion
 	  section.data(102).logicalSrcIdx = 103;
 	  section.data(102).dtTransOffset = 111;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator3_l
+	  ;% robotarm_student_2021a_Ipos_B.Sum6
 	  section.data(103).logicalSrcIdx = 104;
 	  section.data(103).dtTransOffset = 112;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctnotch4
+	  ;% robotarm_student_2021a_Ipos_B.Gain1_g
 	  section.data(104).logicalSrcIdx = 105;
 	  section.data(104).dtTransOffset = 113;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctpd5
+	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator3_n
 	  section.data(105).logicalSrcIdx = 106;
 	  section.data(105).dtTransOffset = 114;
 	
-	  ;% robotarm_student_2021a_Ipos_B.SignalConversion1
+	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_ab
 	  section.data(106).logicalSrcIdx = 107;
 	  section.data(106).dtTransOffset = 115;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1_c
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_d
 	  section.data(107).logicalSrcIdx = 108;
 	  section.data(107).dtTransOffset = 116;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctpd2
+	  ;% robotarm_student_2021a_Ipos_B.Gain1_k
 	  section.data(108).logicalSrcIdx = 109;
 	  section.data(108).dtTransOffset = 117;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag3
+	  ;% robotarm_student_2021a_Ipos_B.Dctpd2
 	  section.data(109).logicalSrcIdx = 110;
 	  section.data(109).dtTransOffset = 118;
 	
-	  ;% robotarm_student_2021a_Ipos_B.SignalConversion
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag3
 	  section.data(110).logicalSrcIdx = 111;
 	  section.data(110).dtTransOffset = 119;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1_k
+	  ;% robotarm_student_2021a_Ipos_B.Gain1_c
 	  section.data(111).logicalSrcIdx = 112;
 	  section.data(111).dtTransOffset = 120;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctpd2_n
+	  ;% robotarm_student_2021a_Ipos_B.Dctpd2_k
 	  section.data(112).logicalSrcIdx = 113;
 	  section.data(112).dtTransOffset = 121;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag3_m
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag3_j
 	  section.data(113).logicalSrcIdx = 114;
 	  section.data(113).dtTransOffset = 122;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Conveyorreferencemm
+	  ;% robotarm_student_2021a_Ipos_B.Gain1_oz
 	  section.data(114).logicalSrcIdx = 115;
 	  section.data(114).dtTransOffset = 123;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1_g
+	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag2
 	  section.data(115).logicalSrcIdx = 116;
 	  section.data(115).dtTransOffset = 124;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator3_n
+	  ;% robotarm_student_2021a_Ipos_B.Dctintegrator3_l
 	  section.data(116).logicalSrcIdx = 117;
 	  section.data(116).dtTransOffset = 125;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dct1lowpass_ab
+	  ;% robotarm_student_2021a_Ipos_B.Dctnotch4
 	  section.data(117).logicalSrcIdx = 118;
 	  section.data(117).dtTransOffset = 126;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Dctleadlag_d
+	  ;% robotarm_student_2021a_Ipos_B.Dctpd5
 	  section.data(118).logicalSrcIdx = 119;
 	  section.data(118).dtTransOffset = 127;
 	
-	  ;% robotarm_student_2021a_Ipos_B.SFunctionBuilder
+	  ;% robotarm_student_2021a_Ipos_B.Sum
 	  section.data(119).logicalSrcIdx = 120;
 	  section.data(119).dtTransOffset = 128;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Selector1
+	  ;% robotarm_student_2021a_Ipos_B.Selector3
 	  section.data(120).logicalSrcIdx = 121;
 	  section.data(120).dtTransOffset = 129;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum_m
+	  ;% robotarm_student_2021a_Ipos_B.Selector4
 	  section.data(121).logicalSrcIdx = 122;
 	  section.data(121).dtTransOffset = 130;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum6
+	  ;% robotarm_student_2021a_Ipos_B.Selector5
 	  section.data(122).logicalSrcIdx = 123;
 	  section.data(122).dtTransOffset = 131;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum5
+	  ;% robotarm_student_2021a_Ipos_B.Selector6
 	  section.data(123).logicalSrcIdx = 124;
 	  section.data(123).dtTransOffset = 132;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Sum4
+	  ;% robotarm_student_2021a_Ipos_B.Selector7
 	  section.data(124).logicalSrcIdx = 125;
 	  section.data(124).dtTransOffset = 133;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Selector2_i
+	  ;% robotarm_student_2021a_Ipos_B.Selector8
 	  section.data(125).logicalSrcIdx = 126;
 	  section.data(125).dtTransOffset = 134;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Selector3
+	  ;% robotarm_student_2021a_Ipos_B.Object
 	  section.data(126).logicalSrcIdx = 127;
 	  section.data(126).dtTransOffset = 135;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Selector4
+	  ;% robotarm_student_2021a_Ipos_B.Plot
 	  section.data(127).logicalSrcIdx = 128;
 	  section.data(127).dtTransOffset = 136;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Selector5
+	  ;% robotarm_student_2021a_Ipos_B.Stop
 	  section.data(128).logicalSrcIdx = 129;
 	  section.data(128).dtTransOffset = 137;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Selector6
+	  ;% robotarm_student_2021a_Ipos_B.Gain1_o1
 	  section.data(129).logicalSrcIdx = 130;
 	  section.data(129).dtTransOffset = 138;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Selector7
+	  ;% robotarm_student_2021a_Ipos_B.R_rad
 	  section.data(130).logicalSrcIdx = 131;
 	  section.data(130).dtTransOffset = 139;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Selector8
+	  ;% robotarm_student_2021a_Ipos_B.X_rad
 	  section.data(131).logicalSrcIdx = 132;
 	  section.data(131).dtTransOffset = 140;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Object
+	  ;% robotarm_student_2021a_Ipos_B.Z_rad
 	  section.data(132).logicalSrcIdx = 133;
 	  section.data(132).dtTransOffset = 141;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Plot
+	  ;% robotarm_student_2021a_Ipos_B.Blow_suck
 	  section.data(133).logicalSrcIdx = 134;
 	  section.data(133).dtTransOffset = 142;
 	
-	  ;% robotarm_student_2021a_Ipos_B.Stop
-	  section.data(134).logicalSrcIdx = 135;
-	  section.data(134).dtTransOffset = 143;
-	
-	  ;% robotarm_student_2021a_Ipos_B.Gain1_o1
-	  section.data(135).logicalSrcIdx = 136;
-	  section.data(135).dtTransOffset = 144;
-	
-	  ;% robotarm_student_2021a_Ipos_B.Doubleclickswitch
-	  section.data(136).logicalSrcIdx = 137;
-	  section.data(136).dtTransOffset = 145;
-	
 	  ;% robotarm_student_2021a_Ipos_B.In1
-	  section.data(137).logicalSrcIdx = 143;
-	  section.data(137).dtTransOffset = 146;
+	  section.data(134).logicalSrcIdx = 136;
+	  section.data(134).dtTransOffset = 143;
 	
       nTotData = nTotData + section.nData;
       sigMap.sections(2) = section;
@@ -1818,27 +1802,60 @@
       section.data(5)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_B.RelationalOperator
-	  section.data(1).logicalSrcIdx = 144;
+	  section.data(1).logicalSrcIdx = 137;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% robotarm_student_2021a_Ipos_B.RelationalOperator_f
-	  section.data(2).logicalSrcIdx = 145;
+	  section.data(2).logicalSrcIdx = 138;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% robotarm_student_2021a_Ipos_B.RelationalOperator_k
-	  section.data(3).logicalSrcIdx = 146;
+	  section.data(3).logicalSrcIdx = 139;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% robotarm_student_2021a_Ipos_B.Compare
-	  section.data(4).logicalSrcIdx = 147;
+	  section.data(4).logicalSrcIdx = 140;
 	  section.data(4).dtTransOffset = 3;
 	
 	  ;% robotarm_student_2021a_Ipos_B.Compare_j
-	  section.data(5).logicalSrcIdx = 148;
+	  section.data(5).logicalSrcIdx = 141;
 	  section.data(5).dtTransOffset = 4;
 	
       nTotData = nTotData + section.nData;
       sigMap.sections(3) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime2.path
+	  section.data(1).logicalSrcIdx = 142;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      sigMap.sections(4) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime1.path
+	  section.data(1).logicalSrcIdx = 143;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      sigMap.sections(5) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime.path
+	  section.data(1).logicalSrcIdx = 144;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      sigMap.sections(6) = section;
       clear section
       
     
@@ -1859,8 +1876,8 @@
   ;%*******************
       
     nTotData      = 0; %add to this count as we go
-    nTotSects     = 14;
-    sectIdxOffset = 3;
+    nTotSects     = 23;
+    sectIdxOffset = 6;
     
     ;%
     ;% Define dummy sections & preallocate arrays
@@ -1956,8 +1973,8 @@
       dworkMap.sections(2) = section;
       clear section
       
-      section.nData     = 45;
-      section.data(45)  = dumData; %prealloc
+      section.nData     = 57;
+      section.data(57)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.PrevY
 	  section.data(1).logicalSrcIdx = 15;
@@ -2023,121 +2040,169 @@
 	  section.data(16).logicalSrcIdx = 30;
 	  section.data(16).dtTransOffset = 15;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK
+	  ;% robotarm_student_2021a_Ipos_DW.IdentPressure
 	  section.data(17).logicalSrcIdx = 31;
 	  section.data(17).dtTransOffset = 16;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK
+	  ;% robotarm_student_2021a_Ipos_DW.AreaBad
 	  section.data(18).logicalSrcIdx = 32;
-	  section.data(18).dtTransOffset = 18;
+	  section.data(18).dtTransOffset = 17;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.AreaGood
+	  section.data(19).logicalSrcIdx = 33;
+	  section.data(19).dtTransOffset = 18;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.elapTime
+	  section.data(20).logicalSrcIdx = 34;
+	  section.data(20).dtTransOffset = 19;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.yPlaced
+	  section.data(21).logicalSrcIdx = 35;
+	  section.data(21).dtTransOffset = 20;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.v
+	  section.data(22).logicalSrcIdx = 36;
+	  section.data(22).dtTransOffset = 21;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.yTracked
+	  section.data(23).logicalSrcIdx = 37;
+	  section.data(23).dtTransOffset = 22;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.track
+	  section.data(24).logicalSrcIdx = 38;
+	  section.data(24).dtTransOffset = 23;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.picked
+	  section.data(25).logicalSrcIdx = 39;
+	  section.data(25).dtTransOffset = 24;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.ObjectType
+	  section.data(26).logicalSrcIdx = 40;
+	  section.data(26).dtTransOffset = 25;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.reachability
+	  section.data(27).logicalSrcIdx = 41;
+	  section.data(27).dtTransOffset = 26;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.action
+	  section.data(28).logicalSrcIdx = 42;
+	  section.data(28).dtTransOffset = 27;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK
+	  section.data(29).logicalSrcIdx = 43;
+	  section.data(29).dtTransOffset = 28;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK
+	  section.data(30).logicalSrcIdx = 44;
+	  section.data(30).dtTransOffset = 30;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK
-	  section.data(19).logicalSrcIdx = 33;
-	  section.data(19).dtTransOffset = 20;
+	  section.data(31).logicalSrcIdx = 45;
+	  section.data(31).dtTransOffset = 32;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_k
-	  section.data(20).logicalSrcIdx = 34;
-	  section.data(20).dtTransOffset = 22;
+	  section.data(32).logicalSrcIdx = 46;
+	  section.data(32).dtTransOffset = 34;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_a
-	  section.data(21).logicalSrcIdx = 35;
-	  section.data(21).dtTransOffset = 24;
+	  section.data(33).logicalSrcIdx = 47;
+	  section.data(33).dtTransOffset = 36;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_m
-	  section.data(22).logicalSrcIdx = 36;
-	  section.data(22).dtTransOffset = 26;
+	  section.data(34).logicalSrcIdx = 48;
+	  section.data(34).dtTransOffset = 38;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_g
-	  section.data(23).logicalSrcIdx = 37;
-	  section.data(23).dtTransOffset = 28;
+	  section.data(35).logicalSrcIdx = 49;
+	  section.data(35).dtTransOffset = 40;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_n
-	  section.data(24).logicalSrcIdx = 38;
-	  section.data(24).dtTransOffset = 30;
+	  section.data(36).logicalSrcIdx = 50;
+	  section.data(36).dtTransOffset = 42;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_j
-	  section.data(25).logicalSrcIdx = 39;
-	  section.data(25).dtTransOffset = 32;
+	  section.data(37).logicalSrcIdx = 51;
+	  section.data(37).dtTransOffset = 44;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_k
-	  section.data(26).logicalSrcIdx = 40;
-	  section.data(26).dtTransOffset = 34;
+	  section.data(38).logicalSrcIdx = 52;
+	  section.data(38).dtTransOffset = 46;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_i
-	  section.data(27).logicalSrcIdx = 41;
-	  section.data(27).dtTransOffset = 36;
+	  section.data(39).logicalSrcIdx = 53;
+	  section.data(39).dtTransOffset = 48;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_n
-	  section.data(28).logicalSrcIdx = 42;
-	  section.data(28).dtTransOffset = 38;
+	  section.data(40).logicalSrcIdx = 54;
+	  section.data(40).dtTransOffset = 50;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_g
-	  section.data(29).logicalSrcIdx = 43;
-	  section.data(29).dtTransOffset = 40;
+	  section.data(41).logicalSrcIdx = 55;
+	  section.data(41).dtTransOffset = 52;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_i
-	  section.data(30).logicalSrcIdx = 44;
-	  section.data(30).dtTransOffset = 42;
+	  section.data(42).logicalSrcIdx = 56;
+	  section.data(42).dtTransOffset = 54;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_h
-	  section.data(31).logicalSrcIdx = 45;
-	  section.data(31).dtTransOffset = 44;
+	  section.data(43).logicalSrcIdx = 57;
+	  section.data(43).dtTransOffset = 56;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK
-	  section.data(32).logicalSrcIdx = 46;
-	  section.data(32).dtTransOffset = 46;
+	  section.data(44).logicalSrcIdx = 58;
+	  section.data(44).dtTransOffset = 58;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_ay
-	  section.data(33).logicalSrcIdx = 47;
-	  section.data(33).dtTransOffset = 48;
+	  section.data(45).logicalSrcIdx = 59;
+	  section.data(45).dtTransOffset = 60;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_o
-	  section.data(34).logicalSrcIdx = 48;
-	  section.data(34).dtTransOffset = 50;
-	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag2_RWORK
-	  section.data(35).logicalSrcIdx = 49;
-	  section.data(35).dtTransOffset = 52;
+	  section.data(46).logicalSrcIdx = 60;
+	  section.data(46).dtTransOffset = 62;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK_g
-	  section.data(36).logicalSrcIdx = 50;
-	  section.data(36).dtTransOffset = 54;
-	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctnotch4_RWORK
-	  section.data(37).logicalSrcIdx = 51;
-	  section.data(37).dtTransOffset = 56;
-	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctpd5_RWORK
-	  section.data(38).logicalSrcIdx = 52;
-	  section.data(38).dtTransOffset = 60;
-	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctpd2_RWORK
-	  section.data(39).logicalSrcIdx = 53;
-	  section.data(39).dtTransOffset = 62;
-	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag3_RWORK
-	  section.data(40).logicalSrcIdx = 54;
-	  section.data(40).dtTransOffset = 64;
-	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctpd2_RWORK_o
-	  section.data(41).logicalSrcIdx = 55;
-	  section.data(41).dtTransOffset = 66;
-	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag3_RWORK_f
-	  section.data(42).logicalSrcIdx = 56;
-	  section.data(42).dtTransOffset = 68;
-	
-	  ;% robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK_gc
-	  section.data(43).logicalSrcIdx = 57;
-	  section.data(43).dtTransOffset = 70;
+	  section.data(47).logicalSrcIdx = 61;
+	  section.data(47).dtTransOffset = 64;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_c
-	  section.data(44).logicalSrcIdx = 58;
-	  section.data(44).dtTransOffset = 72;
+	  section.data(48).logicalSrcIdx = 62;
+	  section.data(48).dtTransOffset = 66;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_gp
-	  section.data(45).logicalSrcIdx = 59;
-	  section.data(45).dtTransOffset = 74;
+	  section.data(49).logicalSrcIdx = 63;
+	  section.data(49).dtTransOffset = 68;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctpd2_RWORK
+	  section.data(50).logicalSrcIdx = 64;
+	  section.data(50).dtTransOffset = 70;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag3_RWORK
+	  section.data(51).logicalSrcIdx = 65;
+	  section.data(51).dtTransOffset = 72;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctpd2_RWORK_b
+	  section.data(52).logicalSrcIdx = 66;
+	  section.data(52).dtTransOffset = 74;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag3_RWORK_f
+	  section.data(53).logicalSrcIdx = 67;
+	  section.data(53).dtTransOffset = 76;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctleadlag2_RWORK
+	  section.data(54).logicalSrcIdx = 68;
+	  section.data(54).dtTransOffset = 78;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK_gh
+	  section.data(55).logicalSrcIdx = 69;
+	  section.data(55).dtTransOffset = 80;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctnotch4_RWORK
+	  section.data(56).logicalSrcIdx = 70;
+	  section.data(56).dtTransOffset = 82;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.Dctpd5_RWORK
+	  section.data(57).logicalSrcIdx = 71;
+	  section.data(57).dtTransOffset = 86;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(3) = section;
@@ -2147,19 +2212,19 @@
       section.data(4)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.Scope_PWORK.LoggedData
-	  section.data(1).logicalSrcIdx = 60;
+	  section.data(1).logicalSrcIdx = 72;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.Scope9_PWORK.LoggedData
-	  section.data(2).logicalSrcIdx = 61;
+	  ;% robotarm_student_2021a_Ipos_DW.Scope_PWORK_b.LoggedData
+	  section.data(2).logicalSrcIdx = 73;
 	  section.data(2).dtTransOffset = 1;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.Scope_PWORK_p.LoggedData
-	  section.data(3).logicalSrcIdx = 62;
+	  ;% robotarm_student_2021a_Ipos_DW.Scope9_PWORK.LoggedData
+	  section.data(3).logicalSrcIdx = 74;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Scope1_PWORK.LoggedData
-	  section.data(4).logicalSrcIdx = 63;
+	  section.data(4).logicalSrcIdx = 75;
 	  section.data(4).dtTransOffset = 3;
 	
       nTotData = nTotData + section.nData;
@@ -2170,102 +2235,122 @@
       section.data(5)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.sfEvent
-	  section.data(1).logicalSrcIdx = 64;
+	  section.data(1).logicalSrcIdx = 76;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.sfEvent_n
-	  section.data(2).logicalSrcIdx = 65;
+	  section.data(2).logicalSrcIdx = 77;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.sfEvent_h
-	  section.data(3).logicalSrcIdx = 66;
+	  section.data(3).logicalSrcIdx = 78;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.sfEvent_k
-	  section.data(4).logicalSrcIdx = 67;
+	  section.data(4).logicalSrcIdx = 79;
 	  section.data(4).dtTransOffset = 3;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.sfEvent_nm
-	  section.data(5).logicalSrcIdx = 68;
+	  ;% robotarm_student_2021a_Ipos_DW.sfEvent_e
+	  section.data(5).logicalSrcIdx = 80;
 	  section.data(5).dtTransOffset = 4;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(5) = section;
       clear section
       
-      section.nData     = 10;
-      section.data(10)  = dumData; %prealloc
+      section.nData     = 13;
+      section.data(13)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip
-	  section.data(1).logicalSrcIdx = 69;
+	  section.data(1).logicalSrcIdx = 81;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I
-	  section.data(2).logicalSrcIdx = 70;
+	  section.data(2).logicalSrcIdx = 82;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I
-	  section.data(3).logicalSrcIdx = 71;
+	  section.data(3).logicalSrcIdx = 83;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I
-	  section.data(4).logicalSrcIdx = 72;
+	  section.data(4).logicalSrcIdx = 84;
 	  section.data(4).dtTransOffset = 3;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_Object_Detection
-	  section.data(5).logicalSrcIdx = 73;
+	  ;% robotarm_student_2021a_Ipos_DW.is_Vacuum
+	  section.data(5).logicalSrcIdx = 85;
 	  section.data(5).dtTransOffset = 4;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_Belt
-	  section.data(6).logicalSrcIdx = 74;
+	  ;% robotarm_student_2021a_Ipos_DW.is_Identification
+	  section.data(6).logicalSrcIdx = 86;
 	  section.data(6).dtTransOffset = 5;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_Robot_Arm
-	  section.data(7).logicalSrcIdx = 75;
+	  ;% robotarm_student_2021a_Ipos_DW.is_Object_Detection
+	  section.data(7).logicalSrcIdx = 87;
 	  section.data(7).dtTransOffset = 6;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_Vacuum
-	  section.data(8).logicalSrcIdx = 76;
+	  ;% robotarm_student_2021a_Ipos_DW.is_Belt
+	  section.data(8).logicalSrcIdx = 88;
 	  section.data(8).dtTransOffset = 7;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_inreach
-	  section.data(9).logicalSrcIdx = 77;
+	  ;% robotarm_student_2021a_Ipos_DW.is_Object_picked
+	  section.data(9).logicalSrcIdx = 89;
 	  section.data(9).dtTransOffset = 8;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_Invkin
-	  section.data(10).logicalSrcIdx = 78;
+	  ;% robotarm_student_2021a_Ipos_DW.is_ActionDone
+	  section.data(10).logicalSrcIdx = 90;
 	  section.data(10).dtTransOffset = 9;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.is_Robot_Arm
+	  section.data(11).logicalSrcIdx = 91;
+	  section.data(11).dtTransOffset = 10;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.is_Object_tracking
+	  section.data(12).logicalSrcIdx = 92;
+	  section.data(12).dtTransOffset = 11;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i1
+	  section.data(13).logicalSrcIdx = 93;
+	  section.data(13).dtTransOffset = 12;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(6) = section;
       clear section
       
-      section.nData     = 6;
-      section.data(6)  = dumData; %prealloc
+      section.nData     = 8;
+      section.data(8)  = dumData; %prealloc
       
-	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i1
-	  section.data(1).logicalSrcIdx = 79;
+	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i1_i
+	  section.data(1).logicalSrcIdx = 94;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m
-	  section.data(2).logicalSrcIdx = 80;
+	  section.data(2).logicalSrcIdx = 95;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me
-	  section.data(3).logicalSrcIdx = 81;
+	  section.data(3).logicalSrcIdx = 96;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c
-	  section.data(4).logicalSrcIdx = 82;
+	  section.data(4).logicalSrcIdx = 97;
 	  section.data(4).dtTransOffset = 3;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i1_p
-	  section.data(5).logicalSrcIdx = 83;
+	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i2
+	  section.data(5).logicalSrcIdx = 98;
 	  section.data(5).dtTransOffset = 4;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i2
-	  section.data(6).logicalSrcIdx = 84;
+	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i3
+	  section.data(6).logicalSrcIdx = 99;
 	  section.data(6).dtTransOffset = 5;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i4
+	  section.data(7).logicalSrcIdx = 100;
+	  section.data(7).dtTransOffset = 6;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.temporalCounter_i5
+	  section.data(8).logicalSrcIdx = 101;
+	  section.data(8).dtTransOffset = 7;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(7) = section;
@@ -2275,75 +2360,83 @@
       section.data(5)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC
-	  section.data(1).logicalSrcIdx = 85;
+	  section.data(1).logicalSrcIdx = 102;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.IfActionSubsystem1_SubsysRanBC
-	  section.data(2).logicalSrcIdx = 86;
+	  section.data(2).logicalSrcIdx = 103;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.IfActionSubsystem_SubsysRanBC
-	  section.data(3).logicalSrcIdx = 87;
+	  section.data(3).logicalSrcIdx = 104;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Controller_SubsysRanBC
-	  section.data(4).logicalSrcIdx = 88;
+	  section.data(4).logicalSrcIdx = 105;
 	  section.data(4).dtTransOffset = 3;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.EnabledSubsystem_SubsysRanBC
-	  section.data(5).logicalSrcIdx = 89;
+	  section.data(5).logicalSrcIdx = 106;
 	  section.data(5).dtTransOffset = 4;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(8) = section;
       clear section
       
-      section.nData     = 11;
-      section.data(11)  = dumData; %prealloc
+      section.nData     = 13;
+      section.data(13)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2
-	  section.data(1).logicalSrcIdx = 90;
+	  section.data(1).logicalSrcIdx = 107;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.is_active_c18_robotarm_student_
-	  section.data(2).logicalSrcIdx = 91;
+	  section.data(2).logicalSrcIdx = 108;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.is_active_c16_robotarm_student_
-	  section.data(3).logicalSrcIdx = 92;
+	  section.data(3).logicalSrcIdx = 109;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.is_active_c12_robotarm_student_
-	  section.data(4).logicalSrcIdx = 93;
+	  section.data(4).logicalSrcIdx = 110;
 	  section.data(4).dtTransOffset = 3;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_active_c3_robotarm_student_2
-	  section.data(5).logicalSrcIdx = 94;
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_c4_robotarm_student_2
+	  section.data(5).logicalSrcIdx = 111;
 	  section.data(5).dtTransOffset = 4;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_active_Object_Detection
-	  section.data(6).logicalSrcIdx = 95;
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_Vacuum
+	  section.data(6).logicalSrcIdx = 112;
 	  section.data(6).dtTransOffset = 5;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_active_Belt
-	  section.data(7).logicalSrcIdx = 96;
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_Identification
+	  section.data(7).logicalSrcIdx = 113;
 	  section.data(7).dtTransOffset = 6;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_active_Robot_Arm
-	  section.data(8).logicalSrcIdx = 97;
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_Object_Detection
+	  section.data(8).logicalSrcIdx = 114;
 	  section.data(8).dtTransOffset = 7;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_active_Vacuum
-	  section.data(9).logicalSrcIdx = 98;
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_Belt
+	  section.data(9).logicalSrcIdx = 115;
 	  section.data(9).dtTransOffset = 8;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_active_inreach
-	  section.data(10).logicalSrcIdx = 99;
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_Object_picked
+	  section.data(10).logicalSrcIdx = 116;
 	  section.data(10).dtTransOffset = 9;
 	
-	  ;% robotarm_student_2021a_Ipos_DW.is_active_Invkin
-	  section.data(11).logicalSrcIdx = 100;
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_ActionDone
+	  section.data(11).logicalSrcIdx = 117;
 	  section.data(11).dtTransOffset = 10;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_Robot_Arm
+	  section.data(12).logicalSrcIdx = 118;
+	  section.data(12).dtTransOffset = 11;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.is_active_Object_tracking
+	  section.data(13).logicalSrcIdx = 119;
+	  section.data(13).dtTransOffset = 12;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(9) = section;
@@ -2353,15 +2446,15 @@
       section.data(3)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.doneDoubleBufferReInit
-	  section.data(1).logicalSrcIdx = 101;
+	  section.data(1).logicalSrcIdx = 120;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.isNotInit
-	  section.data(2).logicalSrcIdx = 102;
+	  section.data(2).logicalSrcIdx = 121;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% robotarm_student_2021a_Ipos_DW.Controller_MODE
-	  section.data(3).logicalSrcIdx = 103;
+	  section.data(3).logicalSrcIdx = 122;
 	  section.data(3).dtTransOffset = 2;
 	
       nTotData = nTotData + section.nData;
@@ -2372,7 +2465,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.SerialWrite.obj
-	  section.data(1).logicalSrcIdx = 104;
+	  section.data(1).logicalSrcIdx = 123;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -2383,7 +2476,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.SerialWrite.objisempty
-	  section.data(1).logicalSrcIdx = 105;
+	  section.data(1).logicalSrcIdx = 124;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -2394,7 +2487,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.SerialWrite1.obj
-	  section.data(1).logicalSrcIdx = 106;
+	  section.data(1).logicalSrcIdx = 125;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -2405,11 +2498,134 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% robotarm_student_2021a_Ipos_DW.SerialWrite1.objisempty
-	  section.data(1).logicalSrcIdx = 107;
+	  section.data(1).logicalSrcIdx = 126;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(14) = section;
+      clear section
+      
+      section.nData     = 3;
+      section.data(3)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2.previous_value_reference_start
+	  section.data(1).logicalSrcIdx = 127;
+	  section.data(1).dtTransOffset = 0;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2.previous_value_reference_end
+	  section.data(2).logicalSrcIdx = 128;
+	  section.data(2).dtTransOffset = 1;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2.index
+	  section.data(3).logicalSrcIdx = 129;
+	  section.data(3).dtTransOffset = 2;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(15) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2.path_array
+	  section.data(1).logicalSrcIdx = 130;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(16) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2.path_array_not_empty
+	  section.data(1).logicalSrcIdx = 131;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(17) = section;
+      clear section
+      
+      section.nData     = 3;
+      section.data(3)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1.previous_value_reference_start
+	  section.data(1).logicalSrcIdx = 132;
+	  section.data(1).dtTransOffset = 0;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1.previous_value_reference_end
+	  section.data(2).logicalSrcIdx = 133;
+	  section.data(2).dtTransOffset = 1;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1.index
+	  section.data(3).logicalSrcIdx = 134;
+	  section.data(3).dtTransOffset = 2;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(18) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1.path_array
+	  section.data(1).logicalSrcIdx = 135;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(19) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1.path_array_not_empty
+	  section.data(1).logicalSrcIdx = 136;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(20) = section;
+      clear section
+      
+      section.nData     = 3;
+      section.data(3)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime.previous_value_reference_start
+	  section.data(1).logicalSrcIdx = 137;
+	  section.data(1).dtTransOffset = 0;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime.previous_value_reference_end
+	  section.data(2).logicalSrcIdx = 138;
+	  section.data(2).dtTransOffset = 1;
+	
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime.index
+	  section.data(3).logicalSrcIdx = 139;
+	  section.data(3).dtTransOffset = 2;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(21) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime.path_array
+	  section.data(1).logicalSrcIdx = 140;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(22) = section;
+      clear section
+      
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
+      
+	  ;% robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime.path_array_not_empty
+	  section.data(1).logicalSrcIdx = 141;
+	  section.data(1).dtTransOffset = 0;
+	
+      nTotData = nTotData + section.nData;
+      dworkMap.sections(23) = section;
       clear section
       
     
@@ -2438,8 +2654,8 @@
   ;%
 
 
-  targMap.checksum0 = 2626734053;
-  targMap.checksum1 = 4284678369;
-  targMap.checksum2 = 2261319439;
-  targMap.checksum3 = 1242799835;
+  targMap.checksum0 = 3661774746;
+  targMap.checksum1 = 1927501284;
+  targMap.checksum2 = 1409614459;
+  targMap.checksum3 = 1533494863;
 

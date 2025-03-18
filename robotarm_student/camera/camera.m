@@ -15,7 +15,7 @@
 % Thresholder" per object
 mask_object_1 = @final_blue_mask;
 mask_object_2 = @final_yellow_mask;
-mask_object_3 = @example_mask_blue;
+mask_object_3 = @example_mask_red;
 
 % Blob area; minimum and maximum area for the blob analysis per object
 % in pixels

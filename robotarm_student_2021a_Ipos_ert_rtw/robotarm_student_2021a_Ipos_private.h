@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.130
+ * Model version              : 2.143
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 14 15:40:55 2025
+ * C source code generated on : Tue Mar 18 16:04:24 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -56,10 +56,11 @@ extern "C" {
 }
 #endif
 
-extern void dpd(SimStruct *rts);
-extern void dleadlag(SimStruct *rts);
 extern void dweakint(SimStruct *rts);
 extern void dlowpass1(SimStruct *rts);
+extern void dleadlag(SimStruct *rts);
+extern void dpd(SimStruct *rts);
+extern void dnotch(SimStruct *rts);
 extern void ec_Supervisor(SimStruct *rts);
 extern void Ipos360(SimStruct *rts);
 extern void ec_IposResetEnc(SimStruct *rts);
