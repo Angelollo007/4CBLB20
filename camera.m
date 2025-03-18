@@ -1,4 +1,4 @@
-%% camera
+%% camera 
 % This m-file opens the camera on your laptop and does a blob analysis to
 % detect objects. Three different objects can be chosen to be detected.
 % The position coordinates of these objects are send to Simulink,
