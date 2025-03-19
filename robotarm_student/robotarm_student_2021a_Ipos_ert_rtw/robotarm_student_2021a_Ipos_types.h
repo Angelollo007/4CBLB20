@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.132
+ * Model version              : 2.150
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 14 16:34:55 2025
+ * C source code generated on : Wed Mar 19 15:18:32 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -22,11 +22,30 @@
 #define RTW_HEADER_robotarm_student_2021a_Ipos_types_h_
 #include "rtwtypes.h"
 #include "multiword_types.h"
-#include "zero_crossing_types.h"
 
 /* Model Code Variants */
+#ifndef struct_emxArray_real_T
+#define struct_emxArray_real_T
 
-/* Custom Type definition for MATLABSystem: '<S26>/Serial Write1' */
+struct emxArray_real_T
+{
+  real_T *data;
+  int32_T *size;
+  int32_T allocatedSize;
+  int32_T numDimensions;
+  boolean_T canFreeData;
+};
+
+#endif                                 /* struct_emxArray_real_T */
+
+#ifndef typedef_emxArray_real_T_robotarm_stud_T
+#define typedef_emxArray_real_T_robotarm_stud_T
+
+typedef struct emxArray_real_T emxArray_real_T_robotarm_stud_T;
+
+#endif                             /* typedef_emxArray_real_T_robotarm_stud_T */
+
+/* Custom Type definition for MATLABSystem: '<S30>/Serial Write1' */
 #include "MW_SVD.h"
 #ifndef struct_tag_vB8gURpcbTUBlHcczw228B
 #define struct_tag_vB8gURpcbTUBlHcczw228B

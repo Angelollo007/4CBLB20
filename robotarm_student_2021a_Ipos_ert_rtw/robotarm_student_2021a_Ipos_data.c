@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.143
+ * Model version              : 2.148
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Tue Mar 18 16:04:24 2025
+ * C source code generated on : Wed Mar 19 10:02:54 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,37 +24,37 @@
 /* Block parameters (default storage) */
 P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
   /* Mask Parameter: DiscreteDerivative_ICPrevScaled
-   * Referenced by: '<S54>/UD'
+   * Referenced by: '<S57>/UD'
    */
   0.0,
 
   /* Mask Parameter: DiscreteDerivative_ICPrevScal_e
-   * Referenced by: '<S44>/UD'
+   * Referenced by: '<S47>/UD'
    */
   0.0,
 
   /* Mask Parameter: DiscreteDerivative_ICPrevScal_h
-   * Referenced by: '<S35>/UD'
+   * Referenced by: '<S38>/UD'
    */
   0.0,
 
   /* Mask Parameter: CompareToConstant_const
-   * Referenced by: '<S16>/Constant'
+   * Referenced by: '<S19>/Constant'
    */
   4.0,
 
   /* Mask Parameter: DetectChange_vinit
-   * Referenced by: '<S11>/Delay Input1'
+   * Referenced by: '<S14>/Delay Input1'
    */
   0.0,
 
   /* Mask Parameter: CompareToConstant1_const
-   * Referenced by: '<S17>/Constant'
+   * Referenced by: '<S20>/Constant'
    */
   3U,
 
   /* Computed Parameter: Delays_Y0
-   * Referenced by: '<S12>/Delay [s]'
+   * Referenced by: '<S15>/Delay [s]'
    */
   0.0,
 
@@ -73,11 +73,295 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.0,
 
-  /* Expression: [163.05298869825      188.28834120678                    0      1641407174.0343;-73.0611     -99.5943            0            0;2284  7602     0     0]
+  /* Expression: [0                    0                    0      1738030949.5573;0  0  0  0;0  0  0  0]
    * Referenced by: '<S4>/Object detection matrix'
    */
-  { 163.05298869825, -73.0611, 2284.0, 188.28834120678, -99.5943, 7602.0, 0.0,
-    0.0, 0.0, 1.6414071740343E+9, 0.0, 0.0 },
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7380309495573E+9, 0.0, 0.0 },
+
+  /* Expression: 2
+   * Referenced by: '<S1>/nObject'
+   */
+  2.0,
+
+  /* Expression: 1.5
+   * Referenced by: '<S1>/Constant'
+   */
+  1.5,
+
+  /* Expression: 1
+   * Referenced by: '<S9>/Gain1'
+   */
+  1.0,
+
+  /* Expression: 1
+   * Referenced by: '<S13>/Gain1'
+   */
+  1.0,
+
+  /* Computed Parameter: Dctleadlag2_P1_Size
+   * Referenced by: '<S13>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S13>/Dctleadlag2'
+   */
+  -200.0,
+
+  /* Computed Parameter: Dctleadlag2_P2_Size
+   * Referenced by: '<S13>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S13>/Dctleadlag2'
+   */
+  -1.0,
+
+  /* Computed Parameter: Dctleadlag2_P3_Size
+   * Referenced by: '<S13>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S13>/Dctleadlag2'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctintegrator3_P1_Size
+   * Referenced by: '<S13>/Dctintegrator3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S13>/Dctintegrator3'
+   */
+  3.1,
+
+  /* Computed Parameter: Dctintegrator3_P2_Size
+   * Referenced by: '<S13>/Dctintegrator3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S13>/Dctintegrator3'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctnotch4_P1_Size
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  4.0,
+
+  /* Computed Parameter: Dctnotch4_P2_Size
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: b_num
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  22.0,
+
+  /* Computed Parameter: Dctnotch4_P3_Size
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  4.0,
+
+  /* Computed Parameter: Dctnotch4_P4_Size
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: b_den
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  350.0,
+
+  /* Computed Parameter: Dctnotch4_P5_Size
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S13>/Dctnotch4'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctpd5_P1_Size
+   * Referenced by: '<S13>/Dctpd5'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: kp
+   * Referenced by: '<S13>/Dctpd5'
+   */
+  1000.0,
+
+  /* Computed Parameter: Dctpd5_P2_Size
+   * Referenced by: '<S13>/Dctpd5'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: kv
+   * Referenced by: '<S13>/Dctpd5'
+   */
+  0.09,
+
+  /* Computed Parameter: Dctpd5_P3_Size
+   * Referenced by: '<S13>/Dctpd5'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S13>/Dctpd5'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctpd2_P1_Size
+   * Referenced by: '<S9>/Dctpd2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: kp
+   * Referenced by: '<S9>/Dctpd2'
+   */
+  100.0,
+
+  /* Computed Parameter: Dctpd2_P2_Size
+   * Referenced by: '<S9>/Dctpd2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: kv
+   * Referenced by: '<S9>/Dctpd2'
+   */
+  0.08,
+
+  /* Computed Parameter: Dctpd2_P3_Size
+   * Referenced by: '<S9>/Dctpd2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S9>/Dctpd2'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctleadlag3_P1_Size
+   * Referenced by: '<S9>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S9>/Dctleadlag3'
+   */
+  20.0,
+
+  /* Computed Parameter: Dctleadlag3_P2_Size
+   * Referenced by: '<S9>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S9>/Dctleadlag3'
+   */
+  -2.5,
+
+  /* Computed Parameter: Dctleadlag3_P3_Size
+   * Referenced by: '<S9>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S9>/Dctleadlag3'
+   */
+  0.001,
+
+  /* Expression: 0
+   * Referenced by: '<S1>/Feedfoward X [V]'
+   */
+  0.0,
+
+  /* Expression: 1
+   * Referenced by: '<S8>/Gain1'
+   */
+  1.0,
+
+  /* Computed Parameter: Dctpd2_P1_Size_k
+   * Referenced by: '<S8>/Dctpd2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: kp
+   * Referenced by: '<S8>/Dctpd2'
+   */
+  100.0,
+
+  /* Computed Parameter: Dctpd2_P2_Size_i
+   * Referenced by: '<S8>/Dctpd2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: kv
+   * Referenced by: '<S8>/Dctpd2'
+   */
+  0.08,
+
+  /* Computed Parameter: Dctpd2_P3_Size_f
+   * Referenced by: '<S8>/Dctpd2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S8>/Dctpd2'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctleadlag3_P1_Size_n
+   * Referenced by: '<S8>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S8>/Dctleadlag3'
+   */
+  20.0,
+
+  /* Computed Parameter: Dctleadlag3_P2_Size_p
+   * Referenced by: '<S8>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S8>/Dctleadlag3'
+   */
+  -5.0,
+
+  /* Computed Parameter: Dctleadlag3_P3_Size_e
+   * Referenced by: '<S8>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S8>/Dctleadlag3'
+   */
+  0.001,
+
+  /* Expression: 0
+   * Referenced by: '<S1>/Feedfoward Z [V]'
+   */
+  0.0,
 
   /* Computed Parameter: Discreteintegrator_gainval
    * Referenced by: '<S1>/Discrete  integrator'
@@ -94,7 +378,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.05,
 
-  /* Computed Parameter: Dctintegrator3_P1_Size
+  /* Computed Parameter: Dctintegrator3_P1_Size_d
    * Referenced by: '<S5>/Dctintegrator3'
    */
   { 1.0, 1.0 },
@@ -104,7 +388,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.05,
 
-  /* Computed Parameter: Dctintegrator3_P2_Size
+  /* Computed Parameter: Dctintegrator3_P2_Size_c
    * Referenced by: '<S5>/Dctintegrator3'
    */
   { 1.0, 1.0 },
@@ -164,315 +448,10 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.001,
 
-  /* Expression: 1
-   * Referenced by: '<S8>/Gain1'
-   */
-  1.0,
-
-  /* Computed Parameter: Dctpd2_P1_Size
-   * Referenced by: '<S8>/Dctpd2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: kp
-   * Referenced by: '<S8>/Dctpd2'
-   */
-  100.0,
-
-  /* Computed Parameter: Dctpd2_P2_Size
-   * Referenced by: '<S8>/Dctpd2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: kv
-   * Referenced by: '<S8>/Dctpd2'
-   */
-  0.08,
-
-  /* Computed Parameter: Dctpd2_P3_Size
-   * Referenced by: '<S8>/Dctpd2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S8>/Dctpd2'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctleadlag3_P1_Size
-   * Referenced by: '<S8>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S8>/Dctleadlag3'
-   */
-  20.0,
-
-  /* Computed Parameter: Dctleadlag3_P2_Size
-   * Referenced by: '<S8>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S8>/Dctleadlag3'
-   */
-  -5.0,
-
-  /* Computed Parameter: Dctleadlag3_P3_Size
-   * Referenced by: '<S8>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S8>/Dctleadlag3'
-   */
-  0.001,
-
-  /* Expression: 1
-   * Referenced by: '<S9>/Gain1'
-   */
-  1.0,
-
-  /* Computed Parameter: Dctpd2_P1_Size_c
-   * Referenced by: '<S9>/Dctpd2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: kp
-   * Referenced by: '<S9>/Dctpd2'
-   */
-  100.0,
-
-  /* Computed Parameter: Dctpd2_P2_Size_g
-   * Referenced by: '<S9>/Dctpd2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: kv
-   * Referenced by: '<S9>/Dctpd2'
-   */
-  0.08,
-
-  /* Computed Parameter: Dctpd2_P3_Size_i
-   * Referenced by: '<S9>/Dctpd2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S9>/Dctpd2'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctleadlag3_P1_Size_l
-   * Referenced by: '<S9>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S9>/Dctleadlag3'
-   */
-  20.0,
-
-  /* Computed Parameter: Dctleadlag3_P2_Size_c
-   * Referenced by: '<S9>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S9>/Dctleadlag3'
-   */
-  -2.5,
-
-  /* Computed Parameter: Dctleadlag3_P3_Size_i
-   * Referenced by: '<S9>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S9>/Dctleadlag3'
-   */
-  0.001,
-
-  /* Expression: 1
-   * Referenced by: '<S10>/Gain1'
-   */
-  1.0,
-
-  /* Computed Parameter: Dctleadlag2_P1_Size
-   * Referenced by: '<S10>/Dctleadlag2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S10>/Dctleadlag2'
-   */
-  -200.0,
-
-  /* Computed Parameter: Dctleadlag2_P2_Size
-   * Referenced by: '<S10>/Dctleadlag2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S10>/Dctleadlag2'
-   */
-  -1.0,
-
-  /* Computed Parameter: Dctleadlag2_P3_Size
-   * Referenced by: '<S10>/Dctleadlag2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S10>/Dctleadlag2'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctintegrator3_P1_Size_b
-   * Referenced by: '<S10>/Dctintegrator3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S10>/Dctintegrator3'
-   */
-  3.1,
-
-  /* Computed Parameter: Dctintegrator3_P2_Size_c
-   * Referenced by: '<S10>/Dctintegrator3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S10>/Dctintegrator3'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctnotch4_P1_Size
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  4.0,
-
-  /* Computed Parameter: Dctnotch4_P2_Size
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: b_num
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  22.0,
-
-  /* Computed Parameter: Dctnotch4_P3_Size
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  4.0,
-
-  /* Computed Parameter: Dctnotch4_P4_Size
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: b_den
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  350.0,
-
-  /* Computed Parameter: Dctnotch4_P5_Size
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S10>/Dctnotch4'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctpd5_P1_Size
-   * Referenced by: '<S10>/Dctpd5'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: kp
-   * Referenced by: '<S10>/Dctpd5'
-   */
-  1000.0,
-
-  /* Computed Parameter: Dctpd5_P2_Size
-   * Referenced by: '<S10>/Dctpd5'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: kv
-   * Referenced by: '<S10>/Dctpd5'
-   */
-  0.09,
-
-  /* Computed Parameter: Dctpd5_P3_Size
-   * Referenced by: '<S10>/Dctpd5'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S10>/Dctpd5'
-   */
-  0.001,
-
-  /* Expression: 0
-   * Referenced by: '<S1>/Constant'
-   */
-  0.0,
-
   /* Expression: 0
    * Referenced by: '<S1>/Feedfoward R [V]'
    */
   0.0,
-
-  /* Expression: 0
-   * Referenced by: '<S1>/Constant1'
-   */
-  0.0,
-
-  /* Expression: 0
-   * Referenced by: '<S1>/Feedfoward X [V]'
-   */
-  0.0,
-
-  /* Expression: 0
-   * Referenced by: '<S1>/Constant2'
-   */
-  0.0,
-
-  /* Expression: 0
-   * Referenced by: '<S1>/Feedfoward Z [V]'
-   */
-  0.0,
-
-  /* Expression: 20
-   * Referenced by: '<S1>/Conveyor speed [mm//s]'
-   */
-  20.0,
-
-  /* Expression: 100
-   * Referenced by: '<S1>/Saturation '
-   */
-  100.0,
-
-  /* Expression: -100
-   * Referenced by: '<S1>/Saturation '
-   */
-  -100.0,
 
   /* Expression: 1
    * Referenced by: '<S1>/Object'
@@ -499,28 +478,43 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   -100.0,
 
+  /* Expression: 1
+   * Referenced by: '<S1>/Conveyor speed [mm//s]'
+   */
+  1.0,
+
+  /* Expression: 100
+   * Referenced by: '<S1>/Saturation '
+   */
+  100.0,
+
+  /* Expression: -100
+   * Referenced by: '<S1>/Saturation '
+   */
+  -100.0,
+
   /* Expression: 50
-   * Referenced by: '<S19>/Homing Running Switch2'
+   * Referenced by: '<S22>/Homing Running Switch2'
    */
   50.0,
 
   /* Expression: 2.5
-   * Referenced by: '<S19>/Homing Running Switch1'
+   * Referenced by: '<S22>/Homing Running Switch1'
    */
   2.5,
 
   /* Expression: 0.5
-   * Referenced by: '<S20>/Homing Running Switch'
+   * Referenced by: '<S23>/Homing Running Switch'
    */
   0.5,
 
   /* Expression: 0.5
-   * Referenced by: '<S21>/Homing Running Switch'
+   * Referenced by: '<S24>/Homing Running Switch'
    */
   0.5,
 
   /* Expression: 0.5
-   * Referenced by: '<S22>/Homing Running Switch'
+   * Referenced by: '<S25>/Homing Running Switch'
    */
   0.5,
 
@@ -545,842 +539,842 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
   500.0,
 
   /* Computed Parameter: ec_Ipos_P1_Size
-   * Referenced by: '<S15>/ec_Ipos'
+   * Referenced by: '<S18>/ec_Ipos'
    */
   { 1.0, 1.0 },
 
   /* Expression: link_id
-   * Referenced by: '<S15>/ec_Ipos'
+   * Referenced by: '<S18>/ec_Ipos'
    */
   1.0,
 
   /* Expression: 1/16000*9/150*2*pi
-   * Referenced by: '<S13>/Gain'
+   * Referenced by: '<S16>/Gain'
    */
   2.3561944901923453E-5,
 
   /* Expression: 0
-   * Referenced by: '<S32>/Constant1'
+   * Referenced by: '<S35>/Constant1'
    */
   0.0,
 
   /* Computed Parameter: DiscreteTimeIntegrator_gainval
-   * Referenced by: '<S32>/Discrete-Time Integrator'
+   * Referenced by: '<S35>/Discrete-Time Integrator'
    */
   0.00048828125,
 
   /* Computed Parameter: DiscreteTimeIntegrator_gainva_i
-   * Referenced by: '<S20>/Discrete-Time Integrator'
+   * Referenced by: '<S23>/Discrete-Time Integrator'
    */
   0.00048828125,
 
   /* Expression: 0
-   * Referenced by: '<S20>/Discrete-Time Integrator'
+   * Referenced by: '<S23>/Discrete-Time Integrator'
    */
   0.0,
 
   /* Expression: -0.05
-   * Referenced by: '<S20>/Constant'
+   * Referenced by: '<S23>/Constant'
    */
   -0.05,
 
   /* Expression: 1/16000*9/100*2*pi
-   * Referenced by: '<S13>/Gain1'
+   * Referenced by: '<S16>/Gain1'
    */
   3.5342917352885178E-5,
 
   /* Computed Parameter: DiscreteTimeIntegrator_gainva_h
-   * Referenced by: '<S21>/Discrete-Time Integrator'
+   * Referenced by: '<S24>/Discrete-Time Integrator'
    */
   0.00048828125,
 
   /* Expression: 0
-   * Referenced by: '<S21>/Discrete-Time Integrator'
+   * Referenced by: '<S24>/Discrete-Time Integrator'
    */
   0.0,
 
   /* Expression: 0
-   * Referenced by: '<S38>/Constant1'
+   * Referenced by: '<S41>/Constant1'
    */
   0.0,
 
   /* Computed Parameter: DiscreteTimeIntegrator_gainva_j
-   * Referenced by: '<S38>/Discrete-Time Integrator'
+   * Referenced by: '<S41>/Discrete-Time Integrator'
    */
   0.00048828125,
 
   /* Expression: -0.1
-   * Referenced by: '<S21>/Constant'
+   * Referenced by: '<S24>/Constant'
    */
   -0.1,
 
   /* Expression: 1/16000*9/100*2*pi
-   * Referenced by: '<S13>/Gain2'
+   * Referenced by: '<S16>/Gain2'
    */
   3.5342917352885178E-5,
 
   /* Computed Parameter: DiscreteTimeIntegrator_gainva_o
-   * Referenced by: '<S22>/Discrete-Time Integrator'
+   * Referenced by: '<S25>/Discrete-Time Integrator'
    */
   0.00048828125,
 
   /* Expression: 0
-   * Referenced by: '<S22>/Discrete-Time Integrator'
+   * Referenced by: '<S25>/Discrete-Time Integrator'
    */
   0.0,
 
   /* Expression: 0
-   * Referenced by: '<S48>/Constant1'
+   * Referenced by: '<S51>/Constant1'
    */
   0.0,
 
   /* Computed Parameter: DiscreteTimeIntegrator_gainva_n
-   * Referenced by: '<S48>/Discrete-Time Integrator'
+   * Referenced by: '<S51>/Discrete-Time Integrator'
    */
   0.00048828125,
 
   /* Expression: 0.05
-   * Referenced by: '<S22>/Constant'
+   * Referenced by: '<S25>/Constant'
    */
   0.05,
 
   /* Expression: 0
-   * Referenced by: '<S14>/Unit Delay'
+   * Referenced by: '<S17>/Unit Delay'
    */
   0.0,
 
   /* Expression: 1.2259
-   * Referenced by: '<S14>/set_robot_calibration_r'
+   * Referenced by: '<S17>/set_robot_calibration_r'
    */
   1.2259,
 
   /* Expression: 0.6022
-   * Referenced by: '<S14>/set_robot_calibration_x'
+   * Referenced by: '<S17>/set_robot_calibration_x'
    */
   0.6022,
 
   /* Expression: -0.3331
-   * Referenced by: '<S14>/set_robot_calibration_z'
+   * Referenced by: '<S17>/set_robot_calibration_z'
    */
   -0.3331,
 
   /* Expression: 3
-   * Referenced by: '<S14>/Gain'
+   * Referenced by: '<S17>/Gain'
    */
   3.0,
 
   /* Expression: 1/16000*2*pi*2.05*10
-   * Referenced by: '<S13>/Gain3'
+   * Referenced by: '<S16>/Gain3'
    */
   0.0080503311748238437,
 
   /* Expression: 1/65535
-   * Referenced by: '<S13>/Gain4'
+   * Referenced by: '<S16>/Gain4'
    */
   1.5259021896696422E-5,
 
   /* Expression: 1/2
-   * Referenced by: '<S13>/Gain5'
+   * Referenced by: '<S16>/Gain5'
    */
   0.5,
 
   /* Expression: 1
-   * Referenced by: '<S18>/Constant'
+   * Referenced by: '<S21>/Constant'
    */
   1.0,
 
   /* Expression: 0
-   * Referenced by: '<S14>/Unit Delay1'
+   * Referenced by: '<S17>/Unit Delay1'
    */
   0.0,
 
   /* Expression: 0.5
-   * Referenced by: '<S19>/Homing Running Switch'
+   * Referenced by: '<S22>/Homing Running Switch'
    */
   0.5,
 
   /* Computed Parameter: ResetEncoderR_P1_Size
-   * Referenced by: '<S20>/Reset EncoderR'
+   * Referenced by: '<S23>/Reset EncoderR'
    */
   { 1.0, 1.0 },
 
   /* Expression: ipos_id
-   * Referenced by: '<S20>/Reset EncoderR'
+   * Referenced by: '<S23>/Reset EncoderR'
    */
   3.0,
 
   /* Expression: 25
-   * Referenced by: '<S29>/Gain'
+   * Referenced by: '<S32>/Gain'
    */
   25.0,
 
   /* Computed Parameter: Dctintegrator_P1_Size
-   * Referenced by: '<S29>/Dctintegrator'
+   * Referenced by: '<S32>/Dctintegrator'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S29>/Dctintegrator'
+   * Referenced by: '<S32>/Dctintegrator'
    */
   0.5,
 
   /* Computed Parameter: Dctintegrator_P2_Size
-   * Referenced by: '<S29>/Dctintegrator'
+   * Referenced by: '<S32>/Dctintegrator'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S29>/Dctintegrator'
+   * Referenced by: '<S32>/Dctintegrator'
    */
   0.001,
 
   /* Computed Parameter: Dctleadlag_P1_Size_m
-   * Referenced by: '<S29>/Dctleadlag'
+   * Referenced by: '<S32>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S29>/Dctleadlag'
+   * Referenced by: '<S32>/Dctleadlag'
    */
   6.6667,
 
   /* Computed Parameter: Dctleadlag_P2_Size_p
-   * Referenced by: '<S29>/Dctleadlag'
+   * Referenced by: '<S32>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S29>/Dctleadlag'
+   * Referenced by: '<S32>/Dctleadlag'
    */
   60.0,
 
   /* Computed Parameter: Dctleadlag_P3_Size_h
-   * Referenced by: '<S29>/Dctleadlag'
+   * Referenced by: '<S32>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S29>/Dctleadlag'
+   * Referenced by: '<S32>/Dctleadlag'
    */
   0.001,
 
   /* Computed Parameter: Dct1lowpass_P1_Size_m
-   * Referenced by: '<S29>/Dct1lowpass'
+   * Referenced by: '<S32>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S29>/Dct1lowpass'
+   * Referenced by: '<S32>/Dct1lowpass'
    */
   100.0,
 
   /* Computed Parameter: Dct1lowpass_P2_Size_o
-   * Referenced by: '<S29>/Dct1lowpass'
+   * Referenced by: '<S32>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S29>/Dct1lowpass'
+   * Referenced by: '<S32>/Dct1lowpass'
    */
   0.001,
 
   /* Expression: 25
-   * Referenced by: '<S30>/Gain'
+   * Referenced by: '<S33>/Gain'
    */
   25.0,
 
   /* Computed Parameter: Dctleadlag_P1_Size_c
-   * Referenced by: '<S30>/Dctleadlag'
+   * Referenced by: '<S33>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S30>/Dctleadlag'
+   * Referenced by: '<S33>/Dctleadlag'
    */
   6.6667,
 
   /* Computed Parameter: Dctleadlag_P2_Size_k
-   * Referenced by: '<S30>/Dctleadlag'
+   * Referenced by: '<S33>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S30>/Dctleadlag'
+   * Referenced by: '<S33>/Dctleadlag'
    */
   60.0,
 
   /* Computed Parameter: Dctleadlag_P3_Size_hn
-   * Referenced by: '<S30>/Dctleadlag'
+   * Referenced by: '<S33>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S30>/Dctleadlag'
+   * Referenced by: '<S33>/Dctleadlag'
    */
   0.001,
 
   /* Computed Parameter: Dct1lowpass_P1_Size_a
-   * Referenced by: '<S30>/Dct1lowpass'
+   * Referenced by: '<S33>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S30>/Dct1lowpass'
+   * Referenced by: '<S33>/Dct1lowpass'
    */
   100.0,
 
   /* Computed Parameter: Dct1lowpass_P2_Size_l
-   * Referenced by: '<S30>/Dct1lowpass'
+   * Referenced by: '<S33>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S30>/Dct1lowpass'
+   * Referenced by: '<S33>/Dct1lowpass'
    */
   0.001,
 
   /* Expression: 32
-   * Referenced by: '<S20>/Gain1'
+   * Referenced by: '<S23>/Gain1'
    */
   32.0,
 
   /* Expression: 127
-   * Referenced by: '<S20>/Saturation1'
+   * Referenced by: '<S23>/Saturation1'
    */
   127.0,
 
   /* Expression: -127
-   * Referenced by: '<S20>/Saturation1'
+   * Referenced by: '<S23>/Saturation1'
    */
   -127.0,
 
   /* Computed Parameter: ResetEncoderR1_P1_Size
-   * Referenced by: '<S21>/Reset EncoderR1'
+   * Referenced by: '<S24>/Reset EncoderR1'
    */
   { 1.0, 1.0 },
 
   /* Expression: ipos_id
-   * Referenced by: '<S21>/Reset EncoderR1'
+   * Referenced by: '<S24>/Reset EncoderR1'
    */
   1.0,
 
   /* Expression: 20
-   * Referenced by: '<S36>/Gain1'
+   * Referenced by: '<S39>/Gain1'
    */
   20.0,
 
   /* Computed Parameter: Dctintegrator_P1_Size_i
-   * Referenced by: '<S36>/Dctintegrator'
+   * Referenced by: '<S39>/Dctintegrator'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S36>/Dctintegrator'
+   * Referenced by: '<S39>/Dctintegrator'
    */
   0.5,
 
   /* Computed Parameter: Dctintegrator_P2_Size_p
-   * Referenced by: '<S36>/Dctintegrator'
+   * Referenced by: '<S39>/Dctintegrator'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S36>/Dctintegrator'
+   * Referenced by: '<S39>/Dctintegrator'
    */
   0.001,
 
   /* Computed Parameter: Dctleadlag_P1_Size_d
-   * Referenced by: '<S36>/Dctleadlag'
+   * Referenced by: '<S39>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S36>/Dctleadlag'
+   * Referenced by: '<S39>/Dctleadlag'
    */
   10.0,
 
   /* Computed Parameter: Dctleadlag_P2_Size_g
-   * Referenced by: '<S36>/Dctleadlag'
+   * Referenced by: '<S39>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S36>/Dctleadlag'
+   * Referenced by: '<S39>/Dctleadlag'
    */
   90.0,
 
   /* Computed Parameter: Dctleadlag_P3_Size_o
-   * Referenced by: '<S36>/Dctleadlag'
+   * Referenced by: '<S39>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S36>/Dctleadlag'
+   * Referenced by: '<S39>/Dctleadlag'
    */
   0.001,
 
   /* Computed Parameter: Dct1lowpass_P1_Size_m3
-   * Referenced by: '<S36>/Dct1lowpass'
+   * Referenced by: '<S39>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S36>/Dct1lowpass'
+   * Referenced by: '<S39>/Dct1lowpass'
    */
   200.0,
 
   /* Computed Parameter: Dct1lowpass_P2_Size_b
-   * Referenced by: '<S36>/Dct1lowpass'
+   * Referenced by: '<S39>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S36>/Dct1lowpass'
+   * Referenced by: '<S39>/Dct1lowpass'
    */
   0.001,
 
   /* Expression: 20
-   * Referenced by: '<S37>/Gain1'
+   * Referenced by: '<S40>/Gain1'
    */
   20.0,
 
   /* Computed Parameter: Dctleadlag_P1_Size_b
-   * Referenced by: '<S37>/Dctleadlag'
+   * Referenced by: '<S40>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S37>/Dctleadlag'
+   * Referenced by: '<S40>/Dctleadlag'
    */
   10.0,
 
   /* Computed Parameter: Dctleadlag_P2_Size_m
-   * Referenced by: '<S37>/Dctleadlag'
+   * Referenced by: '<S40>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S37>/Dctleadlag'
+   * Referenced by: '<S40>/Dctleadlag'
    */
   90.0,
 
   /* Computed Parameter: Dctleadlag_P3_Size_p
-   * Referenced by: '<S37>/Dctleadlag'
+   * Referenced by: '<S40>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S37>/Dctleadlag'
+   * Referenced by: '<S40>/Dctleadlag'
    */
   0.001,
 
   /* Computed Parameter: Dct1lowpass_P1_Size_n
-   * Referenced by: '<S37>/Dct1lowpass'
+   * Referenced by: '<S40>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S37>/Dct1lowpass'
+   * Referenced by: '<S40>/Dct1lowpass'
    */
   200.0,
 
   /* Computed Parameter: Dct1lowpass_P2_Size_g
-   * Referenced by: '<S37>/Dct1lowpass'
+   * Referenced by: '<S40>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S37>/Dct1lowpass'
+   * Referenced by: '<S40>/Dct1lowpass'
    */
   0.001,
 
   /* Expression: 32
-   * Referenced by: '<S21>/Gain'
+   * Referenced by: '<S24>/Gain'
    */
   32.0,
 
   /* Expression: 127
-   * Referenced by: '<S21>/Saturation1'
+   * Referenced by: '<S24>/Saturation1'
    */
   127.0,
 
   /* Expression: -127
-   * Referenced by: '<S21>/Saturation1'
+   * Referenced by: '<S24>/Saturation1'
    */
   -127.0,
 
   /* Computed Parameter: ResetEncoderR1_P1_Size_d
-   * Referenced by: '<S22>/Reset EncoderR1'
+   * Referenced by: '<S25>/Reset EncoderR1'
    */
   { 1.0, 1.0 },
 
   /* Expression: ipos_id
-   * Referenced by: '<S22>/Reset EncoderR1'
+   * Referenced by: '<S25>/Reset EncoderR1'
    */
   2.0,
 
   /* Expression: 20
-   * Referenced by: '<S45>/Gain'
+   * Referenced by: '<S48>/Gain'
    */
   20.0,
 
   /* Computed Parameter: Dctintegrator_P1_Size_p
-   * Referenced by: '<S45>/Dctintegrator'
+   * Referenced by: '<S48>/Dctintegrator'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S45>/Dctintegrator'
+   * Referenced by: '<S48>/Dctintegrator'
    */
   0.5,
 
   /* Computed Parameter: Dctintegrator_P2_Size_o
-   * Referenced by: '<S45>/Dctintegrator'
+   * Referenced by: '<S48>/Dctintegrator'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S45>/Dctintegrator'
+   * Referenced by: '<S48>/Dctintegrator'
    */
   0.001,
 
   /* Computed Parameter: Dctleadlag_P1_Size_ch
-   * Referenced by: '<S45>/Dctleadlag'
+   * Referenced by: '<S48>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S45>/Dctleadlag'
+   * Referenced by: '<S48>/Dctleadlag'
    */
   10.0,
 
   /* Computed Parameter: Dctleadlag_P2_Size_h
-   * Referenced by: '<S45>/Dctleadlag'
+   * Referenced by: '<S48>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S45>/Dctleadlag'
+   * Referenced by: '<S48>/Dctleadlag'
    */
   90.0,
 
   /* Computed Parameter: Dctleadlag_P3_Size_f
-   * Referenced by: '<S45>/Dctleadlag'
+   * Referenced by: '<S48>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S45>/Dctleadlag'
+   * Referenced by: '<S48>/Dctleadlag'
    */
   0.001,
 
   /* Computed Parameter: Dct1lowpass_P1_Size_ni
-   * Referenced by: '<S45>/Dct1lowpass'
+   * Referenced by: '<S48>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S45>/Dct1lowpass'
+   * Referenced by: '<S48>/Dct1lowpass'
    */
   200.0,
 
   /* Computed Parameter: Dct1lowpass_P2_Size_a
-   * Referenced by: '<S45>/Dct1lowpass'
+   * Referenced by: '<S48>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S45>/Dct1lowpass'
+   * Referenced by: '<S48>/Dct1lowpass'
    */
   0.001,
 
   /* Expression: 30
-   * Referenced by: '<S46>/Gain'
+   * Referenced by: '<S49>/Gain'
    */
   30.0,
 
   /* Computed Parameter: Dctleadlag_P1_Size_by
-   * Referenced by: '<S46>/Dctleadlag'
+   * Referenced by: '<S49>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S46>/Dctleadlag'
+   * Referenced by: '<S49>/Dctleadlag'
    */
   10.0,
 
   /* Computed Parameter: Dctleadlag_P2_Size_j
-   * Referenced by: '<S46>/Dctleadlag'
+   * Referenced by: '<S49>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S46>/Dctleadlag'
+   * Referenced by: '<S49>/Dctleadlag'
    */
   90.0,
 
   /* Computed Parameter: Dctleadlag_P3_Size_oi
-   * Referenced by: '<S46>/Dctleadlag'
+   * Referenced by: '<S49>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S46>/Dctleadlag'
+   * Referenced by: '<S49>/Dctleadlag'
    */
   0.001,
 
   /* Computed Parameter: Dct1lowpass_P1_Size_p
-   * Referenced by: '<S46>/Dct1lowpass'
+   * Referenced by: '<S49>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S46>/Dct1lowpass'
+   * Referenced by: '<S49>/Dct1lowpass'
    */
   200.0,
 
   /* Computed Parameter: Dct1lowpass_P2_Size_j
-   * Referenced by: '<S46>/Dct1lowpass'
+   * Referenced by: '<S49>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S46>/Dct1lowpass'
+   * Referenced by: '<S49>/Dct1lowpass'
    */
   0.001,
 
   /* Expression: 32
-   * Referenced by: '<S22>/Gain'
+   * Referenced by: '<S25>/Gain'
    */
   32.0,
 
   /* Expression: 127
-   * Referenced by: '<S22>/Saturation1'
+   * Referenced by: '<S25>/Saturation1'
    */
   127.0,
 
   /* Expression: -127
-   * Referenced by: '<S22>/Saturation1'
+   * Referenced by: '<S25>/Saturation1'
    */
   -127.0,
 
   /* Computed Parameter: ResetEncoderR1_P1_Size_b
-   * Referenced by: '<S23>/Reset EncoderR1'
+   * Referenced by: '<S26>/Reset EncoderR1'
    */
   { 1.0, 1.0 },
 
   /* Expression: ipos_id
-   * Referenced by: '<S23>/Reset EncoderR1'
+   * Referenced by: '<S26>/Reset EncoderR1'
    */
   0.0,
 
   /* Computed Parameter: DiscreteTimeIntegrator_gainva_g
-   * Referenced by: '<S23>/Discrete-Time Integrator'
+   * Referenced by: '<S26>/Discrete-Time Integrator'
    */
   0.00048828125,
 
   /* Expression: 0
-   * Referenced by: '<S23>/Discrete-Time Integrator'
+   * Referenced by: '<S26>/Discrete-Time Integrator'
    */
   0.0,
 
   /* Expression: 10*2.5/500
-   * Referenced by: '<S55>/Gain1'
+   * Referenced by: '<S58>/Gain1'
    */
   0.05,
 
   /* Computed Parameter: Dctintegrator3_P1_Size_m
-   * Referenced by: '<S55>/Dctintegrator3'
+   * Referenced by: '<S58>/Dctintegrator3'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S55>/Dctintegrator3'
+   * Referenced by: '<S58>/Dctintegrator3'
    */
   0.01,
 
   /* Computed Parameter: Dctintegrator3_P2_Size_b
-   * Referenced by: '<S55>/Dctintegrator3'
+   * Referenced by: '<S58>/Dctintegrator3'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S55>/Dctintegrator3'
+   * Referenced by: '<S58>/Dctintegrator3'
    */
   0.001,
 
   /* Computed Parameter: Dct1lowpass_P1_Size_j
-   * Referenced by: '<S55>/Dct1lowpass'
+   * Referenced by: '<S58>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S55>/Dct1lowpass'
+   * Referenced by: '<S58>/Dct1lowpass'
    */
   30.0,
 
   /* Computed Parameter: Dct1lowpass_P2_Size_aj
-   * Referenced by: '<S55>/Dct1lowpass'
+   * Referenced by: '<S58>/Dct1lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S55>/Dct1lowpass'
+   * Referenced by: '<S58>/Dct1lowpass'
    */
   0.001,
 
   /* Computed Parameter: Dctleadlag_P1_Size_l
-   * Referenced by: '<S55>/Dctleadlag'
+   * Referenced by: '<S58>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S55>/Dctleadlag'
+   * Referenced by: '<S58>/Dctleadlag'
    */
   3.0,
 
   /* Computed Parameter: Dctleadlag_P2_Size_n
-   * Referenced by: '<S55>/Dctleadlag'
+   * Referenced by: '<S58>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S55>/Dctleadlag'
+   * Referenced by: '<S58>/Dctleadlag'
    */
   20.0,
 
   /* Computed Parameter: Dctleadlag_P3_Size_d
-   * Referenced by: '<S55>/Dctleadlag'
+   * Referenced by: '<S58>/Dctleadlag'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S55>/Dctleadlag'
+   * Referenced by: '<S58>/Dctleadlag'
    */
   0.001,
 
   /* Expression: 0.5
-   * Referenced by: '<S23>/Homing Running Switch'
+   * Referenced by: '<S26>/Homing Running Switch'
    */
   0.5,
 
   /* Expression: 32
-   * Referenced by: '<S23>/Gain'
+   * Referenced by: '<S26>/Gain'
    */
   32.0,
 
   /* Expression: 127
-   * Referenced by: '<S23>/Saturation1'
+   * Referenced by: '<S26>/Saturation1'
    */
   127.0,
 
   /* Expression: -127
-   * Referenced by: '<S23>/Saturation1'
+   * Referenced by: '<S26>/Saturation1'
    */
   -127.0,
 
   /* Expression: 0.2
-   * Referenced by: '<S48>/Limit Speed'
+   * Referenced by: '<S51>/Limit Speed'
    */
   0.2,
 
   /* Expression: -0.2
-   * Referenced by: '<S48>/Limit Speed'
+   * Referenced by: '<S51>/Limit Speed'
    */
   -0.2,
 
   /* Expression: 0
-   * Referenced by: '<S48>/Limit Speed'
+   * Referenced by: '<S51>/Limit Speed'
    */
   0.0,
 
   /* Computed Parameter: TSamp_WtEt
-   * Referenced by: '<S54>/TSamp'
+   * Referenced by: '<S57>/TSamp'
    */
   2048.0,
 
   /* Expression: 0.5
-   * Referenced by: '<S48>/Limit Acceleration'
+   * Referenced by: '<S51>/Limit Acceleration'
    */
   0.5,
 
   /* Expression: -0.5
-   * Referenced by: '<S48>/Limit Acceleration'
+   * Referenced by: '<S51>/Limit Acceleration'
    */
   -0.5,
 
   /* Expression: 0
-   * Referenced by: '<S48>/Limit Acceleration'
+   * Referenced by: '<S51>/Limit Acceleration'
    */
   0.0,
 
   /* Expression: 0.4
-   * Referenced by: '<S38>/Limit Speed'
+   * Referenced by: '<S41>/Limit Speed'
    */
   0.4,
 
   /* Expression: -0.4
-   * Referenced by: '<S38>/Limit Speed'
+   * Referenced by: '<S41>/Limit Speed'
    */
   -0.4,
 
   /* Expression: 0
-   * Referenced by: '<S38>/Limit Speed'
+   * Referenced by: '<S41>/Limit Speed'
    */
   0.0,
 
   /* Computed Parameter: TSamp_WtEt_d
-   * Referenced by: '<S44>/TSamp'
+   * Referenced by: '<S47>/TSamp'
    */
   2048.0,
 
   /* Expression: 0.5
-   * Referenced by: '<S38>/Limit Acceleration'
+   * Referenced by: '<S41>/Limit Acceleration'
    */
   0.5,
 
   /* Expression: -0.5
-   * Referenced by: '<S38>/Limit Acceleration'
+   * Referenced by: '<S41>/Limit Acceleration'
    */
   -0.5,
 
   /* Expression: 0
-   * Referenced by: '<S38>/Limit Acceleration'
+   * Referenced by: '<S41>/Limit Acceleration'
    */
   0.0,
 
   /* Expression: 0.6
-   * Referenced by: '<S32>/Limit Speed'
+   * Referenced by: '<S35>/Limit Speed'
    */
   0.6,
 
   /* Expression: -0.6
-   * Referenced by: '<S32>/Limit Speed'
+   * Referenced by: '<S35>/Limit Speed'
    */
   -0.6,
 
   /* Expression: 0
-   * Referenced by: '<S32>/Limit Speed'
+   * Referenced by: '<S35>/Limit Speed'
    */
   0.0,
 
   /* Computed Parameter: TSamp_WtEt_g
-   * Referenced by: '<S35>/TSamp'
+   * Referenced by: '<S38>/TSamp'
    */
   2048.0,
 
   /* Expression: 0.8
-   * Referenced by: '<S32>/Limit Acceleration'
+   * Referenced by: '<S35>/Limit Acceleration'
    */
   0.8,
 
   /* Expression: -0.8
-   * Referenced by: '<S32>/Limit Acceleration'
+   * Referenced by: '<S35>/Limit Acceleration'
    */
   -0.8,
 
   /* Expression: 0
-   * Referenced by: '<S32>/Limit Acceleration'
+   * Referenced by: '<S35>/Limit Acceleration'
    */
   0.0,
 
@@ -1400,37 +1394,37 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
   "0072bd",
 
   /* Computed Parameter: StringConstant3_String
-   * Referenced by: '<S28>/String Constant3'
+   * Referenced by: '<S31>/String Constant3'
    */
   "color ",
 
   /* Computed Parameter: StringConstant1_String
-   * Referenced by: '<S28>/String Constant1'
+   * Referenced by: '<S31>/String Constant1'
    */
   " 0 16",
 
   /* Computed Parameter: StringConstant4_String
-   * Referenced by: '<S26>/String Constant4'
+   * Referenced by: '<S29>/String Constant4'
    */
   "white",
 
   /* Computed Parameter: ReadyGreen_String
-   * Referenced by: '<S14>/Ready Green'
+   * Referenced by: '<S17>/Ready Green'
    */
   "0000FF00",
 
   /* Computed Parameter: AirbagRed_String
-   * Referenced by: '<S14>/Airbag Red'
+   * Referenced by: '<S17>/Airbag Red'
    */
   "00FF0000",
 
   /* Computed Parameter: HomingOrange_String
-   * Referenced by: '<S14>/Homing Orange'
+   * Referenced by: '<S17>/Homing Orange'
    */
   "00FF3900",
 
   /* Computed Parameter: Delay_InitialCondition
-   * Referenced by: '<S25>/Delay'
+   * Referenced by: '<S28>/Delay'
    */
   "",
 
@@ -1440,12 +1434,12 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
   1U,
 
   /* Computed Parameter: Constant1_Value_j
-   * Referenced by: '<S27>/Constant1'
+   * Referenced by: '<S30>/Constant1'
    */
   13U,
 
   /* Computed Parameter: Constant_Value_d
-   * Referenced by: '<S28>/Constant'
+   * Referenced by: '<S31>/Constant'
    */
   13U
 };

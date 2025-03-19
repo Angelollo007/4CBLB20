@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   44 \
+    NumChartData   40 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -213,45 +213,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "IdentPressure"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "IdentPressure"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "AreaBad"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "AreaBad"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "AreaGood"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "AreaGood"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
       Name         "elapTime"\
       Description  "ChartLocal"\
       SFName       ""\
       Path         "elapTime"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "yPlaced"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "yPlaced"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "v"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "v"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -266,13 +231,6 @@
       Description  "ChartLocal"\
       SFName       ""\
       Path         "track"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "picked"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "picked"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -294,6 +252,20 @@
       Description  "ChartLocal"\
       SFName       ""\
       Path         "action"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "EndTime"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "EndTime"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "velocity"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "velocity"\
       SrcLocation  ""\
     }\
     ChartData {\

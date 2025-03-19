@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.139
+ * Model version              : 2.150
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Mon Mar 17 13:21:56 2025
+ * C source code generated on : Wed Mar 19 12:58:59 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -56,14 +56,20 @@ extern "C" {
 }
 #endif
 
+extern void dpd(SimStruct *rts);
 extern void dleadlag(SimStruct *rts);
 extern void dweakint(SimStruct *rts);
-extern void dnotch(SimStruct *rts);
-extern void dpd(SimStruct *rts);
 extern void dlowpass1(SimStruct *rts);
 extern void ec_Supervisor(SimStruct *rts);
 extern void Ipos360(SimStruct *rts);
 extern void ec_IposResetEnc(SimStruct *rts);
+extern void robo_quintictrajectorytime_Init(DW_quintictrajectorytime_robo_T
+  *localDW);
+extern void quintictrajectorytim_CleanupRTR(DW_quintictrajectorytime_robo_T
+  *localDW);
+extern void robotarm__quintictrajectorytime(real_T rtu_reference_end, real_T
+  rtu_end_time, real_T rtu_measured_position, B_quintictrajectorytime_robot_T
+  *localB, DW_quintictrajectorytime_robo_T *localDW);
 extern void robotarm_stu_SerialWrite1_Start(DW_SerialWrite1_robotarm_stud_T
   *localDW);
 extern void robotarm_student_2_SerialWrite1(const uint8_T rtu_0[32],

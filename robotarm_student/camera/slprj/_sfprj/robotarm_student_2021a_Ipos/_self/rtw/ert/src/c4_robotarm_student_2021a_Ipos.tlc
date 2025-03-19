@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   44 \
+    NumChartData   40 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -32,38 +32,6 @@
       Description  "StateIsActive"\
       SFName       "is_active_c4_robotarm_student_2021a_Ipos"\
       Path         "is_active_c4_robotarm_student_2021a_Ipos"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_Vacuum"\
-      Description  "StateActiveChild"\
-      SFName       "is_Vacuum"\
-      Path         "Vacuum.is_Vacuum"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_active_Vacuum"\
-      Description  "StateIsActive"\
-      SFName       "is_active_Vacuum"\
-      Path         "Vacuum.is_active_Vacuum"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_Identification"\
-      Description  "StateActiveChild"\
-      SFName       "is_Identification"\
-      Path         "Identification.is_Identification"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_active_Identification"\
-      Description  "StateIsActive"\
-      SFName       "is_active_Identification"\
-      Path         "Identification.is_active_Identification"\
       SrcLocation  ""\
       IsTestPoint  1\
     }\
@@ -96,6 +64,38 @@
       Description  "StateIsActive"\
       SFName       "is_active_Belt"\
       Path         "Belt.is_active_Belt"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Identification"\
+      Description  "StateActiveChild"\
+      SFName       "is_Identification"\
+      Path         "Identification.is_Identification"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Identification"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Identification"\
+      Path         "Identification.is_active_Identification"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Vacuum"\
+      Description  "StateActiveChild"\
+      SFName       "is_Vacuum"\
+      Path         "Vacuum.is_Vacuum"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Vacuum"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Vacuum"\
+      Path         "Vacuum.is_active_Vacuum"\
       SrcLocation  ""\
       IsTestPoint  1\
     }\
@@ -213,45 +213,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "IdentPressure"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "IdentPressure"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "AreaBad"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "AreaBad"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "AreaGood"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "AreaGood"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
       Name         "elapTime"\
       Description  "ChartLocal"\
       SFName       ""\
       Path         "elapTime"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "yPlaced"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "yPlaced"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "v"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "v"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -266,13 +231,6 @@
       Description  "ChartLocal"\
       SFName       ""\
       Path         "track"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "picked"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "picked"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -294,6 +252,20 @@
       Description  "ChartLocal"\
       SFName       ""\
       Path         "action"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "EndTime"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "EndTime"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "velocity"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "velocity"\
       SrcLocation  ""\
     }\
     ChartData {\

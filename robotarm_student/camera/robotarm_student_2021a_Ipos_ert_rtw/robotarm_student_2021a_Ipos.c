@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.145
+ * Model version              : 2.150
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Tue Mar 18 17:11:33 2025
+ * C source code generated on : Wed Mar 19 13:40:33 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -25,16 +25,15 @@
 /* Named constants for Chart: '<S1>/Stateflow 1' */
 #define robotarm_st_IN_On_Conveyor_pos1 (2U)
 #define robotarm_st_IN_On_Conveyor_pos2 (3U)
-#define robotarm_st_event_StackComplete (7)
+#define robotarm_st_event_StackComplete (6)
 #define robotarm_stud_event_ActionEvent (1)
-#define robotarm_stud_event_TrackObject (8)
+#define robotarm_stud_event_TrackObject (7)
 #define robotarm_stude_IN_Object_placed (2U)
 #define robotarm_stude_event_ActionDone (0)
-#define robotarm_stude_event_GetProduct (4)
+#define robotarm_stude_event_GetProduct (3)
 #define robotarm_studen_IN_Off_Conveyor (1U)
-#define robotarm_studen_IN_Transition_n (6U)
-#define robotarm_studen_event_ScanAgain (6)
-#define robotarm_studen_event_VacuumOff (9)
+#define robotarm_studen_event_ScanAgain (5)
+#define robotarm_studen_event_VacuumOff (8)
 #define robotarm_student_2021_IN_Action (1U)
 #define robotarm_student_2021_IN_Picked (2U)
 #define robotarm_student_2021a_IN_Timer (3U)
@@ -47,16 +46,17 @@
 #define robotarm_student_2_IN_No_Object (1U)
 #define robotarm_student_2_IN_No_action (2U)
 #define robotarm_student_2_IN_No_object (1U)
+#define robotarm_student_2_IN_Tranition (6U)
 #define robotarm_student_2_IN_Vacuum_On (2U)
 #define robotarm_student_IN_WaitSeeking (3U)
 #define robotarm_student__IN_Not_Picked (1U)
 #define robotarm_student__IN_Start_Home (5U)
 #define robotarm_student__IN_Transition (2U)
 #define robotarm_student__IN_Vacuum_Off (1U)
-#define robotarm_student_event_Detected (3)
-#define robotarm_student_event_VacuumOn (10)
+#define robotarm_student_event_Detected (2)
+#define robotarm_student_event_VacuumOn (9)
 
-/* Named constants for Chart: '<S23>/Supervisor' */
+/* Named constants for Chart: '<S20>/Supervisor' */
 #define robotarm__IN_EnableRunAndSafety (6U)
 #define robotarm_stud_IN_AirbagConveyor (1U)
 #define robotarm_stud_IN_CheckRobotIsON (4U)
@@ -72,7 +72,7 @@
 #define robotarm_student_IN_WaitForRest (12U)
 #define robotarm_student__IN_AirbagLeft (2U)
 
-/* Named constants for Chart: '<S24>/Supervisor2' */
+/* Named constants for Chart: '<S21>/Supervisor2' */
 #define robotar_IN_EnableRunAndSafety_k (5U)
 #define robotarm_st_IN_CheckRobotIsON_b (3U)
 #define robotarm_st_IN_DisableOutputs_n (4U)
@@ -86,14 +86,14 @@
 #define robotarm_student__IN_ResetEnc_g (8U)
 #define robotarm_student__IN_Waiting1_f (12U)
 
-/* Named constants for Chart: '<S25>/Supervisor' */
+/* Named constants for Chart: '<S22>/Supervisor' */
 #define robotarm_stude_IN_WaitForRest_m (9U)
 #define robotarm_student_2_IN_AirbagTop (3U)
 #define robotarm_student_2_IN_Waiting_l (10U)
 #define robotarm_student__IN_AirbagDrop (2U)
 #define robotarm_student__IN_Waiting1_m (11U)
 
-/* Named constants for Chart: '<S26>/Supervisor' */
+/* Named constants for Chart: '<S23>/Supervisor' */
 #define robotar_IN_EnableRunAndSafety_n (2U)
 #define robotarm_st_IN_CheckRobotIsON_k (1U)
 #define robotarm_stude_IN_WaitForRest_g (6U)
@@ -625,7 +625,7 @@ static void robotarm_stude_SystemCore_setup(codertarget_raspi_internal_SC_T *obj
  */
 void robotarm_stu_SerialWrite1_Start(DW_SerialWrite1_robotarm_stud_T *localDW)
 {
-  /* Start for MATLABSystem: '<S30>/Serial Write1' */
+  /* Start for MATLABSystem: '<S27>/Serial Write1' */
   localDW->obj.isInitialized = 0;
   localDW->obj.matlabCodegenIsDeleted = false;
   localDW->objisempty = true;
@@ -642,7 +642,7 @@ void robotarm_student_2_SerialWrite1(const uint8_T rtu_0[32],
 {
   uint8_T TxDataLocChar[32];
 
-  /* MATLABSystem: '<S30>/Serial Write1' */
+  /* MATLABSystem: '<S27>/Serial Write1' */
   memcpy((void *)&TxDataLocChar[0], (void *)&rtu_0[0], (uint32_T)((size_t)32 *
           sizeof(uint8_T)));
   MW_SCI_Transmit(localDW->obj.MW_SCIHANDLE, &TxDataLocChar[0], 32U);
@@ -655,7 +655,7 @@ void robotarm_student_2_SerialWrite1(const uint8_T rtu_0[32],
  */
 void robotarm_stud_SerialWrite1_Term(DW_SerialWrite1_robotarm_stud_T *localDW)
 {
-  /* Terminate for MATLABSystem: '<S30>/Serial Write1' */
+  /* Terminate for MATLABSystem: '<S27>/Serial Write1' */
   if (!localDW->obj.matlabCodegenIsDeleted) {
     localDW->obj.matlabCodegenIsDeleted = true;
     if ((localDW->obj.isInitialized == 1) && localDW->obj.isSetupComplete) {
@@ -663,7 +663,7 @@ void robotarm_stud_SerialWrite1_Term(DW_SerialWrite1_robotarm_stud_T *localDW)
     }
   }
 
-  /* End of Terminate for MATLABSystem: '<S30>/Serial Write1' */
+  /* End of Terminate for MATLABSystem: '<S27>/Serial Write1' */
 }
 
 /* Function for Chart: '<S1>/Stateflow 1' */
@@ -762,7 +762,8 @@ static void robotarm_student_2021_Robot_Arm(void)
   int32_T b_previousEvent;
   switch (robotarm_student_2021a_Ipos_DW.is_Robot_Arm) {
    case robotarm_studen_IN_Off_Conveyor:
-    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i5 >= 12288U) {
+    if (robotarm_student_2021a_Ipos_DW.sfEvent_e ==
+        robotarm_stude_event_ActionDone) {
       robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
         robotarm_student__IN_Start_Home;
       robotar_enter_atomic_Start_Home();
@@ -789,16 +790,6 @@ static void robotarm_student_2021_Robot_Arm(void)
           robotarm_student__IN_Start_Home;
         robotar_enter_atomic_Start_Home();
       }
-    } else {
-      robotarm_student_2021a_Ipos_DW.X_pos = 190.0;
-      robotarm_student_2021a_Ipos_DW.Y_pos = -40.0;
-      robotarm_student_2021a_Ipos_DW.Z_pos = 50.0;
-      robotarm_student_2021a_I_invkin(robotarm_student_2021a_Ipos_DW.X_pos,
-        robotarm_student_2021a_Ipos_DW.Y_pos,
-        robotarm_student_2021a_Ipos_DW.Z_pos,
-        &robotarm_student_2021a_Ipos_B.R_rad,
-        &robotarm_student_2021a_Ipos_B.X_rad,
-        &robotarm_student_2021a_Ipos_B.Z_rad);
     }
     break;
 
@@ -822,17 +813,6 @@ static void robotarm_student_2021_Robot_Arm(void)
           robotarm_student__IN_Start_Home;
         robotar_enter_atomic_Start_Home();
       }
-    } else {
-      robotarm_student_2021a_Ipos_DW.X_pos = 130.0;
-      robotarm_student_2021a_Ipos_DW.Z_pos = 50.0;
-      robotarm_student_2021a_Ipos_DW.Y_pos =
-        robotarm_student_2021a_Ipos_DW.yTracked;
-      robotarm_student_2021a_I_invkin(robotarm_student_2021a_Ipos_DW.X_pos,
-        robotarm_student_2021a_Ipos_DW.Y_pos,
-        robotarm_student_2021a_Ipos_DW.Z_pos,
-        &robotarm_student_2021a_Ipos_B.R_rad,
-        &robotarm_student_2021a_Ipos_B.X_rad,
-        &robotarm_student_2021a_Ipos_B.Z_rad);
     }
     break;
 
@@ -842,11 +822,10 @@ static void robotarm_student_2021_Robot_Arm(void)
         (robotarm_student_2021a_Ipos_DW.ObjectType == 1.0)) {
       robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
         robotarm_studen_IN_Off_Conveyor;
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i5 = 0U;
       robotarm_student_2021a_Ipos_DW.action = 1.0;
-      robotarm_student_2021a_Ipos_DW.X_pos = 160.0;
-      robotarm_student_2021a_Ipos_DW.Y_pos = 0.0;
-      robotarm_student_2021a_Ipos_DW.Z_pos = 99.0;
+      robotarm_student_2021a_Ipos_DW.X_pos = 50.0;
+      robotarm_student_2021a_Ipos_DW.Y_pos = 100.0;
+      robotarm_student_2021a_Ipos_DW.Z_pos = 75.0;
       robotarm_student_2021a_I_invkin(robotarm_student_2021a_Ipos_DW.X_pos,
         robotarm_student_2021a_Ipos_DW.Y_pos,
         robotarm_student_2021a_Ipos_DW.Z_pos,
@@ -860,6 +839,15 @@ static void robotarm_student_2021_Robot_Arm(void)
       robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
         robotarm_st_IN_On_Conveyor_pos1;
       robotarm_student_2021a_Ipos_DW.action = 1.0;
+      robotarm_student_2021a_Ipos_DW.X_pos = 190.0;
+      robotarm_student_2021a_Ipos_DW.Y_pos = -40.0;
+      robotarm_student_2021a_Ipos_DW.Z_pos = 75.0;
+      robotarm_student_2021a_I_invkin(robotarm_student_2021a_Ipos_DW.X_pos,
+        robotarm_student_2021a_Ipos_DW.Y_pos,
+        robotarm_student_2021a_Ipos_DW.Z_pos,
+        &robotarm_student_2021a_Ipos_B.R_rad,
+        &robotarm_student_2021a_Ipos_B.X_rad,
+        &robotarm_student_2021a_Ipos_B.Z_rad);
     } else if ((robotarm_student_2021a_Ipos_DW.sfEvent_e ==
                 robotarm_stud_event_ActionEvent) &&
                (robotarm_student_2021a_Ipos_DW.ObjectType == 2.0) &&
@@ -867,19 +855,12 @@ static void robotarm_student_2021_Robot_Arm(void)
       robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
         robotarm_st_IN_On_Conveyor_pos2;
       robotarm_student_2021a_Ipos_DW.action = 1.0;
-    }
-    break;
-
-   case robotarm_student__IN_Start_Home:
-    if (robotarm_student_2021a_Ipos_DW.sfEvent_e ==
-        robotarm_stude_event_GetProduct) {
-      robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
-        robotarm_studen_IN_Transition_n;
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i5 = 0U;
-    } else {
-      robotarm_student_2021a_Ipos_DW.X_pos = 160.0;
-      robotarm_student_2021a_Ipos_DW.Y_pos = 0.0;
-      robotarm_student_2021a_Ipos_DW.Z_pos = 99.0;
+      robotarm_student_2021a_Ipos_DW.X_pos = 130.0;
+      robotarm_student_2021a_Ipos_DW.Y_pos =
+        robotarm_student_2021a_Ipos_DW.velocity *
+        robotarm_student_2021a_Ipos_DW.EndTime +
+        robotarm_student_2021a_Ipos_DW.yTracked;
+      robotarm_student_2021a_Ipos_DW.Z_pos = 75.0;
       robotarm_student_2021a_I_invkin(robotarm_student_2021a_Ipos_DW.X_pos,
         robotarm_student_2021a_Ipos_DW.Y_pos,
         robotarm_student_2021a_Ipos_DW.Z_pos,
@@ -889,8 +870,17 @@ static void robotarm_student_2021_Robot_Arm(void)
     }
     break;
 
-   case robotarm_studen_IN_Transition_n:
-    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i5 >= 5120U) {
+   case robotarm_student__IN_Start_Home:
+    if (robotarm_student_2021a_Ipos_DW.sfEvent_e ==
+        robotarm_stude_event_GetProduct) {
+      robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
+        robotarm_student_2_IN_Tranition;
+      robotarm_student_2021a_Ipos_DW.temporalCounter_i5 = 0U;
+    }
+    break;
+
+   case robotarm_student_2_IN_Tranition:
+    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i5 >= 4096U) {
       robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
         robotarm_student_20_IN_Reaching;
       b_previousEvent = robotarm_student_2021a_Ipos_DW.sfEvent_e;
@@ -904,6 +894,8 @@ static void robotarm_student_2021_Robot_Arm(void)
         robotarm_student_2021a_Ipos_DW.X_pos =
           robotarm_student_2021a_Ipos_B.Selector_g;
         robotarm_student_2021a_Ipos_DW.Y_pos =
+          robotarm_student_2021a_Ipos_DW.velocity *
+          robotarm_student_2021a_Ipos_DW.EndTime +
           robotarm_student_2021a_Ipos_B.Selector1;
         robotarm_student_2021a_Ipos_DW.Z_pos = 70.0;
         robotarm_student_2021a_I_invkin(robotarm_student_2021a_Ipos_DW.X_pos,
@@ -930,16 +922,16 @@ static void c4_robotarm_student_2021a_Ipos(void)
   if (robotarm_student_2021a_Ipos_DW.is_active_Object_Detection != 0U) {
     switch (robotarm_student_2021a_Ipos_DW.is_Object_Detection) {
      case robotarm_student_202_IN_Seeking:
-      if (robotarm_student_2021a_Ipos_B.Selector2_i > 0.0) {
+      if (robotarm_student_2021a_Ipos_B.Selector_g > 0.0) {
         robotarm_student_2021a_Ipos_DW.is_Object_Detection =
           robotarm_student__IN_Transition;
-        robotarm_student_2021a_Ipos_DW.temporalCounter_i3 = 0U;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i2 = 0U;
         robotarm_stu_broadcast_Detected();
       }
       break;
 
      case robotarm_student__IN_Transition:
-      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i3 >= 4096U) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i2 >= 4096U) {
         robotarm_student_2021a_Ipos_DW.is_Object_Detection =
           robotarm_student_IN_WaitSeeking;
         b_previousEvent = robotarm_student_2021a_Ipos_DW.sfEvent_e;
@@ -974,32 +966,32 @@ static void c4_robotarm_student_2021a_Ipos(void)
   if (robotarm_student_2021a_Ipos_DW.is_active_Identification != 0U) {
     switch (robotarm_student_2021a_Ipos_DW.is_Identification) {
      case robotarm_student_2_IN_No_Object:
-      if (robotarm_student_2021a_Ipos_B.Selector2_i > 0.0) {
+      if (robotarm_student_2021a_Ipos_B.Object == 1.0) {
         robotarm_student_2021a_Ipos_DW.is_Identification =
           robotarm_student_20_IN_Object_1;
-        robotarm_student_2021a_Ipos_DW.temporalCounter_i2 = 0U;
-        robotarm_student_2021a_Ipos_DW.ObjectType = 2.0;
-      } else if ((robotarm_student_2021a_Ipos_B.Selector2_i >
-                  robotarm_student_2021a_Ipos_DW.AreaBad) ||
-                 (robotarm_student_2021a_Ipos_B.Selector2_i != 0.0)) {
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i3 = 0U;
+        robotarm_student_2021a_Ipos_DW.ObjectType = 1.0;
+      } else if (robotarm_student_2021a_Ipos_B.Object == 2.0) {
         robotarm_student_2021a_Ipos_DW.is_Identification =
           robotarm_student_20_IN_Object_2;
-        robotarm_student_2021a_Ipos_DW.temporalCounter_i2 = 0U;
-        robotarm_student_2021a_Ipos_DW.ObjectType = 1.0;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i3 = 0U;
+        robotarm_student_2021a_Ipos_DW.ObjectType = 2.0;
       }
       break;
 
      case robotarm_student_20_IN_Object_1:
-      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i2 >= 20480U) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i3 >= 10240U) {
         robotarm_student_2021a_Ipos_DW.is_Identification =
           robotarm_student_2_IN_No_Object;
+        robotarm_student_2021a_Ipos_DW.ObjectType = 0.0;
       }
       break;
 
      case robotarm_student_20_IN_Object_2:
-      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i2 >= 20480U) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i3 >= 10240U) {
         robotarm_student_2021a_Ipos_DW.is_Identification =
           robotarm_student_2_IN_No_Object;
+        robotarm_student_2021a_Ipos_DW.ObjectType = 0.0;
       }
       break;
 
@@ -1046,7 +1038,7 @@ static void c4_robotarm_student_2021a_Ipos(void)
   if (robotarm_student_2021a_Ipos_DW.is_active_Object_picked != 0U) {
     switch (robotarm_student_2021a_Ipos_DW.is_Object_picked) {
      case robotarm_student__IN_Not_Picked:
-      if (robotarm_student_2021a_Ipos_B.Gain5 == -0.25) {
+      if (robotarm_student_2021a_Ipos_B.Gain5 > 0.2) {
         robotarm_student_2021a_Ipos_DW.is_Object_picked =
           robotarm_student_2021_IN_Picked;
         b_previousEvent = robotarm_student_2021a_Ipos_DW.sfEvent_e;
@@ -1060,7 +1052,7 @@ static void c4_robotarm_student_2021a_Ipos(void)
       break;
 
      case robotarm_student_2021_IN_Picked:
-      if (robotarm_student_2021a_Ipos_B.Gain5 == 0.0) {
+      if (robotarm_student_2021a_Ipos_B.Gain5 < 0.2) {
         robotarm_student_2021a_Ipos_DW.is_Object_picked =
           robotarm_student__IN_Not_Picked;
       }
@@ -1084,8 +1076,8 @@ static void c4_robotarm_student_2021a_Ipos(void)
         robotarm_student_2021a_Ipos_DW.elapTime = (real_T)
           robotarm_student_2021a_Ipos_DW.temporalCounter_i1 * 0.00048828125;
         robotarm_student_2021a_Ipos_DW.yTracked =
-          robotarm_student_2021a_Ipos_DW.v *
-          robotarm_student_2021a_Ipos_DW.elapTime + -20.0;
+          robotarm_student_2021a_Ipos_DW.velocity *
+          robotarm_student_2021a_Ipos_DW.elapTime + -40.0;
         robotarm_student_2021a_Ipos_DW.track = 1.0;
       }
       break;
@@ -1100,8 +1092,8 @@ static void c4_robotarm_student_2021a_Ipos(void)
         robotarm_student_2021a_Ipos_DW.elapTime = (real_T)
           robotarm_student_2021a_Ipos_DW.temporalCounter_i1 * 0.00048828125;
         robotarm_student_2021a_Ipos_DW.yTracked =
-          robotarm_student_2021a_Ipos_DW.v *
-          robotarm_student_2021a_Ipos_DW.elapTime + -20.0;
+          robotarm_student_2021a_Ipos_DW.velocity *
+          robotarm_student_2021a_Ipos_DW.elapTime + -40.0;
         robotarm_student_2021a_Ipos_DW.track = 1.0;
       }
       break;
@@ -1116,7 +1108,7 @@ static void c4_robotarm_student_2021a_Ipos(void)
   if (robotarm_student_2021a_Ipos_DW.is_active_ActionDone != 0U) {
     switch (robotarm_student_2021a_Ipos_DW.is_ActionDone) {
      case robotarm_student_2021_IN_Action:
-      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i4 >= 2048U) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i4 >= 4096U) {
         robotarm_student_2021a_Ipos_DW.is_ActionDone =
           robotarm_student_2021a_IN_Timer;
         b_previousEvent = robotarm_student_2021a_Ipos_DW.sfEvent_e;
@@ -1168,6 +1160,18 @@ static void robotar_enter_atomic_Start_Home(void)
     /* Chart: '<S1>/Stateflow 1' */
     c4_robotarm_student_2021a_Ipos();
     robotarm_student_2021a_Ipos_DW.sfEvent_e = b_previousEvent;
+    if (robotarm_student_2021a_Ipos_DW.is_Robot_Arm ==
+        robotarm_student__IN_Start_Home) {
+      robotarm_student_2021a_Ipos_DW.X_pos = 160.0;
+      robotarm_student_2021a_Ipos_DW.Y_pos = 0.0;
+      robotarm_student_2021a_Ipos_DW.Z_pos = 99.0;
+      robotarm_student_2021a_I_invkin(robotarm_student_2021a_Ipos_DW.X_pos,
+        robotarm_student_2021a_Ipos_DW.Y_pos,
+        robotarm_student_2021a_Ipos_DW.Z_pos,
+        &robotarm_student_2021a_Ipos_B.R_rad,
+        &robotarm_student_2021a_Ipos_B.X_rad,
+        &robotarm_student_2021a_Ipos_B.Z_rad);
+    }
   }
 }
 
@@ -1193,106 +1197,106 @@ void robotarm_student_2021a_Ipos_step(void)
 
   /* Level2 S-Function Block: '<S3>/S-Function' (ec_Supervisor) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[11];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (Ipos360): '<S18>/ec_Ipos' */
+  /* S-Function (Ipos360): '<S15>/ec_Ipos' */
 
-  /* Level2 S-Function Block: '<S18>/ec_Ipos' (Ipos360) */
+  /* Level2 S-Function Block: '<S15>/ec_Ipos' (Ipos360) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[12];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[4];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S16>/Gain' */
+  /* Gain: '<S13>/Gain' */
   robotarm_student_2021a_Ipos_B.Gain = robotarm_student_2021a_Ipos_P.Gain_Gain *
     robotarm_student_2021a_Ipos_B.ec_Ipos_o4;
 
-  /* Constant: '<S35>/Constant1' */
+  /* Constant: '<S32>/Constant1' */
   robotarm_student_2021a_Ipos_B.Constant1 =
-    robotarm_student_2021a_Ipos_P.Constant1_Value_b;
+    robotarm_student_2021a_Ipos_P.Constant1_Value;
 
-  /* DiscreteIntegrator: '<S35>/Discrete-Time Integrator' */
+  /* DiscreteIntegrator: '<S32>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator =
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE;
 
-  /* Sum: '<S23>/Sum2' incorporates:
-   *  DiscreteIntegrator: '<S23>/Discrete-Time Integrator'
-   *  Sum: '<S23>/Sum'
+  /* Sum: '<S20>/Sum2' incorporates:
+   *  DiscreteIntegrator: '<S20>/Discrete-Time Integrator'
+   *  Sum: '<S20>/Sum'
    */
   robotarm_student_2021a_Ipos_B.Sum2 =
     (robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_g +
      robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator) -
     robotarm_student_2021a_Ipos_B.Gain;
 
-  /* RelationalOperator: '<S23>/Relational Operator' incorporates:
-   *  Constant: '<S23>/Constant'
+  /* RelationalOperator: '<S20>/Relational Operator' incorporates:
+   *  Constant: '<S20>/Constant'
    */
   robotarm_student_2021a_Ipos_B.RelationalOperator =
     (robotarm_student_2021a_Ipos_B.Sum2 <=
      robotarm_student_2021a_Ipos_P.Constant_Value_i);
 
-  /* Gain: '<S16>/Gain1' */
+  /* Gain: '<S13>/Gain1' */
   robotarm_student_2021a_Ipos_B.Gain1 =
     robotarm_student_2021a_Ipos_P.Gain1_Gain_g *
     robotarm_student_2021a_Ipos_B.ec_Ipos_o3;
 
-  /* Constant: '<S41>/Constant1' */
+  /* Constant: '<S38>/Constant1' */
   robotarm_student_2021a_Ipos_B.Constant1_e =
     robotarm_student_2021a_Ipos_P.Constant1_Value_a;
 
-  /* DiscreteIntegrator: '<S41>/Discrete-Time Integrator' */
+  /* DiscreteIntegrator: '<S38>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e =
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_o;
 
-  /* Sum: '<S24>/Sum2' incorporates:
-   *  DiscreteIntegrator: '<S24>/Discrete-Time Integrator'
-   *  Sum: '<S24>/Sum'
+  /* Sum: '<S21>/Sum2' incorporates:
+   *  DiscreteIntegrator: '<S21>/Discrete-Time Integrator'
+   *  Sum: '<S21>/Sum'
    */
   robotarm_student_2021a_Ipos_B.Sum2_a =
     (robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_m +
      robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e) -
     robotarm_student_2021a_Ipos_B.Gain1;
 
-  /* RelationalOperator: '<S24>/Relational Operator' incorporates:
-   *  Constant: '<S24>/Constant'
+  /* RelationalOperator: '<S21>/Relational Operator' incorporates:
+   *  Constant: '<S21>/Constant'
    */
   robotarm_student_2021a_Ipos_B.RelationalOperator_f =
     (robotarm_student_2021a_Ipos_B.Sum2_a <=
      robotarm_student_2021a_Ipos_P.Constant_Value_f);
 
-  /* Gain: '<S16>/Gain2' */
+  /* Gain: '<S13>/Gain2' */
   robotarm_student_2021a_Ipos_B.Gain2 = robotarm_student_2021a_Ipos_P.Gain2_Gain
     * robotarm_student_2021a_Ipos_B.ec_Ipos_o2;
 
-  /* Constant: '<S51>/Constant1' */
+  /* Constant: '<S48>/Constant1' */
   robotarm_student_2021a_Ipos_B.Constant1_f =
     robotarm_student_2021a_Ipos_P.Constant1_Value_e;
 
-  /* DiscreteIntegrator: '<S51>/Discrete-Time Integrator' */
+  /* DiscreteIntegrator: '<S48>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p =
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_j;
 
-  /* Sum: '<S25>/Sum2' incorporates:
-   *  DiscreteIntegrator: '<S25>/Discrete-Time Integrator'
-   *  Sum: '<S25>/Sum'
+  /* Sum: '<S22>/Sum2' incorporates:
+   *  DiscreteIntegrator: '<S22>/Discrete-Time Integrator'
+   *  Sum: '<S22>/Sum'
    */
   robotarm_student_2021a_Ipos_B.Sum2_e =
     (robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_a +
      robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p) -
     robotarm_student_2021a_Ipos_B.Gain2;
 
-  /* RelationalOperator: '<S25>/Relational Operator' incorporates:
-   *  Constant: '<S25>/Constant'
+  /* RelationalOperator: '<S22>/Relational Operator' incorporates:
+   *  Constant: '<S22>/Constant'
    */
   robotarm_student_2021a_Ipos_B.RelationalOperator_k =
     (robotarm_student_2021a_Ipos_B.Sum2_e >=
      robotarm_student_2021a_Ipos_P.Constant_Value_o);
 
-  /* RelationalOperator: '<S20>/Compare' incorporates:
-   *  Constant: '<S20>/Constant'
-   *  Sum: '<S17>/Add1'
+  /* RelationalOperator: '<S17>/Compare' incorporates:
+   *  Constant: '<S17>/Constant'
+   *  Sum: '<S14>/Add1'
    */
   robotarm_student_2021a_Ipos_B.Compare = ((int32_T)(((uint32_T)
     robotarm_student_2021a_Ipos_B.RelationalOperator +
@@ -1300,17 +1304,17 @@ void robotarm_student_2021a_Ipos_step(void)
     robotarm_student_2021a_Ipos_B.RelationalOperator_k) ==
     robotarm_student_2021a_Ipos_P.CompareToConstant1_const);
 
-  /* RelationalOperator: '<S19>/Compare' incorporates:
-   *  Constant: '<S19>/Constant'
-   *  UnitDelay: '<S17>/Unit Delay'
+  /* RelationalOperator: '<S16>/Compare' incorporates:
+   *  Constant: '<S16>/Constant'
+   *  UnitDelay: '<S14>/Unit Delay'
    */
   robotarm_student_2021a_Ipos_B.Compare_j =
     (robotarm_student_2021a_Ipos_DW.UnitDelay_DSTATE ==
      robotarm_student_2021a_Ipos_P.CompareToConstant_const);
 
-  /* MATLAB Function: '<S23>/Angle2Z' incorporates:
-   *  MATLAB Function: '<S25>/Angle2Z'
-   *  SignalConversion generated from: '<S34>/ SFunction '
+  /* MATLAB Function: '<S20>/Angle2Z' incorporates:
+   *  MATLAB Function: '<S22>/Angle2Z'
+   *  SignalConversion generated from: '<S31>/ SFunction '
    */
   robotarm_student_2021a_Ipos_B.rtb_Gain_idx_1 = cos
     (-robotarm_student_2021a_Ipos_B.Gain1 + 1.3157007486526573) * 0.08;
@@ -1345,11 +1349,11 @@ void robotarm_student_2021a_Ipos_step(void)
           0.12))) - (robotarm_student_2021a_Ipos_B.Gain2 + 0.615)) * 0.185) -
      0.045) + 0.081;
 
-  /* Constant: '<S17>/set_robot_calibration_r' */
+  /* Constant: '<S14>/set_robot_calibration_r' */
   robotarm_student_2021a_Ipos_B.set_robot_calibration_r =
     robotarm_student_2021a_Ipos_P.set_robot_calibration_r_Value;
 
-  /* Chart: '<S23>/Supervisor' */
+  /* Chart: '<S20>/Supervisor' */
   if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c < 8191U) {
     robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c++;
   }
@@ -1565,13 +1569,13 @@ void robotarm_student_2021a_Ipos_step(void)
     }
   }
 
-  /* End of Chart: '<S23>/Supervisor' */
+  /* End of Chart: '<S20>/Supervisor' */
 
-  /* Constant: '<S17>/set_robot_calibration_x' */
+  /* Constant: '<S14>/set_robot_calibration_x' */
   robotarm_student_2021a_Ipos_B.set_robot_calibration_x =
     robotarm_student_2021a_Ipos_P.set_robot_calibration_x_Value;
 
-  /* Chart: '<S24>/Supervisor2' */
+  /* Chart: '<S21>/Supervisor2' */
   if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me < 8191U) {
     robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me++;
   }
@@ -1754,11 +1758,11 @@ void robotarm_student_2021a_Ipos_step(void)
     }
   }
 
-  /* End of Chart: '<S24>/Supervisor2' */
+  /* End of Chart: '<S21>/Supervisor2' */
 
-  /* MATLAB Function: '<S25>/Angle2Z' incorporates:
-   *  MATLAB Function: '<S23>/Angle2Z'
-   *  SignalConversion generated from: '<S34>/ SFunction '
+  /* MATLAB Function: '<S22>/Angle2Z' incorporates:
+   *  MATLAB Function: '<S20>/Angle2Z'
+   *  SignalConversion generated from: '<S31>/ SFunction '
    */
   robotarm_student_2021a_Ipos_B.d12 = sqrt(robotarm_student_2021a_Ipos_B.Add1 *
     robotarm_student_2021a_Ipos_B.Add1 + robotarm_student_2021a_Ipos_B.d13_tmp *
@@ -1777,11 +1781,11 @@ void robotarm_student_2021a_Ipos_step(void)
           0.12))) - (robotarm_student_2021a_Ipos_B.Gain2 + 0.615)) * 0.185) -
      0.045) + 0.081;
 
-  /* Constant: '<S17>/set_robot_calibration_z' */
+  /* Constant: '<S14>/set_robot_calibration_z' */
   robotarm_student_2021a_Ipos_B.set_robot_calibration_z =
     robotarm_student_2021a_Ipos_P.set_robot_calibration_z_Value;
 
-  /* Chart: '<S25>/Supervisor' */
+  /* Chart: '<S22>/Supervisor' */
   if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m < 8191U) {
     robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m++;
   }
@@ -1973,9 +1977,9 @@ void robotarm_student_2021a_Ipos_step(void)
     }
   }
 
-  /* End of Chart: '<S25>/Supervisor' */
+  /* End of Chart: '<S22>/Supervisor' */
 
-  /* Gain: '<S17>/Gain' */
+  /* Gain: '<S14>/Gain' */
   robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 =
     robotarm_student_2021a_Ipos_P.Gain_Gain_m *
     robotarm_student_2021a_Ipos_B.airBagEnabled_f;
@@ -1986,18 +1990,18 @@ void robotarm_student_2021a_Ipos_step(void)
     robotarm_student_2021a_Ipos_P.Gain_Gain_m *
     robotarm_student_2021a_Ipos_B.airBagEnabled;
 
-  /* Gain: '<S16>/Gain3' */
+  /* Gain: '<S13>/Gain3' */
   robotarm_student_2021a_Ipos_B.Gain3 = robotarm_student_2021a_Ipos_P.Gain3_Gain
     * robotarm_student_2021a_Ipos_B.ec_Ipos_o5;
 
-  /* Gain: '<S16>/Gain5' incorporates:
-   *  Gain: '<S16>/Gain4'
+  /* Gain: '<S13>/Gain5' incorporates:
+   *  Gain: '<S13>/Gain4'
    */
   robotarm_student_2021a_Ipos_B.Gain5 = robotarm_student_2021a_Ipos_P.Gain4_Gain
     * robotarm_student_2021a_Ipos_B.ec_Ipos_o1 *
     robotarm_student_2021a_Ipos_P.Gain5_Gain;
 
-  /* Chart: '<S26>/Supervisor' */
+  /* Chart: '<S23>/Supervisor' */
   if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_i < 8191U) {
     robotarm_student_2021a_Ipos_DW.temporalCounter_i1_i++;
   }
@@ -2093,16 +2097,16 @@ void robotarm_student_2021a_Ipos_step(void)
     }
   }
 
-  /* End of Chart: '<S26>/Supervisor' */
+  /* End of Chart: '<S23>/Supervisor' */
 
-  /* Sum: '<S21>/Add' */
+  /* Sum: '<S18>/Add' */
   robotarm_student_2021a_Ipos_B.Add1 =
     ((robotarm_student_2021a_Ipos_B.homingBusy_l +
       robotarm_student_2021a_Ipos_B.homingBusy_j) +
      robotarm_student_2021a_Ipos_B.homingBusy_n) +
     robotarm_student_2021a_Ipos_B.homingBusy;
 
-  /* Signum: '<S21>/Sign' */
+  /* Signum: '<S18>/Sign' */
   if (robotarm_student_2021a_Ipos_B.Add1 < 0.0) {
     robotarm_student_2021a_Ipos_B.Add1 = -1.0;
   } else if (robotarm_student_2021a_Ipos_B.Add1 > 0.0) {
@@ -2113,10 +2117,10 @@ void robotarm_student_2021a_Ipos_step(void)
     robotarm_student_2021a_Ipos_B.Add1 = (rtNaN);
   }
 
-  /* End of Signum: '<S21>/Sign' */
+  /* End of Signum: '<S18>/Sign' */
 
-  /* Sum: '<S21>/Add1' incorporates:
-   *  Constant: '<S21>/Constant'
+  /* Sum: '<S18>/Add1' incorporates:
+   *  Constant: '<S18>/Constant'
    */
   robotarm_student_2021a_Ipos_B.Add1 =
     robotarm_student_2021a_Ipos_P.Constant_Value_m -
@@ -2128,9 +2132,9 @@ void robotarm_student_2021a_Ipos_step(void)
   if (robotarm_student_2021a_Ipos_B.Add1 > 0.0) {
     robotarm_student_2021a_Ipos_DW.Controller_MODE = true;
 
-    /* RelationalOperator: '<S14>/FixPt Relational Operator' incorporates:
+    /* RelationalOperator: '<S11>/FixPt Relational Operator' incorporates:
      *  Constant: '<S4>/Object detection matrix'
-     *  UnitDelay: '<S14>/Delay Input1'
+     *  UnitDelay: '<S11>/Delay Input1'
      */
     for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
          12; robotarm_student_2021a_Ipos_B.i++) {
@@ -2141,7 +2145,7 @@ void robotarm_student_2021a_Ipos_step(void)
          robotarm_student_2021a_Ipos_DW.DelayInput1_DSTATE[robotarm_student_2021a_Ipos_B.i]);
     }
 
-    /* End of RelationalOperator: '<S14>/FixPt Relational Operator' */
+    /* End of RelationalOperator: '<S11>/FixPt Relational Operator' */
     for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
          3; robotarm_student_2021a_Ipos_B.i++) {
       /* Selector: '<S4>/Selector2' incorporates:
@@ -2201,11 +2205,9 @@ void robotarm_student_2021a_Ipos_step(void)
     robotarm_student_2021a_Ipos_B.Selector1 =
       robotarm_student_2021a_Ipos_B.Selector2[1];
 
-    /* Selector: '<S1>/Selector2' incorporates:
-     *  Selector: '<S4>/Selector2'
-     */
-    robotarm_student_2021a_Ipos_B.Selector2_i =
-      robotarm_student_2021a_Ipos_B.Selector2[2];
+    /* Constant: '<S1>/Object' */
+    robotarm_student_2021a_Ipos_B.Object =
+      robotarm_student_2021a_Ipos_P.Object_Value;
 
     /* Chart: '<S1>/Stateflow 1' */
     if (robotarm_student_2021a_Ipos_DW.isNotInit) {
@@ -2213,19 +2215,19 @@ void robotarm_student_2021a_Ipos_step(void)
         robotarm_student_2021a_Ipos_DW.temporalCounter_i1++;
       }
 
-      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i2 < 32767U) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i2 < 8191U) {
         robotarm_student_2021a_Ipos_DW.temporalCounter_i2++;
       }
 
-      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i3 < 8191U) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i3 < 16383U) {
         robotarm_student_2021a_Ipos_DW.temporalCounter_i3++;
       }
 
-      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i4 < 4095U) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i4 < 8191U) {
         robotarm_student_2021a_Ipos_DW.temporalCounter_i4++;
       }
 
-      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i5 < 16383U) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i5 < 8191U) {
         robotarm_student_2021a_Ipos_DW.temporalCounter_i5++;
       }
     }
@@ -2241,10 +2243,10 @@ void robotarm_student_2021a_Ipos_step(void)
       robotarm_student_2021a_Ipos_B.Gain1;
 
     /* MATLAB Function: '<S1>/quintic trajectory time1' incorporates:
-     *  Constant: '<S1>/Constant1'
+     *  Constant: '<S1>/Constant'
      */
     robotarm__quintictrajectorytime(robotarm_student_2021a_Ipos_B.X_rad,
-      robotarm_student_2021a_Ipos_P.Constant1_Value,
+      robotarm_student_2021a_Ipos_P.Constant_Value,
       robotarm_student_2021a_Ipos_B.SignalConversion1,
       &robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime1,
       &robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1);
@@ -2285,10 +2287,10 @@ void robotarm_student_2021a_Ipos_step(void)
       robotarm_student_2021a_Ipos_B.Gain2;
 
     /* MATLAB Function: '<S1>/quintic trajectory time2' incorporates:
-     *  Constant: '<S1>/Constant2'
+     *  Constant: '<S1>/Constant'
      */
     robotarm__quintictrajectorytime(robotarm_student_2021a_Ipos_B.Z_rad,
-      robotarm_student_2021a_Ipos_P.Constant2_Value,
+      robotarm_student_2021a_Ipos_P.Constant_Value,
       robotarm_student_2021a_Ipos_B.SignalConversion,
       &robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime2,
       &robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2);
@@ -2335,87 +2337,19 @@ void robotarm_student_2021a_Ipos_step(void)
       sfcnOutputs(rts,0);
     }
 
-    /* Gain: '<S8>/Gain1' */
-    robotarm_student_2021a_Ipos_B.Gain1_k =
-      robotarm_student_2021a_Ipos_P.Gain1_Gain_e * 0.0;
+    /* Constant: '<S1>/Plot' */
+    robotarm_student_2021a_Ipos_B.Plot =
+      robotarm_student_2021a_Ipos_P.Plot_Value;
 
-    /* S-Function (dpd): '<S8>/Dctpd2' */
-
-    /* Level2 S-Function Block: '<S8>/Dctpd2' (dpd) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dleadlag): '<S8>/Dctleadlag3' */
-
-    /* Level2 S-Function Block: '<S8>/Dctleadlag3' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[4];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Gain: '<S9>/Gain1' */
-    robotarm_student_2021a_Ipos_B.Gain1_c =
-      robotarm_student_2021a_Ipos_P.Gain1_Gain_k * 0.0;
-
-    /* S-Function (dpd): '<S9>/Dctpd2' */
-
-    /* Level2 S-Function Block: '<S9>/Dctpd2' (dpd) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[5];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dleadlag): '<S9>/Dctleadlag3' */
-
-    /* Level2 S-Function Block: '<S9>/Dctleadlag3' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[6];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Gain: '<S13>/Gain1' */
-    robotarm_student_2021a_Ipos_B.Gain1_oz =
-      robotarm_student_2021a_Ipos_P.Gain1_Gain_ea * 0.0;
-
-    /* S-Function (dleadlag): '<S13>/Dctleadlag2' */
-
-    /* Level2 S-Function Block: '<S13>/Dctleadlag2' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[7];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dweakint): '<S13>/Dctintegrator3' */
-
-    /* Level2 S-Function Block: '<S13>/Dctintegrator3' (dweakint) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[8];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dnotch): '<S13>/Dctnotch4' */
-
-    /* Level2 S-Function Block: '<S13>/Dctnotch4' (dnotch) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[9];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dpd): '<S13>/Dctpd5' */
-
-    /* Level2 S-Function Block: '<S13>/Dctpd5' (dpd) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[10];
-      sfcnOutputs(rts,0);
-    }
+    /* Constant: '<S1>/Stop' */
+    robotarm_student_2021a_Ipos_B.Stop =
+      robotarm_student_2021a_Ipos_P.Stop_Value;
 
     /* Outputs for Enabled SubSystem: '<S4>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S15>/Enable'
+     *  EnablePort: '<S12>/Enable'
      */
-    /* RelationalOperator: '<S14>/FixPt Relational Operator' incorporates:
-     *  Inport: '<S15>/In1'
+    /* RelationalOperator: '<S11>/FixPt Relational Operator' incorporates:
+     *  Inport: '<S12>/In1'
      */
     if (robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[0] ||
         robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[1] ||
@@ -2442,6 +2376,12 @@ void robotarm_student_2021a_Ipos_step(void)
      */
     robotarm_student_2021a_Ipos_B.Sum = robotarm_student_2021a_Ipos_B.In1 -
       robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[9];
+
+    /* Selector: '<S1>/Selector2' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector2_i =
+      robotarm_student_2021a_Ipos_B.Selector2[2];
 
     /* Selector: '<S1>/Selector3' incorporates:
      *  Selector: '<S4>/Selector2'
@@ -2478,18 +2418,6 @@ void robotarm_student_2021a_Ipos_step(void)
      */
     robotarm_student_2021a_Ipos_B.Selector8 =
       robotarm_student_2021a_Ipos_B.Selector2[5];
-
-    /* Constant: '<S1>/Object' */
-    robotarm_student_2021a_Ipos_B.Object =
-      robotarm_student_2021a_Ipos_P.Object_Value;
-
-    /* Constant: '<S1>/Plot' */
-    robotarm_student_2021a_Ipos_B.Plot =
-      robotarm_student_2021a_Ipos_P.Plot_Value;
-
-    /* Constant: '<S1>/Stop' */
-    robotarm_student_2021a_Ipos_B.Stop =
-      robotarm_student_2021a_Ipos_P.Stop_Value;
 
     /* Gain: '<S6>/Gain1' incorporates:
      *  Constant: '<S1>/Reference Vacuum [bar]'
@@ -2535,7 +2463,7 @@ void robotarm_student_2021a_Ipos_step(void)
     }
 
     /* End of ManualSwitch: '<S1>/Manual Switch1' */
-    /* Update for UnitDelay: '<S14>/Delay Input1' incorporates:
+    /* Update for UnitDelay: '<S11>/Delay Input1' incorporates:
      *  Constant: '<S4>/Object detection matrix'
      */
     memcpy(&robotarm_student_2021a_Ipos_DW.DelayInput1_DSTATE[0],
@@ -2552,21 +2480,21 @@ void robotarm_student_2021a_Ipos_step(void)
   }
 
   /* End of Outputs for SubSystem: '<Root>/Controller' */
-  /* Switch: '<S22>/Homing Running Switch' incorporates:
-   *  UnitDelay: '<S17>/Unit Delay1'
+  /* Switch: '<S19>/Homing Running Switch' incorporates:
+   *  UnitDelay: '<S14>/Unit Delay1'
    */
   if (robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE >=
       robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_l) {
-    /* Switch: '<S22>/Homing Running Switch1' incorporates:
-     *  StringConstant: '<S17>/Homing Orange'
-     *  Switch: '<S22>/Homing Running Switch'
+    /* Switch: '<S19>/Homing Running Switch1' incorporates:
+     *  StringConstant: '<S14>/Homing Orange'
+     *  Switch: '<S19>/Homing Running Switch'
      */
     if (robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE >=
         robotarm_student_2021a_Ipos_P.HomingRunningSwitch1_Threshold) {
-      /* Switch: '<S22>/Homing Running Switch2' incorporates:
-       *  StringConstant: '<S17>/Airbag Red'
-       *  StringConstant: '<S17>/Ready Green'
-       *  Switch: '<S22>/Homing Running Switch'
+      /* Switch: '<S19>/Homing Running Switch2' incorporates:
+       *  StringConstant: '<S14>/Airbag Red'
+       *  StringConstant: '<S14>/Ready Green'
+       *  Switch: '<S19>/Homing Running Switch'
        */
       if (robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE >=
           robotarm_student_2021a_Ipos_P.HomingRunningSwitch2_Threshold) {
@@ -2579,43 +2507,43 @@ void robotarm_student_2021a_Ipos_step(void)
         robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
       }
 
-      /* End of Switch: '<S22>/Homing Running Switch2' */
+      /* End of Switch: '<S19>/Homing Running Switch2' */
     } else {
       strncpy(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
               &robotarm_student_2021a_Ipos_P.HomingOrange_String[0], 255U);
       robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
     }
 
-    /* End of Switch: '<S22>/Homing Running Switch1' */
+    /* End of Switch: '<S19>/Homing Running Switch1' */
   } else {
     strncpy(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
             &robotarm_student_2021a_Ipos_B.ManualSwitch1[0], 255U);
     robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
   }
 
-  /* End of Switch: '<S22>/Homing Running Switch' */
+  /* End of Switch: '<S19>/Homing Running Switch' */
 
-  /* Outputs for Enabled SubSystem: '<S27>/Subsystem3' incorporates:
-   *  EnablePort: '<S29>/Enable'
+  /* Outputs for Enabled SubSystem: '<S24>/Subsystem3' incorporates:
+   *  EnablePort: '<S26>/Enable'
    */
-  /* Logic: '<S28>/NOT' incorporates:
-   *  Delay: '<S28>/Delay'
-   *  StringCompare: '<S28>/String Compare'
+  /* Logic: '<S25>/NOT' incorporates:
+   *  Delay: '<S25>/Delay'
+   *  StringCompare: '<S25>/String Compare'
    */
   if (strcmp(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
              &robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0]) != 0) {
-    /* If: '<S29>/If' incorporates:
-     *  Constant: '<S30>/Constant1'
-     *  Constant: '<S31>/Constant'
-     *  StringCompare: '<S29>/String Compare'
-     *  StringConstant: '<S29>/String Constant4'
+    /* If: '<S26>/If' incorporates:
+     *  Constant: '<S27>/Constant1'
+     *  Constant: '<S28>/Constant'
+     *  StringCompare: '<S26>/String Compare'
+     *  StringConstant: '<S26>/String Constant4'
      */
     if (strcmp(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
                &robotarm_student_2021a_Ipos_P.StringConstant4_String[0]) == 0) {
-      /* Outputs for IfAction SubSystem: '<S29>/If Action Subsystem' incorporates:
-       *  ActionPort: '<S30>/Action Port'
+      /* Outputs for IfAction SubSystem: '<S26>/If Action Subsystem' incorporates:
+       *  ActionPort: '<S27>/Action Port'
        */
-      /* StringToASCII: '<S30>/String to ASCII1' */
+      /* StringToASCII: '<S27>/String to ASCII1' */
       strncpy(&robotarm_student_2021a_Ipos_B.cv[0],
               &robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0], 31U);
       for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
@@ -2625,31 +2553,31 @@ void robotarm_student_2021a_Ipos_step(void)
           robotarm_student_2021a_Ipos_B.cv[robotarm_student_2021a_Ipos_B.i];
       }
 
-      /* End of StringToASCII: '<S30>/String to ASCII1' */
+      /* End of StringToASCII: '<S27>/String to ASCII1' */
       robotarm_student_2021a_Ipos_B.MatrixConcatenate1[31] =
         robotarm_student_2021a_Ipos_P.Constant1_Value_j;
       robotarm_student_2_SerialWrite1
         (robotarm_student_2021a_Ipos_B.MatrixConcatenate1,
          &robotarm_student_2021a_Ipos_DW.SerialWrite1);
 
-      /* End of Outputs for SubSystem: '<S29>/If Action Subsystem' */
+      /* End of Outputs for SubSystem: '<S26>/If Action Subsystem' */
 
-      /* Update for IfAction SubSystem: '<S29>/If Action Subsystem' incorporates:
-       *  ActionPort: '<S30>/Action Port'
+      /* Update for IfAction SubSystem: '<S26>/If Action Subsystem' incorporates:
+       *  ActionPort: '<S27>/Action Port'
        */
-      /* Update for If: '<S29>/If' incorporates:
-       *  Constant: '<S30>/Constant1'
+      /* Update for If: '<S26>/If' incorporates:
+       *  Constant: '<S27>/Constant1'
        */
       srUpdateBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem_SubsysRanBC);
 
-      /* End of Update for SubSystem: '<S29>/If Action Subsystem' */
+      /* End of Update for SubSystem: '<S26>/If Action Subsystem' */
     } else {
-      /* Outputs for IfAction SubSystem: '<S29>/If Action Subsystem1' incorporates:
-       *  ActionPort: '<S31>/Action Port'
+      /* Outputs for IfAction SubSystem: '<S26>/If Action Subsystem1' incorporates:
+       *  ActionPort: '<S28>/Action Port'
        */
-      /* StringConcatenate: '<S31>/String Concatenate' incorporates:
-       *  StringConstant: '<S31>/String Constant1'
-       *  StringConstant: '<S31>/String Constant3'
+      /* StringConcatenate: '<S28>/String Concatenate' incorporates:
+       *  StringConstant: '<S28>/String Constant1'
+       *  StringConstant: '<S28>/String Constant3'
        */
       robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0] = '\x00';
       strncat(&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0],
@@ -2667,8 +2595,8 @@ void robotarm_student_2021a_Ipos_step(void)
          &robotarm_student_2021a_Ipos_P.StringConstant1_String[0], 255U -
          robotarm_student_2021a_Ipos_B.i);
 
-      /* StringToASCII: '<S31>/String to ASCII' incorporates:
-       *  StringConcatenate: '<S31>/String Concatenate'
+      /* StringToASCII: '<S28>/String to ASCII' incorporates:
+       *  StringConcatenate: '<S28>/String Concatenate'
        */
       strncpy(&robotarm_student_2021a_Ipos_B.cv[0],
               &robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0], 31U);
@@ -2679,100 +2607,100 @@ void robotarm_student_2021a_Ipos_step(void)
           robotarm_student_2021a_Ipos_B.cv[robotarm_student_2021a_Ipos_B.i];
       }
 
-      /* End of StringToASCII: '<S31>/String to ASCII' */
+      /* End of StringToASCII: '<S28>/String to ASCII' */
       robotarm_student_2021a_Ipos_B.MatrixConcatenate[31] =
         robotarm_student_2021a_Ipos_P.Constant_Value_d;
       robotarm_student_2_SerialWrite1
         (robotarm_student_2021a_Ipos_B.MatrixConcatenate,
          &robotarm_student_2021a_Ipos_DW.SerialWrite);
 
-      /* End of Outputs for SubSystem: '<S29>/If Action Subsystem1' */
+      /* End of Outputs for SubSystem: '<S26>/If Action Subsystem1' */
 
-      /* Update for IfAction SubSystem: '<S29>/If Action Subsystem1' incorporates:
-       *  ActionPort: '<S31>/Action Port'
+      /* Update for IfAction SubSystem: '<S26>/If Action Subsystem1' incorporates:
+       *  ActionPort: '<S28>/Action Port'
        */
-      /* Update for If: '<S29>/If' incorporates:
-       *  Constant: '<S31>/Constant'
+      /* Update for If: '<S26>/If' incorporates:
+       *  Constant: '<S28>/Constant'
        */
       srUpdateBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem1_SubsysRanBC);
 
-      /* End of Update for SubSystem: '<S29>/If Action Subsystem1' */
+      /* End of Update for SubSystem: '<S26>/If Action Subsystem1' */
     }
 
-    /* End of If: '<S29>/If' */
+    /* End of If: '<S26>/If' */
     srUpdateBC(robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC);
   }
 
-  /* End of Logic: '<S28>/NOT' */
-  /* End of Outputs for SubSystem: '<S27>/Subsystem3' */
+  /* End of Logic: '<S25>/NOT' */
+  /* End of Outputs for SubSystem: '<S24>/Subsystem3' */
 
-  /* S-Function (ec_IposResetEnc): '<S23>/Reset EncoderR' */
+  /* S-Function (ec_IposResetEnc): '<S20>/Reset EncoderR' */
 
-  /* Level2 S-Function Block: '<S23>/Reset EncoderR' (ec_IposResetEnc) */
+  /* Level2 S-Function Block: '<S20>/Reset EncoderR' (ec_IposResetEnc) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[13];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[5];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S32>/Gain' */
+  /* Gain: '<S29>/Gain' */
   robotarm_student_2021a_Ipos_B.Gain_h =
     robotarm_student_2021a_Ipos_P.Gain_Gain_h *
     robotarm_student_2021a_Ipos_B.Sum2;
 
-  /* S-Function (dweakint): '<S32>/Dctintegrator' */
+  /* S-Function (dweakint): '<S29>/Dctintegrator' */
 
-  /* Level2 S-Function Block: '<S32>/Dctintegrator' (dweakint) */
+  /* Level2 S-Function Block: '<S29>/Dctintegrator' (dweakint) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[14];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[6];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dleadlag): '<S32>/Dctleadlag' */
+  /* S-Function (dleadlag): '<S29>/Dctleadlag' */
 
-  /* Level2 S-Function Block: '<S32>/Dctleadlag' (dleadlag) */
+  /* Level2 S-Function Block: '<S29>/Dctleadlag' (dleadlag) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[15];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[7];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dlowpass1): '<S32>/Dct1lowpass' */
+  /* S-Function (dlowpass1): '<S29>/Dct1lowpass' */
 
-  /* Level2 S-Function Block: '<S32>/Dct1lowpass' (dlowpass1) */
+  /* Level2 S-Function Block: '<S29>/Dct1lowpass' (dlowpass1) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[16];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[8];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S33>/Gain' incorporates:
-   *  Sum: '<S23>/Sum1'
+  /* Gain: '<S30>/Gain' incorporates:
+   *  Sum: '<S20>/Sum1'
    */
   robotarm_student_2021a_Ipos_B.Gain_p =
     (robotarm_student_2021a_Ipos_B.airBagRef_g -
      robotarm_student_2021a_Ipos_B.Gain) *
     robotarm_student_2021a_Ipos_P.Gain_Gain_c;
 
-  /* S-Function (dleadlag): '<S33>/Dctleadlag' */
+  /* S-Function (dleadlag): '<S30>/Dctleadlag' */
 
-  /* Level2 S-Function Block: '<S33>/Dctleadlag' (dleadlag) */
+  /* Level2 S-Function Block: '<S30>/Dctleadlag' (dleadlag) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[17];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[9];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dlowpass1): '<S33>/Dct1lowpass' */
+  /* S-Function (dlowpass1): '<S30>/Dct1lowpass' */
 
-  /* Level2 S-Function Block: '<S33>/Dct1lowpass' (dlowpass1) */
+  /* Level2 S-Function Block: '<S30>/Dct1lowpass' (dlowpass1) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[18];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[10];
     sfcnOutputs(rts,0);
   }
 
-  /* Switch: '<S23>/AirbagSwitch' incorporates:
-   *  Logic: '<S23>/Logical Operator1'
+  /* Switch: '<S20>/AirbagSwitch' incorporates:
+   *  Logic: '<S20>/Logical Operator1'
    */
   if (!(robotarm_student_2021a_Ipos_B.airBagEnabled_f != 0.0)) {
-    /* Switch: '<S23>/Homing Running Switch' incorporates:
-     *  Product: '<S23>/Product'
+    /* Switch: '<S20>/Homing Running Switch' incorporates:
+     *  Product: '<S20>/Product'
      */
     if (robotarm_student_2021a_Ipos_B.homingBusy_l >=
         robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold) {
@@ -2783,107 +2711,107 @@ void robotarm_student_2021a_Ipos_step(void)
       robotarm_student_2021a_Ipos_B.d12 = robotarm_student_2021a_Ipos_B.Sum4;
     }
 
-    /* End of Switch: '<S23>/Homing Running Switch' */
+    /* End of Switch: '<S20>/Homing Running Switch' */
   } else {
     robotarm_student_2021a_Ipos_B.d12 =
       robotarm_student_2021a_Ipos_B.Dct1lowpass_i;
   }
 
-  /* End of Switch: '<S23>/AirbagSwitch' */
+  /* End of Switch: '<S20>/AirbagSwitch' */
 
-  /* Gain: '<S23>/Gain1' incorporates:
-   *  Product: '<S23>/Product1'
+  /* Gain: '<S20>/Gain1' incorporates:
+   *  Product: '<S20>/Product1'
    */
   robotarm_student_2021a_Ipos_B.Saturation1 = robotarm_student_2021a_Ipos_B.d12 *
     robotarm_student_2021a_Ipos_B.controlEnabled_l *
     robotarm_student_2021a_Ipos_P.Gain1_Gain_m;
 
-  /* Saturate: '<S23>/Saturation1' */
+  /* Saturate: '<S20>/Saturation1' */
   if (robotarm_student_2021a_Ipos_B.Saturation1 >
       robotarm_student_2021a_Ipos_P.Saturation1_UpperSat) {
-    /* Gain: '<S23>/Gain1' incorporates:
-     *  Saturate: '<S23>/Saturation1'
+    /* Gain: '<S20>/Gain1' incorporates:
+     *  Saturate: '<S20>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1 =
       robotarm_student_2021a_Ipos_P.Saturation1_UpperSat;
   } else if (robotarm_student_2021a_Ipos_B.Saturation1 <
              robotarm_student_2021a_Ipos_P.Saturation1_LowerSat) {
-    /* Gain: '<S23>/Gain1' incorporates:
-     *  Saturate: '<S23>/Saturation1'
+    /* Gain: '<S20>/Gain1' incorporates:
+     *  Saturate: '<S20>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1 =
       robotarm_student_2021a_Ipos_P.Saturation1_LowerSat;
   }
 
-  /* End of Saturate: '<S23>/Saturation1' */
+  /* End of Saturate: '<S20>/Saturation1' */
 
-  /* S-Function (ec_IposResetEnc): '<S24>/Reset EncoderR1' */
+  /* S-Function (ec_IposResetEnc): '<S21>/Reset EncoderR1' */
 
-  /* Level2 S-Function Block: '<S24>/Reset EncoderR1' (ec_IposResetEnc) */
+  /* Level2 S-Function Block: '<S21>/Reset EncoderR1' (ec_IposResetEnc) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[19];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[11];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S39>/Gain1' */
+  /* Gain: '<S36>/Gain1' */
   robotarm_student_2021a_Ipos_B.Gain1_p =
     robotarm_student_2021a_Ipos_P.Gain1_Gain_o *
     robotarm_student_2021a_Ipos_B.Sum2_a;
 
-  /* S-Function (dweakint): '<S39>/Dctintegrator' */
+  /* S-Function (dweakint): '<S36>/Dctintegrator' */
 
-  /* Level2 S-Function Block: '<S39>/Dctintegrator' (dweakint) */
+  /* Level2 S-Function Block: '<S36>/Dctintegrator' (dweakint) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[20];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[12];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dleadlag): '<S39>/Dctleadlag' */
+  /* S-Function (dleadlag): '<S36>/Dctleadlag' */
 
-  /* Level2 S-Function Block: '<S39>/Dctleadlag' (dleadlag) */
+  /* Level2 S-Function Block: '<S36>/Dctleadlag' (dleadlag) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[21];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[13];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dlowpass1): '<S39>/Dct1lowpass' */
+  /* S-Function (dlowpass1): '<S36>/Dct1lowpass' */
 
-  /* Level2 S-Function Block: '<S39>/Dct1lowpass' (dlowpass1) */
+  /* Level2 S-Function Block: '<S36>/Dct1lowpass' (dlowpass1) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[22];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[14];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S40>/Gain1' incorporates:
-   *  Sum: '<S24>/Sum1'
+  /* Gain: '<S37>/Gain1' incorporates:
+   *  Sum: '<S21>/Sum1'
    */
   robotarm_student_2021a_Ipos_B.Gain1_o =
     (robotarm_student_2021a_Ipos_B.airBagRef_a -
      robotarm_student_2021a_Ipos_B.Gain1) *
     robotarm_student_2021a_Ipos_P.Gain1_Gain_h;
 
-  /* S-Function (dleadlag): '<S40>/Dctleadlag' */
+  /* S-Function (dleadlag): '<S37>/Dctleadlag' */
 
-  /* Level2 S-Function Block: '<S40>/Dctleadlag' (dleadlag) */
+  /* Level2 S-Function Block: '<S37>/Dctleadlag' (dleadlag) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[23];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[15];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dlowpass1): '<S40>/Dct1lowpass' */
+  /* S-Function (dlowpass1): '<S37>/Dct1lowpass' */
 
-  /* Level2 S-Function Block: '<S40>/Dct1lowpass' (dlowpass1) */
+  /* Level2 S-Function Block: '<S37>/Dct1lowpass' (dlowpass1) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[24];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[16];
     sfcnOutputs(rts,0);
   }
 
-  /* Switch: '<S24>/AirbagSwitch' incorporates:
-   *  Logic: '<S24>/Logical Operator1'
+  /* Switch: '<S21>/AirbagSwitch' incorporates:
+   *  Logic: '<S21>/Logical Operator1'
    */
   if (!(robotarm_student_2021a_Ipos_B.airBagEnabled_o != 0.0)) {
-    /* Switch: '<S24>/Homing Running Switch' incorporates:
-     *  Product: '<S24>/Product'
+    /* Switch: '<S21>/Homing Running Switch' incorporates:
+     *  Product: '<S21>/Product'
      */
     if (robotarm_student_2021a_Ipos_B.homingBusy_j >=
         robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_j) {
@@ -2894,108 +2822,108 @@ void robotarm_student_2021a_Ipos_step(void)
       robotarm_student_2021a_Ipos_B.d12 = robotarm_student_2021a_Ipos_B.Sum5;
     }
 
-    /* End of Switch: '<S24>/Homing Running Switch' */
+    /* End of Switch: '<S21>/Homing Running Switch' */
   } else {
     robotarm_student_2021a_Ipos_B.d12 =
       robotarm_student_2021a_Ipos_B.Dct1lowpass_j;
   }
 
-  /* End of Switch: '<S24>/AirbagSwitch' */
+  /* End of Switch: '<S21>/AirbagSwitch' */
 
-  /* Gain: '<S24>/Gain' incorporates:
-   *  Product: '<S24>/Product1'
+  /* Gain: '<S21>/Gain' incorporates:
+   *  Product: '<S21>/Product1'
    */
   robotarm_student_2021a_Ipos_B.Saturation1_n =
     robotarm_student_2021a_Ipos_B.d12 *
     robotarm_student_2021a_Ipos_B.controlEnabled_a *
     robotarm_student_2021a_Ipos_P.Gain_Gain_cj;
 
-  /* Saturate: '<S24>/Saturation1' */
+  /* Saturate: '<S21>/Saturation1' */
   if (robotarm_student_2021a_Ipos_B.Saturation1_n >
       robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_e) {
-    /* Gain: '<S24>/Gain' incorporates:
-     *  Saturate: '<S24>/Saturation1'
+    /* Gain: '<S21>/Gain' incorporates:
+     *  Saturate: '<S21>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1_n =
       robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_e;
   } else if (robotarm_student_2021a_Ipos_B.Saturation1_n <
              robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_p) {
-    /* Gain: '<S24>/Gain' incorporates:
-     *  Saturate: '<S24>/Saturation1'
+    /* Gain: '<S21>/Gain' incorporates:
+     *  Saturate: '<S21>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1_n =
       robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_p;
   }
 
-  /* End of Saturate: '<S24>/Saturation1' */
+  /* End of Saturate: '<S21>/Saturation1' */
 
-  /* S-Function (ec_IposResetEnc): '<S25>/Reset EncoderR1' */
+  /* S-Function (ec_IposResetEnc): '<S22>/Reset EncoderR1' */
 
-  /* Level2 S-Function Block: '<S25>/Reset EncoderR1' (ec_IposResetEnc) */
+  /* Level2 S-Function Block: '<S22>/Reset EncoderR1' (ec_IposResetEnc) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[25];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[17];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S48>/Gain' */
+  /* Gain: '<S45>/Gain' */
   robotarm_student_2021a_Ipos_B.Gain_i =
     robotarm_student_2021a_Ipos_P.Gain_Gain_cr *
     robotarm_student_2021a_Ipos_B.Sum2_e;
 
-  /* S-Function (dweakint): '<S48>/Dctintegrator' */
+  /* S-Function (dweakint): '<S45>/Dctintegrator' */
 
-  /* Level2 S-Function Block: '<S48>/Dctintegrator' (dweakint) */
+  /* Level2 S-Function Block: '<S45>/Dctintegrator' (dweakint) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[26];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[18];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dleadlag): '<S48>/Dctleadlag' */
+  /* S-Function (dleadlag): '<S45>/Dctleadlag' */
 
-  /* Level2 S-Function Block: '<S48>/Dctleadlag' (dleadlag) */
+  /* Level2 S-Function Block: '<S45>/Dctleadlag' (dleadlag) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[27];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[19];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dlowpass1): '<S48>/Dct1lowpass' */
+  /* S-Function (dlowpass1): '<S45>/Dct1lowpass' */
 
-  /* Level2 S-Function Block: '<S48>/Dct1lowpass' (dlowpass1) */
+  /* Level2 S-Function Block: '<S45>/Dct1lowpass' (dlowpass1) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[28];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[20];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S49>/Gain' incorporates:
-   *  Sum: '<S25>/Sum1'
+  /* Gain: '<S46>/Gain' incorporates:
+   *  Sum: '<S22>/Sum1'
    */
   robotarm_student_2021a_Ipos_B.Gain_f =
     (robotarm_student_2021a_Ipos_B.airBagRef -
      robotarm_student_2021a_Ipos_B.Gain2) *
     robotarm_student_2021a_Ipos_P.Gain_Gain_l;
 
-  /* S-Function (dleadlag): '<S49>/Dctleadlag' */
+  /* S-Function (dleadlag): '<S46>/Dctleadlag' */
 
-  /* Level2 S-Function Block: '<S49>/Dctleadlag' (dleadlag) */
+  /* Level2 S-Function Block: '<S46>/Dctleadlag' (dleadlag) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[29];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[21];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dlowpass1): '<S49>/Dct1lowpass' */
+  /* S-Function (dlowpass1): '<S46>/Dct1lowpass' */
 
-  /* Level2 S-Function Block: '<S49>/Dct1lowpass' (dlowpass1) */
+  /* Level2 S-Function Block: '<S46>/Dct1lowpass' (dlowpass1) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[30];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[22];
     sfcnOutputs(rts,0);
   }
 
-  /* Switch: '<S25>/AirbagSwitch' incorporates:
-   *  Logic: '<S25>/Logical Operator1'
+  /* Switch: '<S22>/AirbagSwitch' incorporates:
+   *  Logic: '<S22>/Logical Operator1'
    */
   if (!(robotarm_student_2021a_Ipos_B.airBagEnabled != 0.0)) {
-    /* Switch: '<S25>/Homing Running Switch' incorporates:
-     *  Product: '<S25>/Product'
+    /* Switch: '<S22>/Homing Running Switch' incorporates:
+     *  Product: '<S22>/Product'
      */
     if (robotarm_student_2021a_Ipos_B.homingBusy_n >=
         robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_d) {
@@ -3006,84 +2934,84 @@ void robotarm_student_2021a_Ipos_step(void)
       robotarm_student_2021a_Ipos_B.d12 = robotarm_student_2021a_Ipos_B.Sum6;
     }
 
-    /* End of Switch: '<S25>/Homing Running Switch' */
+    /* End of Switch: '<S22>/Homing Running Switch' */
   } else {
     robotarm_student_2021a_Ipos_B.d12 =
       robotarm_student_2021a_Ipos_B.Dct1lowpass_a;
   }
 
-  /* End of Switch: '<S25>/AirbagSwitch' */
+  /* End of Switch: '<S22>/AirbagSwitch' */
 
-  /* Gain: '<S25>/Gain' incorporates:
-   *  Product: '<S25>/Product1'
+  /* Gain: '<S22>/Gain' incorporates:
+   *  Product: '<S22>/Product1'
    */
   robotarm_student_2021a_Ipos_B.Saturation1_a =
     robotarm_student_2021a_Ipos_B.d12 *
     robotarm_student_2021a_Ipos_B.controlEnabled *
     robotarm_student_2021a_Ipos_P.Gain_Gain_g;
 
-  /* Saturate: '<S25>/Saturation1' */
+  /* Saturate: '<S22>/Saturation1' */
   if (robotarm_student_2021a_Ipos_B.Saturation1_a >
       robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_i) {
-    /* Gain: '<S25>/Gain' incorporates:
-     *  Saturate: '<S25>/Saturation1'
+    /* Gain: '<S22>/Gain' incorporates:
+     *  Saturate: '<S22>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1_a =
       robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_i;
   } else if (robotarm_student_2021a_Ipos_B.Saturation1_a <
              robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_n) {
-    /* Gain: '<S25>/Gain' incorporates:
-     *  Saturate: '<S25>/Saturation1'
+    /* Gain: '<S22>/Gain' incorporates:
+     *  Saturate: '<S22>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1_a =
       robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_n;
   }
 
-  /* End of Saturate: '<S25>/Saturation1' */
+  /* End of Saturate: '<S22>/Saturation1' */
 
-  /* S-Function (ec_IposResetEnc): '<S26>/Reset EncoderR1' */
+  /* S-Function (ec_IposResetEnc): '<S23>/Reset EncoderR1' */
 
-  /* Level2 S-Function Block: '<S26>/Reset EncoderR1' (ec_IposResetEnc) */
+  /* Level2 S-Function Block: '<S23>/Reset EncoderR1' (ec_IposResetEnc) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[31];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[23];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S58>/Gain1' incorporates:
-   *  DiscreteIntegrator: '<S26>/Discrete-Time Integrator'
-   *  Sum: '<S26>/Sum1'
+  /* Gain: '<S55>/Gain1' incorporates:
+   *  DiscreteIntegrator: '<S23>/Discrete-Time Integrator'
+   *  Sum: '<S23>/Sum1'
    */
   robotarm_student_2021a_Ipos_B.Gain1_a =
     (robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_k -
      robotarm_student_2021a_Ipos_B.Gain3) *
     robotarm_student_2021a_Ipos_P.Gain1_Gain_j;
 
-  /* S-Function (dweakint): '<S58>/Dctintegrator3' */
+  /* S-Function (dweakint): '<S55>/Dctintegrator3' */
 
-  /* Level2 S-Function Block: '<S58>/Dctintegrator3' (dweakint) */
+  /* Level2 S-Function Block: '<S55>/Dctintegrator3' (dweakint) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[32];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[24];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dlowpass1): '<S58>/Dct1lowpass' */
+  /* S-Function (dlowpass1): '<S55>/Dct1lowpass' */
 
-  /* Level2 S-Function Block: '<S58>/Dct1lowpass' (dlowpass1) */
+  /* Level2 S-Function Block: '<S55>/Dct1lowpass' (dlowpass1) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[33];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[25];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dleadlag): '<S58>/Dctleadlag' */
+  /* S-Function (dleadlag): '<S55>/Dctleadlag' */
 
-  /* Level2 S-Function Block: '<S58>/Dctleadlag' (dleadlag) */
+  /* Level2 S-Function Block: '<S55>/Dctleadlag' (dleadlag) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[34];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[26];
     sfcnOutputs(rts,0);
   }
 
-  /* Switch: '<S26>/Homing Running Switch' incorporates:
-   *  Product: '<S26>/Product'
+  /* Switch: '<S23>/Homing Running Switch' incorporates:
+   *  Product: '<S23>/Product'
    */
   if (robotarm_student_2021a_Ipos_B.homingBusy >=
       robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshol_lq) {
@@ -3095,34 +3023,34 @@ void robotarm_student_2021a_Ipos_step(void)
       robotarm_student_2021a_Ipos_B.Dctleadlag_d;
   }
 
-  /* End of Switch: '<S26>/Homing Running Switch' */
+  /* End of Switch: '<S23>/Homing Running Switch' */
 
-  /* Gain: '<S26>/Gain' */
+  /* Gain: '<S23>/Gain' */
   robotarm_student_2021a_Ipos_B.Saturation1_d =
     robotarm_student_2021a_Ipos_P.Gain_Gain_j *
     robotarm_student_2021a_Ipos_B.d12;
 
-  /* Saturate: '<S26>/Saturation1' */
+  /* Saturate: '<S23>/Saturation1' */
   if (robotarm_student_2021a_Ipos_B.Saturation1_d >
       robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_o) {
-    /* Gain: '<S26>/Gain' incorporates:
-     *  Saturate: '<S26>/Saturation1'
+    /* Gain: '<S23>/Gain' incorporates:
+     *  Saturate: '<S23>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1_d =
       robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_o;
   } else if (robotarm_student_2021a_Ipos_B.Saturation1_d <
              robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_g) {
-    /* Gain: '<S26>/Gain' incorporates:
-     *  Saturate: '<S26>/Saturation1'
+    /* Gain: '<S23>/Gain' incorporates:
+     *  Saturate: '<S23>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1_d =
       robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_g;
   }
 
-  /* End of Saturate: '<S26>/Saturation1' */
+  /* End of Saturate: '<S23>/Saturation1' */
 
-  /* Sum: '<S17>/Add2' incorporates:
-   *  Logic: '<S17>/NOT'
+  /* Sum: '<S14>/Add2' incorporates:
+   *  Logic: '<S14>/NOT'
    */
   robotarm_student_2021a_Ipos_B.Add2 =
     (((robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 +
@@ -3131,47 +3059,47 @@ void robotarm_student_2021a_Ipos_step(void)
      !(robotarm_student_2021a_Ipos_B.Add1 != 0.0)) +
     robotarm_student_2021a_Ipos_B.homingBusy_l;
 
-  /* Sum: '<S17>/Add' */
+  /* Sum: '<S14>/Add' */
   robotarm_student_2021a_Ipos_B.Add = ((robotarm_student_2021a_Ipos_B.Ready_a +
     robotarm_student_2021a_Ipos_B.Ready_i) +
     robotarm_student_2021a_Ipos_B.Ready_n) + robotarm_student_2021a_Ipos_B.Ready;
 
-  /* Stop: '<S26>/Stop Simulation' */
+  /* Stop: '<S23>/Stop Simulation' */
   if (robotarm_student_2021a_Ipos_B.StopSim != 0.0) {
     rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
   }
 
-  /* End of Stop: '<S26>/Stop Simulation' */
+  /* End of Stop: '<S23>/Stop Simulation' */
 
-  /* Stop: '<S25>/Stop Simulation' */
+  /* Stop: '<S22>/Stop Simulation' */
   if (robotarm_student_2021a_Ipos_B.StopSim_n != 0.0) {
     rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
   }
 
-  /* End of Stop: '<S25>/Stop Simulation' */
+  /* End of Stop: '<S22>/Stop Simulation' */
 
-  /* Sum: '<S38>/Diff' incorporates:
-   *  Sum: '<S51>/Sum'
+  /* Sum: '<S35>/Diff' incorporates:
+   *  Sum: '<S48>/Sum'
    */
   robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
     robotarm_student_2021a_Ipos_B.toPoint
     + robotarm_student_2021a_Ipos_B.Constant1_f;
 
-  /* RateLimiter: '<S51>/Limit Speed' */
+  /* RateLimiter: '<S48>/Limit Speed' */
   robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
     robotarm_student_2021a_Ipos_DW.PrevY;
   if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 >
       robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim *
       robotarm_student_2021a_I_period) {
-    /* Sum: '<S38>/Diff' */
+    /* Sum: '<S35>/Diff' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
       robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY;
   } else if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 <
              robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim *
              robotarm_student_2021a_I_period) {
-    /* Sum: '<S38>/Diff' */
+    /* Sum: '<S35>/Diff' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
       robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY;
@@ -3180,45 +3108,45 @@ void robotarm_student_2021a_Ipos_step(void)
   robotarm_student_2021a_Ipos_DW.PrevY =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
 
-  /* End of RateLimiter: '<S51>/Limit Speed' */
+  /* End of RateLimiter: '<S48>/Limit Speed' */
 
-  /* SampleTimeMath: '<S57>/TSamp'
+  /* SampleTimeMath: '<S54>/TSamp'
    *
-   * About '<S57>/TSamp':
+   * About '<S54>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   robotarm_student_2021a_Ipos_B.TSamp =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
     robotarm_student_2021a_Ipos_P.TSamp_WtEt;
 
-  /* Sum: '<S38>/Diff' incorporates:
-   *  Sum: '<S57>/Diff'
-   *  UnitDelay: '<S57>/UD'
+  /* Sum: '<S35>/Diff' incorporates:
+   *  Sum: '<S54>/Diff'
+   *  UnitDelay: '<S54>/UD'
    */
   robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
     robotarm_student_2021a_Ipos_B.TSamp -
     robotarm_student_2021a_Ipos_DW.UD_DSTATE;
 
-  /* RateLimiter: '<S51>/Limit Acceleration' */
+  /* RateLimiter: '<S48>/Limit Acceleration' */
   robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
     robotarm_student_2021a_Ipos_DW.PrevY_j;
   if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 >
       robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim *
       robotarm_student_2021a_I_period) {
-    /* RateLimiter: '<S51>/Limit Acceleration' */
+    /* RateLimiter: '<S48>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_j;
   } else if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 <
              robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim *
              robotarm_student_2021a_I_period) {
-    /* RateLimiter: '<S51>/Limit Acceleration' */
+    /* RateLimiter: '<S48>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_j;
   } else {
-    /* RateLimiter: '<S51>/Limit Acceleration' */
+    /* RateLimiter: '<S48>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration =
       robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
   }
@@ -3226,36 +3154,36 @@ void robotarm_student_2021a_Ipos_step(void)
   robotarm_student_2021a_Ipos_DW.PrevY_j =
     robotarm_student_2021a_Ipos_B.LimitAcceleration;
 
-  /* End of RateLimiter: '<S51>/Limit Acceleration' */
-  /* Stop: '<S24>/Stop Simulation' */
+  /* End of RateLimiter: '<S48>/Limit Acceleration' */
+  /* Stop: '<S21>/Stop Simulation' */
   if (robotarm_student_2021a_Ipos_B.StopSim_o != 0.0) {
     rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
   }
 
-  /* End of Stop: '<S24>/Stop Simulation' */
+  /* End of Stop: '<S21>/Stop Simulation' */
 
-  /* Sum: '<S38>/Diff' incorporates:
-   *  Sum: '<S41>/Sum'
+  /* Sum: '<S35>/Diff' incorporates:
+   *  Sum: '<S38>/Sum'
    */
   robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
     robotarm_student_2021a_Ipos_B.toPoint_e +
     robotarm_student_2021a_Ipos_B.Constant1_e;
 
-  /* RateLimiter: '<S41>/Limit Speed' */
+  /* RateLimiter: '<S38>/Limit Speed' */
   robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
     robotarm_student_2021a_Ipos_DW.PrevY_d;
   if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 >
       robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_i *
       robotarm_student_2021a_I_period) {
-    /* Sum: '<S38>/Diff' */
+    /* Sum: '<S35>/Diff' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
       robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_i *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_d;
   } else if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 <
              robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_k *
              robotarm_student_2021a_I_period) {
-    /* Sum: '<S38>/Diff' */
+    /* Sum: '<S35>/Diff' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
       robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_k *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_d;
@@ -3264,45 +3192,45 @@ void robotarm_student_2021a_Ipos_step(void)
   robotarm_student_2021a_Ipos_DW.PrevY_d =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
 
-  /* End of RateLimiter: '<S41>/Limit Speed' */
+  /* End of RateLimiter: '<S38>/Limit Speed' */
 
-  /* SampleTimeMath: '<S47>/TSamp'
+  /* SampleTimeMath: '<S44>/TSamp'
    *
-   * About '<S47>/TSamp':
+   * About '<S44>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   robotarm_student_2021a_Ipos_B.TSamp_d =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
     robotarm_student_2021a_Ipos_P.TSamp_WtEt_d;
 
-  /* Sum: '<S38>/Diff' incorporates:
-   *  Sum: '<S47>/Diff'
-   *  UnitDelay: '<S47>/UD'
+  /* Sum: '<S35>/Diff' incorporates:
+   *  Sum: '<S44>/Diff'
+   *  UnitDelay: '<S44>/UD'
    */
   robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
     robotarm_student_2021a_Ipos_B.TSamp_d -
     robotarm_student_2021a_Ipos_DW.UD_DSTATE_c;
 
-  /* RateLimiter: '<S41>/Limit Acceleration' */
+  /* RateLimiter: '<S38>/Limit Acceleration' */
   robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
     robotarm_student_2021a_Ipos_DW.PrevY_f;
   if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 >
       robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_k *
       robotarm_student_2021a_I_period) {
-    /* RateLimiter: '<S41>/Limit Acceleration' */
+    /* RateLimiter: '<S38>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_k *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_f;
   } else if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 <
              robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_m *
              robotarm_student_2021a_I_period) {
-    /* RateLimiter: '<S41>/Limit Acceleration' */
+    /* RateLimiter: '<S38>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_m *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_f;
   } else {
-    /* RateLimiter: '<S41>/Limit Acceleration' */
+    /* RateLimiter: '<S38>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
       robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
   }
@@ -3310,36 +3238,36 @@ void robotarm_student_2021a_Ipos_step(void)
   robotarm_student_2021a_Ipos_DW.PrevY_f =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_b;
 
-  /* End of RateLimiter: '<S41>/Limit Acceleration' */
-  /* Stop: '<S23>/Stop Simulation' */
+  /* End of RateLimiter: '<S38>/Limit Acceleration' */
+  /* Stop: '<S20>/Stop Simulation' */
   if (robotarm_student_2021a_Ipos_B.StopSim_j != 0.0) {
     rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
   }
 
-  /* End of Stop: '<S23>/Stop Simulation' */
+  /* End of Stop: '<S20>/Stop Simulation' */
 
-  /* Sum: '<S38>/Diff' incorporates:
-   *  Sum: '<S35>/Sum'
+  /* Sum: '<S35>/Diff' incorporates:
+   *  Sum: '<S32>/Sum'
    */
   robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
     robotarm_student_2021a_Ipos_B.toPoint_b +
     robotarm_student_2021a_Ipos_B.Constant1;
 
-  /* RateLimiter: '<S35>/Limit Speed' */
+  /* RateLimiter: '<S32>/Limit Speed' */
   robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
     robotarm_student_2021a_Ipos_DW.PrevY_i;
   if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 >
       robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_iu *
       robotarm_student_2021a_I_period) {
-    /* Sum: '<S38>/Diff' */
+    /* Sum: '<S35>/Diff' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
       robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_iu *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_i;
   } else if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 <
              robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_j *
              robotarm_student_2021a_I_period) {
-    /* Sum: '<S38>/Diff' */
+    /* Sum: '<S35>/Diff' */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
       robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_j *
       robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_i;
@@ -3348,33 +3276,33 @@ void robotarm_student_2021a_Ipos_step(void)
   robotarm_student_2021a_Ipos_DW.PrevY_i =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
 
-  /* End of RateLimiter: '<S35>/Limit Speed' */
+  /* End of RateLimiter: '<S32>/Limit Speed' */
 
-  /* SampleTimeMath: '<S38>/TSamp'
+  /* SampleTimeMath: '<S35>/TSamp'
    *
-   * About '<S38>/TSamp':
+   * About '<S35>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   robotarm_student_2021a_Ipos_B.TSamp_k =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
     robotarm_student_2021a_Ipos_P.TSamp_WtEt_g;
 
-  /* Sum: '<S38>/Diff' incorporates:
-   *  UnitDelay: '<S38>/UD'
+  /* Sum: '<S35>/Diff' incorporates:
+   *  UnitDelay: '<S35>/UD'
    */
   robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
     robotarm_student_2021a_Ipos_B.TSamp_k -
     robotarm_student_2021a_Ipos_DW.UD_DSTATE_cc;
 
-  /* RateLimiter: '<S35>/Limit Acceleration' */
+  /* RateLimiter: '<S32>/Limit Acceleration' */
   robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
     robotarm_student_2021a_Ipos_DW.PrevY_k;
   if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 >
       robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_m *
       robotarm_student_2021a_I_period) {
-    /* Sum: '<S38>/Diff' incorporates:
-     *  RateLimiter: '<S35>/Limit Acceleration'
+    /* Sum: '<S35>/Diff' incorporates:
+     *  RateLimiter: '<S32>/Limit Acceleration'
      */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_m *
@@ -3382,8 +3310,8 @@ void robotarm_student_2021a_Ipos_step(void)
   } else if (robotarm_student_2021a_Ipos_B.rtb_Gain_idx_0 <
              robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_k *
              robotarm_student_2021a_I_period) {
-    /* Sum: '<S38>/Diff' incorporates:
-     *  RateLimiter: '<S35>/Limit Acceleration'
+    /* Sum: '<S35>/Diff' incorporates:
+     *  RateLimiter: '<S32>/Limit Acceleration'
      */
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_k *
@@ -3393,64 +3321,64 @@ void robotarm_student_2021a_Ipos_step(void)
   robotarm_student_2021a_Ipos_DW.PrevY_k =
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
 
-  /* End of RateLimiter: '<S35>/Limit Acceleration' */
+  /* End of RateLimiter: '<S32>/Limit Acceleration' */
 
-  /* Update for DiscreteIntegrator: '<S35>/Discrete-Time Integrator' */
+  /* Update for DiscreteIntegrator: '<S32>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE +=
     robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainval *
     robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
 
-  /* Update for DiscreteIntegrator: '<S23>/Discrete-Time Integrator' */
+  /* Update for DiscreteIntegrator: '<S20>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_g +=
     robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_i *
     robotarm_student_2021a_Ipos_B.jogSpeed_o;
 
-  /* Update for DiscreteIntegrator: '<S24>/Discrete-Time Integrator' */
+  /* Update for DiscreteIntegrator: '<S21>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_m +=
     robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_h *
     robotarm_student_2021a_Ipos_B.jogSpeed_c;
 
-  /* Update for DiscreteIntegrator: '<S41>/Discrete-Time Integrator' */
+  /* Update for DiscreteIntegrator: '<S38>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_o +=
     robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_j *
     robotarm_student_2021a_Ipos_B.LimitAcceleration_b;
 
-  /* Update for DiscreteIntegrator: '<S25>/Discrete-Time Integrator' */
+  /* Update for DiscreteIntegrator: '<S22>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_a +=
     robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_o *
     robotarm_student_2021a_Ipos_B.jogSpeed_i;
 
-  /* Update for DiscreteIntegrator: '<S51>/Discrete-Time Integrator' */
+  /* Update for DiscreteIntegrator: '<S48>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_j +=
     robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_n *
     robotarm_student_2021a_Ipos_B.LimitAcceleration;
 
-  /* Update for UnitDelay: '<S17>/Unit Delay' */
+  /* Update for UnitDelay: '<S14>/Unit Delay' */
   robotarm_student_2021a_Ipos_DW.UnitDelay_DSTATE =
     robotarm_student_2021a_Ipos_B.Add;
 
-  /* Update for UnitDelay: '<S17>/Unit Delay1' */
+  /* Update for UnitDelay: '<S14>/Unit Delay1' */
   robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE =
     robotarm_student_2021a_Ipos_B.Add2;
 
-  /* Update for Delay: '<S28>/Delay' */
+  /* Update for Delay: '<S25>/Delay' */
   strncpy(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0],
           &robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0], 255U);
   robotarm_student_2021a_Ipos_DW.Delay_DSTATE[255] = '\x00';
 
-  /* Update for DiscreteIntegrator: '<S26>/Discrete-Time Integrator' */
+  /* Update for DiscreteIntegrator: '<S23>/Discrete-Time Integrator' */
   robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_k +=
     robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_g *
     robotarm_student_2021a_Ipos_B.jogSpeed;
 
-  /* Update for UnitDelay: '<S57>/UD' */
+  /* Update for UnitDelay: '<S54>/UD' */
   robotarm_student_2021a_Ipos_DW.UD_DSTATE = robotarm_student_2021a_Ipos_B.TSamp;
 
-  /* Update for UnitDelay: '<S47>/UD' */
+  /* Update for UnitDelay: '<S44>/UD' */
   robotarm_student_2021a_Ipos_DW.UD_DSTATE_c =
     robotarm_student_2021a_Ipos_B.TSamp_d;
 
-  /* Update for UnitDelay: '<S38>/UD' */
+  /* Update for UnitDelay: '<S35>/UD' */
   robotarm_student_2021a_Ipos_DW.UD_DSTATE_cc =
     robotarm_student_2021a_Ipos_B.TSamp_k;
 
@@ -3588,10 +3516,10 @@ void robotarm_student_2021a_Ipos_initialize(void)
   robotarm_student_2021a_Ipos_M->Timing.stepSize1 = 0.00048828125;
 
   /* External mode info */
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[0] = (3661774746U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[1] = (1927501284U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[2] = (1409614459U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[3] = (1533494863U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[0] = (1873349731U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[1] = (2421254795U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[2] = (461094385U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[3] = (4292033123U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -3713,20 +3641,20 @@ void robotarm_student_2021a_Ipos_initialize(void)
     rtssSetSolverInfoPtr(sfcnInfo, &robotarm_student_2021a_Ipos_M->solverInfoPtr);
   }
 
-  robotarm_student_2021a_Ipos_M->Sizes.numSFcns = (35);
+  robotarm_student_2021a_Ipos_M->Sizes.numSFcns = (27);
 
   /* register each child */
   {
     (void) memset((void *)
                   &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.childSFunctions
                   [0], 0,
-                  35*sizeof(SimStruct));
+                  27*sizeof(SimStruct));
     robotarm_student_2021a_Ipos_M->childSfunctions =
       (&robotarm_student_2021a_Ipos_M->NonInlinedSFcns.childSFunctionPtrs[0]);
 
     {
       int_T i;
-      for (i = 0; i < 35; i++) {
+      for (i = 0; i < 27; i++) {
         robotarm_student_2021a_Ipos_M->childSfunctions[i] =
           (&robotarm_student_2021a_Ipos_M->NonInlinedSFcns.childSFunctions[i]);
       }
@@ -4248,7 +4176,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S8>/Dctpd2 (dpd) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S3>/S-Function (ec_Supervisor) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
 
@@ -4309,30 +4237,6 @@ void robotarm_student_2021a_Ipos_initialize(void)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[3]);
       }
 
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn3.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn3.inputPortUnits[0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn3.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn3.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_k;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
       /* outputs */
       {
         ssSetPortInfoForOutputs(rts,
@@ -4352,13 +4256,13 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctpd2));
+            &robotarm_student_2021a_Ipos_B.SFunction));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctpd2");
-      ssSetPath(rts, "robotarm_student_2021a_Ipos/Controller/controller/Dctpd2");
+      ssSetModelName(rts, "S-Function");
+      ssSetPath(rts, "robotarm_student_2021a_Ipos/Supervisor2/S-Function");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -4368,37 +4272,16 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn3.params;
-        ssSetSFcnParamsCount(rts, 3);
+        ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd2_P1_Size);
+                       robotarm_student_2021a_Ipos_P.SFunction_P1_Size);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd2_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd2_P3_Size);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *) &robotarm_student_2021a_Ipos_DW.Dctpd2_RWORK[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn3.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn3.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctpd2_RWORK[0]);
+                       robotarm_student_2021a_Ipos_P.SFunction_P2_Size);
       }
 
       /* registration */
-      dpd(rts);
+      ec_Supervisor(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -4411,15 +4294,13 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
       _ssSetOutputPortConnected(rts, 0, 1);
       _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S8>/Dctleadlag3 (dleadlag) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S15>/ec_Ipos (Ipos360) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[4];
 
@@ -4482,25 +4363,85 @@ void robotarm_student_2021a_Ipos_initialize(void)
 
       /* inputs */
       {
-        _ssSetNumInputPorts(rts, 1);
+        _ssSetNumInputPorts(rts, 6);
         ssSetPortInfoForInputs(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.inputPortInfo[0]);
         _ssSetPortInfo2ForInputUnits(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.inputPortUnits[0]);
         ssSetInputPortUnit(rts, 0, 0);
+        ssSetInputPortUnit(rts, 1, 0);
+        ssSetInputPortUnit(rts, 2, 0);
+        ssSetInputPortUnit(rts, 3, 0);
+        ssSetInputPortUnit(rts, 4, 0);
+        ssSetInputPortUnit(rts, 5, 0);
         _ssSetPortInfo2ForInputCoSimAttribute(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.inputPortCoSimAttribute
           [0]);
         ssSetInputPortIsContinuousQuantity(rts, 0, 0);
+        ssSetInputPortIsContinuousQuantity(rts, 1, 0);
+        ssSetInputPortIsContinuousQuantity(rts, 2, 0);
+        ssSetInputPortIsContinuousQuantity(rts, 3, 0);
+        ssSetInputPortIsContinuousQuantity(rts, 4, 0);
+        ssSetInputPortIsContinuousQuantity(rts, 5, 0);
 
         /* port 0 */
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctpd2;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Saturation1_a;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
+        }
+
+        /* port 1 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.UPtrs1;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Saturation1_n;
+          ssSetInputPortSignalPtrs(rts, 1, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 1, 1);
+          ssSetInputPortWidth(rts, 1, 1);
+        }
+
+        /* port 2 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.UPtrs2;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Saturation1;
+          ssSetInputPortSignalPtrs(rts, 2, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 2, 1);
+          ssSetInputPortWidth(rts, 2, 1);
+        }
+
+        /* port 3 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.UPtrs3;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Saturation1_d;
+          ssSetInputPortSignalPtrs(rts, 3, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 3, 1);
+          ssSetInputPortWidth(rts, 3, 1);
+        }
+
+        /* port 4 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.UPtrs4;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Blow_suck;
+          ssSetInputPortSignalPtrs(rts, 4, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 4, 1);
+          ssSetInputPortWidth(rts, 4, 1);
+        }
+
+        /* port 5 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.UPtrs5;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_o1;
+          ssSetInputPortSignalPtrs(rts, 5, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 5, 1);
+          ssSetInputPortWidth(rts, 5, 1);
         }
       }
 
@@ -4508,29 +4449,69 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         ssSetPortInfoForOutputs(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
+        _ssSetNumOutputPorts(rts, 5);
         _ssSetPortInfo2ForOutputUnits(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.outputPortUnits
           [0]);
         ssSetOutputPortUnit(rts, 0, 0);
+        ssSetOutputPortUnit(rts, 1, 0);
+        ssSetOutputPortUnit(rts, 2, 0);
+        ssSetOutputPortUnit(rts, 3, 0);
+        ssSetOutputPortUnit(rts, 4, 0);
         _ssSetPortInfo2ForOutputCoSimAttribute(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.outputPortCoSimAttribute
           [0]);
         ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
+        ssSetOutputPortIsContinuousQuantity(rts, 1, 0);
+        ssSetOutputPortIsContinuousQuantity(rts, 2, 0);
+        ssSetOutputPortIsContinuousQuantity(rts, 3, 0);
+        ssSetOutputPortIsContinuousQuantity(rts, 4, 0);
 
         /* port 0 */
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag3));
+            &robotarm_student_2021a_Ipos_B.ec_Ipos_o1));
+        }
+
+        /* port 1 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 1, 1);
+          ssSetOutputPortWidth(rts, 1, 1);
+          ssSetOutputPortSignal(rts, 1, ((real_T *)
+            &robotarm_student_2021a_Ipos_B.ec_Ipos_o2));
+        }
+
+        /* port 2 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 2, 1);
+          ssSetOutputPortWidth(rts, 2, 1);
+          ssSetOutputPortSignal(rts, 2, ((real_T *)
+            &robotarm_student_2021a_Ipos_B.ec_Ipos_o3));
+        }
+
+        /* port 3 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 3, 1);
+          ssSetOutputPortWidth(rts, 3, 1);
+          ssSetOutputPortSignal(rts, 3, ((real_T *)
+            &robotarm_student_2021a_Ipos_B.ec_Ipos_o4));
+        }
+
+        /* port 4 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 4, 1);
+          ssSetOutputPortWidth(rts, 4, 1);
+          ssSetOutputPortSignal(rts, 4, ((real_T *)
+            &robotarm_student_2021a_Ipos_B.ec_Ipos_o5));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctleadlag3");
+      ssSetModelName(rts, "ec_Ipos");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/Controller/controller/Dctleadlag3");
+                "robotarm_student_2021a_Ipos/RobotArm/Subsystem/Ipos/ec_Ipos");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -4540,38 +4521,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.params;
-        ssSetSFcnParamsCount(rts, 3);
+        ssSetSFcnParamsCount(rts, 1);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag3_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag3_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag3_P3_Size);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag3_RWORK[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn4.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag3_RWORK[0]);
+                       robotarm_student_2021a_Ipos_P.ec_Ipos_P1_Size);
       }
 
       /* registration */
-      dleadlag(rts);
+      Ipos360(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -4585,14 +4542,32 @@ void robotarm_student_2021a_Ipos_initialize(void)
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetInputPortConnected(rts, 1, 1);
+      _ssSetInputPortConnected(rts, 2, 1);
+      _ssSetInputPortConnected(rts, 3, 1);
+      _ssSetInputPortConnected(rts, 4, 1);
+      _ssSetInputPortConnected(rts, 5, 1);
       _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 1, 1);
+      _ssSetOutputPortConnected(rts, 2, 1);
+      _ssSetOutputPortConnected(rts, 3, 1);
+      _ssSetOutputPortConnected(rts, 4, 1);
       _ssSetOutputPortBeingMerged(rts, 0, 0);
+      _ssSetOutputPortBeingMerged(rts, 1, 0);
+      _ssSetOutputPortBeingMerged(rts, 2, 0);
+      _ssSetOutputPortBeingMerged(rts, 3, 0);
+      _ssSetOutputPortBeingMerged(rts, 4, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
+      ssSetInputPortBufferDstPort(rts, 1, -1);
+      ssSetInputPortBufferDstPort(rts, 2, -1);
+      ssSetInputPortBufferDstPort(rts, 3, -1);
+      ssSetInputPortBufferDstPort(rts, 4, -1);
+      ssSetInputPortBufferDstPort(rts, 5, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S9>/Dctpd2 (dpd) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S20>/Reset EncoderR (ec_IposResetEnc) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[5];
 
@@ -4670,40 +4645,17 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn5.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_c;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.resetEnc_k;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn5.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn5.outputPortUnits
-          [0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn5.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctpd2_k));
-        }
-      }
-
       /* path info */
-      ssSetModelName(rts, "Dctpd2");
+      ssSetModelName(rts, "Reset EncoderR");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/Controller/controller_x_direction/Dctpd2");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/Reset EncoderR");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -4713,59 +4665,33 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn5.params;
-        ssSetSFcnParamsCount(rts, 3);
+        ssSetSFcnParamsCount(rts, 1);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd2_P1_Size_c);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd2_P2_Size_g);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd2_P3_Size_i);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *) &robotarm_student_2021a_Ipos_DW.Dctpd2_RWORK_b
-                 [0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn5.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn5.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctpd2_RWORK_b[0]);
+                       robotarm_student_2021a_Ipos_P.ResetEncoderR_P1_Size);
       }
 
       /* registration */
-      dpd(rts);
+      ec_IposResetEnc(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
+      ssSetSampleTime(rts, 0, 0.0);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
+      sfcnTsMap[0] = 0;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S9>/Dctleadlag3 (dleadlag) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S29>/Dctintegrator (dweakint) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[6];
 
@@ -4843,7 +4769,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn6.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctpd2_k;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain_h;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -4869,14 +4795,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag3_j));
+            &robotarm_student_2021a_Ipos_B.Dctintegrator));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctleadlag3");
+      ssSetModelName(rts, "Dctintegrator");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/Controller/controller_x_direction/Dctleadlag3");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/ /Dctintegrator");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -4886,19 +4812,17 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn6.params;
-        ssSetSFcnParamsCount(rts, 3);
+        ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag3_P1_Size_l);
+                       robotarm_student_2021a_Ipos_P.Dctintegrator_P1_Size);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag3_P2_Size_c);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag3_P3_Size_i);
+                       robotarm_student_2021a_Ipos_P.Dctintegrator_P2_Size);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag3_RWORK_f[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -4913,11 +4837,11 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag3_RWORK_f[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK[0]);
       }
 
       /* registration */
-      dleadlag(rts);
+      dweakint(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -4938,7 +4862,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S13>/Dctleadlag2 (dleadlag) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S29>/Dctleadlag (dleadlag) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[7];
 
@@ -5016,7 +4940,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn7.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_oz;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -5042,14 +4966,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag2));
+            &robotarm_student_2021a_Ipos_B.Dctleadlag));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctleadlag2");
+      ssSetModelName(rts, "Dctleadlag");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/Controller/r_controller_without_double_integrator/Dctleadlag2");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/ /Dctleadlag");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -5062,16 +4986,16 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag2_P1_Size);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_m);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag2_P2_Size);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_p);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag2_P3_Size);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_h);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag2_RWORK[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -5086,7 +5010,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag2_RWORK[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK[0]);
       }
 
       /* registration */
@@ -5111,7 +5035,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S13>/Dctintegrator3 (dweakint) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S29>/Dct1lowpass (dlowpass1) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[8];
 
@@ -5189,7 +5113,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn8.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag2;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -5215,14 +5139,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctintegrator3_l));
+            &robotarm_student_2021a_Ipos_B.Dct1lowpass));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctintegrator3");
+      ssSetModelName(rts, "Dct1lowpass");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/Controller/r_controller_without_double_integrator/Dctintegrator3");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/ /Dct1lowpass");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -5235,14 +5159,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_Size_b);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_m);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_Size_c);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_o);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK_gh[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -5257,12 +5181,11 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0,
-                   &robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK_gh[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK[0]);
       }
 
       /* registration */
-      dweakint(rts);
+      dlowpass1(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -5283,7 +5206,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S13>/Dctnotch4 (dnotch) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S30>/Dctleadlag (dleadlag) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[9];
 
@@ -5361,7 +5284,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn9.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator3_l;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain_p;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -5387,14 +5310,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctnotch4));
+            &robotarm_student_2021a_Ipos_B.Dctleadlag_l));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctnotch4");
+      ssSetModelName(rts, "Dctleadlag");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/Controller/r_controller_without_double_integrator/Dctnotch4");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/   /Dctleadlag");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -5404,23 +5327,19 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn9.params;
-        ssSetSFcnParamsCount(rts, 5);
+        ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctnotch4_P1_Size);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_c);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctnotch4_P2_Size);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_k);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctnotch4_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctnotch4_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctnotch4_P5_Size);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_hn);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctnotch4_RWORK[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_k[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -5432,14 +5351,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
         _ssSetNumDWork(rts, 1);
 
         /* RWORK */
-        ssSetDWorkWidth(rts, 0, 4);
+        ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctnotch4_RWORK[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_k[0]);
       }
 
       /* registration */
-      dnotch(rts);
+      dleadlag(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -5460,7 +5379,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S13>/Dctpd5 (dpd) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S30>/Dct1lowpass (dlowpass1) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[10];
 
@@ -5539,7 +5458,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn10.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctnotch4;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_l;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -5566,14 +5485,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctpd5));
+            &robotarm_student_2021a_Ipos_B.Dct1lowpass_i));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctpd5");
+      ssSetModelName(rts, "Dct1lowpass");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/Controller/r_controller_without_double_integrator/Dctpd5");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/   /Dct1lowpass");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -5583,18 +5502,17 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn10.params;
-        ssSetSFcnParamsCount(rts, 3);
+        ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd5_P1_Size);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_a);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd5_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctpd5_P3_Size);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_l);
       }
 
       /* work vectors */
-      ssSetRWork(rts, (real_T *) &robotarm_student_2021a_Ipos_DW.Dctpd5_RWORK[0]);
+      ssSetRWork(rts, (real_T *)
+                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_a[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -5609,11 +5527,11 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctpd5_RWORK[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_a[0]);
       }
 
       /* registration */
-      dpd(rts);
+      dlowpass1(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -5634,7 +5552,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S3>/S-Function (ec_Supervisor) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S21>/Reset EncoderR1 (ec_IposResetEnc) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[11];
 
@@ -5695,33 +5613,35 @@ void robotarm_student_2021a_Ipos_initialize(void)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[11]);
       }
 
-      /* outputs */
+      /* inputs */
       {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn11.outputPortInfo
+        _ssSetNumInputPorts(rts, 1);
+        ssSetPortInfoForInputs(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn11.inputPortInfo[0]);
+        _ssSetPortInfo2ForInputUnits(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn11.inputPortUnits
           [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn11.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn11.outputPortCoSimAttribute
+        ssSetInputPortUnit(rts, 0, 0);
+        _ssSetPortInfo2ForInputCoSimAttribute(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn11.inputPortCoSimAttribute
           [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
+        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
 
         /* port 0 */
         {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.SFunction));
+          real_T const **sfcnUPtrs = (real_T const **)
+            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn11.UPtrs0;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.resetEnc_c;
+          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 0, 1);
+          ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "S-Function");
-      ssSetPath(rts, "robotarm_student_2021a_Ipos/Supervisor2/S-Function");
+      ssSetModelName(rts, "Reset EncoderR1");
+      ssSetPath(rts,
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Reset EncoderR1");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -5731,35 +5651,33 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn11.params;
-        ssSetSFcnParamsCount(rts, 2);
+        ssSetSFcnParamsCount(rts, 1);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.SFunction_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.SFunction_P2_Size);
+                       robotarm_student_2021a_Ipos_P.ResetEncoderR1_P1_Size);
       }
 
       /* registration */
-      ec_Supervisor(rts);
+      ec_IposResetEnc(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
+      ssSetSampleTime(rts, 0, 0.0);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
+      sfcnTsMap[0] = 0;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
+      _ssSetInputPortConnected(rts, 0, 1);
 
       /* Update the BufferDstPort flags for each input port */
+      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S18>/ec_Ipos (Ipos360) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S36>/Dctintegrator (dweakint) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[12];
 
@@ -5822,86 +5740,26 @@ void robotarm_student_2021a_Ipos_initialize(void)
 
       /* inputs */
       {
-        _ssSetNumInputPorts(rts, 6);
+        _ssSetNumInputPorts(rts, 1);
         ssSetPortInfoForInputs(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.inputPortInfo[0]);
         _ssSetPortInfo2ForInputUnits(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.inputPortUnits
           [0]);
         ssSetInputPortUnit(rts, 0, 0);
-        ssSetInputPortUnit(rts, 1, 0);
-        ssSetInputPortUnit(rts, 2, 0);
-        ssSetInputPortUnit(rts, 3, 0);
-        ssSetInputPortUnit(rts, 4, 0);
-        ssSetInputPortUnit(rts, 5, 0);
         _ssSetPortInfo2ForInputCoSimAttribute(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.inputPortCoSimAttribute
           [0]);
         ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-        ssSetInputPortIsContinuousQuantity(rts, 1, 0);
-        ssSetInputPortIsContinuousQuantity(rts, 2, 0);
-        ssSetInputPortIsContinuousQuantity(rts, 3, 0);
-        ssSetInputPortIsContinuousQuantity(rts, 4, 0);
-        ssSetInputPortIsContinuousQuantity(rts, 5, 0);
 
         /* port 0 */
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Saturation1_a;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_p;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
-        }
-
-        /* port 1 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.UPtrs1;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Saturation1_n;
-          ssSetInputPortSignalPtrs(rts, 1, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 1, 1);
-          ssSetInputPortWidth(rts, 1, 1);
-        }
-
-        /* port 2 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.UPtrs2;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Saturation1;
-          ssSetInputPortSignalPtrs(rts, 2, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 2, 1);
-          ssSetInputPortWidth(rts, 2, 1);
-        }
-
-        /* port 3 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.UPtrs3;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Saturation1_d;
-          ssSetInputPortSignalPtrs(rts, 3, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 3, 1);
-          ssSetInputPortWidth(rts, 3, 1);
-        }
-
-        /* port 4 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.UPtrs4;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Blow_suck;
-          ssSetInputPortSignalPtrs(rts, 4, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 4, 1);
-          ssSetInputPortWidth(rts, 4, 1);
-        }
-
-        /* port 5 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.UPtrs5;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_o1;
-          ssSetInputPortSignalPtrs(rts, 5, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 5, 1);
-          ssSetInputPortWidth(rts, 5, 1);
         }
       }
 
@@ -5910,69 +5768,29 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetPortInfoForOutputs(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.outputPortInfo
           [0]);
-        _ssSetNumOutputPorts(rts, 5);
+        _ssSetNumOutputPorts(rts, 1);
         _ssSetPortInfo2ForOutputUnits(rts,
           &robotarm_student_2021a_Ipos_M->
           NonInlinedSFcns.Sfcn12.outputPortUnits[0]);
         ssSetOutputPortUnit(rts, 0, 0);
-        ssSetOutputPortUnit(rts, 1, 0);
-        ssSetOutputPortUnit(rts, 2, 0);
-        ssSetOutputPortUnit(rts, 3, 0);
-        ssSetOutputPortUnit(rts, 4, 0);
         _ssSetPortInfo2ForOutputCoSimAttribute(rts,
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.outputPortCoSimAttribute
           [0]);
         ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-        ssSetOutputPortIsContinuousQuantity(rts, 1, 0);
-        ssSetOutputPortIsContinuousQuantity(rts, 2, 0);
-        ssSetOutputPortIsContinuousQuantity(rts, 3, 0);
-        ssSetOutputPortIsContinuousQuantity(rts, 4, 0);
 
         /* port 0 */
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.ec_Ipos_o1));
-        }
-
-        /* port 1 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 1, 1);
-          ssSetOutputPortWidth(rts, 1, 1);
-          ssSetOutputPortSignal(rts, 1, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.ec_Ipos_o2));
-        }
-
-        /* port 2 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 2, 1);
-          ssSetOutputPortWidth(rts, 2, 1);
-          ssSetOutputPortSignal(rts, 2, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.ec_Ipos_o3));
-        }
-
-        /* port 3 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 3, 1);
-          ssSetOutputPortWidth(rts, 3, 1);
-          ssSetOutputPortSignal(rts, 3, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.ec_Ipos_o4));
-        }
-
-        /* port 4 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 4, 1);
-          ssSetOutputPortWidth(rts, 4, 1);
-          ssSetOutputPortSignal(rts, 4, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.ec_Ipos_o5));
+            &robotarm_student_2021a_Ipos_B.Dctintegrator_g));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "ec_Ipos");
+      ssSetModelName(rts, "Dctintegrator");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Subsystem/Ipos/ec_Ipos");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X1/Dctintegrator");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -5982,14 +5800,37 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.params;
-        ssSetSFcnParamsCount(rts, 1);
+        ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.ec_Ipos_P1_Size);
+                       robotarm_student_2021a_Ipos_P.Dctintegrator_P1_Size_i);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       robotarm_student_2021a_Ipos_P.Dctintegrator_P2_Size_p);
+      }
+
+      /* work vectors */
+      ssSetRWork(rts, (real_T *)
+                 &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_m[0]);
+
+      {
+        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.dWork;
+        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn12.dWorkAux;
+        ssSetSFcnDWork(rts, dWorkRecord);
+        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
+        _ssSetNumDWork(rts, 1);
+
+        /* RWORK */
+        ssSetDWorkWidth(rts, 0, 2);
+        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
+        ssSetDWorkComplexSignal(rts, 0, 0);
+        ssSetDWork(rts, 0,
+                   &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_m[0]);
       }
 
       /* registration */
-      Ipos360(rts);
+      dweakint(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -6003,32 +5844,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetInputPortConnected(rts, 1, 1);
-      _ssSetInputPortConnected(rts, 2, 1);
-      _ssSetInputPortConnected(rts, 3, 1);
-      _ssSetInputPortConnected(rts, 4, 1);
-      _ssSetInputPortConnected(rts, 5, 1);
       _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 1, 1);
-      _ssSetOutputPortConnected(rts, 2, 1);
-      _ssSetOutputPortConnected(rts, 3, 1);
-      _ssSetOutputPortConnected(rts, 4, 1);
       _ssSetOutputPortBeingMerged(rts, 0, 0);
-      _ssSetOutputPortBeingMerged(rts, 1, 0);
-      _ssSetOutputPortBeingMerged(rts, 2, 0);
-      _ssSetOutputPortBeingMerged(rts, 3, 0);
-      _ssSetOutputPortBeingMerged(rts, 4, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
-      ssSetInputPortBufferDstPort(rts, 1, -1);
-      ssSetInputPortBufferDstPort(rts, 2, -1);
-      ssSetInputPortBufferDstPort(rts, 3, -1);
-      ssSetInputPortBufferDstPort(rts, 4, -1);
-      ssSetInputPortBufferDstPort(rts, 5, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S23>/Reset EncoderR (ec_IposResetEnc) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S36>/Dctleadlag (dleadlag) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[13];
 
@@ -6107,17 +5930,41 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn13.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.resetEnc_k;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator_g;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
+      /* outputs */
+      {
+        ssSetPortInfoForOutputs(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn13.outputPortInfo
+          [0]);
+        _ssSetNumOutputPorts(rts, 1);
+        _ssSetPortInfo2ForOutputUnits(rts,
+          &robotarm_student_2021a_Ipos_M->
+          NonInlinedSFcns.Sfcn13.outputPortUnits[0]);
+        ssSetOutputPortUnit(rts, 0, 0);
+        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn13.outputPortCoSimAttribute
+          [0]);
+        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
+
+        /* port 0 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidth(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((real_T *)
+            &robotarm_student_2021a_Ipos_B.Dctleadlag_h));
+        }
+      }
+
       /* path info */
-      ssSetModelName(rts, "Reset EncoderR");
+      ssSetModelName(rts, "Dctleadlag");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/Reset EncoderR");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X1/Dctleadlag");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -6127,33 +5974,59 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn13.params;
-        ssSetSFcnParamsCount(rts, 1);
+        ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.ResetEncoderR_P1_Size);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_d);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_g);
+        ssSetSFcnParam(rts, 2, (mxArray*)
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_o);
+      }
+
+      /* work vectors */
+      ssSetRWork(rts, (real_T *)
+                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_g[0]);
+
+      {
+        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn13.dWork;
+        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn13.dWorkAux;
+        ssSetSFcnDWork(rts, dWorkRecord);
+        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
+        _ssSetNumDWork(rts, 1);
+
+        /* RWORK */
+        ssSetDWorkWidth(rts, 0, 2);
+        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
+        ssSetDWorkComplexSignal(rts, 0, 0);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_g[0]);
       }
 
       /* registration */
-      ec_IposResetEnc(rts);
+      dleadlag(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.0);
+      ssSetSampleTime(rts, 0, 0.00048828125);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
+      sfcnTsMap[0] = 1;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S32>/Dctintegrator (dweakint) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S36>/Dct1lowpass (dlowpass1) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[14];
 
@@ -6232,7 +6105,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn14.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain_h;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_h;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -6259,14 +6132,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctintegrator));
+            &robotarm_student_2021a_Ipos_B.Dct1lowpass_k));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctintegrator");
+      ssSetModelName(rts, "Dct1lowpass");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/ /Dctintegrator");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X1/Dct1lowpass");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -6279,14 +6152,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator_P1_Size);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_m3);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator_P2_Size);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_b);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_n[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -6301,11 +6174,11 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_n[0]);
       }
 
       /* registration */
-      dweakint(rts);
+      dlowpass1(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -6326,7 +6199,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S32>/Dctleadlag (dleadlag) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S37>/Dctleadlag (dleadlag) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[15];
 
@@ -6405,7 +6278,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn15.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_o;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -6432,14 +6305,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag));
+            &robotarm_student_2021a_Ipos_B.Dctleadlag_b));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "Dctleadlag");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/ /Dctleadlag");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X2/Dctleadlag");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -6452,16 +6325,16 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_m);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_b);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_p);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_m);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_h);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_p);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_j[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -6476,7 +6349,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_j[0]);
       }
 
       /* registration */
@@ -6501,7 +6374,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S32>/Dct1lowpass (dlowpass1) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S37>/Dct1lowpass (dlowpass1) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[16];
 
@@ -6580,7 +6453,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn16.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_b;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -6607,14 +6480,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dct1lowpass));
+            &robotarm_student_2021a_Ipos_B.Dct1lowpass_j));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "Dct1lowpass");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/ /Dct1lowpass");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X2/Dct1lowpass");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -6627,14 +6500,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_m);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_n);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_o);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_g);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_k[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -6649,7 +6522,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_k[0]);
       }
 
       /* registration */
@@ -6674,7 +6547,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S33>/Dctleadlag (dleadlag) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S22>/Reset EncoderR1 (ec_IposResetEnc) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[17];
 
@@ -6753,41 +6626,17 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn17.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain_p;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.resetEnc_g;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn17.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn17.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn17.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag_l));
-        }
-      }
-
       /* path info */
-      ssSetModelName(rts, "Dctleadlag");
+      ssSetModelName(rts, "Reset EncoderR1");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/   /Dctleadlag");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/Reset EncoderR1");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -6797,59 +6646,33 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn17.params;
-        ssSetSFcnParamsCount(rts, 3);
+        ssSetSFcnParamsCount(rts, 1);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_c);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_k);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_hn);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_k[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn17.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn17.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_k[0]);
+                       robotarm_student_2021a_Ipos_P.ResetEncoderR1_P1_Size_d);
       }
 
       /* registration */
-      dleadlag(rts);
+      ec_IposResetEnc(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
+      ssSetSampleTime(rts, 0, 0.0);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
+      sfcnTsMap[0] = 0;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S33>/Dct1lowpass (dlowpass1) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S45>/Dctintegrator (dweakint) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[18];
 
@@ -6928,7 +6751,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn18.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_l;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain_i;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -6955,14 +6778,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dct1lowpass_i));
+            &robotarm_student_2021a_Ipos_B.Dctintegrator_i));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dct1lowpass");
+      ssSetModelName(rts, "Dctintegrator");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller R/   /Dct1lowpass");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/    /Dctintegrator");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -6975,14 +6798,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_a);
+                       robotarm_student_2021a_Ipos_P.Dctintegrator_P1_Size_p);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_l);
+                       robotarm_student_2021a_Ipos_P.Dctintegrator_P2_Size_o);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_a[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_i[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -6997,11 +6820,12 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_a[0]);
+        ssSetDWork(rts, 0,
+                   &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_i[0]);
       }
 
       /* registration */
-      dlowpass1(rts);
+      dweakint(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -7022,7 +6846,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S24>/Reset EncoderR1 (ec_IposResetEnc) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S45>/Dctleadlag (dleadlag) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[19];
 
@@ -7101,17 +6925,41 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn19.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.resetEnc_c;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator_i;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
+      /* outputs */
+      {
+        ssSetPortInfoForOutputs(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn19.outputPortInfo
+          [0]);
+        _ssSetNumOutputPorts(rts, 1);
+        _ssSetPortInfo2ForOutputUnits(rts,
+          &robotarm_student_2021a_Ipos_M->
+          NonInlinedSFcns.Sfcn19.outputPortUnits[0]);
+        ssSetOutputPortUnit(rts, 0, 0);
+        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn19.outputPortCoSimAttribute
+          [0]);
+        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
+
+        /* port 0 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidth(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((real_T *)
+            &robotarm_student_2021a_Ipos_B.Dctleadlag_m));
+        }
+      }
+
       /* path info */
-      ssSetModelName(rts, "Reset EncoderR1");
+      ssSetModelName(rts, "Dctleadlag");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Reset EncoderR1");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/    /Dctleadlag");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7121,33 +6969,59 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn19.params;
-        ssSetSFcnParamsCount(rts, 1);
+        ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.ResetEncoderR1_P1_Size);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_ch);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_h);
+        ssSetSFcnParam(rts, 2, (mxArray*)
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_f);
+      }
+
+      /* work vectors */
+      ssSetRWork(rts, (real_T *)
+                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_n[0]);
+
+      {
+        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn19.dWork;
+        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn19.dWorkAux;
+        ssSetSFcnDWork(rts, dWorkRecord);
+        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
+        _ssSetNumDWork(rts, 1);
+
+        /* RWORK */
+        ssSetDWorkWidth(rts, 0, 2);
+        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
+        ssSetDWorkComplexSignal(rts, 0, 0);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_n[0]);
       }
 
       /* registration */
-      ec_IposResetEnc(rts);
+      dleadlag(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.0);
+      ssSetSampleTime(rts, 0, 0.00048828125);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
+      sfcnTsMap[0] = 1;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S39>/Dctintegrator (dweakint) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S45>/Dct1lowpass (dlowpass1) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[20];
 
@@ -7226,7 +7100,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn20.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_p;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_m;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -7253,14 +7127,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctintegrator_g));
+            &robotarm_student_2021a_Ipos_B.Dct1lowpass_p));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctintegrator");
+      ssSetModelName(rts, "Dct1lowpass");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X1/Dctintegrator");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/    /Dct1lowpass");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7273,14 +7147,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator_P1_Size_i);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_ni);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator_P2_Size_p);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_a);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_m[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_g[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -7295,12 +7169,11 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0,
-                   &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_m[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_g[0]);
       }
 
       /* registration */
-      dweakint(rts);
+      dlowpass1(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -7321,7 +7194,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S39>/Dctleadlag (dleadlag) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S46>/Dctleadlag (dleadlag) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[21];
 
@@ -7400,7 +7273,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn21.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator_g;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain_f;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -7427,14 +7300,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag_h));
+            &robotarm_student_2021a_Ipos_B.Dctleadlag_e));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "Dctleadlag");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X1/Dctleadlag");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/     /Dctleadlag");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7447,16 +7320,16 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_d);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_by);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_g);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_j);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_o);
+                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_oi);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_g[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_i[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -7471,7 +7344,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_g[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_i[0]);
       }
 
       /* registration */
@@ -7496,7 +7369,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S39>/Dct1lowpass (dlowpass1) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S46>/Dct1lowpass (dlowpass1) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[22];
 
@@ -7575,7 +7448,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn22.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_h;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_e;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -7602,14 +7475,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dct1lowpass_k));
+            &robotarm_student_2021a_Ipos_B.Dct1lowpass_a));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "Dct1lowpass");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X1/Dct1lowpass");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/     /Dct1lowpass");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7622,14 +7495,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_m3);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_p);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_b);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_j);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_n[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_h[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -7644,7 +7517,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_n[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_h[0]);
       }
 
       /* registration */
@@ -7669,7 +7542,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S40>/Dctleadlag (dleadlag) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S23>/Reset EncoderR1 (ec_IposResetEnc) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[23];
 
@@ -7748,41 +7621,17 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn23.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_o;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.resetEnc;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn23.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn23.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn23.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag_b));
-        }
-      }
-
       /* path info */
-      ssSetModelName(rts, "Dctleadlag");
+      ssSetModelName(rts, "Reset EncoderR1");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X2/Dctleadlag");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Conveyor1/Reset EncoderR1");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7792,59 +7641,33 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn23.params;
-        ssSetSFcnParamsCount(rts, 3);
+        ssSetSFcnParamsCount(rts, 1);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_b);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_m);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_p);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_j[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn23.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn23.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_j[0]);
+                       robotarm_student_2021a_Ipos_P.ResetEncoderR1_P1_Size_b);
       }
 
       /* registration */
-      dleadlag(rts);
+      ec_IposResetEnc(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
+      ssSetSampleTime(rts, 0, 0.0);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
+      sfcnTsMap[0] = 0;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S40>/Dct1lowpass (dlowpass1) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S55>/Dctintegrator3 (dweakint) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[24];
 
@@ -7923,7 +7746,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn24.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_b;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_a;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -7950,14 +7773,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dct1lowpass_j));
+            &robotarm_student_2021a_Ipos_B.Dctintegrator3));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dct1lowpass");
+      ssSetModelName(rts, "Dctintegrator3");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller X/Controller X2/Dct1lowpass");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Conveyor1/Controller Conveyor/Dctintegrator3");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7970,14 +7793,14 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_n);
+                       robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_Size_m);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_g);
+                       robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_Size_b);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_k[0]);
+                 &robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -7992,11 +7815,12 @@ void robotarm_student_2021a_Ipos_initialize(void)
         ssSetDWorkWidth(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_k[0]);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK
+                   [0]);
       }
 
       /* registration */
-      dlowpass1(rts);
+      dweakint(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -8017,7 +7841,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S25>/Reset EncoderR1 (ec_IposResetEnc) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S55>/Dct1lowpass (dlowpass1) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[25];
 
@@ -8096,17 +7920,41 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn25.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.resetEnc_g;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator3;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
+      /* outputs */
+      {
+        ssSetPortInfoForOutputs(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn25.outputPortInfo
+          [0]);
+        _ssSetNumOutputPorts(rts, 1);
+        _ssSetPortInfo2ForOutputUnits(rts,
+          &robotarm_student_2021a_Ipos_M->
+          NonInlinedSFcns.Sfcn25.outputPortUnits[0]);
+        ssSetOutputPortUnit(rts, 0, 0);
+        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn25.outputPortCoSimAttribute
+          [0]);
+        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
+
+        /* port 0 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidth(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((real_T *)
+            &robotarm_student_2021a_Ipos_B.Dct1lowpass_g));
+        }
+      }
+
       /* path info */
-      ssSetModelName(rts, "Reset EncoderR1");
+      ssSetModelName(rts, "Dct1lowpass");
       ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/Reset EncoderR1");
+                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Conveyor1/Controller Conveyor/Dct1lowpass");
       ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -8116,33 +7964,58 @@ void robotarm_student_2021a_Ipos_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn25.params;
-        ssSetSFcnParamsCount(rts, 1);
+        ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.ResetEncoderR1_P1_Size_d);
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_j);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_aj);
+      }
+
+      /* work vectors */
+      ssSetRWork(rts, (real_T *)
+                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_ay[0]);
+
+      {
+        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn25.dWork;
+        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn25.dWorkAux;
+        ssSetSFcnDWork(rts, dWorkRecord);
+        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
+        _ssSetNumDWork(rts, 1);
+
+        /* RWORK */
+        ssSetDWorkWidth(rts, 0, 2);
+        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
+        ssSetDWorkComplexSignal(rts, 0, 0);
+        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_ay
+                   [0]);
       }
 
       /* registration */
-      ec_IposResetEnc(rts);
+      dlowpass1(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.0);
+      ssSetSampleTime(rts, 0, 0.00048828125);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
+      sfcnTsMap[0] = 1;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S48>/Dctintegrator (dweakint) */
+    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S55>/Dctleadlag (dleadlag) */
     {
       SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[26];
 
@@ -8221,7 +8094,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn26.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain_i;
+          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dct1lowpass_g;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -8248,1349 +8121,6 @@ void robotarm_student_2021a_Ipos_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctintegrator_i));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dctintegrator");
-      ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/    /Dctintegrator");
-      ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn26.params;
-        ssSetSFcnParamsCount(rts, 2);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator_P1_Size_p);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator_P2_Size_o);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_i[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn26.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn26.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0,
-                   &robotarm_student_2021a_Ipos_DW.Dctintegrator_RWORK_i[0]);
-      }
-
-      /* registration */
-      dweakint(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S48>/Dctleadlag (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[27];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.sfcnPeriod;
-      time_T *sfcnOffset =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.sfcnOffset;
-      int_T *sfcnTsMap =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.blkInfo2
-                         [27]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.inputOutputPortInfo2[27]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, robotarm_student_2021a_Ipos_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods2
-                           [27]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods3
-                           [27]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods4
-                           [27]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.statesInfo2
-                         [27]);
-        ssSetPeriodicStatesInfo(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[27]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.inputPortUnits
-          [0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator_i;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn27.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag_m));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dctleadlag");
-      ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/    /Dctleadlag");
-      ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.params;
-        ssSetSFcnParamsCount(rts, 3);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_ch);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_h);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_f);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_n[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn27.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_n[0]);
-      }
-
-      /* registration */
-      dleadlag(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S48>/Dct1lowpass (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[28];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.sfcnPeriod;
-      time_T *sfcnOffset =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.sfcnOffset;
-      int_T *sfcnTsMap =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.blkInfo2
-                         [28]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.inputOutputPortInfo2[28]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, robotarm_student_2021a_Ipos_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods2
-                           [28]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods3
-                           [28]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods4
-                           [28]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.statesInfo2
-                         [28]);
-        ssSetPeriodicStatesInfo(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[28]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.inputPortUnits
-          [0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_m;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn28.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dct1lowpass_p));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dct1lowpass");
-      ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/    /Dct1lowpass");
-      ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.params;
-        ssSetSFcnParamsCount(rts, 2);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_ni);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_a);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_g[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn28.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_g[0]);
-      }
-
-      /* registration */
-      dlowpass1(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S49>/Dctleadlag (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[29];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.sfcnPeriod;
-      time_T *sfcnOffset =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.sfcnOffset;
-      int_T *sfcnTsMap =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.blkInfo2
-                         [29]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.inputOutputPortInfo2[29]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, robotarm_student_2021a_Ipos_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods2
-                           [29]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods3
-                           [29]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods4
-                           [29]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.statesInfo2
-                         [29]);
-        ssSetPeriodicStatesInfo(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[29]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.inputPortUnits
-          [0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain_f;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn29.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctleadlag_e));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dctleadlag");
-      ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/     /Dctleadlag");
-      ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.params;
-        ssSetSFcnParamsCount(rts, 3);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P1_Size_by);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P2_Size_j);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctleadlag_P3_Size_oi);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_i[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn29.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctleadlag_RWORK_i[0]);
-      }
-
-      /* registration */
-      dleadlag(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S49>/Dct1lowpass (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[30];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.sfcnPeriod;
-      time_T *sfcnOffset =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.sfcnOffset;
-      int_T *sfcnTsMap =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.blkInfo2
-                         [30]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.inputOutputPortInfo2[30]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, robotarm_student_2021a_Ipos_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods2
-                           [30]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods3
-                           [30]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods4
-                           [30]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.statesInfo2
-                         [30]);
-        ssSetPeriodicStatesInfo(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[30]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.inputPortUnits
-          [0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctleadlag_e;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn30.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dct1lowpass_a));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dct1lowpass");
-      ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Controller Z/     /Dct1lowpass");
-      ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.params;
-        ssSetSFcnParamsCount(rts, 2);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_p);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_j);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_h[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn30.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_h[0]);
-      }
-
-      /* registration */
-      dlowpass1(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S26>/Reset EncoderR1 (ec_IposResetEnc) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[31];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn31.sfcnPeriod;
-      time_T *sfcnOffset =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn31.sfcnOffset;
-      int_T *sfcnTsMap =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn31.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.blkInfo2
-                         [31]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.inputOutputPortInfo2[31]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, robotarm_student_2021a_Ipos_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods2
-                           [31]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods3
-                           [31]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods4
-                           [31]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.statesInfo2
-                         [31]);
-        ssSetPeriodicStatesInfo(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[31]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn31.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn31.inputPortUnits
-          [0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn31.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn31.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.resetEnc;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Reset EncoderR1");
-      ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Conveyor1/Reset EncoderR1");
-      ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn31.params;
-        ssSetSFcnParamsCount(rts, 1);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.ResetEncoderR1_P1_Size_b);
-      }
-
-      /* registration */
-      ec_IposResetEnc(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.0);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S58>/Dctintegrator3 (dweakint) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[32];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.sfcnPeriod;
-      time_T *sfcnOffset =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.sfcnOffset;
-      int_T *sfcnTsMap =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.blkInfo2
-                         [32]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.inputOutputPortInfo2[32]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, robotarm_student_2021a_Ipos_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods2
-                           [32]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods3
-                           [32]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods4
-                           [32]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.statesInfo2
-                         [32]);
-        ssSetPeriodicStatesInfo(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[32]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.inputPortUnits
-          [0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Gain1_a;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn32.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dctintegrator3));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dctintegrator3");
-      ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Conveyor1/Controller Conveyor/Dctintegrator3");
-      ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.params;
-        ssSetSFcnParamsCount(rts, 2);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator3_P1_Size_m);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dctintegrator3_P2_Size_b);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn32.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dctintegrator3_RWORK
-                   [0]);
-      }
-
-      /* registration */
-      dweakint(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S58>/Dct1lowpass (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[33];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.sfcnPeriod;
-      time_T *sfcnOffset =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.sfcnOffset;
-      int_T *sfcnTsMap =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.blkInfo2
-                         [33]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.inputOutputPortInfo2[33]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, robotarm_student_2021a_Ipos_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods2
-                           [33]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods3
-                           [33]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods4
-                           [33]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.statesInfo2
-                         [33]);
-        ssSetPeriodicStatesInfo(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[33]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.inputPortUnits
-          [0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dctintegrator3;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn33.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &robotarm_student_2021a_Ipos_B.Dct1lowpass_g));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dct1lowpass");
-      ssSetPath(rts,
-                "robotarm_student_2021a_Ipos/RobotArm/Supervisor/Supervisory Conveyor1/Controller Conveyor/Dct1lowpass");
-      ssSetRTModel(rts,robotarm_student_2021a_Ipos_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.params;
-        ssSetSFcnParamsCount(rts, 2);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P1_Size_j);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       robotarm_student_2021a_Ipos_P.Dct1lowpass_P2_Size_aj);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_ay[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn33.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidth(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &robotarm_student_2021a_Ipos_DW.Dct1lowpass_RWORK_ay
-                   [0]);
-      }
-
-      /* registration */
-      dlowpass1(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00048828125);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: robotarm_student_2021a_Ipos/<S58>/Dctleadlag (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[34];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.sfcnPeriod;
-      time_T *sfcnOffset =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.sfcnOffset;
-      int_T *sfcnTsMap =
-        robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.blkInfo2
-                         [34]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.inputOutputPortInfo2[34]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, robotarm_student_2021a_Ipos_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods2
-                           [34]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods3
-                           [34]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.methods4
-                           [34]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.statesInfo2
-                         [34]);
-        ssSetPeriodicStatesInfo(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.periodicStatesInfo[34]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.inputPortUnits
-          [0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.UPtrs0;
-          sfcnUPtrs[0] = &robotarm_student_2021a_Ipos_B.Dct1lowpass_g;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.outputPortInfo
-          [0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &robotarm_student_2021a_Ipos_M->
-          NonInlinedSFcns.Sfcn34.outputPortUnits[0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
             &robotarm_student_2021a_Ipos_B.Dctleadlag_k));
         }
       }
@@ -9607,7 +8137,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
       /* parameters */
       {
         mxArray **sfcnParams = (mxArray **)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.params;
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn26.params;
         ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
@@ -9624,9 +8154,9 @@ void robotarm_student_2021a_Ipos_initialize(void)
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.dWork;
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn26.dWork;
         struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn34.dWorkAux;
+          &robotarm_student_2021a_Ipos_M->NonInlinedSFcns.Sfcn26.dWorkAux;
         ssSetSFcnDWork(rts, dWorkRecord);
         ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
         _ssSetNumDWork(rts, 1);
@@ -9664,38 +8194,42 @@ void robotarm_student_2021a_Ipos_initialize(void)
   /* Start for S-Function (ec_Supervisor): '<S3>/S-Function' */
   /* Level2 S-Function Block: '<S3>/S-Function' (ec_Supervisor) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[11];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
     sfcnStart(rts);
     if (ssGetErrorStatus(rts) != (NULL))
       return;
   }
 
-  /* Start for Constant: '<S35>/Constant1' */
+  /* Start for Constant: '<S32>/Constant1' */
   robotarm_student_2021a_Ipos_B.Constant1 =
-    robotarm_student_2021a_Ipos_P.Constant1_Value_b;
+    robotarm_student_2021a_Ipos_P.Constant1_Value;
 
-  /* Start for Constant: '<S41>/Constant1' */
+  /* Start for Constant: '<S38>/Constant1' */
   robotarm_student_2021a_Ipos_B.Constant1_e =
     robotarm_student_2021a_Ipos_P.Constant1_Value_a;
 
-  /* Start for Constant: '<S51>/Constant1' */
+  /* Start for Constant: '<S48>/Constant1' */
   robotarm_student_2021a_Ipos_B.Constant1_f =
     robotarm_student_2021a_Ipos_P.Constant1_Value_e;
 
-  /* Start for Constant: '<S17>/set_robot_calibration_r' */
+  /* Start for Constant: '<S14>/set_robot_calibration_r' */
   robotarm_student_2021a_Ipos_B.set_robot_calibration_r =
     robotarm_student_2021a_Ipos_P.set_robot_calibration_r_Value;
 
-  /* Start for Constant: '<S17>/set_robot_calibration_x' */
+  /* Start for Constant: '<S14>/set_robot_calibration_x' */
   robotarm_student_2021a_Ipos_B.set_robot_calibration_x =
     robotarm_student_2021a_Ipos_P.set_robot_calibration_x_Value;
 
-  /* Start for Constant: '<S17>/set_robot_calibration_z' */
+  /* Start for Constant: '<S14>/set_robot_calibration_z' */
   robotarm_student_2021a_Ipos_B.set_robot_calibration_z =
     robotarm_student_2021a_Ipos_P.set_robot_calibration_z_Value;
 
   /* Start for Enabled SubSystem: '<Root>/Controller' */
   robotarm_student_2021a_Ipos_DW.Controller_MODE = false;
+
+  /* Start for Constant: '<S1>/Object' */
+  robotarm_student_2021a_Ipos_B.Object =
+    robotarm_student_2021a_Ipos_P.Object_Value;
 
   /* Start for S-Function (dweakint): '<S5>/Dctintegrator3' */
   /* Level2 S-Function Block: '<S5>/Dctintegrator3' (dweakint) */
@@ -9724,35 +8258,22 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dpd): '<S8>/Dctpd2' */
-  /* Level2 S-Function Block: '<S8>/Dctpd2' (dpd) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
+  /* End of Start for SubSystem: '<Root>/Controller' */
 
-  /* Start for S-Function (dleadlag): '<S8>/Dctleadlag3' */
-  /* Level2 S-Function Block: '<S8>/Dctleadlag3' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[4];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
+  /* Start for Enabled SubSystem: '<S24>/Subsystem3' */
+  /* Start for IfAction SubSystem: '<S26>/If Action Subsystem' */
+  robotarm_stu_SerialWrite1_Start(&robotarm_student_2021a_Ipos_DW.SerialWrite1);
 
-  /* Start for S-Function (dpd): '<S9>/Dctpd2' */
-  /* Level2 S-Function Block: '<S9>/Dctpd2' (dpd) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[5];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
+  /* End of Start for SubSystem: '<S26>/If Action Subsystem' */
 
-  /* Start for S-Function (dleadlag): '<S9>/Dctleadlag3' */
-  /* Level2 S-Function Block: '<S9>/Dctleadlag3' (dleadlag) */
+  /* Start for IfAction SubSystem: '<S26>/If Action Subsystem1' */
+  robotarm_stu_SerialWrite1_Start(&robotarm_student_2021a_Ipos_DW.SerialWrite);
+
+  /* End of Start for SubSystem: '<S26>/If Action Subsystem1' */
+  /* End of Start for SubSystem: '<S24>/Subsystem3' */
+
+  /* Start for S-Function (dweakint): '<S29>/Dctintegrator' */
+  /* Level2 S-Function Block: '<S29>/Dctintegrator' (dweakint) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[6];
     sfcnStart(rts);
@@ -9760,8 +8281,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dleadlag): '<S13>/Dctleadlag2' */
-  /* Level2 S-Function Block: '<S13>/Dctleadlag2' (dleadlag) */
+  /* Start for S-Function (dleadlag): '<S29>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S29>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[7];
     sfcnStart(rts);
@@ -9769,8 +8290,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dweakint): '<S13>/Dctintegrator3' */
-  /* Level2 S-Function Block: '<S13>/Dctintegrator3' (dweakint) */
+  /* Start for S-Function (dlowpass1): '<S29>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S29>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[8];
     sfcnStart(rts);
@@ -9778,8 +8299,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dnotch): '<S13>/Dctnotch4' */
-  /* Level2 S-Function Block: '<S13>/Dctnotch4' (dnotch) */
+  /* Start for S-Function (dleadlag): '<S30>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S30>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[9];
     sfcnStart(rts);
@@ -9787,8 +8308,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dpd): '<S13>/Dctpd5' */
-  /* Level2 S-Function Block: '<S13>/Dctpd5' (dpd) */
+  /* Start for S-Function (dlowpass1): '<S30>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S30>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[10];
     sfcnStart(rts);
@@ -9796,22 +8317,26 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* End of Start for SubSystem: '<Root>/Controller' */
+  /* Start for S-Function (dweakint): '<S36>/Dctintegrator' */
+  /* Level2 S-Function Block: '<S36>/Dctintegrator' (dweakint) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[12];
+    sfcnStart(rts);
+    if (ssGetErrorStatus(rts) != (NULL))
+      return;
+  }
 
-  /* Start for Enabled SubSystem: '<S27>/Subsystem3' */
-  /* Start for IfAction SubSystem: '<S29>/If Action Subsystem' */
-  robotarm_stu_SerialWrite1_Start(&robotarm_student_2021a_Ipos_DW.SerialWrite1);
+  /* Start for S-Function (dleadlag): '<S36>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S36>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[13];
+    sfcnStart(rts);
+    if (ssGetErrorStatus(rts) != (NULL))
+      return;
+  }
 
-  /* End of Start for SubSystem: '<S29>/If Action Subsystem' */
-
-  /* Start for IfAction SubSystem: '<S29>/If Action Subsystem1' */
-  robotarm_stu_SerialWrite1_Start(&robotarm_student_2021a_Ipos_DW.SerialWrite);
-
-  /* End of Start for SubSystem: '<S29>/If Action Subsystem1' */
-  /* End of Start for SubSystem: '<S27>/Subsystem3' */
-
-  /* Start for S-Function (dweakint): '<S32>/Dctintegrator' */
-  /* Level2 S-Function Block: '<S32>/Dctintegrator' (dweakint) */
+  /* Start for S-Function (dlowpass1): '<S36>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S36>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[14];
     sfcnStart(rts);
@@ -9819,8 +8344,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dleadlag): '<S32>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S32>/Dctleadlag' (dleadlag) */
+  /* Start for S-Function (dleadlag): '<S37>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S37>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[15];
     sfcnStart(rts);
@@ -9828,8 +8353,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dlowpass1): '<S32>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S32>/Dct1lowpass' (dlowpass1) */
+  /* Start for S-Function (dlowpass1): '<S37>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S37>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[16];
     sfcnStart(rts);
@@ -9837,17 +8362,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dleadlag): '<S33>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S33>/Dctleadlag' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[17];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dlowpass1): '<S33>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S33>/Dct1lowpass' (dlowpass1) */
+  /* Start for S-Function (dweakint): '<S45>/Dctintegrator' */
+  /* Level2 S-Function Block: '<S45>/Dctintegrator' (dweakint) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[18];
     sfcnStart(rts);
@@ -9855,8 +8371,17 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dweakint): '<S39>/Dctintegrator' */
-  /* Level2 S-Function Block: '<S39>/Dctintegrator' (dweakint) */
+  /* Start for S-Function (dleadlag): '<S45>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S45>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[19];
+    sfcnStart(rts);
+    if (ssGetErrorStatus(rts) != (NULL))
+      return;
+  }
+
+  /* Start for S-Function (dlowpass1): '<S45>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S45>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[20];
     sfcnStart(rts);
@@ -9864,8 +8389,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dleadlag): '<S39>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S39>/Dctleadlag' (dleadlag) */
+  /* Start for S-Function (dleadlag): '<S46>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S46>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[21];
     sfcnStart(rts);
@@ -9873,8 +8398,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dlowpass1): '<S39>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S39>/Dct1lowpass' (dlowpass1) */
+  /* Start for S-Function (dlowpass1): '<S46>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S46>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[22];
     sfcnStart(rts);
@@ -9882,17 +8407,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dleadlag): '<S40>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S40>/Dctleadlag' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[23];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dlowpass1): '<S40>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S40>/Dct1lowpass' (dlowpass1) */
+  /* Start for S-Function (dweakint): '<S55>/Dctintegrator3' */
+  /* Level2 S-Function Block: '<S55>/Dctintegrator3' (dweakint) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[24];
     sfcnStart(rts);
@@ -9900,73 +8416,19 @@ void robotarm_student_2021a_Ipos_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dweakint): '<S48>/Dctintegrator' */
-  /* Level2 S-Function Block: '<S48>/Dctintegrator' (dweakint) */
+  /* Start for S-Function (dlowpass1): '<S55>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S55>/Dct1lowpass' (dlowpass1) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[25];
+    sfcnStart(rts);
+    if (ssGetErrorStatus(rts) != (NULL))
+      return;
+  }
+
+  /* Start for S-Function (dleadlag): '<S55>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S55>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[26];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dleadlag): '<S48>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S48>/Dctleadlag' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[27];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dlowpass1): '<S48>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S48>/Dct1lowpass' (dlowpass1) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[28];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dleadlag): '<S49>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S49>/Dctleadlag' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[29];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dlowpass1): '<S49>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S49>/Dct1lowpass' (dlowpass1) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[30];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dweakint): '<S58>/Dctintegrator3' */
-  /* Level2 S-Function Block: '<S58>/Dctintegrator3' (dweakint) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[32];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dlowpass1): '<S58>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S58>/Dct1lowpass' (dlowpass1) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[33];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dleadlag): '<S58>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S58>/Dctleadlag' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[34];
     sfcnStart(rts);
     if (ssGetErrorStatus(rts) != (NULL))
       return;
@@ -9975,84 +8437,84 @@ void robotarm_student_2021a_Ipos_initialize(void)
   {
     int32_T i;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S35>/Discrete-Time Integrator' */
+    /* InitializeConditions for DiscreteIntegrator: '<S32>/Discrete-Time Integrator' */
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE =
       robotarm_student_2021a_Ipos_B.Constant1;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S23>/Discrete-Time Integrator' */
+    /* InitializeConditions for DiscreteIntegrator: '<S20>/Discrete-Time Integrator' */
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_g =
       robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_IC;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S24>/Discrete-Time Integrator' */
+    /* InitializeConditions for DiscreteIntegrator: '<S21>/Discrete-Time Integrator' */
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_m =
       robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_IC_c;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S41>/Discrete-Time Integrator' */
+    /* InitializeConditions for DiscreteIntegrator: '<S38>/Discrete-Time Integrator' */
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_o =
       robotarm_student_2021a_Ipos_B.Constant1_e;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S25>/Discrete-Time Integrator' */
+    /* InitializeConditions for DiscreteIntegrator: '<S22>/Discrete-Time Integrator' */
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_a =
       robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_IC_o;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S51>/Discrete-Time Integrator' */
+    /* InitializeConditions for DiscreteIntegrator: '<S48>/Discrete-Time Integrator' */
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_j =
       robotarm_student_2021a_Ipos_B.Constant1_f;
 
-    /* InitializeConditions for UnitDelay: '<S17>/Unit Delay' */
+    /* InitializeConditions for UnitDelay: '<S14>/Unit Delay' */
     robotarm_student_2021a_Ipos_DW.UnitDelay_DSTATE =
       robotarm_student_2021a_Ipos_P.UnitDelay_InitialCondition;
 
-    /* InitializeConditions for UnitDelay: '<S17>/Unit Delay1' */
+    /* InitializeConditions for UnitDelay: '<S14>/Unit Delay1' */
     robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE =
       robotarm_student_2021a_Ipos_P.UnitDelay1_InitialCondition;
 
-    /* InitializeConditions for Delay: '<S28>/Delay' */
+    /* InitializeConditions for Delay: '<S25>/Delay' */
     strncpy(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0],
             &robotarm_student_2021a_Ipos_P.Delay_InitialCondition[0], 255U);
     robotarm_student_2021a_Ipos_DW.Delay_DSTATE[255] = '\x00';
 
-    /* InitializeConditions for DiscreteIntegrator: '<S26>/Discrete-Time Integrator' */
+    /* InitializeConditions for DiscreteIntegrator: '<S23>/Discrete-Time Integrator' */
     robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_k =
       robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_IC_co;
 
-    /* InitializeConditions for RateLimiter: '<S51>/Limit Speed' */
+    /* InitializeConditions for RateLimiter: '<S48>/Limit Speed' */
     robotarm_student_2021a_Ipos_DW.PrevY =
       robotarm_student_2021a_Ipos_P.LimitSpeed_IC;
 
-    /* InitializeConditions for UnitDelay: '<S57>/UD' */
+    /* InitializeConditions for UnitDelay: '<S54>/UD' */
     robotarm_student_2021a_Ipos_DW.UD_DSTATE =
       robotarm_student_2021a_Ipos_P.DiscreteDerivative_ICPrevScaled;
 
-    /* InitializeConditions for RateLimiter: '<S51>/Limit Acceleration' */
+    /* InitializeConditions for RateLimiter: '<S48>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_DW.PrevY_j =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_IC;
 
-    /* InitializeConditions for RateLimiter: '<S41>/Limit Speed' */
+    /* InitializeConditions for RateLimiter: '<S38>/Limit Speed' */
     robotarm_student_2021a_Ipos_DW.PrevY_d =
       robotarm_student_2021a_Ipos_P.LimitSpeed_IC_a;
 
-    /* InitializeConditions for UnitDelay: '<S47>/UD' */
+    /* InitializeConditions for UnitDelay: '<S44>/UD' */
     robotarm_student_2021a_Ipos_DW.UD_DSTATE_c =
       robotarm_student_2021a_Ipos_P.DiscreteDerivative_ICPrevScal_e;
 
-    /* InitializeConditions for RateLimiter: '<S41>/Limit Acceleration' */
+    /* InitializeConditions for RateLimiter: '<S38>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_DW.PrevY_f =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_IC_k;
 
-    /* InitializeConditions for RateLimiter: '<S35>/Limit Speed' */
+    /* InitializeConditions for RateLimiter: '<S32>/Limit Speed' */
     robotarm_student_2021a_Ipos_DW.PrevY_i =
       robotarm_student_2021a_Ipos_P.LimitSpeed_IC_e;
 
-    /* InitializeConditions for UnitDelay: '<S38>/UD' */
+    /* InitializeConditions for UnitDelay: '<S35>/UD' */
     robotarm_student_2021a_Ipos_DW.UD_DSTATE_cc =
       robotarm_student_2021a_Ipos_P.DiscreteDerivative_ICPrevScal_h;
 
-    /* InitializeConditions for RateLimiter: '<S35>/Limit Acceleration' */
+    /* InitializeConditions for RateLimiter: '<S32>/Limit Acceleration' */
     robotarm_student_2021a_Ipos_DW.PrevY_k =
       robotarm_student_2021a_Ipos_P.LimitAcceleration_IC_i;
 
-    /* SystemInitialize for Chart: '<S23>/Supervisor' */
+    /* SystemInitialize for Chart: '<S20>/Supervisor' */
     robotarm_student_2021a_Ipos_DW.sfEvent_k = robotarm_student_202_CALL_EVENT;
     robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
     robotarm_student_2021a_Ipos_DW.is_active_c12_robotarm_student_ = 0U;
@@ -10070,7 +8532,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
     robotarm_student_2021a_Ipos_B.Ready_a = 1.0;
     robotarm_student_2021a_Ipos_B.StopSim_j = 0.0;
 
-    /* SystemInitialize for Chart: '<S24>/Supervisor2' */
+    /* SystemInitialize for Chart: '<S21>/Supervisor2' */
     robotarm_student_2021a_Ipos_DW.sfEvent_h = robotarm_student_202_CALL_EVENT;
     robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
     robotarm_student_2021a_Ipos_DW.is_active_c16_robotarm_student_ = 0U;
@@ -10087,7 +8549,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
     robotarm_student_2021a_Ipos_B.Ready_i = 1.0;
     robotarm_student_2021a_Ipos_B.StopSim_o = 0.0;
 
-    /* SystemInitialize for Chart: '<S25>/Supervisor' */
+    /* SystemInitialize for Chart: '<S22>/Supervisor' */
     robotarm_student_2021a_Ipos_DW.sfEvent_n = robotarm_student_202_CALL_EVENT;
     robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
     robotarm_student_2021a_Ipos_DW.is_active_c18_robotarm_student_ = 0U;
@@ -10104,7 +8566,7 @@ void robotarm_student_2021a_Ipos_initialize(void)
     robotarm_student_2021a_Ipos_B.Ready_n = 1.0;
     robotarm_student_2021a_Ipos_B.StopSim_n = 0.0;
 
-    /* SystemInitialize for Chart: '<S26>/Supervisor' */
+    /* SystemInitialize for Chart: '<S23>/Supervisor' */
     robotarm_student_2021a_Ipos_DW.sfEvent = robotarm_student_202_CALL_EVENT;
     robotarm_student_2021a_Ipos_DW.temporalCounter_i1_i = 0U;
     robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2 = 0U;
@@ -10117,13 +8579,13 @@ void robotarm_student_2021a_Ipos_initialize(void)
     robotarm_student_2021a_Ipos_B.StopSim = 0.0;
 
     /* SystemInitialize for Enabled SubSystem: '<Root>/Controller' */
-    /* InitializeConditions for UnitDelay: '<S14>/Delay Input1' */
+    /* InitializeConditions for UnitDelay: '<S11>/Delay Input1' */
     for (i = 0; i < 12; i++) {
       robotarm_student_2021a_Ipos_DW.DelayInput1_DSTATE[i] =
         robotarm_student_2021a_Ipos_P.DetectChange_vinit;
     }
 
-    /* End of InitializeConditions for UnitDelay: '<S14>/Delay Input1' */
+    /* End of InitializeConditions for UnitDelay: '<S11>/Delay Input1' */
 
     /* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete  integrator' */
     robotarm_student_2021a_Ipos_DW.Discreteintegrator_DSTATE =
@@ -10133,8 +8595,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
     robotarm_student_2021a_Ipos_DW.is_active_ActionDone = 0U;
     robotarm_student_2021a_Ipos_DW.is_ActionDone = 0U;
     robotarm_student_2021a_Ipos_DW.temporalCounter_i4 = 0U;
-    robotarm_student_2021a_Ipos_DW.temporalCounter_i2 = 0U;
     robotarm_student_2021a_Ipos_DW.temporalCounter_i3 = 0U;
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i2 = 0U;
     robotarm_student_2021a_Ipos_DW.is_active_Object_picked = 0U;
     robotarm_student_2021a_Ipos_DW.is_Object_picked = 0U;
     robotarm_student_2021a_Ipos_DW.is_active_Object_tracking = 0U;
@@ -10150,18 +8612,13 @@ void robotarm_student_2021a_Ipos_initialize(void)
     robotarm_student_2021a_Ipos_DW.X_pos = 0.0;
     robotarm_student_2021a_Ipos_DW.Y_pos = 0.0;
     robotarm_student_2021a_Ipos_DW.Z_pos = 0.0;
-    robotarm_student_2021a_Ipos_DW.IdentPressure = 0.2;
-    robotarm_student_2021a_Ipos_DW.AreaBad = 2300.0;
-    robotarm_student_2021a_Ipos_DW.AreaGood = 2400.0;
     robotarm_student_2021a_Ipos_DW.elapTime = 0.0;
-    robotarm_student_2021a_Ipos_DW.yPlaced = -10.0;
-    robotarm_student_2021a_Ipos_DW.v = 20.0;
     robotarm_student_2021a_Ipos_DW.yTracked = 0.0;
     robotarm_student_2021a_Ipos_DW.track = 0.0;
-    robotarm_student_2021a_Ipos_DW.picked = 0.0;
-    robotarm_student_2021a_Ipos_DW.ObjectType = 0.0;
     robotarm_student_2021a_Ipos_DW.reachability = 0.0;
     robotarm_student_2021a_Ipos_DW.action = 0.0;
+    robotarm_student_2021a_Ipos_DW.EndTime = 1.5;
+    robotarm_student_2021a_Ipos_DW.velocity = 1.0;
     robotarm_student_2021a_Ipos_B.R_rad = 0.0;
     robotarm_student_2021a_Ipos_B.X_rad = 0.0;
     robotarm_student_2021a_Ipos_B.Z_rad = 0.0;
@@ -10177,31 +8634,27 @@ void robotarm_student_2021a_Ipos_initialize(void)
     robotarm_student_2021a_Ipos_DW.is_active_Identification = 1U;
     robotarm_student_2021a_Ipos_DW.is_Identification =
       robotarm_student_2_IN_No_Object;
+    robotarm_student_2021a_Ipos_DW.ObjectType = 0.0;
     robotarm_student_2021a_Ipos_DW.is_active_Belt = 1U;
     robotarm_student_2021a_Ipos_DW.is_Belt = robotarm_student_2_IN_Belt_Home;
     robotarm_student_2021a_Ipos_DW.is_active_Robot_Arm = 1U;
     robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
       robotarm_student__IN_Start_Home;
     robotar_enter_atomic_Start_Home();
-    if (robotarm_student_2021a_Ipos_DW.is_Robot_Arm ==
-        robotarm_student__IN_Start_Home) {
-      robotarm_student_2021a_Ipos_DW.is_active_Vacuum = 1U;
-      robotarm_student_2021a_Ipos_DW.is_Vacuum = robotarm_student__IN_Vacuum_Off;
-      robotarm_student_2021a_Ipos_B.Blow_suck = 1.0;
-      robotarm_student_2021a_Ipos_DW.is_active_Object_picked = 1U;
-      robotarm_student_2021a_Ipos_DW.is_Object_picked =
-        robotarm_student__IN_Not_Picked;
-      robotarm_student_2021a_Ipos_DW.is_active_Object_tracking = 1U;
-      robotarm_student_2021a_Ipos_DW.is_Object_tracking =
-        robotarm_student_2_IN_No_object;
-      robotarm_student_2021a_Ipos_DW.track = 0.0;
-      robotarm_student_2021a_Ipos_DW.is_active_ActionDone = 1U;
-      robotarm_student_2021a_Ipos_DW.is_ActionDone =
-        robotarm_student_2_IN_No_action;
-      robotarm_student_2021a_Ipos_DW.action = 0.0;
-    }
-
-    /* End of Chart: '<S1>/Stateflow 1' */
+    robotarm_student_2021a_Ipos_DW.is_active_Vacuum = 1U;
+    robotarm_student_2021a_Ipos_DW.is_Vacuum = robotarm_student__IN_Vacuum_Off;
+    robotarm_student_2021a_Ipos_B.Blow_suck = 1.0;
+    robotarm_student_2021a_Ipos_DW.is_active_Object_picked = 1U;
+    robotarm_student_2021a_Ipos_DW.is_Object_picked =
+      robotarm_student__IN_Not_Picked;
+    robotarm_student_2021a_Ipos_DW.is_active_Object_tracking = 1U;
+    robotarm_student_2021a_Ipos_DW.is_Object_tracking =
+      robotarm_student_2_IN_No_object;
+    robotarm_student_2021a_Ipos_DW.track = 0.0;
+    robotarm_student_2021a_Ipos_DW.is_active_ActionDone = 1U;
+    robotarm_student_2021a_Ipos_DW.is_ActionDone =
+      robotarm_student_2_IN_No_action;
+    robotarm_student_2021a_Ipos_DW.action = 0.0;
 
     /* SystemInitialize for MATLAB Function: '<S1>/quintic trajectory time1' */
     robo_quintictrajectorytime_Init
@@ -10216,8 +8669,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
       (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2);
 
     /* SystemInitialize for Enabled SubSystem: '<S4>/Enabled Subsystem' */
-    /* SystemInitialize for Outport: '<S15>/Delay [s]' incorporates:
-     *  Inport: '<S15>/In1'
+    /* SystemInitialize for Outport: '<S12>/Delay [s]' incorporates:
+     *  Inport: '<S12>/In1'
      */
     robotarm_student_2021a_Ipos_B.In1 = robotarm_student_2021a_Ipos_P.Delays_Y0;
 
@@ -10267,14 +8720,14 @@ void robotarm_student_2021a_Ipos_terminate(void)
   /* Terminate for S-Function (ec_Supervisor): '<S3>/S-Function' */
   /* Level2 S-Function Block: '<S3>/S-Function' (ec_Supervisor) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[11];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (Ipos360): '<S18>/ec_Ipos' */
-  /* Level2 S-Function Block: '<S18>/ec_Ipos' (Ipos360) */
+  /* Terminate for S-Function (Ipos360): '<S15>/ec_Ipos' */
+  /* Level2 S-Function Block: '<S15>/ec_Ipos' (Ipos360) */
   {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[12];
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[4];
     sfcnTerminate(rts);
   }
 
@@ -10300,227 +8753,171 @@ void robotarm_student_2021a_Ipos_terminate(void)
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dpd): '<S8>/Dctpd2' */
-  /* Level2 S-Function Block: '<S8>/Dctpd2' (dpd) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
-    sfcnTerminate(rts);
-  }
+  /* End of Terminate for SubSystem: '<Root>/Controller' */
 
-  /* Terminate for S-Function (dleadlag): '<S8>/Dctleadlag3' */
-  /* Level2 S-Function Block: '<S8>/Dctleadlag3' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[4];
-    sfcnTerminate(rts);
-  }
+  /* Terminate for Enabled SubSystem: '<S24>/Subsystem3' */
+  /* Terminate for IfAction SubSystem: '<S26>/If Action Subsystem' */
+  robotarm_stud_SerialWrite1_Term(&robotarm_student_2021a_Ipos_DW.SerialWrite1);
 
-  /* Terminate for S-Function (dpd): '<S9>/Dctpd2' */
-  /* Level2 S-Function Block: '<S9>/Dctpd2' (dpd) */
+  /* End of Terminate for SubSystem: '<S26>/If Action Subsystem' */
+
+  /* Terminate for IfAction SubSystem: '<S26>/If Action Subsystem1' */
+  robotarm_stud_SerialWrite1_Term(&robotarm_student_2021a_Ipos_DW.SerialWrite);
+
+  /* End of Terminate for SubSystem: '<S26>/If Action Subsystem1' */
+  /* End of Terminate for SubSystem: '<S24>/Subsystem3' */
+
+  /* Terminate for S-Function (ec_IposResetEnc): '<S20>/Reset EncoderR' */
+  /* Level2 S-Function Block: '<S20>/Reset EncoderR' (ec_IposResetEnc) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[5];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dleadlag): '<S9>/Dctleadlag3' */
-  /* Level2 S-Function Block: '<S9>/Dctleadlag3' (dleadlag) */
+  /* Terminate for S-Function (dweakint): '<S29>/Dctintegrator' */
+  /* Level2 S-Function Block: '<S29>/Dctintegrator' (dweakint) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[6];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dleadlag): '<S13>/Dctleadlag2' */
-  /* Level2 S-Function Block: '<S13>/Dctleadlag2' (dleadlag) */
+  /* Terminate for S-Function (dleadlag): '<S29>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S29>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[7];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dweakint): '<S13>/Dctintegrator3' */
-  /* Level2 S-Function Block: '<S13>/Dctintegrator3' (dweakint) */
+  /* Terminate for S-Function (dlowpass1): '<S29>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S29>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[8];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dnotch): '<S13>/Dctnotch4' */
-  /* Level2 S-Function Block: '<S13>/Dctnotch4' (dnotch) */
+  /* Terminate for S-Function (dleadlag): '<S30>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S30>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[9];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dpd): '<S13>/Dctpd5' */
-  /* Level2 S-Function Block: '<S13>/Dctpd5' (dpd) */
+  /* Terminate for S-Function (dlowpass1): '<S30>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S30>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[10];
     sfcnTerminate(rts);
   }
 
-  /* End of Terminate for SubSystem: '<Root>/Controller' */
+  /* Terminate for S-Function (ec_IposResetEnc): '<S21>/Reset EncoderR1' */
+  /* Level2 S-Function Block: '<S21>/Reset EncoderR1' (ec_IposResetEnc) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[11];
+    sfcnTerminate(rts);
+  }
 
-  /* Terminate for Enabled SubSystem: '<S27>/Subsystem3' */
-  /* Terminate for IfAction SubSystem: '<S29>/If Action Subsystem' */
-  robotarm_stud_SerialWrite1_Term(&robotarm_student_2021a_Ipos_DW.SerialWrite1);
+  /* Terminate for S-Function (dweakint): '<S36>/Dctintegrator' */
+  /* Level2 S-Function Block: '<S36>/Dctintegrator' (dweakint) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[12];
+    sfcnTerminate(rts);
+  }
 
-  /* End of Terminate for SubSystem: '<S29>/If Action Subsystem' */
-
-  /* Terminate for IfAction SubSystem: '<S29>/If Action Subsystem1' */
-  robotarm_stud_SerialWrite1_Term(&robotarm_student_2021a_Ipos_DW.SerialWrite);
-
-  /* End of Terminate for SubSystem: '<S29>/If Action Subsystem1' */
-  /* End of Terminate for SubSystem: '<S27>/Subsystem3' */
-
-  /* Terminate for S-Function (ec_IposResetEnc): '<S23>/Reset EncoderR' */
-  /* Level2 S-Function Block: '<S23>/Reset EncoderR' (ec_IposResetEnc) */
+  /* Terminate for S-Function (dleadlag): '<S36>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S36>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[13];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dweakint): '<S32>/Dctintegrator' */
-  /* Level2 S-Function Block: '<S32>/Dctintegrator' (dweakint) */
+  /* Terminate for S-Function (dlowpass1): '<S36>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S36>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[14];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dleadlag): '<S32>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S32>/Dctleadlag' (dleadlag) */
+  /* Terminate for S-Function (dleadlag): '<S37>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S37>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[15];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dlowpass1): '<S32>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S32>/Dct1lowpass' (dlowpass1) */
+  /* Terminate for S-Function (dlowpass1): '<S37>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S37>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[16];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dleadlag): '<S33>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S33>/Dctleadlag' (dleadlag) */
+  /* Terminate for S-Function (ec_IposResetEnc): '<S22>/Reset EncoderR1' */
+  /* Level2 S-Function Block: '<S22>/Reset EncoderR1' (ec_IposResetEnc) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[17];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dlowpass1): '<S33>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S33>/Dct1lowpass' (dlowpass1) */
+  /* Terminate for S-Function (dweakint): '<S45>/Dctintegrator' */
+  /* Level2 S-Function Block: '<S45>/Dctintegrator' (dweakint) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[18];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (ec_IposResetEnc): '<S24>/Reset EncoderR1' */
-  /* Level2 S-Function Block: '<S24>/Reset EncoderR1' (ec_IposResetEnc) */
+  /* Terminate for S-Function (dleadlag): '<S45>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S45>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[19];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dweakint): '<S39>/Dctintegrator' */
-  /* Level2 S-Function Block: '<S39>/Dctintegrator' (dweakint) */
+  /* Terminate for S-Function (dlowpass1): '<S45>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S45>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[20];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dleadlag): '<S39>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S39>/Dctleadlag' (dleadlag) */
+  /* Terminate for S-Function (dleadlag): '<S46>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S46>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[21];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dlowpass1): '<S39>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S39>/Dct1lowpass' (dlowpass1) */
+  /* Terminate for S-Function (dlowpass1): '<S46>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S46>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[22];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dleadlag): '<S40>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S40>/Dctleadlag' (dleadlag) */
+  /* Terminate for S-Function (ec_IposResetEnc): '<S23>/Reset EncoderR1' */
+  /* Level2 S-Function Block: '<S23>/Reset EncoderR1' (ec_IposResetEnc) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[23];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dlowpass1): '<S40>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S40>/Dct1lowpass' (dlowpass1) */
+  /* Terminate for S-Function (dweakint): '<S55>/Dctintegrator3' */
+  /* Level2 S-Function Block: '<S55>/Dctintegrator3' (dweakint) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[24];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (ec_IposResetEnc): '<S25>/Reset EncoderR1' */
-  /* Level2 S-Function Block: '<S25>/Reset EncoderR1' (ec_IposResetEnc) */
+  /* Terminate for S-Function (dlowpass1): '<S55>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S55>/Dct1lowpass' (dlowpass1) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[25];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dweakint): '<S48>/Dctintegrator' */
-  /* Level2 S-Function Block: '<S48>/Dctintegrator' (dweakint) */
+  /* Terminate for S-Function (dleadlag): '<S55>/Dctleadlag' */
+  /* Level2 S-Function Block: '<S55>/Dctleadlag' (dleadlag) */
   {
     SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[26];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dleadlag): '<S48>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S48>/Dctleadlag' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[27];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dlowpass1): '<S48>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S48>/Dct1lowpass' (dlowpass1) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[28];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dleadlag): '<S49>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S49>/Dctleadlag' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[29];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dlowpass1): '<S49>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S49>/Dct1lowpass' (dlowpass1) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[30];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (ec_IposResetEnc): '<S26>/Reset EncoderR1' */
-  /* Level2 S-Function Block: '<S26>/Reset EncoderR1' (ec_IposResetEnc) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[31];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dweakint): '<S58>/Dctintegrator3' */
-  /* Level2 S-Function Block: '<S58>/Dctintegrator3' (dweakint) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[32];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dlowpass1): '<S58>/Dct1lowpass' */
-  /* Level2 S-Function Block: '<S58>/Dct1lowpass' (dlowpass1) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[33];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dleadlag): '<S58>/Dctleadlag' */
-  /* Level2 S-Function Block: '<S58>/Dctleadlag' (dleadlag) */
-  {
-    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[34];
     sfcnTerminate(rts);
   }
 

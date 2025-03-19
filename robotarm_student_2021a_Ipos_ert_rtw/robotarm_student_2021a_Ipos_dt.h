@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.143
+ * Model version              : 2.148
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Tue Mar 18 16:04:24 2025
+ * C source code generated on : Wed Mar 19 10:02:54 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -66,9 +66,18 @@ static const char_T * rtDataTypeNames[] = {
 static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&robotarm_student_2021a_Ipos_B.ManualSwitch1[0]), 15, 0, 256 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_B.SFunction), 0, 0, 141 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_B.SFunction), 0, 0, 145 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_B.RelationalOperator), 8, 0, 5 }
+  { (char_T *)(&robotarm_student_2021a_Ipos_B.RelationalOperator), 8, 0, 5 },
+
+  { (char_T *)(&robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime2.path), 0,
+    0, 1 },
+
+  { (char_T *)(&robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime1.path), 0,
+    0, 1 },
+
+  { (char_T *)(&robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime.path), 0,
+    0, 1 }
   ,
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE), 0,
@@ -76,9 +85,9 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0]), 15, 0, 1 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_DW.PrevY), 0, 0, 88 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_DW.PrevY), 0, 0, 84 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_DW.Scope_PWORK.LoggedData), 11, 0, 4
+  { (char_T *)(&robotarm_student_2021a_Ipos_DW.Scope_PWORK.LoggedData), 11, 0, 3
   },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.sfEvent), 6, 0, 5 },
@@ -105,12 +114,48 @@ static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.SerialWrite1.obj), 16, 0, 1 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.SerialWrite1.objisempty), 8, 0, 1
-  }
+  },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2.previous_value_reference_start),
+    0, 0, 3 },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2.path_array), 11,
+    0, 1 },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2.path_array_not_empty),
+    8, 0, 1 },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1.previous_value_reference_start),
+    0, 0, 3 },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1.path_array), 11,
+    0, 1 },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1.path_array_not_empty),
+    8, 0, 1 },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime.previous_value_reference_start),
+    0, 0, 3 },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime.path_array), 11, 0,
+    1 },
+
+  { (char_T *)
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime.path_array_not_empty),
+    8, 0, 1 }
 };
 
 /* data type transition table for block I/O structure */
 static DataTypeTransitionTable rtBTransTable = {
-  17U,
+  29U,
   rtBTransitions
 };
 
@@ -122,7 +167,7 @@ static DataTypeTransition rtPTransitions[] = {
   { (char_T *)(&robotarm_student_2021a_Ipos_P.CompareToConstant1_const), 3, 0, 1
   },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_P.Delays_Y0), 0, 0, 359 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_P.Delays_Y0), 0, 0, 358 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_P.LEDRing_Y0[0]), 14, 0, 2560 },
 
