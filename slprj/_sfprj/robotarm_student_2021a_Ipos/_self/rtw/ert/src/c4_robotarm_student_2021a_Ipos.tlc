@@ -1,0 +1,343 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  1 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   44 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "sfEvent"\
+      Description  "ActiveChartEvent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "doneDoubleBufferReInit"\
+      Description  "DoubleBufferInitCheck"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_c4_robotarm_student_2021a_Ipos"\
+      Description  "StateIsActive"\
+      SFName       "is_active_c4_robotarm_student_2021a_Ipos"\
+      Path         "is_active_c4_robotarm_student_2021a_Ipos"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Vacuum"\
+      Description  "StateActiveChild"\
+      SFName       "is_Vacuum"\
+      Path         "Vacuum.is_Vacuum"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Vacuum"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Vacuum"\
+      Path         "Vacuum.is_active_Vacuum"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Identification"\
+      Description  "StateActiveChild"\
+      SFName       "is_Identification"\
+      Path         "Identification.is_Identification"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Identification"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Identification"\
+      Path         "Identification.is_active_Identification"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Object_Detection"\
+      Description  "StateActiveChild"\
+      SFName       "is_Object_Detection"\
+      Path         "Object_Detection.is_Object_Detection"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Object_Detection"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Object_Detection"\
+      Path         "Object_Detection.is_active_Object_Detection"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Belt"\
+      Description  "StateActiveChild"\
+      SFName       "is_Belt"\
+      Path         "Belt.is_Belt"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Belt"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Belt"\
+      Path         "Belt.is_active_Belt"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Object_picked"\
+      Description  "StateActiveChild"\
+      SFName       "is_Object_picked"\
+      Path         "Object_picked.is_Object_picked"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Object_picked"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Object_picked"\
+      Path         "Object_picked.is_active_Object_picked"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_ActionDone"\
+      Description  "StateActiveChild"\
+      SFName       "is_ActionDone"\
+      Path         "ActionDone.is_ActionDone"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_ActionDone"\
+      Description  "StateIsActive"\
+      SFName       "is_active_ActionDone"\
+      Path         "ActionDone.is_active_ActionDone"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Robot_Arm"\
+      Description  "StateActiveChild"\
+      SFName       "is_Robot_Arm"\
+      Path         "Robot_Arm.is_Robot_Arm"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Robot_Arm"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Robot_Arm"\
+      Path         "Robot_Arm.is_active_Robot_Arm"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Object_tracking"\
+      Description  "StateActiveChild"\
+      SFName       "is_Object_tracking"\
+      Path         "Object_tracking.is_Object_tracking"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Object_tracking"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Object_tracking"\
+      Path         "Object_tracking.is_active_Object_tracking"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "treshold"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "treshold"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "x"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "x"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "y"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "y"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "z"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "z"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "X_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "X_pos"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y_pos"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Z_pos"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Z_pos"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "IdentPressure"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "IdentPressure"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "AreaBad"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "AreaBad"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "AreaGood"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "AreaGood"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "elapTime"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "elapTime"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "yPlaced"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "yPlaced"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "v"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "v"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "yTracked"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "yTracked"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "track"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "track"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "picked"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "picked"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "ObjectType"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "ObjectType"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "reachability"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "reachability"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "action"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "action"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i3"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i4"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i5"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "isNotInit"\
+      Description  "HasOutputsRun"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
