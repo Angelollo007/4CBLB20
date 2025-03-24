@@ -36,38 +36,6 @@
       IsTestPoint  1\
     }\
     ChartData {\
-      Name         "is_Vacuum"\
-      Description  "StateActiveChild"\
-      SFName       "is_Vacuum"\
-      Path         "Vacuum.is_Vacuum"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_active_Vacuum"\
-      Description  "StateIsActive"\
-      SFName       "is_active_Vacuum"\
-      Path         "Vacuum.is_active_Vacuum"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_Identification"\
-      Description  "StateActiveChild"\
-      SFName       "is_Identification"\
-      Path         "Identification.is_Identification"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_active_Identification"\
-      Description  "StateIsActive"\
-      SFName       "is_active_Identification"\
-      Path         "Identification.is_active_Identification"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
       Name         "is_Object_Detection"\
       Description  "StateActiveChild"\
       SFName       "is_Object_Detection"\
@@ -96,6 +64,38 @@
       Description  "StateIsActive"\
       SFName       "is_active_Belt"\
       Path         "Belt.is_active_Belt"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Identification"\
+      Description  "StateActiveChild"\
+      SFName       "is_Identification"\
+      Path         "Identification.is_Identification"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Identification"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Identification"\
+      Path         "Identification.is_active_Identification"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Vacuum"\
+      Description  "StateActiveChild"\
+      SFName       "is_Vacuum"\
+      Path         "Vacuum.is_Vacuum"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Vacuum"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Vacuum"\
+      Path         "Vacuum.is_active_Vacuum"\
       SrcLocation  ""\
       IsTestPoint  1\
     }\

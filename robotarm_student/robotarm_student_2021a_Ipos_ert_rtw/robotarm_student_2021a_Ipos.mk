@@ -2,7 +2,7 @@
 ## Makefile generated for component 'robotarm_student_2021a_Ipos'. 
 ## 
 ## Makefile     : robotarm_student_2021a_Ipos.mk
-## Generated on : Wed Mar 19 14:43:12 2025
+## Generated on : Thu Mar 20 16:01:47 2025
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/robotarm_student_2021a_Ipos.elf
 ## Product type : executable
 ## 
