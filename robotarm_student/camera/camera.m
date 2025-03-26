@@ -13,18 +13,18 @@
 %% Set detection variables; ONLY MAKE CHANGES IN THIS SECTION!
 % Color; change to exported color threshold function from the app "Color
 % Thresholder" per object
-mask_object_1 = @final_blue_mask;
+mask_object_1 = @last_blue_mask;
 mask_object_2 = @final_yellow_mask;
 mask_object_3 = @example_mask_red;
 
 % Blob area; minimum and maximum area for the blob analysis per object
 % in pixels
 min_blob_area_object_1 = 37000;  % Minimal blob area in pixels for object 1
-max_blob_area_object_1 = 45000; % Maximum blob area in pixels for object 1       
+max_blob_area_object_1 = 450000; % Maximum blob area in pixels for object 1       
 min_blob_area_object_2 = 37000;  % Minimal blob area in pixels for object 2
-max_blob_area_object_2 = 45000; % Maximum blob area in pixels for object 2     
+max_blob_area_object_2 = 450000; % Maximum blob area in pixels for object 2     
 min_blob_area_object_3 = 37000;  % Minimal blob area in pixels for object 3
-max_blob_area_object_3 = 45000; % Maximum blob area in pixels for object 3       
+max_blob_area_object_3 = 450000; % Maximum blob area in pixels for object 3       
 
 % Framerate in Hz of the object detection; set this lower if you notice
 % that the model is running slow. Do not set it higher than 5. 

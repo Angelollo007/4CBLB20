@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.166
+ * Model version              : 2.169
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Tue Mar 25 16:43:25 2025
+ * C source code generated on : Wed Mar 26 10:43:16 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -66,7 +66,7 @@ static const char_T * rtDataTypeNames[] = {
 static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&robotarm_student_2021a_Ipos_B.ManualSwitch1[0]), 15, 0, 256 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_B.SFunction), 0, 0, 158 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_B.SFunction), 0, 0, 163 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_B.RelationalOperator), 8, 0, 5 },
 
@@ -85,7 +85,7 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0]), 15, 0, 1 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_DW.PrevY), 0, 0, 102 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_DW.PrevY), 0, 0, 108 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.Scope_PWORK.LoggedData), 11, 0, 9
   },
@@ -93,15 +93,15 @@ static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.sfEvent), 6, 0, 5 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip),
-    7, 0, 13 },
+    7, 0, 11 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_DW.temporalCounter_i1), 5, 0, 8 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_DW.temporalCounter_i1_i), 5, 0, 7 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC), 2, 0, 5
   },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2),
-    3, 0, 13 },
+    3, 0, 12 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.doneDoubleBufferReInit), 8, 0, 3
   },
@@ -167,7 +167,7 @@ static DataTypeTransition rtPTransitions[] = {
   { (char_T *)(&robotarm_student_2021a_Ipos_P.CompareToConstant1_const), 3, 0, 1
   },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_P.Delays_Y0), 0, 0, 431 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_P.Delays_Y0), 0, 0, 427 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_P.LEDRing_Y0[0]), 14, 0, 2560 },
 

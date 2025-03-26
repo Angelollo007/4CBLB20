@@ -11,7 +11,7 @@
 %% Set detection variables; ONLY MAKE CHANGES IN THIS SECTION!
 % Color; change to exported color threshold function from the app "Color
 % Thresholder" per object
-mask_object_1 = @final_blue_mask;
+mask_object_1 = @last_blue_mask;
 mask_object_2 = @final_yellow_mask;
 mask_object_3 = @example_mask_red;
 
