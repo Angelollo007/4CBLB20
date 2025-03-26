@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.166
+ * Model version              : 2.167
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Tue Mar 25 17:07:42 2025
+ * C source code generated on : Wed Mar 26 16:35:34 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -883,7 +883,7 @@ static void robotarm_student_2021_Robot_Arm(void)
     break;
 
    case robotarm_student_2_IN_Tranition:
-    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m0 >= 4096U) {
+    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m0 >= 10240U) {
       robotarm_student_2021a_Ipos_DW.is_Robot_Arm =
         robotarm_student_20_IN_Reaching;
       b_previousEvent = robotarm_student_2021a_Ipos_DW.sfEvent_e;
@@ -1181,2697 +1181,2366 @@ static void robotar_enter_atomic_Start_Home(void)
 /* Model step function */
 void robotarm_student_2021a_Ipos_step(void)
 {
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(robotarm_student_2021a_Ipos_DW.EnabledSubsystem_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(robotarm_student_2021a_Ipos_DW.Controller_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem1_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC);
+
+  /* S-Function (ec_Supervisor): '<S3>/S-Function' */
+
+  /* Level2 S-Function Block: '<S3>/S-Function' (ec_Supervisor) */
   {
-    real_T *lastU;
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[20];
+    sfcnOutputs(rts,0);
+  }
 
-    /* Reset subsysRan breadcrumbs */
-    srClearBC(robotarm_student_2021a_Ipos_DW.EnabledSubsystem_SubsysRanBC);
+  /* S-Function (Ipos360): '<S22>/ec_Ipos' */
 
-    /* Reset subsysRan breadcrumbs */
-    srClearBC(robotarm_student_2021a_Ipos_DW.Controller_SubsysRanBC);
+  /* Level2 S-Function Block: '<S22>/ec_Ipos' (Ipos360) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[21];
+    sfcnOutputs(rts,0);
+  }
 
-    /* Reset subsysRan breadcrumbs */
-    srClearBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem_SubsysRanBC);
+  /* Gain: '<S20>/Gain' */
+  robotarm_student_2021a_Ipos_B.Gain = robotarm_student_2021a_Ipos_P.Gain_Gain *
+    robotarm_student_2021a_Ipos_B.ec_Ipos_o4;
 
-    /* Reset subsysRan breadcrumbs */
-    srClearBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem1_SubsysRanBC);
+  /* Constant: '<S39>/Constant1' */
+  robotarm_student_2021a_Ipos_B.Constant1 =
+    robotarm_student_2021a_Ipos_P.Constant1_Value;
 
-    /* Reset subsysRan breadcrumbs */
-    srClearBC(robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC);
+  /* DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator =
+    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE;
 
-    /* S-Function (ec_Supervisor): '<S3>/S-Function' */
+  /* Sum: '<S27>/Sum2' incorporates:
+   *  DiscreteIntegrator: '<S27>/Discrete-Time Integrator'
+   *  Sum: '<S27>/Sum'
+   */
+  robotarm_student_2021a_Ipos_B.Sum2 =
+    (robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_g +
+     robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator) -
+    robotarm_student_2021a_Ipos_B.Gain;
 
-    /* Level2 S-Function Block: '<S3>/S-Function' (ec_Supervisor) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[20];
-      sfcnOutputs(rts,0);
-    }
+  /* RelationalOperator: '<S27>/Relational Operator' incorporates:
+   *  Constant: '<S27>/Constant'
+   */
+  robotarm_student_2021a_Ipos_B.RelationalOperator =
+    (robotarm_student_2021a_Ipos_B.Sum2 <=
+     robotarm_student_2021a_Ipos_P.Constant_Value_i);
 
-    /* S-Function (Ipos360): '<S22>/ec_Ipos' */
+  /* Gain: '<S20>/Gain1' */
+  robotarm_student_2021a_Ipos_B.Gain1 =
+    robotarm_student_2021a_Ipos_P.Gain1_Gain_g2 *
+    robotarm_student_2021a_Ipos_B.ec_Ipos_o3;
 
-    /* Level2 S-Function Block: '<S22>/ec_Ipos' (Ipos360) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[21];
-      sfcnOutputs(rts,0);
-    }
+  /* Constant: '<S45>/Constant1' */
+  robotarm_student_2021a_Ipos_B.Constant1_e =
+    robotarm_student_2021a_Ipos_P.Constant1_Value_a;
 
-    /* Gain: '<S20>/Gain' */
-    robotarm_student_2021a_Ipos_B.Gain =
-      robotarm_student_2021a_Ipos_P.Gain_Gain_n *
-      robotarm_student_2021a_Ipos_B.ec_Ipos_o4;
+  /* DiscreteIntegrator: '<S45>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e =
+    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_o;
 
-    /* Constant: '<S39>/Constant1' */
-    robotarm_student_2021a_Ipos_B.Constant1 =
-      robotarm_student_2021a_Ipos_P.Constant1_Value;
+  /* Sum: '<S28>/Sum2' incorporates:
+   *  DiscreteIntegrator: '<S28>/Discrete-Time Integrator'
+   *  Sum: '<S28>/Sum'
+   */
+  robotarm_student_2021a_Ipos_B.Sum2_a =
+    (robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_m +
+     robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e) -
+    robotarm_student_2021a_Ipos_B.Gain1;
 
-    /* DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator =
-      robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE;
+  /* RelationalOperator: '<S28>/Relational Operator' incorporates:
+   *  Constant: '<S28>/Constant'
+   */
+  robotarm_student_2021a_Ipos_B.RelationalOperator_f =
+    (robotarm_student_2021a_Ipos_B.Sum2_a <=
+     robotarm_student_2021a_Ipos_P.Constant_Value_f);
 
-    /* Sum: '<S27>/Sum' incorporates:
-     *  DiscreteIntegrator: '<S27>/Discrete-Time Integrator'
-     */
-    robotarm_student_2021a_Ipos_B.Sum =
-      robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_g +
-      robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator;
+  /* Gain: '<S20>/Gain2' */
+  robotarm_student_2021a_Ipos_B.Gain2 = robotarm_student_2021a_Ipos_P.Gain2_Gain
+    * robotarm_student_2021a_Ipos_B.ec_Ipos_o2;
 
-    /* Sum: '<S27>/Sum2' */
-    robotarm_student_2021a_Ipos_B.Sum2 = robotarm_student_2021a_Ipos_B.Sum -
-      robotarm_student_2021a_Ipos_B.Gain;
+  /* Constant: '<S55>/Constant1' */
+  robotarm_student_2021a_Ipos_B.Constant1_f =
+    robotarm_student_2021a_Ipos_P.Constant1_Value_e;
 
-    /* RelationalOperator: '<S27>/Relational Operator' incorporates:
-     *  Constant: '<S27>/Constant'
-     */
-    robotarm_student_2021a_Ipos_B.RelationalOperator =
-      (robotarm_student_2021a_Ipos_B.Sum2 <=
-       robotarm_student_2021a_Ipos_P.Constant_Value_i);
+  /* DiscreteIntegrator: '<S55>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p =
+    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_j;
 
-    /* Gain: '<S20>/Gain1' */
-    robotarm_student_2021a_Ipos_B.Gain1 =
-      robotarm_student_2021a_Ipos_P.Gain1_Gain_g2 *
-      robotarm_student_2021a_Ipos_B.ec_Ipos_o3;
+  /* Sum: '<S29>/Sum2' incorporates:
+   *  DiscreteIntegrator: '<S29>/Discrete-Time Integrator'
+   *  Sum: '<S29>/Sum'
+   */
+  robotarm_student_2021a_Ipos_B.Sum2_e =
+    (robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_a +
+     robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p) -
+    robotarm_student_2021a_Ipos_B.Gain2;
 
-    /* Constant: '<S45>/Constant1' */
-    robotarm_student_2021a_Ipos_B.Constant1_e =
-      robotarm_student_2021a_Ipos_P.Constant1_Value_a;
+  /* RelationalOperator: '<S29>/Relational Operator' incorporates:
+   *  Constant: '<S29>/Constant'
+   */
+  robotarm_student_2021a_Ipos_B.RelationalOperator_k =
+    (robotarm_student_2021a_Ipos_B.Sum2_e >=
+     robotarm_student_2021a_Ipos_P.Constant_Value_o);
 
-    /* DiscreteIntegrator: '<S45>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e =
-      robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_o;
+  /* RelationalOperator: '<S24>/Compare' incorporates:
+   *  Constant: '<S24>/Constant'
+   *  Sum: '<S21>/Add1'
+   */
+  robotarm_student_2021a_Ipos_B.Compare = ((int32_T)(((uint32_T)
+    robotarm_student_2021a_Ipos_B.RelationalOperator +
+    robotarm_student_2021a_Ipos_B.RelationalOperator_f) +
+    robotarm_student_2021a_Ipos_B.RelationalOperator_k) ==
+    robotarm_student_2021a_Ipos_P.CompareToConstant1_const);
 
-    /* Sum: '<S28>/Sum' incorporates:
-     *  DiscreteIntegrator: '<S28>/Discrete-Time Integrator'
-     */
-    robotarm_student_2021a_Ipos_B.Sum_p =
-      robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_m +
-      robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e;
+  /* RelationalOperator: '<S23>/Compare' incorporates:
+   *  Constant: '<S23>/Constant'
+   *  UnitDelay: '<S21>/Unit Delay'
+   */
+  robotarm_student_2021a_Ipos_B.Compare_j =
+    (robotarm_student_2021a_Ipos_DW.UnitDelay_DSTATE ==
+     robotarm_student_2021a_Ipos_P.CompareToConstant_const);
 
-    /* Sum: '<S28>/Sum2' */
-    robotarm_student_2021a_Ipos_B.Sum2_a = robotarm_student_2021a_Ipos_B.Sum_p -
-      robotarm_student_2021a_Ipos_B.Gain1;
+  /* MATLAB Function: '<S27>/Angle2Z' incorporates:
+   *  MATLAB Function: '<S29>/Angle2Z'
+   *  SignalConversion generated from: '<S38>/ SFunction '
+   */
+  robotarm_student_2021a_Ipos_B.fx1_tmp = cos
+    (-robotarm_student_2021a_Ipos_B.Gain1 + 1.3157007486526573) * 0.08;
+  robotarm_student_2021a_Ipos_B.fy1_tmp = sin
+    (-robotarm_student_2021a_Ipos_B.Gain1 + 1.3157007486526573) * 0.08;
+  robotarm_student_2021a_Ipos_B.fy2_tmp = sin
+    (robotarm_student_2021a_Ipos_B.Gain2 + 0.615) * 0.13 + 0.165;
+  robotarm_student_2021a_Ipos_B.d12_tmp = cos
+    (robotarm_student_2021a_Ipos_B.Gain2 + 0.615) * 0.13 -
+    robotarm_student_2021a_Ipos_B.fx1_tmp;
+  robotarm_student_2021a_Ipos_B.d13_tmp = robotarm_student_2021a_Ipos_B.fy2_tmp
+    - robotarm_student_2021a_Ipos_B.fy1_tmp;
+  robotarm_student_2021a_Ipos_B.d12 = sqrt(robotarm_student_2021a_Ipos_B.d12_tmp
+    * robotarm_student_2021a_Ipos_B.d12_tmp +
+    robotarm_student_2021a_Ipos_B.d13_tmp *
+    robotarm_student_2021a_Ipos_B.d13_tmp);
+  robotarm_student_2021a_Ipos_B.fy1_tmp = sqrt((0.165 -
+    robotarm_student_2021a_Ipos_B.fy1_tmp) * (0.165 -
+    robotarm_student_2021a_Ipos_B.fy1_tmp) +
+    robotarm_student_2021a_Ipos_B.fx1_tmp *
+    robotarm_student_2021a_Ipos_B.fx1_tmp);
+  robotarm_student_2021a_Ipos_B.fx1_tmp = robotarm_student_2021a_Ipos_B.d12 *
+    robotarm_student_2021a_Ipos_B.d12;
+  robotarm_student_2021a_Ipos_B.y_b = ((robotarm_student_2021a_Ipos_B.fy2_tmp -
+    sin(((3.1415926535897931 - acos(((robotarm_student_2021a_Ipos_B.fx1_tmp +
+    0.016900000000000002) - robotarm_student_2021a_Ipos_B.fy1_tmp *
+    robotarm_student_2021a_Ipos_B.fy1_tmp) / (2.0 *
+    robotarm_student_2021a_Ipos_B.d12 * 0.13))) - acos
+         (((robotarm_student_2021a_Ipos_B.fx1_tmp + 0.0144) -
+           0.016900000000000002) / (2.0 * robotarm_student_2021a_Ipos_B.d12 *
+    0.12))) - (robotarm_student_2021a_Ipos_B.Gain2 + 0.615)) * 0.185) - 0.045) +
+    0.081;
 
-    /* RelationalOperator: '<S28>/Relational Operator' incorporates:
-     *  Constant: '<S28>/Constant'
-     */
-    robotarm_student_2021a_Ipos_B.RelationalOperator_f =
-      (robotarm_student_2021a_Ipos_B.Sum2_a <=
-       robotarm_student_2021a_Ipos_P.Constant_Value_f);
+  /* Constant: '<S21>/set_robot_calibration_r' */
+  robotarm_student_2021a_Ipos_B.set_robot_calibration_r =
+    robotarm_student_2021a_Ipos_P.set_robot_calibration_r_Value;
 
-    /* Gain: '<S20>/Gain2' */
-    robotarm_student_2021a_Ipos_B.Gain2 =
-      robotarm_student_2021a_Ipos_P.Gain2_Gain_d *
-      robotarm_student_2021a_Ipos_B.ec_Ipos_o2;
+  /* Chart: '<S27>/Supervisor' */
+  if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c < 8191U) {
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c++;
+  }
 
-    /* Constant: '<S55>/Constant1' */
-    robotarm_student_2021a_Ipos_B.Constant1_f =
-      robotarm_student_2021a_Ipos_P.Constant1_Value_e;
+  robotarm_student_2021a_Ipos_DW.sfEvent_k = robotarm_student_202_CALL_EVENT;
+  if (robotarm_student_2021a_Ipos_DW.is_active_c12_robotarm_student_ == 0U) {
+    robotarm_student_2021a_Ipos_DW.is_active_c12_robotarm_student_ = 1U;
+    robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+      robotarm_student_202_IN_Waiting;
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
 
-    /* DiscreteIntegrator: '<S55>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p =
-      robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_j;
-
-    /* Sum: '<S29>/Sum' incorporates:
-     *  DiscreteIntegrator: '<S29>/Discrete-Time Integrator'
-     */
-    robotarm_student_2021a_Ipos_B.Sum_o =
-      robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_a +
-      robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p;
-
-    /* Sum: '<S29>/Sum2' */
-    robotarm_student_2021a_Ipos_B.Sum2_e = robotarm_student_2021a_Ipos_B.Sum_o -
-      robotarm_student_2021a_Ipos_B.Gain2;
-
-    /* RelationalOperator: '<S29>/Relational Operator' incorporates:
-     *  Constant: '<S29>/Constant'
-     */
-    robotarm_student_2021a_Ipos_B.RelationalOperator_k =
-      (robotarm_student_2021a_Ipos_B.Sum2_e >=
-       robotarm_student_2021a_Ipos_P.Constant_Value_o);
-
-    /* RelationalOperator: '<S24>/Compare' incorporates:
-     *  Constant: '<S24>/Constant'
-     *  Sum: '<S21>/Add1'
-     */
-    robotarm_student_2021a_Ipos_B.Compare = ((int32_T)(((uint32_T)
-      robotarm_student_2021a_Ipos_B.RelationalOperator +
-      robotarm_student_2021a_Ipos_B.RelationalOperator_f) +
-      robotarm_student_2021a_Ipos_B.RelationalOperator_k) ==
-      robotarm_student_2021a_Ipos_P.CompareToConstant1_const);
-
-    /* RelationalOperator: '<S23>/Compare' incorporates:
-     *  Constant: '<S23>/Constant'
-     *  UnitDelay: '<S21>/Unit Delay'
-     */
-    robotarm_student_2021a_Ipos_B.Compare_j =
-      (robotarm_student_2021a_Ipos_DW.UnitDelay_DSTATE ==
-       robotarm_student_2021a_Ipos_P.CompareToConstant_const);
-
-    /* MATLAB Function: '<S27>/Angle2Z' incorporates:
-     *  MATLAB Function: '<S29>/Angle2Z'
-     *  SignalConversion generated from: '<S38>/ SFunction '
-     */
-    robotarm_student_2021a_Ipos_B.Gain_m = cos
-      (-robotarm_student_2021a_Ipos_B.Gain1 + 1.3157007486526573) * 0.08;
-    robotarm_student_2021a_Ipos_B.fy1_tmp = sin
-      (-robotarm_student_2021a_Ipos_B.Gain1 + 1.3157007486526573) * 0.08;
-    robotarm_student_2021a_Ipos_B.fy2_tmp = sin
-      (robotarm_student_2021a_Ipos_B.Gain2 + 0.615) * 0.13 + 0.165;
-    robotarm_student_2021a_Ipos_B.d12_tmp = cos
-      (robotarm_student_2021a_Ipos_B.Gain2 + 0.615) * 0.13 -
-      robotarm_student_2021a_Ipos_B.Gain_m;
-    robotarm_student_2021a_Ipos_B.d13_tmp =
-      robotarm_student_2021a_Ipos_B.fy2_tmp -
-      robotarm_student_2021a_Ipos_B.fy1_tmp;
-    robotarm_student_2021a_Ipos_B.d12 = sqrt
-      (robotarm_student_2021a_Ipos_B.d12_tmp *
-       robotarm_student_2021a_Ipos_B.d12_tmp +
-       robotarm_student_2021a_Ipos_B.d13_tmp *
-       robotarm_student_2021a_Ipos_B.d13_tmp);
-    robotarm_student_2021a_Ipos_B.fy1_tmp = sqrt((0.165 -
-      robotarm_student_2021a_Ipos_B.fy1_tmp) * (0.165 -
-      robotarm_student_2021a_Ipos_B.fy1_tmp) +
-      robotarm_student_2021a_Ipos_B.Gain_m *
-      robotarm_student_2021a_Ipos_B.Gain_m);
-    robotarm_student_2021a_Ipos_B.Gain_m = robotarm_student_2021a_Ipos_B.d12 *
-      robotarm_student_2021a_Ipos_B.d12;
-    robotarm_student_2021a_Ipos_B.y_b = ((robotarm_student_2021a_Ipos_B.fy2_tmp
-      - sin(((3.1415926535897931 - acos(((robotarm_student_2021a_Ipos_B.Gain_m +
-      0.016900000000000002) - robotarm_student_2021a_Ipos_B.fy1_tmp *
-      robotarm_student_2021a_Ipos_B.fy1_tmp) / (2.0 *
-      robotarm_student_2021a_Ipos_B.d12 * 0.13))) - acos
-             (((robotarm_student_2021a_Ipos_B.Gain_m + 0.0144) -
-               0.016900000000000002) / (2.0 * robotarm_student_2021a_Ipos_B.d12 *
-      0.12))) - (robotarm_student_2021a_Ipos_B.Gain2 + 0.615)) * 0.185) - 0.045)
-      + 0.081;
-
-    /* Constant: '<S21>/set_robot_calibration_r' */
-    robotarm_student_2021a_Ipos_B.set_robot_calibration_r =
-      robotarm_student_2021a_Ipos_P.set_robot_calibration_r_Value;
-
-    /* Chart: '<S27>/Supervisor' */
-    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c < 8191U) {
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c++;
-    }
-
-    robotarm_student_2021a_Ipos_DW.sfEvent_k = robotarm_student_202_CALL_EVENT;
-    if (robotarm_student_2021a_Ipos_DW.is_active_c12_robotarm_student_ == 0U) {
-      robotarm_student_2021a_Ipos_DW.is_active_c12_robotarm_student_ = 1U;
-      robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-        robotarm_student_202_IN_Waiting;
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
-
-      /* Homing has to wait for 3 sec
-         as the new arm gets the 5V enable signal
-         after pressing start to avoid moving to X0 too
-         early */
-      robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
-      robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
-      robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
-      robotarm_student_2021a_Ipos_B.jogSpeed_o = -0.001;
-      robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 0.01;
-    } else {
-      switch (robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I) {
-       case robotarm_stud_IN_AirbagConveyor:
-        robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_stud_IN_DisableOutputs;
-          robotarm_student_2021a_Ipos_B.controlEnabled_l = 0.0;
-          robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
-        }
-        break;
-
-       case robotarm_student__IN_AirbagLeft:
-        robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_stud_IN_DisableOutputs;
-          robotarm_student_2021a_Ipos_B.controlEnabled_l = 0.0;
-          robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
-        }
-        break;
-
-       case robotarm_student_IN_AirbagLeft1:
-        robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_stud_IN_DisableOutputs;
-          robotarm_student_2021a_Ipos_B.controlEnabled_l = 0.0;
-          robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
-        }
-        break;
-
-       case robotarm_stud_IN_CheckRobotIsON:
-        robotarm_student_2021a_Ipos_B.freddy_k = 1.0;
-        if (robotarm_student_2021a_Ipos_B.Gain < -3.0) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_stud_IN_STOPRobotIsOFF;
-          robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
-        } else {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_student_2_IN_RobotIsON;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
-        }
-        break;
-
-       case robotarm_stud_IN_DisableOutputs:
+    /* Homing has to wait for 3 sec
+       as the new arm gets the 5V enable signal
+       after pressing start to avoid moving to X0 too
+       early */
+    robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
+    robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
+    robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
+    robotarm_student_2021a_Ipos_B.jogSpeed_o = -0.001;
+    robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 0.01;
+  } else {
+    switch (robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I) {
+     case robotarm_stud_IN_AirbagConveyor:
+      robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_stud_IN_DisableOutputs;
         robotarm_student_2021a_Ipos_B.controlEnabled_l = 0.0;
         robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
-        break;
-
-       case robotarm__IN_EnableRunAndSafety:
-        robotarm_student_2021a_Ipos_B.resetEnc_k = 0.0;
-        if (robotarm_student_2021a_Ipos_B.Gain > 2.7) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_student_IN_AirbagLeft1;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
-          robotarm_student_2021a_Ipos_DW.currentcarPos_l =
-            robotarm_student_2021a_Ipos_B.Gain;
-          robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
-          robotarm_student_2021a_Ipos_B.airBagRef_g =
-            robotarm_student_2021a_Ipos_DW.currentcarPos_l - 0.02;
-        } else if (robotarm_student_2021a_Ipos_B.Gain < -1.1) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_student__IN_AirbagLeft;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
-          robotarm_student_2021a_Ipos_DW.currentcarPos_l =
-            robotarm_student_2021a_Ipos_B.Gain;
-          robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
-          robotarm_student_2021a_Ipos_B.airBagRef_g =
-            robotarm_student_2021a_Ipos_DW.currentcarPos_l + 0.02;
-        } else if ((robotarm_student_2021a_Ipos_B.y_b < 0.056) &&
-                   (robotarm_student_2021a_Ipos_B.Gain < 1.3)) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_stud_IN_AirbagConveyor;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
-          robotarm_student_2021a_Ipos_DW.currentcarPos_l =
-            robotarm_student_2021a_Ipos_B.Gain;
-          robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
-          robotarm_student_2021a_Ipos_B.airBagRef_g =
-            robotarm_student_2021a_Ipos_DW.currentcarPos_l + 0.02;
-        }
-        break;
-
-       case robotarm_student_2021_IN_Homing:
-        /* Transition if homeswitch becomes high */
-        if (robotarm_student_2021a_Ipos_B.RelationalOperator) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_student_20_IN_MovetoX0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_o = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_b =
-            robotarm_student_2021a_Ipos_B.set_robot_calibration_r;
-        }
-        break;
-
-       case robotarm_student_20_IN_MovetoX0:
-        if ((robotarm_student_2021a_Ipos_B.Sum2 < 0.005) &&
-            (robotarm_student_2021a_Ipos_B.set_robot_calibration_r -
-             robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator <= 0.002)) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_stud_IN_CheckRobotIsON;
-          robotarm_student_2021a_Ipos_B.freddy_k = 1.0;
-        }
-        break;
-
-       case robotarm_student_20_IN_ResetEnc:
-        robotarm_student_2021a_Ipos_B.resetEnc_k = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm__IN_EnableRunAndSafety;
-          robotarm_student_2021a_Ipos_B.resetEnc_k = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 0.0;
-        }
-        break;
-
-       case robotarm_student_2_IN_RobotIsON:
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_student_IN_WaitForRest;
-          robotarm_student_2021a_Ipos_B.Ready_a = 1.0;
-        }
-        break;
-
-       case robotarm_stud_IN_STOPRobotIsOFF:
-        robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
-        break;
-
-       case robotarm_student_IN_WaitForRest:
-        if (robotarm_student_2021a_Ipos_B.Compare_j) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_student_20_IN_ResetEnc;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 100.0;
-          robotarm_student_2021a_Ipos_B.resetEnc_k = 1.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 0.0;
-        }
-        break;
-
-       case robotarm_student_202_IN_Waiting:
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_student_20_IN_Waiting1;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
-
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_o = 0.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 1.0;
-        } else {
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_o = -0.001;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 0.01;
-        }
-        break;
-
-       default:
-        /* case IN_Waiting1: */
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
-            robotarm_student_2021_IN_Homing;
-
-          /* Set jog speed and homing state */
-          robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_o = -0.4;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 1.0;
-        } else {
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_o = 0.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 1.0;
-        }
-        break;
       }
+      break;
+
+     case robotarm_student__IN_AirbagLeft:
+      robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_stud_IN_DisableOutputs;
+        robotarm_student_2021a_Ipos_B.controlEnabled_l = 0.0;
+        robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
+      }
+      break;
+
+     case robotarm_student_IN_AirbagLeft1:
+      robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_stud_IN_DisableOutputs;
+        robotarm_student_2021a_Ipos_B.controlEnabled_l = 0.0;
+        robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
+      }
+      break;
+
+     case robotarm_stud_IN_CheckRobotIsON:
+      robotarm_student_2021a_Ipos_B.freddy_k = 1.0;
+      if (robotarm_student_2021a_Ipos_B.Gain < -3.0) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_stud_IN_STOPRobotIsOFF;
+        robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
+      } else {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_student_2_IN_RobotIsON;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
+      }
+      break;
+
+     case robotarm_stud_IN_DisableOutputs:
+      robotarm_student_2021a_Ipos_B.controlEnabled_l = 0.0;
+      robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
+      break;
+
+     case robotarm__IN_EnableRunAndSafety:
+      robotarm_student_2021a_Ipos_B.resetEnc_k = 0.0;
+      if (robotarm_student_2021a_Ipos_B.Gain > 2.7) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_student_IN_AirbagLeft1;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
+        robotarm_student_2021a_Ipos_DW.currentcarPos_l =
+          robotarm_student_2021a_Ipos_B.Gain;
+        robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
+        robotarm_student_2021a_Ipos_B.airBagRef_g =
+          robotarm_student_2021a_Ipos_DW.currentcarPos_l - 0.02;
+      } else if (robotarm_student_2021a_Ipos_B.Gain < -1.1) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_student__IN_AirbagLeft;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
+        robotarm_student_2021a_Ipos_DW.currentcarPos_l =
+          robotarm_student_2021a_Ipos_B.Gain;
+        robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
+        robotarm_student_2021a_Ipos_B.airBagRef_g =
+          robotarm_student_2021a_Ipos_DW.currentcarPos_l + 0.02;
+      } else if ((robotarm_student_2021a_Ipos_B.y_b < 0.056) &&
+                 (robotarm_student_2021a_Ipos_B.Gain < 1.3)) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_stud_IN_AirbagConveyor;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
+        robotarm_student_2021a_Ipos_DW.currentcarPos_l =
+          robotarm_student_2021a_Ipos_B.Gain;
+        robotarm_student_2021a_Ipos_B.airBagEnabled_f = 1.0;
+        robotarm_student_2021a_Ipos_B.airBagRef_g =
+          robotarm_student_2021a_Ipos_DW.currentcarPos_l + 0.02;
+      }
+      break;
+
+     case robotarm_student_2021_IN_Homing:
+      /* Transition if homeswitch becomes high */
+      if (robotarm_student_2021a_Ipos_B.RelationalOperator) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_student_20_IN_MovetoX0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_o = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_b =
+          robotarm_student_2021a_Ipos_B.set_robot_calibration_r;
+      }
+      break;
+
+     case robotarm_student_20_IN_MovetoX0:
+      if ((robotarm_student_2021a_Ipos_B.Sum2 < 0.005) &&
+          (robotarm_student_2021a_Ipos_B.set_robot_calibration_r -
+           robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator <= 0.002)) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_stud_IN_CheckRobotIsON;
+        robotarm_student_2021a_Ipos_B.freddy_k = 1.0;
+      }
+      break;
+
+     case robotarm_student_20_IN_ResetEnc:
+      robotarm_student_2021a_Ipos_B.resetEnc_k = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm__IN_EnableRunAndSafety;
+        robotarm_student_2021a_Ipos_B.resetEnc_k = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 0.0;
+      }
+      break;
+
+     case robotarm_student_2_IN_RobotIsON:
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_student_IN_WaitForRest;
+        robotarm_student_2021a_Ipos_B.Ready_a = 1.0;
+      }
+      break;
+
+     case robotarm_stud_IN_STOPRobotIsOFF:
+      robotarm_student_2021a_Ipos_B.StopSim_j = 1.0;
+      break;
+
+     case robotarm_student_IN_WaitForRest:
+      if (robotarm_student_2021a_Ipos_B.Compare_j) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_student_20_IN_ResetEnc;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 100.0;
+        robotarm_student_2021a_Ipos_B.resetEnc_k = 1.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 0.0;
+      }
+      break;
+
+     case robotarm_student_202_IN_Waiting:
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_student_20_IN_Waiting1;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c = 0U;
+
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_o = 0.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 1.0;
+      } else {
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_o = -0.001;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 0.01;
+      }
+      break;
+
+     default:
+      /* case IN_Waiting1: */
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_c >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c12_robotarm_student_2021a_I =
+          robotarm_student_2021_IN_Homing;
+
+        /* Set jog speed and homing state */
+        robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_o = -0.4;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 1.0;
+      } else {
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_a = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_b = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_l = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_o = 0.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_o = 1.0;
+      }
+      break;
     }
+  }
 
-    /* End of Chart: '<S27>/Supervisor' */
+  /* End of Chart: '<S27>/Supervisor' */
 
-    /* Constant: '<S21>/set_robot_calibration_x' */
-    robotarm_student_2021a_Ipos_B.set_robot_calibration_x =
-      robotarm_student_2021a_Ipos_P.set_robot_calibration_x_Value;
+  /* Constant: '<S21>/set_robot_calibration_x' */
+  robotarm_student_2021a_Ipos_B.set_robot_calibration_x =
+    robotarm_student_2021a_Ipos_P.set_robot_calibration_x_Value;
 
-    /* Chart: '<S28>/Supervisor2' */
-    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me < 8191U) {
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me++;
-    }
+  /* Chart: '<S28>/Supervisor2' */
+  if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me < 8191U) {
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me++;
+  }
 
-    robotarm_student_2021a_Ipos_DW.sfEvent_h = robotarm_student_202_CALL_EVENT;
-    if (robotarm_student_2021a_Ipos_DW.is_active_c16_robotarm_student_ == 0U) {
-      robotarm_student_2021a_Ipos_DW.is_active_c16_robotarm_student_ = 1U;
-      robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-        robotarm_student_2_IN_Waiting_a;
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
+  robotarm_student_2021a_Ipos_DW.sfEvent_h = robotarm_student_202_CALL_EVENT;
+  if (robotarm_student_2021a_Ipos_DW.is_active_c16_robotarm_student_ == 0U) {
+    robotarm_student_2021a_Ipos_DW.is_active_c16_robotarm_student_ = 1U;
+    robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+      robotarm_student_2_IN_Waiting_a;
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
 
-      /* Homing has to wait for 3 sec
-         as the new arm gets the 5V enable signal
-         after pressing start to avoid moving to X0 too
-         early */
-      robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
-      robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
-      robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
-      robotarm_student_2021a_Ipos_B.jogSpeed_c = -0.001;
-      robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 0.01;
-    } else {
-      switch (robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I) {
-       case robotarm_studen_IN_AirbagLeft_d:
-        robotarm_student_2021a_Ipos_B.airBagEnabled_o = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_st_IN_DisableOutputs_n;
-          robotarm_student_2021a_Ipos_B.controlEnabled_a = 0.0;
-          robotarm_student_2021a_Ipos_B.StopSim_o = 1.0;
-        }
-        break;
-
-       case robotarm_stude_IN_AirbagLeft1_h:
-        robotarm_student_2021a_Ipos_B.airBagEnabled_o = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_st_IN_DisableOutputs_n;
-          robotarm_student_2021a_Ipos_B.controlEnabled_a = 0.0;
-          robotarm_student_2021a_Ipos_B.StopSim_o = 1.0;
-        }
-        break;
-
-       case robotarm_st_IN_CheckRobotIsON_b:
+    /* Homing has to wait for 3 sec
+       as the new arm gets the 5V enable signal
+       after pressing start to avoid moving to X0 too
+       early */
+    robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
+    robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
+    robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
+    robotarm_student_2021a_Ipos_B.jogSpeed_c = -0.001;
+    robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 0.01;
+  } else {
+    switch (robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I) {
+     case robotarm_studen_IN_AirbagLeft_d:
+      robotarm_student_2021a_Ipos_B.airBagEnabled_o = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 6144U) {
         robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-          robotarm_student_IN_RobotIsON_l;
-        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
-        break;
-
-       case robotarm_st_IN_DisableOutputs_n:
+          robotarm_st_IN_DisableOutputs_n;
         robotarm_student_2021a_Ipos_B.controlEnabled_a = 0.0;
         robotarm_student_2021a_Ipos_B.StopSim_o = 1.0;
-        break;
-
-       case robotar_IN_EnableRunAndSafety_k:
-        robotarm_student_2021a_Ipos_B.resetEnc_c = 0.0;
-        if (robotarm_student_2021a_Ipos_B.Gain1 > 0.46) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_stude_IN_AirbagLeft1_h;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
-          robotarm_student_2021a_Ipos_DW.currentcarPos_d =
-            robotarm_student_2021a_Ipos_B.Gain1;
-          robotarm_student_2021a_Ipos_B.airBagEnabled_o = 1.0;
-          robotarm_student_2021a_Ipos_B.airBagRef_a =
-            robotarm_student_2021a_Ipos_DW.currentcarPos_d - 0.02;
-        } else if (robotarm_student_2021a_Ipos_B.Gain1 < -0.45) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_studen_IN_AirbagLeft_d;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
-          robotarm_student_2021a_Ipos_DW.currentcarPos_d =
-            robotarm_student_2021a_Ipos_B.Gain1;
-          robotarm_student_2021a_Ipos_B.airBagEnabled_o = 1.0;
-          robotarm_student_2021a_Ipos_B.airBagRef_a =
-            robotarm_student_2021a_Ipos_DW.currentcarPos_d + 0.02;
-        }
-        break;
-
-       case robotarm_student_20_IN_Homing_k:
-        /* Transition if homeswitch becomes high */
-        if (robotarm_student_2021a_Ipos_B.RelationalOperator_f) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_student__IN_MovetoX0_n;
-          robotarm_student_2021a_Ipos_B.jogSpeed_c = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_e =
-            robotarm_student_2021a_Ipos_B.set_robot_calibration_x;
-        }
-        break;
-
-       case robotarm_student__IN_MovetoX0_n:
-        if ((robotarm_student_2021a_Ipos_B.Sum2_a < 0.005) &&
-            (robotarm_student_2021a_Ipos_B.set_robot_calibration_x -
-             robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e <= 0.002)) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_st_IN_CheckRobotIsON_b;
-        }
-        break;
-
-       case robotarm_student__IN_ResetEnc_g:
-        robotarm_student_2021a_Ipos_B.resetEnc_c = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotar_IN_EnableRunAndSafety_k;
-          robotarm_student_2021a_Ipos_B.resetEnc_c = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_j = 0.0;
-        }
-        break;
-
-       case robotarm_student_IN_RobotIsON_l:
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_stude_IN_WaitForRest_p;
-          robotarm_student_2021a_Ipos_B.Ready_i = 1.0;
-        }
-        break;
-
-       case robotarm_stude_IN_WaitForRest_p:
-        if (robotarm_student_2021a_Ipos_B.Compare_j) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_student__IN_ResetEnc_g;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_j = 100.0;
-          robotarm_student_2021a_Ipos_B.resetEnc_c = 1.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 0.0;
-        }
-        break;
-
-       case robotarm_student_2_IN_Waiting_a:
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_student__IN_Waiting1_f;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
-
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_c = 0.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 1.0;
-        } else {
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_c = -0.001;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 0.01;
-        }
-        break;
-
-       default:
-        /* case IN_Waiting1: */
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
-            robotarm_student_20_IN_Homing_k;
-
-          /* Set jog speed and homing state */
-          robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_c = -0.8;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 1.0;
-        } else {
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_c = 0.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 1.0;
-        }
-        break;
       }
+      break;
+
+     case robotarm_stude_IN_AirbagLeft1_h:
+      robotarm_student_2021a_Ipos_B.airBagEnabled_o = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_st_IN_DisableOutputs_n;
+        robotarm_student_2021a_Ipos_B.controlEnabled_a = 0.0;
+        robotarm_student_2021a_Ipos_B.StopSim_o = 1.0;
+      }
+      break;
+
+     case robotarm_st_IN_CheckRobotIsON_b:
+      robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+        robotarm_student_IN_RobotIsON_l;
+      robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
+      break;
+
+     case robotarm_st_IN_DisableOutputs_n:
+      robotarm_student_2021a_Ipos_B.controlEnabled_a = 0.0;
+      robotarm_student_2021a_Ipos_B.StopSim_o = 1.0;
+      break;
+
+     case robotar_IN_EnableRunAndSafety_k:
+      robotarm_student_2021a_Ipos_B.resetEnc_c = 0.0;
+      if (robotarm_student_2021a_Ipos_B.Gain1 > 0.46) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_stude_IN_AirbagLeft1_h;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
+        robotarm_student_2021a_Ipos_DW.currentcarPos_d =
+          robotarm_student_2021a_Ipos_B.Gain1;
+        robotarm_student_2021a_Ipos_B.airBagEnabled_o = 1.0;
+        robotarm_student_2021a_Ipos_B.airBagRef_a =
+          robotarm_student_2021a_Ipos_DW.currentcarPos_d - 0.02;
+      } else if (robotarm_student_2021a_Ipos_B.Gain1 < -0.45) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_studen_IN_AirbagLeft_d;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
+        robotarm_student_2021a_Ipos_DW.currentcarPos_d =
+          robotarm_student_2021a_Ipos_B.Gain1;
+        robotarm_student_2021a_Ipos_B.airBagEnabled_o = 1.0;
+        robotarm_student_2021a_Ipos_B.airBagRef_a =
+          robotarm_student_2021a_Ipos_DW.currentcarPos_d + 0.02;
+      }
+      break;
+
+     case robotarm_student_20_IN_Homing_k:
+      /* Transition if homeswitch becomes high */
+      if (robotarm_student_2021a_Ipos_B.RelationalOperator_f) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_student__IN_MovetoX0_n;
+        robotarm_student_2021a_Ipos_B.jogSpeed_c = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_e =
+          robotarm_student_2021a_Ipos_B.set_robot_calibration_x;
+      }
+      break;
+
+     case robotarm_student__IN_MovetoX0_n:
+      if ((robotarm_student_2021a_Ipos_B.Sum2_a < 0.005) &&
+          (robotarm_student_2021a_Ipos_B.set_robot_calibration_x -
+           robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_e <= 0.002)) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_st_IN_CheckRobotIsON_b;
+      }
+      break;
+
+     case robotarm_student__IN_ResetEnc_g:
+      robotarm_student_2021a_Ipos_B.resetEnc_c = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotar_IN_EnableRunAndSafety_k;
+        robotarm_student_2021a_Ipos_B.resetEnc_c = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_j = 0.0;
+      }
+      break;
+
+     case robotarm_student_IN_RobotIsON_l:
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_stude_IN_WaitForRest_p;
+        robotarm_student_2021a_Ipos_B.Ready_i = 1.0;
+      }
+      break;
+
+     case robotarm_stude_IN_WaitForRest_p:
+      if (robotarm_student_2021a_Ipos_B.Compare_j) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_student__IN_ResetEnc_g;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_j = 100.0;
+        robotarm_student_2021a_Ipos_B.resetEnc_c = 1.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 0.0;
+      }
+      break;
+
+     case robotarm_student_2_IN_Waiting_a:
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_student__IN_Waiting1_f;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me = 0U;
+
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_c = 0.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 1.0;
+      } else {
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_c = -0.001;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 0.01;
+      }
+      break;
+
+     default:
+      /* case IN_Waiting1: */
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_me >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c16_robotarm_student_2021a_I =
+          robotarm_student_20_IN_Homing_k;
+
+        /* Set jog speed and homing state */
+        robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_c = -0.8;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 1.0;
+      } else {
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_i = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint_e = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_j = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_c = 0.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_k = 1.0;
+      }
+      break;
     }
+  }
 
-    /* End of Chart: '<S28>/Supervisor2' */
+  /* End of Chart: '<S28>/Supervisor2' */
 
-    /* MATLAB Function: '<S29>/Angle2Z' incorporates:
-     *  MATLAB Function: '<S27>/Angle2Z'
-     *  SignalConversion generated from: '<S38>/ SFunction '
-     */
-    robotarm_student_2021a_Ipos_B.d12 = sqrt
-      (robotarm_student_2021a_Ipos_B.d12_tmp *
-       robotarm_student_2021a_Ipos_B.d12_tmp +
-       robotarm_student_2021a_Ipos_B.d13_tmp *
-       robotarm_student_2021a_Ipos_B.d13_tmp);
-    robotarm_student_2021a_Ipos_B.Gain_m = robotarm_student_2021a_Ipos_B.d12 *
-      robotarm_student_2021a_Ipos_B.d12;
-    robotarm_student_2021a_Ipos_B.y = ((robotarm_student_2021a_Ipos_B.fy2_tmp -
-      sin(((3.1415926535897931 - acos(((robotarm_student_2021a_Ipos_B.Gain_m +
-      0.016900000000000002) - robotarm_student_2021a_Ipos_B.fy1_tmp *
-      robotarm_student_2021a_Ipos_B.fy1_tmp) / (2.0 *
-      robotarm_student_2021a_Ipos_B.d12 * 0.13))) - acos
-           (((robotarm_student_2021a_Ipos_B.Gain_m + 0.0144) -
-             0.016900000000000002) / (2.0 * robotarm_student_2021a_Ipos_B.d12 *
-      0.12))) - (robotarm_student_2021a_Ipos_B.Gain2 + 0.615)) * 0.185) - 0.045)
-      + 0.081;
+  /* MATLAB Function: '<S29>/Angle2Z' incorporates:
+   *  MATLAB Function: '<S27>/Angle2Z'
+   *  SignalConversion generated from: '<S38>/ SFunction '
+   */
+  robotarm_student_2021a_Ipos_B.d12 = sqrt(robotarm_student_2021a_Ipos_B.d12_tmp
+    * robotarm_student_2021a_Ipos_B.d12_tmp +
+    robotarm_student_2021a_Ipos_B.d13_tmp *
+    robotarm_student_2021a_Ipos_B.d13_tmp);
+  robotarm_student_2021a_Ipos_B.fx1_tmp = robotarm_student_2021a_Ipos_B.d12 *
+    robotarm_student_2021a_Ipos_B.d12;
+  robotarm_student_2021a_Ipos_B.y = ((robotarm_student_2021a_Ipos_B.fy2_tmp -
+    sin(((3.1415926535897931 - acos(((robotarm_student_2021a_Ipos_B.fx1_tmp +
+    0.016900000000000002) - robotarm_student_2021a_Ipos_B.fy1_tmp *
+    robotarm_student_2021a_Ipos_B.fy1_tmp) / (2.0 *
+    robotarm_student_2021a_Ipos_B.d12 * 0.13))) - acos
+         (((robotarm_student_2021a_Ipos_B.fx1_tmp + 0.0144) -
+           0.016900000000000002) / (2.0 * robotarm_student_2021a_Ipos_B.d12 *
+    0.12))) - (robotarm_student_2021a_Ipos_B.Gain2 + 0.615)) * 0.185) - 0.045) +
+    0.081;
 
-    /* Constant: '<S21>/set_robot_calibration_z' */
-    robotarm_student_2021a_Ipos_B.set_robot_calibration_z =
-      robotarm_student_2021a_Ipos_P.set_robot_calibration_z_Value;
+  /* Constant: '<S21>/set_robot_calibration_z' */
+  robotarm_student_2021a_Ipos_B.set_robot_calibration_z =
+    robotarm_student_2021a_Ipos_P.set_robot_calibration_z_Value;
 
-    /* Chart: '<S29>/Supervisor' */
-    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m < 8191U) {
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m++;
-    }
+  /* Chart: '<S29>/Supervisor' */
+  if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m < 8191U) {
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m++;
+  }
 
-    robotarm_student_2021a_Ipos_DW.sfEvent_n = robotarm_student_202_CALL_EVENT;
-    if (robotarm_student_2021a_Ipos_DW.is_active_c18_robotarm_student_ == 0U) {
-      robotarm_student_2021a_Ipos_DW.is_active_c18_robotarm_student_ = 1U;
-      robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-        robotarm_student_2_IN_Waiting_l;
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
+  robotarm_student_2021a_Ipos_DW.sfEvent_n = robotarm_student_202_CALL_EVENT;
+  if (robotarm_student_2021a_Ipos_DW.is_active_c18_robotarm_student_ == 0U) {
+    robotarm_student_2021a_Ipos_DW.is_active_c18_robotarm_student_ = 1U;
+    robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+      robotarm_student_2_IN_Waiting_l;
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
 
-      /* Homing has to wait for 3 sec
-         as the new arm gets the 5V enable signal
-         after pressing start to avoid moving to X0 too
-         early */
-      robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
-      robotarm_student_2021a_Ipos_B.toPoint = 0.0;
-      robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
-      robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.001;
-      robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 0.1;
-    } else {
-      switch (robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I) {
-       case robotarm_stud_IN_AirbagConveyor:
-        robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_st_IN_DisableOutputs_n;
-          robotarm_student_2021a_Ipos_B.controlEnabled = 0.0;
-          robotarm_student_2021a_Ipos_B.StopSim_n = 1.0;
-        }
-        break;
-
-       case robotarm_student__IN_AirbagDrop:
-        robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_st_IN_DisableOutputs_n;
-          robotarm_student_2021a_Ipos_B.controlEnabled = 0.0;
-          robotarm_student_2021a_Ipos_B.StopSim_n = 1.0;
-        }
-        break;
-
-       case robotarm_student_2_IN_AirbagTop:
-        robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_st_IN_DisableOutputs_n;
-          robotarm_student_2021a_Ipos_B.controlEnabled = 0.0;
-          robotarm_student_2021a_Ipos_B.StopSim_n = 1.0;
-        }
-        break;
-
-       case robotarm_st_IN_DisableOutputs_n:
+    /* Homing has to wait for 3 sec
+       as the new arm gets the 5V enable signal
+       after pressing start to avoid moving to X0 too
+       early */
+    robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
+    robotarm_student_2021a_Ipos_B.toPoint = 0.0;
+    robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
+    robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.001;
+    robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 0.1;
+  } else {
+    switch (robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I) {
+     case robotarm_stud_IN_AirbagConveyor:
+      robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_st_IN_DisableOutputs_n;
         robotarm_student_2021a_Ipos_B.controlEnabled = 0.0;
         robotarm_student_2021a_Ipos_B.StopSim_n = 1.0;
-        break;
-
-       case robotar_IN_EnableRunAndSafety_k:
-        robotarm_student_2021a_Ipos_B.resetEnc_g = 0.0;
-        if ((robotarm_student_2021a_Ipos_B.y < 0.056) &&
-            (robotarm_student_2021a_Ipos_B.Gain < 1.3)) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_stud_IN_AirbagConveyor;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
-          robotarm_student_2021a_Ipos_DW.currentcarPos =
-            robotarm_student_2021a_Ipos_B.Gain2;
-          robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
-          robotarm_student_2021a_Ipos_B.airBagRef =
-            robotarm_student_2021a_Ipos_DW.currentcarPos + 0.1;
-        } else if (robotarm_student_2021a_Ipos_B.Gain2 > 0.3) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_student_2_IN_AirbagTop;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
-          robotarm_student_2021a_Ipos_DW.currentcarPos =
-            robotarm_student_2021a_Ipos_B.Gain2;
-          robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
-          robotarm_student_2021a_Ipos_B.airBagRef =
-            robotarm_student_2021a_Ipos_DW.currentcarPos - 0.02;
-        } else if ((robotarm_student_2021a_Ipos_B.y < 0.01) &&
-                   (robotarm_student_2021a_Ipos_B.Gain > 1.3)) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_student__IN_AirbagDrop;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
-          robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
-          robotarm_student_2021a_Ipos_DW.currentcarPos =
-            robotarm_student_2021a_Ipos_B.Gain2;
-          robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
-          robotarm_student_2021a_Ipos_B.airBagRef =
-            robotarm_student_2021a_Ipos_DW.currentcarPos + 0.02;
-        }
-        break;
-
-       case robotarm_student_20_IN_Homing_k:
-        /* Transition if homeswitch becomes high */
-        if (robotarm_student_2021a_Ipos_B.RelationalOperator_k) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_student__IN_MovetoX0_n;
-          robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint =
-            robotarm_student_2021a_Ipos_B.set_robot_calibration_z;
-        }
-        break;
-
-       case robotarm_student__IN_MovetoX0_n:
-        if ((robotarm_student_2021a_Ipos_B.Sum2_e < 0.005) &&
-            (robotarm_student_2021a_Ipos_B.set_robot_calibration_z -
-             robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p <= 0.002)) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_stude_IN_WaitForRest_m;
-          robotarm_student_2021a_Ipos_B.Ready_n = 1.0;
-        }
-        break;
-
-       case robotarm_student__IN_ResetEnc_g:
-        robotarm_student_2021a_Ipos_B.resetEnc_g = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotar_IN_EnableRunAndSafety_k;
-          robotarm_student_2021a_Ipos_B.resetEnc_g = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_n = 0.0;
-        }
-        break;
-
-       case robotarm_stude_IN_WaitForRest_m:
-        if (robotarm_student_2021a_Ipos_B.Compare_j) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_student__IN_ResetEnc_g;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
-          robotarm_student_2021a_Ipos_B.resetEnc_g = 1.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 0.0;
-          robotarm_student_2021a_Ipos_B.Ready_n = 1.0;
-        }
-        break;
-
-       case robotarm_student_2_IN_Waiting_l:
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 4096U) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_student__IN_Waiting1_m;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
-
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 1.0;
-        } else {
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.001;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 0.1;
-        }
-        break;
-
-       default:
-        /* case IN_Waiting1: */
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 4096U) {
-          robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
-            robotarm_student_20_IN_Homing_k;
-
-          /* Set jog speed and homing state */
-          robotarm_student_2021a_Ipos_B.toPoint = 0.0;
-          robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.8;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 1.0;
-        } else {
-          /* Homing has to wait for 3 sec
-             as the new arm gets the 5V enable signal
-             after pressing start to avoid moving to X0 too
-             early */
-          robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
-          robotarm_student_2021a_Ipos_B.toPoint = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 1.0;
-        }
-        break;
       }
+      break;
+
+     case robotarm_student__IN_AirbagDrop:
+      robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_st_IN_DisableOutputs_n;
+        robotarm_student_2021a_Ipos_B.controlEnabled = 0.0;
+        robotarm_student_2021a_Ipos_B.StopSim_n = 1.0;
+      }
+      break;
+
+     case robotarm_student_2_IN_AirbagTop:
+      robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_st_IN_DisableOutputs_n;
+        robotarm_student_2021a_Ipos_B.controlEnabled = 0.0;
+        robotarm_student_2021a_Ipos_B.StopSim_n = 1.0;
+      }
+      break;
+
+     case robotarm_st_IN_DisableOutputs_n:
+      robotarm_student_2021a_Ipos_B.controlEnabled = 0.0;
+      robotarm_student_2021a_Ipos_B.StopSim_n = 1.0;
+      break;
+
+     case robotar_IN_EnableRunAndSafety_k:
+      robotarm_student_2021a_Ipos_B.resetEnc_g = 0.0;
+      if ((robotarm_student_2021a_Ipos_B.y < 0.056) &&
+          (robotarm_student_2021a_Ipos_B.Gain < 1.3)) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_stud_IN_AirbagConveyor;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
+        robotarm_student_2021a_Ipos_DW.currentcarPos =
+          robotarm_student_2021a_Ipos_B.Gain2;
+        robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
+        robotarm_student_2021a_Ipos_B.airBagRef =
+          robotarm_student_2021a_Ipos_DW.currentcarPos + 0.1;
+      } else if (robotarm_student_2021a_Ipos_B.Gain2 > 0.3) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_student_2_IN_AirbagTop;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
+        robotarm_student_2021a_Ipos_DW.currentcarPos =
+          robotarm_student_2021a_Ipos_B.Gain2;
+        robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
+        robotarm_student_2021a_Ipos_B.airBagRef =
+          robotarm_student_2021a_Ipos_DW.currentcarPos - 0.02;
+      } else if ((robotarm_student_2021a_Ipos_B.y < 0.01) &&
+                 (robotarm_student_2021a_Ipos_B.Gain > 1.3)) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_student__IN_AirbagDrop;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
+        robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
+        robotarm_student_2021a_Ipos_DW.currentcarPos =
+          robotarm_student_2021a_Ipos_B.Gain2;
+        robotarm_student_2021a_Ipos_B.airBagEnabled = 1.0;
+        robotarm_student_2021a_Ipos_B.airBagRef =
+          robotarm_student_2021a_Ipos_DW.currentcarPos + 0.02;
+      }
+      break;
+
+     case robotarm_student_20_IN_Homing_k:
+      /* Transition if homeswitch becomes high */
+      if (robotarm_student_2021a_Ipos_B.RelationalOperator_k) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_student__IN_MovetoX0_n;
+        robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint =
+          robotarm_student_2021a_Ipos_B.set_robot_calibration_z;
+      }
+      break;
+
+     case robotarm_student__IN_MovetoX0_n:
+      if ((robotarm_student_2021a_Ipos_B.Sum2_e < 0.005) &&
+          (robotarm_student_2021a_Ipos_B.set_robot_calibration_z -
+           robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_p <= 0.002)) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_stude_IN_WaitForRest_m;
+        robotarm_student_2021a_Ipos_B.Ready_n = 1.0;
+      }
+      break;
+
+     case robotarm_student__IN_ResetEnc_g:
+      robotarm_student_2021a_Ipos_B.resetEnc_g = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotar_IN_EnableRunAndSafety_k;
+        robotarm_student_2021a_Ipos_B.resetEnc_g = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_n = 0.0;
+      }
+      break;
+
+     case robotarm_stude_IN_WaitForRest_m:
+      if (robotarm_student_2021a_Ipos_B.Compare_j) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_student__IN_ResetEnc_g;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
+        robotarm_student_2021a_Ipos_B.resetEnc_g = 1.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 0.0;
+        robotarm_student_2021a_Ipos_B.Ready_n = 1.0;
+      }
+      break;
+
+     case robotarm_student_2_IN_Waiting_l:
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 4096U) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_student__IN_Waiting1_m;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m = 0U;
+
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 1.0;
+      } else {
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.001;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 0.1;
+      }
+      break;
+
+     default:
+      /* case IN_Waiting1: */
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m >= 4096U) {
+        robotarm_student_2021a_Ipos_DW.is_c18_robotarm_student_2021a_I =
+          robotarm_student_20_IN_Homing_k;
+
+        /* Set jog speed and homing state */
+        robotarm_student_2021a_Ipos_B.toPoint = 0.0;
+        robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.8;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 1.0;
+      } else {
+        /* Homing has to wait for 3 sec
+           as the new arm gets the 5V enable signal
+           after pressing start to avoid moving to X0 too
+           early */
+        robotarm_student_2021a_Ipos_B.Ready_n = 0.0;
+        robotarm_student_2021a_Ipos_B.toPoint = 0.0;
+        robotarm_student_2021a_Ipos_B.homingBusy_n = 1.0;
+        robotarm_student_2021a_Ipos_B.jogSpeed_i = 0.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_b = 1.0;
+      }
+      break;
     }
+  }
 
-    /* End of Chart: '<S29>/Supervisor' */
+  /* End of Chart: '<S29>/Supervisor' */
 
-    /* Chart: '<S30>/Supervisor' */
-    if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 < 8191U) {
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i1++;
-    }
+  /* Chart: '<S30>/Supervisor' */
+  if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 < 8191U) {
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i1++;
+  }
 
-    robotarm_student_2021a_Ipos_DW.sfEvent = robotarm_student_202_CALL_EVENT;
-    if (robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2 == 0U) {
-      robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2 = 1U;
-      robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
-        robotarm_student_2_IN_Waiting_n;
-      robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
+  robotarm_student_2021a_Ipos_DW.sfEvent = robotarm_student_202_CALL_EVENT;
+  if (robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2 == 0U) {
+    robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2 = 1U;
+    robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
+      robotarm_student_2_IN_Waiting_n;
+    robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
 
-      /* Homing has to wait for 3 sec
-         as the new arm gets the 5V enable signal
-         after pressing start to avoi d moving to X0 too
-         early */
-    } else {
-      switch (robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip) {
-       case robotarm_st_IN_CheckRobotIsON_k:
+    /* Homing has to wait for 3 sec
+       as the new arm gets the 5V enable signal
+       after pressing start to avoi d moving to X0 too
+       early */
+  } else {
+    switch (robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip) {
+     case robotarm_st_IN_CheckRobotIsON_k:
+      robotarm_student_2021a_Ipos_B.jogSpeed = 0.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
+          robotarm_stude_IN_WaitForRest_g;
+        robotarm_student_2021a_Ipos_B.Ready = 1.0;
+      }
+      break;
+
+     case robotar_IN_EnableRunAndSafety_n:
+      robotarm_student_2021a_Ipos_B.resetEnc = 0.0;
+      robotarm_student_2021a_Ipos_B.homingBusy = 0.0;
+      break;
+
+     case robotarm_student_20_IN_Homing_n:
+      robotarm_student_2021a_Ipos_B.Ready = 0.0;
+      robotarm_student_2021a_Ipos_B.homingBusy = 1.0;
+      robotarm_student_2021a_Ipos_B.jogSpeed = 20.0;
+      robotarm_student_2021a_Ipos_B.homeControllerEnabled = 1.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
+          robotarm_student__IN_MovetoX0_d;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
+        robotarm_student_2021a_Ipos_B.jogSpeed = -20.0;
+      }
+      break;
+
+     case robotarm_student__IN_MovetoX0_d:
+      robotarm_student_2021a_Ipos_B.jogSpeed = -20.0;
+
+      /* Allow time for moving */
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 6144U) {
+        robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
+          robotarm_st_IN_CheckRobotIsON_k;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
         robotarm_student_2021a_Ipos_B.jogSpeed = 0.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
-            robotarm_stude_IN_WaitForRest_g;
-          robotarm_student_2021a_Ipos_B.Ready = 1.0;
-        }
-        break;
+      }
+      break;
 
-       case robotar_IN_EnableRunAndSafety_n:
+     case robotarm_student__IN_ResetEnc_h:
+      robotarm_student_2021a_Ipos_B.resetEnc = 1.0;
+      robotarm_student_2021a_Ipos_B.homeControllerEnabled = 0.0;
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
+          robotar_IN_EnableRunAndSafety_n;
         robotarm_student_2021a_Ipos_B.resetEnc = 0.0;
         robotarm_student_2021a_Ipos_B.homingBusy = 0.0;
-        break;
+      }
+      break;
 
-       case robotarm_student_20_IN_Homing_n:
+     case robotarm_stude_IN_WaitForRest_g:
+      robotarm_student_2021a_Ipos_B.Ready = 1.0;
+      if (robotarm_student_2021a_Ipos_B.Compare_j) {
+        robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
+          robotarm_student__IN_ResetEnc_h;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
+        robotarm_student_2021a_Ipos_B.resetEnc = 1.0;
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled = 0.0;
+      }
+      break;
+
+     default:
+      /* case IN_Waiting: */
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 2048U) {
+        robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
+          robotarm_student_20_IN_Homing_n;
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
+
+        /* Set jog speed and homing state */
         robotarm_student_2021a_Ipos_B.Ready = 0.0;
         robotarm_student_2021a_Ipos_B.homingBusy = 1.0;
         robotarm_student_2021a_Ipos_B.jogSpeed = 20.0;
         robotarm_student_2021a_Ipos_B.homeControllerEnabled = 1.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
-            robotarm_student__IN_MovetoX0_d;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
-          robotarm_student_2021a_Ipos_B.jogSpeed = -20.0;
-        }
-        break;
-
-       case robotarm_student__IN_MovetoX0_d:
-        robotarm_student_2021a_Ipos_B.jogSpeed = -20.0;
-
-        /* Allow time for moving */
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 6144U) {
-          robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
-            robotarm_st_IN_CheckRobotIsON_k;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
-          robotarm_student_2021a_Ipos_B.jogSpeed = 0.0;
-        }
-        break;
-
-       case robotarm_student__IN_ResetEnc_h:
-        robotarm_student_2021a_Ipos_B.resetEnc = 1.0;
-        robotarm_student_2021a_Ipos_B.homeControllerEnabled = 0.0;
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
-            robotar_IN_EnableRunAndSafety_n;
-          robotarm_student_2021a_Ipos_B.resetEnc = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy = 0.0;
-        }
-        break;
-
-       case robotarm_stude_IN_WaitForRest_g:
-        robotarm_student_2021a_Ipos_B.Ready = 1.0;
-        if (robotarm_student_2021a_Ipos_B.Compare_j) {
-          robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
-            robotarm_student__IN_ResetEnc_h;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
-          robotarm_student_2021a_Ipos_B.resetEnc = 1.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled = 0.0;
-        }
-        break;
-
-       default:
-        /* case IN_Waiting: */
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1 >= 2048U) {
-          robotarm_student_2021a_Ipos_DW.is_c1_robotarm_student_2021a_Ip =
-            robotarm_student_20_IN_Homing_n;
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1 = 0U;
-
-          /* Set jog speed and homing state */
-          robotarm_student_2021a_Ipos_B.Ready = 0.0;
-          robotarm_student_2021a_Ipos_B.homingBusy = 1.0;
-          robotarm_student_2021a_Ipos_B.jogSpeed = 20.0;
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled = 1.0;
-        }
-        break;
       }
+      break;
+    }
+  }
+
+  /* End of Chart: '<S30>/Supervisor' */
+
+  /* Sum: '<S25>/Add' */
+  robotarm_student_2021a_Ipos_B.fy2_tmp =
+    ((robotarm_student_2021a_Ipos_B.homingBusy_l +
+      robotarm_student_2021a_Ipos_B.homingBusy_j) +
+     robotarm_student_2021a_Ipos_B.homingBusy_n) +
+    robotarm_student_2021a_Ipos_B.homingBusy;
+
+  /* Signum: '<S25>/Sign' */
+  if (robotarm_student_2021a_Ipos_B.fy2_tmp < 0.0) {
+    robotarm_student_2021a_Ipos_B.fy2_tmp = -1.0;
+  } else if (robotarm_student_2021a_Ipos_B.fy2_tmp > 0.0) {
+    robotarm_student_2021a_Ipos_B.fy2_tmp = 1.0;
+  } else if (robotarm_student_2021a_Ipos_B.fy2_tmp == 0.0) {
+    robotarm_student_2021a_Ipos_B.fy2_tmp = 0.0;
+  } else {
+    robotarm_student_2021a_Ipos_B.fy2_tmp = (rtNaN);
+  }
+
+  /* End of Signum: '<S25>/Sign' */
+
+  /* Sum: '<S25>/Add1' incorporates:
+   *  Constant: '<S25>/Constant'
+   */
+  robotarm_student_2021a_Ipos_B.Add1 =
+    robotarm_student_2021a_Ipos_P.Constant_Value_m -
+    robotarm_student_2021a_Ipos_B.fy2_tmp;
+
+  /* Sum: '<S21>/Add2' incorporates:
+   *  Gain: '<S21>/Gain'
+   *  Logic: '<S21>/NOT'
+   */
+  robotarm_student_2021a_Ipos_B.Add2 =
+    (((robotarm_student_2021a_Ipos_P.Gain_Gain_m *
+       robotarm_student_2021a_Ipos_B.airBagEnabled_f +
+       robotarm_student_2021a_Ipos_P.Gain_Gain_m *
+       robotarm_student_2021a_Ipos_B.airBagEnabled_o) +
+      robotarm_student_2021a_Ipos_P.Gain_Gain_m *
+      robotarm_student_2021a_Ipos_B.airBagEnabled) + (real_T)
+     !(robotarm_student_2021a_Ipos_B.Add1 != 0.0)) +
+    robotarm_student_2021a_Ipos_B.homingBusy_l;
+
+  /* Gain: '<S20>/Gain3' */
+  robotarm_student_2021a_Ipos_B.Gain3 = robotarm_student_2021a_Ipos_P.Gain3_Gain
+    * robotarm_student_2021a_Ipos_B.ec_Ipos_o5;
+
+  /* Gain: '<S20>/Gain5' incorporates:
+   *  Gain: '<S20>/Gain4'
+   */
+  robotarm_student_2021a_Ipos_B.Gain5 = robotarm_student_2021a_Ipos_P.Gain4_Gain
+    * robotarm_student_2021a_Ipos_B.ec_Ipos_o1 *
+    robotarm_student_2021a_Ipos_P.Gain5_Gain;
+
+  /* Outputs for Enabled SubSystem: '<Root>/Controller' incorporates:
+   *  EnablePort: '<S1>/Enable '
+   */
+  robotarm_student_2021a_Ipos_DW.Controller_MODE =
+    (robotarm_student_2021a_Ipos_B.Add1 > 0.0);
+  if (robotarm_student_2021a_Ipos_DW.Controller_MODE) {
+    /* RelationalOperator: '<S18>/FixPt Relational Operator' incorporates:
+     *  Constant: '<S4>/Object detection matrix'
+     *  UnitDelay: '<S18>/Delay Input1'
+     */
+    for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
+         12; robotarm_student_2021a_Ipos_B.i++) {
+      robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[robotarm_student_2021a_Ipos_B.i]
+        =
+        (robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[robotarm_student_2021a_Ipos_B.i]
+         !=
+         robotarm_student_2021a_Ipos_DW.DelayInput1_DSTATE[robotarm_student_2021a_Ipos_B.i]);
     }
 
-    /* End of Chart: '<S30>/Supervisor' */
-
-    /* Sum: '<S25>/Add' */
-    robotarm_student_2021a_Ipos_B.fy2_tmp =
-      ((robotarm_student_2021a_Ipos_B.homingBusy_l +
-        robotarm_student_2021a_Ipos_B.homingBusy_j) +
-       robotarm_student_2021a_Ipos_B.homingBusy_n) +
-      robotarm_student_2021a_Ipos_B.homingBusy;
-
-    /* Signum: '<S25>/Sign' */
-    if (robotarm_student_2021a_Ipos_B.fy2_tmp < 0.0) {
-      robotarm_student_2021a_Ipos_B.fy2_tmp = -1.0;
-    } else if (robotarm_student_2021a_Ipos_B.fy2_tmp > 0.0) {
-      robotarm_student_2021a_Ipos_B.fy2_tmp = 1.0;
-    } else if (robotarm_student_2021a_Ipos_B.fy2_tmp == 0.0) {
-      robotarm_student_2021a_Ipos_B.fy2_tmp = 0.0;
-    } else {
-      robotarm_student_2021a_Ipos_B.fy2_tmp = (rtNaN);
-    }
-
-    /* End of Signum: '<S25>/Sign' */
-
-    /* Sum: '<S25>/Add1' incorporates:
-     *  Constant: '<S25>/Constant'
-     */
-    robotarm_student_2021a_Ipos_B.Add1 =
-      robotarm_student_2021a_Ipos_P.Constant_Value_m -
-      robotarm_student_2021a_Ipos_B.fy2_tmp;
-
-    /* Sum: '<S21>/Add2' incorporates:
-     *  Gain: '<S21>/Gain'
-     *  Logic: '<S21>/NOT'
-     */
-    robotarm_student_2021a_Ipos_B.Add2 =
-      (((robotarm_student_2021a_Ipos_P.Gain_Gain_m *
-         robotarm_student_2021a_Ipos_B.airBagEnabled_f +
-         robotarm_student_2021a_Ipos_P.Gain_Gain_m *
-         robotarm_student_2021a_Ipos_B.airBagEnabled_o) +
-        robotarm_student_2021a_Ipos_P.Gain_Gain_m *
-        robotarm_student_2021a_Ipos_B.airBagEnabled) + (real_T)
-       !(robotarm_student_2021a_Ipos_B.Add1 != 0.0)) +
-      robotarm_student_2021a_Ipos_B.homingBusy_l;
-
-    /* Gain: '<S20>/Gain3' */
-    robotarm_student_2021a_Ipos_B.Gain3 =
-      robotarm_student_2021a_Ipos_P.Gain3_Gain_n *
-      robotarm_student_2021a_Ipos_B.ec_Ipos_o5;
-
-    /* Gain: '<S20>/Gain5' incorporates:
-     *  Gain: '<S20>/Gain4'
-     */
-    robotarm_student_2021a_Ipos_B.Gain5 =
-      robotarm_student_2021a_Ipos_P.Gain4_Gain *
-      robotarm_student_2021a_Ipos_B.ec_Ipos_o1 *
-      robotarm_student_2021a_Ipos_P.Gain5_Gain;
-
-    /* Outputs for Enabled SubSystem: '<Root>/Controller' incorporates:
-     *  EnablePort: '<S1>/Enable '
-     */
-    robotarm_student_2021a_Ipos_DW.Controller_MODE =
-      (robotarm_student_2021a_Ipos_B.Add1 > 0.0);
-    if (robotarm_student_2021a_Ipos_DW.Controller_MODE) {
-      /* RelationalOperator: '<S18>/FixPt Relational Operator' incorporates:
+    /* End of RelationalOperator: '<S18>/FixPt Relational Operator' */
+    for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
+         3; robotarm_student_2021a_Ipos_B.i++) {
+      /* Selector: '<S4>/Selector2' incorporates:
        *  Constant: '<S4>/Object detection matrix'
-       *  UnitDelay: '<S18>/Delay Input1'
        */
-      for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
-           12; robotarm_student_2021a_Ipos_B.i++) {
-        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[robotarm_student_2021a_Ipos_B.i]
-          =
-          (robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[robotarm_student_2021a_Ipos_B.i]
-           !=
-           robotarm_student_2021a_Ipos_DW.DelayInput1_DSTATE[robotarm_student_2021a_Ipos_B.i]);
-      }
+      robotarm_student_2021a_Ipos_B.Selector2[3 *
+        robotarm_student_2021a_Ipos_B.i] =
+        robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[3 *
+        robotarm_student_2021a_Ipos_B.i];
 
-      /* End of RelationalOperator: '<S18>/FixPt Relational Operator' */
-      for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
-           3; robotarm_student_2021a_Ipos_B.i++) {
-        /* Selector: '<S4>/Selector2' incorporates:
-         *  Constant: '<S4>/Object detection matrix'
-         */
-        robotarm_student_2021a_Ipos_B.Selector2[3 *
-          robotarm_student_2021a_Ipos_B.i] =
-          robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[3 *
-          robotarm_student_2021a_Ipos_B.i];
-
-        /* Selector: '<S4>/Selector2' incorporates:
-         *  Constant: '<S4>/Object detection matrix'
-         */
-        robotarm_student_2021a_Ipos_B.Selector2_tmp = 3 *
-          robotarm_student_2021a_Ipos_B.i + 1;
-
-        /* Selector: '<S4>/Selector2' incorporates:
-         *  Constant: '<S4>/Object detection matrix'
-         */
-        robotarm_student_2021a_Ipos_B.Selector2[robotarm_student_2021a_Ipos_B.Selector2_tmp]
-          =
-          robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[robotarm_student_2021a_Ipos_B.Selector2_tmp];
-
-        /* Selector: '<S4>/Selector2' incorporates:
-         *  Constant: '<S4>/Object detection matrix'
-         *  Selector: '<S4>/Selector'
-         */
-        robotarm_student_2021a_Ipos_B.Selector2_tmp = 3 *
-          robotarm_student_2021a_Ipos_B.i + 2;
-        robotarm_student_2021a_Ipos_B.fy2_tmp =
-          robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[robotarm_student_2021a_Ipos_B.Selector2_tmp];
-
-        /* Selector: '<S4>/Selector2' incorporates:
-         *  Constant: '<S4>/Object detection matrix'
-         */
-        robotarm_student_2021a_Ipos_B.Selector2[robotarm_student_2021a_Ipos_B.Selector2_tmp]
-          = robotarm_student_2021a_Ipos_B.fy2_tmp;
-
-        /* Selector: '<S4>/Selector' */
-        robotarm_student_2021a_Ipos_B.Selector[robotarm_student_2021a_Ipos_B.i] =
-          robotarm_student_2021a_Ipos_B.fy2_tmp;
-      }
-
-      /* Selector: '<S1>/Selector' incorporates:
-       *  Selector: '<S4>/Selector2'
+      /* Selector: '<S4>/Selector2' incorporates:
+       *  Constant: '<S4>/Object detection matrix'
        */
-      robotarm_student_2021a_Ipos_B.Selector_g =
-        robotarm_student_2021a_Ipos_B.Selector2[0];
+      robotarm_student_2021a_Ipos_B.Selector2_tmp = 3 *
+        robotarm_student_2021a_Ipos_B.i + 1;
 
-      /* S-Function (getSystemClockTimeval): '<S4>/S-Function Builder' */
-      getSystemClockTimeval_Outputs_wrapper
-        (&robotarm_student_2021a_Ipos_B.SFunctionBuilder);
-
-      /* Selector: '<S1>/Selector1' incorporates:
-       *  Selector: '<S4>/Selector2'
+      /* Selector: '<S4>/Selector2' incorporates:
+       *  Constant: '<S4>/Object detection matrix'
        */
-      robotarm_student_2021a_Ipos_B.Selector1 =
-        robotarm_student_2021a_Ipos_B.Selector2[1];
+      robotarm_student_2021a_Ipos_B.Selector2[robotarm_student_2021a_Ipos_B.Selector2_tmp]
+        =
+        robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[robotarm_student_2021a_Ipos_B.Selector2_tmp];
 
-      /* Constant: '<S1>/Object' */
-      robotarm_student_2021a_Ipos_B.Object =
-        robotarm_student_2021a_Ipos_P.Object_Value;
-
-      /* Chart: '<S1>/Stateflow 1' */
-      if (robotarm_student_2021a_Ipos_DW.isNotInit) {
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m0 < 8191U) {
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m0++;
-        }
-
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i2 < MAX_uint32_T) {
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i2++;
-        }
-
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i3 < 8191U) {
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i3++;
-        }
-
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i4 < 16383U) {
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i4++;
-        }
-
-        if (robotarm_student_2021a_Ipos_DW.temporalCounter_i5 < 8191U) {
-          robotarm_student_2021a_Ipos_DW.temporalCounter_i5++;
-        }
-      }
-
-      robotarm_student_2021a_Ipos_DW.isNotInit = true;
-      robotarm_student_2021a_Ipos_DW.sfEvent_e = robotarm_student_202_CALL_EVENT;
-      c4_robotarm_student_2021a_Ipos();
-
-      /* End of Chart: '<S1>/Stateflow 1' */
-
-      /* SignalConversion: '<S1>/Signal Conversion2' */
-      robotarm_student_2021a_Ipos_B.SignalConversion2 =
-        robotarm_student_2021a_Ipos_B.Gain;
-
-      /* MATLAB Function: '<S1>/quintic trajectory time' incorporates:
-       *  Constant: '<S1>/Constant'
+      /* Selector: '<S4>/Selector2' incorporates:
+       *  Constant: '<S4>/Object detection matrix'
+       *  Selector: '<S4>/Selector'
        */
-      robotarm__quintictrajectorytime(robotarm_student_2021a_Ipos_B.R_rad,
-        robotarm_student_2021a_Ipos_P.Constant_Value,
-        robotarm_student_2021a_Ipos_B.SignalConversion2,
-        &robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime,
-        &robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime);
-
-      /* Gain: '<S17>/Gain1' incorporates:
-       *  Sum: '<S1>/Sum2'
-       */
-      robotarm_student_2021a_Ipos_B.Gain1_c =
-        (robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime.path -
-         robotarm_student_2021a_Ipos_B.SignalConversion2) *
-        robotarm_student_2021a_Ipos_P.Gain1_Gain;
-
-      /* S-Function (dleadlag): '<S17>/Dctleadlag2' */
-
-      /* Level2 S-Function Block: '<S17>/Dctleadlag2' (dleadlag) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[0];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dweakint): '<S17>/Dctintegrator3' */
-
-      /* Level2 S-Function Block: '<S17>/Dctintegrator3' (dweakint) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[1];
-        sfcnOutputs(rts,0);
-      }
-
-      /* SignalConversion: '<S1>/Signal Conversion1' */
-      robotarm_student_2021a_Ipos_B.SignalConversion1 =
-        robotarm_student_2021a_Ipos_B.Gain1;
-
-      /* Sin: '<S1>/Sine Wave' */
-      robotarm_student_2021a_Ipos_B.SineWave = sin
-        (robotarm_student_2021a_Ipos_P.SineWave_Freq *
-         robotarm_student_2021a_Ipos_M->Timing.t[0] +
-         robotarm_student_2021a_Ipos_P.SineWave_Phase) *
-        robotarm_student_2021a_Ipos_P.SineWave_Amp +
-        robotarm_student_2021a_Ipos_P.SineWave_Bias;
-
-      /* Gain: '<S12>/Gain1' incorporates:
-       *  Sum: '<S1>/Sum1'
-       */
-      robotarm_student_2021a_Ipos_B.Gain1_b =
-        (robotarm_student_2021a_Ipos_B.SineWave -
-         robotarm_student_2021a_Ipos_B.SignalConversion1) *
-        robotarm_student_2021a_Ipos_P.Gain1_Gain_o;
-
-      /* S-Function (dleadlag): '<S12>/Dctleadlag2' */
-
-      /* Level2 S-Function Block: '<S12>/Dctleadlag2' (dleadlag) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[2];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dlowpass1): '<S12>/Dct1lowpass3' */
-
-      /* Level2 S-Function Block: '<S12>/Dct1lowpass3' (dlowpass1) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
-        sfcnOutputs(rts,0);
-      }
-
-      /* Derivative: '<S1>/Derivative' incorporates:
-       *  Derivative: '<S1>/Derivative1'
-       *  Derivative: '<S1>/Derivative2'
-       *  Derivative: '<S1>/Derivative3'
-       */
+      robotarm_student_2021a_Ipos_B.Selector2_tmp = 3 *
+        robotarm_student_2021a_Ipos_B.i + 2;
       robotarm_student_2021a_Ipos_B.fy2_tmp =
-        robotarm_student_2021a_Ipos_M->Timing.t[0];
-      if ((robotarm_student_2021a_Ipos_DW.TimeStampA >=
-           robotarm_student_2021a_Ipos_B.fy2_tmp) &&
-          (robotarm_student_2021a_Ipos_DW.TimeStampB >=
-           robotarm_student_2021a_Ipos_B.fy2_tmp)) {
-        /* Derivative: '<S1>/Derivative' */
-        robotarm_student_2021a_Ipos_B.Derivative = 0.0;
-      } else {
-        robotarm_student_2021a_Ipos_B.Gain_m =
-          robotarm_student_2021a_Ipos_DW.TimeStampA;
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA;
-        if (robotarm_student_2021a_Ipos_DW.TimeStampA <
-            robotarm_student_2021a_Ipos_DW.TimeStampB) {
-          if (robotarm_student_2021a_Ipos_DW.TimeStampB <
-              robotarm_student_2021a_Ipos_B.fy2_tmp) {
-            robotarm_student_2021a_Ipos_B.Gain_m =
-              robotarm_student_2021a_Ipos_DW.TimeStampB;
-            lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB;
-          }
-        } else if (robotarm_student_2021a_Ipos_DW.TimeStampA >=
-                   robotarm_student_2021a_Ipos_B.fy2_tmp) {
-          robotarm_student_2021a_Ipos_B.Gain_m =
-            robotarm_student_2021a_Ipos_DW.TimeStampB;
-          lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB;
-        }
+        robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[robotarm_student_2021a_Ipos_B.Selector2_tmp];
 
-        /* Derivative: '<S1>/Derivative' */
-        robotarm_student_2021a_Ipos_B.Derivative =
-          (robotarm_student_2021a_Ipos_B.SineWave - *lastU) /
-          (robotarm_student_2021a_Ipos_B.fy2_tmp -
-           robotarm_student_2021a_Ipos_B.Gain_m);
-      }
-
-      /* End of Derivative: '<S1>/Derivative' */
-
-      /* Derivative: '<S1>/Derivative1' */
-      if ((robotarm_student_2021a_Ipos_DW.TimeStampA_o >=
-           robotarm_student_2021a_Ipos_B.fy2_tmp) &&
-          (robotarm_student_2021a_Ipos_DW.TimeStampB_i >=
-           robotarm_student_2021a_Ipos_B.fy2_tmp)) {
-        robotarm_student_2021a_Ipos_B.Gain_m = 0.0;
-      } else {
-        robotarm_student_2021a_Ipos_B.Gain_m =
-          robotarm_student_2021a_Ipos_DW.TimeStampA_o;
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_g;
-        if (robotarm_student_2021a_Ipos_DW.TimeStampA_o <
-            robotarm_student_2021a_Ipos_DW.TimeStampB_i) {
-          if (robotarm_student_2021a_Ipos_DW.TimeStampB_i <
-              robotarm_student_2021a_Ipos_B.fy2_tmp) {
-            robotarm_student_2021a_Ipos_B.Gain_m =
-              robotarm_student_2021a_Ipos_DW.TimeStampB_i;
-            lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_b;
-          }
-        } else if (robotarm_student_2021a_Ipos_DW.TimeStampA_o >=
-                   robotarm_student_2021a_Ipos_B.fy2_tmp) {
-          robotarm_student_2021a_Ipos_B.Gain_m =
-            robotarm_student_2021a_Ipos_DW.TimeStampB_i;
-          lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_b;
-        }
-
-        robotarm_student_2021a_Ipos_B.Gain_m =
-          (robotarm_student_2021a_Ipos_B.Derivative - *lastU) /
-          (robotarm_student_2021a_Ipos_B.fy2_tmp -
-           robotarm_student_2021a_Ipos_B.Gain_m);
-      }
-
-      /* Signum: '<S1>/Sign' */
-      if (robotarm_student_2021a_Ipos_B.Derivative < 0.0) {
-        robotarm_student_2021a_Ipos_B.fy1_tmp = -1.0;
-      } else if (robotarm_student_2021a_Ipos_B.Derivative > 0.0) {
-        robotarm_student_2021a_Ipos_B.fy1_tmp = 1.0;
-      } else if (robotarm_student_2021a_Ipos_B.Derivative == 0.0) {
-        robotarm_student_2021a_Ipos_B.fy1_tmp = 0.0;
-      } else {
-        robotarm_student_2021a_Ipos_B.fy1_tmp = (rtNaN);
-      }
-
-      /* End of Signum: '<S1>/Sign' */
-
-      /* Sum: '<S1>/Sum5' incorporates:
-       *  Gain: '<S1>/Gain'
-       *  Gain: '<S1>/Gain1'
-       *  Gain: '<S1>/Gain7'
-       *  Sum: '<S1>/Sum'
-       */
-      robotarm_student_2021a_Ipos_B.Sum5 =
-        ((robotarm_student_2021a_Ipos_P.Gain1_Gain_p *
-          robotarm_student_2021a_Ipos_B.Gain_m -
-          robotarm_student_2021a_Ipos_P.Gain7_Gain *
-          robotarm_student_2021a_Ipos_B.fy1_tmp) -
-         robotarm_student_2021a_Ipos_P.Gain_Gain *
-         robotarm_student_2021a_Ipos_B.Derivative) +
-        robotarm_student_2021a_Ipos_B.Dct1lowpass3;
-
-      /* SignalConversion: '<S1>/Signal Conversion' */
-      robotarm_student_2021a_Ipos_B.SignalConversion =
-        robotarm_student_2021a_Ipos_B.Gain2;
-
-      /* Gain: '<S10>/Gain1' incorporates:
-       *  Sum: '<S1>/Sum7'
-       */
-      robotarm_student_2021a_Ipos_B.Gain1_cy =
-        (robotarm_student_2021a_Ipos_B.SineWave -
-         robotarm_student_2021a_Ipos_B.SignalConversion) *
-        robotarm_student_2021a_Ipos_P.Gain1_Gain_h;
-
-      /* S-Function (dleadlag): '<S10>/Dctleadlag2' */
-
-      /* Level2 S-Function Block: '<S10>/Dctleadlag2' (dleadlag) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[4];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dlowpass1): '<S10>/Dct1lowpass3' */
-
-      /* Level2 S-Function Block: '<S10>/Dct1lowpass3' (dlowpass1) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[5];
-        sfcnOutputs(rts,0);
-      }
-
-      /* Derivative: '<S1>/Derivative2' */
-      if ((robotarm_student_2021a_Ipos_DW.TimeStampA_p >=
-           robotarm_student_2021a_Ipos_B.fy2_tmp) &&
-          (robotarm_student_2021a_Ipos_DW.TimeStampB_o >=
-           robotarm_student_2021a_Ipos_B.fy2_tmp)) {
-        /* Derivative: '<S1>/Derivative2' */
-        robotarm_student_2021a_Ipos_B.Derivative2 = 0.0;
-      } else {
-        robotarm_student_2021a_Ipos_B.Gain_m =
-          robotarm_student_2021a_Ipos_DW.TimeStampA_p;
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_gt;
-        if (robotarm_student_2021a_Ipos_DW.TimeStampA_p <
-            robotarm_student_2021a_Ipos_DW.TimeStampB_o) {
-          if (robotarm_student_2021a_Ipos_DW.TimeStampB_o <
-              robotarm_student_2021a_Ipos_B.fy2_tmp) {
-            robotarm_student_2021a_Ipos_B.Gain_m =
-              robotarm_student_2021a_Ipos_DW.TimeStampB_o;
-            lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_k;
-          }
-        } else if (robotarm_student_2021a_Ipos_DW.TimeStampA_p >=
-                   robotarm_student_2021a_Ipos_B.fy2_tmp) {
-          robotarm_student_2021a_Ipos_B.Gain_m =
-            robotarm_student_2021a_Ipos_DW.TimeStampB_o;
-          lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_k;
-        }
-
-        /* Derivative: '<S1>/Derivative2' */
-        robotarm_student_2021a_Ipos_B.Derivative2 =
-          (robotarm_student_2021a_Ipos_B.SineWave - *lastU) /
-          (robotarm_student_2021a_Ipos_B.fy2_tmp -
-           robotarm_student_2021a_Ipos_B.Gain_m);
-      }
-
-      /* Derivative: '<S1>/Derivative3' */
-      if ((robotarm_student_2021a_Ipos_DW.TimeStampA_pg >=
-           robotarm_student_2021a_Ipos_B.fy2_tmp) &&
-          (robotarm_student_2021a_Ipos_DW.TimeStampB_k >=
-           robotarm_student_2021a_Ipos_B.fy2_tmp)) {
-        robotarm_student_2021a_Ipos_B.Gain_m = 0.0;
-      } else {
-        robotarm_student_2021a_Ipos_B.Gain_m =
-          robotarm_student_2021a_Ipos_DW.TimeStampA_pg;
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_j;
-        if (robotarm_student_2021a_Ipos_DW.TimeStampA_pg <
-            robotarm_student_2021a_Ipos_DW.TimeStampB_k) {
-          if (robotarm_student_2021a_Ipos_DW.TimeStampB_k <
-              robotarm_student_2021a_Ipos_B.fy2_tmp) {
-            robotarm_student_2021a_Ipos_B.Gain_m =
-              robotarm_student_2021a_Ipos_DW.TimeStampB_k;
-            lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_d;
-          }
-        } else if (robotarm_student_2021a_Ipos_DW.TimeStampA_pg >=
-                   robotarm_student_2021a_Ipos_B.fy2_tmp) {
-          robotarm_student_2021a_Ipos_B.Gain_m =
-            robotarm_student_2021a_Ipos_DW.TimeStampB_k;
-          lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_d;
-        }
-
-        robotarm_student_2021a_Ipos_B.Gain_m =
-          (robotarm_student_2021a_Ipos_B.Derivative2 - *lastU) /
-          (robotarm_student_2021a_Ipos_B.fy2_tmp -
-           robotarm_student_2021a_Ipos_B.Gain_m);
-      }
-
-      /* Signum: '<S1>/Sign1' */
-      if (robotarm_student_2021a_Ipos_B.Derivative2 < 0.0) {
-        robotarm_student_2021a_Ipos_B.fy2_tmp = -1.0;
-      } else if (robotarm_student_2021a_Ipos_B.Derivative2 > 0.0) {
-        robotarm_student_2021a_Ipos_B.fy2_tmp = 1.0;
-      } else if (robotarm_student_2021a_Ipos_B.Derivative2 == 0.0) {
-        robotarm_student_2021a_Ipos_B.fy2_tmp = 0.0;
-      } else {
-        robotarm_student_2021a_Ipos_B.fy2_tmp = (rtNaN);
-      }
-
-      /* End of Signum: '<S1>/Sign1' */
-
-      /* Sum: '<S1>/Sum6' incorporates:
-       *  Gain: '<S1>/Gain2'
-       *  Gain: '<S1>/Gain3'
-       *  Gain: '<S1>/Gain6'
-       *  Sum: '<S1>/Sum8'
-       */
-      robotarm_student_2021a_Ipos_B.Sum6 =
-        ((robotarm_student_2021a_Ipos_P.Gain3_Gain *
-          robotarm_student_2021a_Ipos_B.Gain_m -
-          robotarm_student_2021a_Ipos_P.Gain6_Gain *
-          robotarm_student_2021a_Ipos_B.fy2_tmp) -
-         robotarm_student_2021a_Ipos_P.Gain2_Gain *
-         robotarm_student_2021a_Ipos_B.Derivative2) +
-        robotarm_student_2021a_Ipos_B.Dct1lowpass3_h;
-
-      /* S-Function (dlowpass1): '<S17>/Dct1lowpass' */
-
-      /* Level2 S-Function Block: '<S17>/Dct1lowpass' (dlowpass1) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[6];
-        sfcnOutputs(rts,0);
-      }
-
-      /* DiscreteIntegrator: '<S1>/Discrete  integrator' */
-      robotarm_student_2021a_Ipos_B.Conveyorreferencemm =
-        robotarm_student_2021a_Ipos_DW.Discreteintegrator_DSTATE;
-
-      /* Gain: '<S5>/Gain1' incorporates:
-       *  Sum: '<S1>/Sum3'
-       */
-      robotarm_student_2021a_Ipos_B.Gain1_g =
-        (robotarm_student_2021a_Ipos_B.Conveyorreferencemm -
-         robotarm_student_2021a_Ipos_B.Gain3) *
-        robotarm_student_2021a_Ipos_P.Gain1_Gain_g;
-
-      /* S-Function (dweakint): '<S5>/Dctintegrator3' */
-
-      /* Level2 S-Function Block: '<S5>/Dctintegrator3' (dweakint) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[7];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dlowpass1): '<S5>/Dct1lowpass' */
-
-      /* Level2 S-Function Block: '<S5>/Dct1lowpass' (dlowpass1) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[8];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dleadlag): '<S5>/Dctleadlag' */
-
-      /* Level2 S-Function Block: '<S5>/Dctleadlag' (dleadlag) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[9];
-        sfcnOutputs(rts,0);
-      }
-
-      /* Gain: '<S9>/Gain1' */
-      robotarm_student_2021a_Ipos_B.Gain1_l =
-        robotarm_student_2021a_Ipos_P.Gain1_Gain_pl * 0.0;
-
-      /* S-Function (dpd): '<S9>/Dctpd2' */
-
-      /* Level2 S-Function Block: '<S9>/Dctpd2' (dpd) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[10];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dleadlag): '<S9>/Dctleadlag3' */
-
-      /* Level2 S-Function Block: '<S9>/Dctleadlag3' (dleadlag) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[11];
-        sfcnOutputs(rts,0);
-      }
-
-      /* Gain: '<S8>/Gain1' */
-      robotarm_student_2021a_Ipos_B.Gain1_pg =
-        robotarm_student_2021a_Ipos_P.Gain1_Gain_a * 0.0;
-
-      /* S-Function (dpd): '<S8>/Dctpd2' */
-
-      /* Level2 S-Function Block: '<S8>/Dctpd2' (dpd) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[12];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dleadlag): '<S8>/Dctleadlag3' */
-
-      /* Level2 S-Function Block: '<S8>/Dctleadlag3' (dleadlag) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[13];
-        sfcnOutputs(rts,0);
-      }
-
-      /* Gain: '<S11>/Gain1' */
-      robotarm_student_2021a_Ipos_B.Gain1_oc =
-        robotarm_student_2021a_Ipos_P.Gain1_Gain_i * 0.0;
-
-      /* S-Function (dpd): '<S11>/Dctpd2' */
-
-      /* Level2 S-Function Block: '<S11>/Dctpd2' (dpd) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[14];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dleadlag): '<S11>/Dctleadlag3' */
-
-      /* Level2 S-Function Block: '<S11>/Dctleadlag3' (dleadlag) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[15];
-        sfcnOutputs(rts,0);
-      }
-
-      /* Gain: '<S16>/Gain1' */
-      robotarm_student_2021a_Ipos_B.Gain1_oz =
-        robotarm_student_2021a_Ipos_P.Gain1_Gain_e * 0.0;
-
-      /* S-Function (dleadlag): '<S16>/Dctleadlag2' */
-
-      /* Level2 S-Function Block: '<S16>/Dctleadlag2' (dleadlag) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[16];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dweakint): '<S16>/Dctintegrator3' */
-
-      /* Level2 S-Function Block: '<S16>/Dctintegrator3' (dweakint) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[17];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dnotch): '<S16>/Dctnotch4' */
-
-      /* Level2 S-Function Block: '<S16>/Dctnotch4' (dnotch) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[18];
-        sfcnOutputs(rts,0);
-      }
-
-      /* S-Function (dpd): '<S16>/Dctpd5' */
-
-      /* Level2 S-Function Block: '<S16>/Dctpd5' (dpd) */
-      {
-        SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[19];
-        sfcnOutputs(rts,0);
-      }
-
-      /* MATLAB Function: '<S1>/quintic trajectory time2' incorporates:
-       *  Constant: '<S1>/Constant'
-       */
-      robotarm__quintictrajectorytime(robotarm_student_2021a_Ipos_B.Z_rad,
-        robotarm_student_2021a_Ipos_P.Constant_Value,
-        robotarm_student_2021a_Ipos_B.SignalConversion,
-        &robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime2,
-        &robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2);
-
-      /* MATLAB Function: '<S1>/quintic trajectory time1' incorporates:
-       *  Constant: '<S1>/Constant'
-       */
-      robotarm__quintictrajectorytime(robotarm_student_2021a_Ipos_B.X_rad,
-        robotarm_student_2021a_Ipos_P.Constant_Value,
-        robotarm_student_2021a_Ipos_B.SignalConversion1,
-        &robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime1,
-        &robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1);
-
-      /* Sum: '<S1>/Sum4' */
-      robotarm_student_2021a_Ipos_B.Sum4 =
-        robotarm_student_2021a_Ipos_B.Dctintegrator3_c;
-
-      /* Constant: '<S1>/Plot' */
-      robotarm_student_2021a_Ipos_B.Plot =
-        robotarm_student_2021a_Ipos_P.Plot_Value;
-
-      /* Constant: '<S1>/Stop' */
-      robotarm_student_2021a_Ipos_B.Stop =
-        robotarm_student_2021a_Ipos_P.Stop_Value;
-
-      /* Outputs for Enabled SubSystem: '<S4>/Enabled Subsystem' incorporates:
-       *  EnablePort: '<S19>/Enable'
-       */
-      /* RelationalOperator: '<S18>/FixPt Relational Operator' incorporates:
-       *  Inport: '<S19>/In1'
-       */
-      if (robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[0] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[1] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[2] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[3] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[4] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[5] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[6] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[7] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[8] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[9] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[10] ||
-          robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[11]) {
-        robotarm_student_2021a_Ipos_B.In1 =
-          robotarm_student_2021a_Ipos_B.SFunctionBuilder;
-        srUpdateBC(robotarm_student_2021a_Ipos_DW.EnabledSubsystem_SubsysRanBC);
-      }
-
-      /* End of Outputs for SubSystem: '<S4>/Enabled Subsystem' */
-
-      /* Sum: '<S4>/Sum' incorporates:
+      /* Selector: '<S4>/Selector2' incorporates:
        *  Constant: '<S4>/Object detection matrix'
-       *  Selector: '<S4>/Selector3'
        */
-      robotarm_student_2021a_Ipos_B.Sum_m = robotarm_student_2021a_Ipos_B.In1 -
-        robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[9];
+      robotarm_student_2021a_Ipos_B.Selector2[robotarm_student_2021a_Ipos_B.Selector2_tmp]
+        = robotarm_student_2021a_Ipos_B.fy2_tmp;
 
-      /* Selector: '<S1>/Selector2' incorporates:
-       *  Selector: '<S4>/Selector2'
-       */
-      robotarm_student_2021a_Ipos_B.Selector2_i =
-        robotarm_student_2021a_Ipos_B.Selector2[2];
-
-      /* Selector: '<S1>/Selector4' incorporates:
-       *  Selector: '<S4>/Selector2'
-       */
-      robotarm_student_2021a_Ipos_B.Selector4 =
-        robotarm_student_2021a_Ipos_B.Selector2[4];
-
-      /* Selector: '<S1>/Selector5' incorporates:
-       *  Selector: '<S4>/Selector2'
-       */
-      robotarm_student_2021a_Ipos_B.Selector5 =
-        robotarm_student_2021a_Ipos_B.Selector2[5];
-
-      /* Selector: '<S1>/Selector6' incorporates:
-       *  Selector: '<S4>/Selector2'
-       */
-      robotarm_student_2021a_Ipos_B.Selector6 =
-        robotarm_student_2021a_Ipos_B.Selector2[6];
-
-      /* Selector: '<S1>/Selector7' incorporates:
-       *  Selector: '<S4>/Selector2'
-       */
-      robotarm_student_2021a_Ipos_B.Selector7 =
-        robotarm_student_2021a_Ipos_B.Selector2[7];
-
-      /* Selector: '<S1>/Selector8' incorporates:
-       *  Selector: '<S4>/Selector2'
-       */
-      robotarm_student_2021a_Ipos_B.Selector8 =
-        robotarm_student_2021a_Ipos_B.Selector2[5];
-
-      /* Gain: '<S6>/Gain1' incorporates:
-       *  Constant: '<S1>/Reference Vacuum [bar]'
-       *  Sum: '<S1>/Sum9'
-       */
-      robotarm_student_2021a_Ipos_B.Gain1_o1 =
-        (robotarm_student_2021a_Ipos_P.ReferenceVacuumbar_Value -
-         robotarm_student_2021a_Ipos_B.Gain5) *
-        robotarm_student_2021a_Ipos_P.Gain1_Gain_b;
-
-      /* Saturate: '<S1>/Saturation ' incorporates:
-       *  Constant: '<S1>/Conveyor speed [mm//s]'
-       */
-      if (robotarm_student_2021a_Ipos_P.Conveyorspeedmms_Value >
-          robotarm_student_2021a_Ipos_P.Saturation_UpperSat) {
-        /* Saturate: '<S1>/Saturation ' */
-        robotarm_student_2021a_Ipos_B.Saturation =
-          robotarm_student_2021a_Ipos_P.Saturation_UpperSat;
-      } else if (robotarm_student_2021a_Ipos_P.Conveyorspeedmms_Value <
-                 robotarm_student_2021a_Ipos_P.Saturation_LowerSat) {
-        /* Saturate: '<S1>/Saturation ' */
-        robotarm_student_2021a_Ipos_B.Saturation =
-          robotarm_student_2021a_Ipos_P.Saturation_LowerSat;
-      } else {
-        /* Saturate: '<S1>/Saturation ' */
-        robotarm_student_2021a_Ipos_B.Saturation =
-          robotarm_student_2021a_Ipos_P.Conveyorspeedmms_Value;
-      }
-
-      /* End of Saturate: '<S1>/Saturation ' */
-
-      /* ManualSwitch: '<S1>/Manual Switch1' incorporates:
-       *  StringConstant: '<S1>/Color; set with string; black or white'
-       *  StringConstant: '<S1>/Color; specified in 6 hex digits, rrggbb'
-       */
-      if (robotarm_student_2021a_Ipos_P.ManualSwitch1_CurrentSetting == 1) {
-        strncpy(&robotarm_student_2021a_Ipos_B.ManualSwitch1[0],
-                &robotarm_student_2021a_Ipos_P.Colorspecifiedin6hexdigitsrrggb[0],
-                255U);
-        robotarm_student_2021a_Ipos_B.ManualSwitch1[255] = '\x00';
-      } else {
-        strncpy(&robotarm_student_2021a_Ipos_B.ManualSwitch1[0],
-                &robotarm_student_2021a_Ipos_P.Colorsetwithstringblackorwhite_[0],
-                255U);
-        robotarm_student_2021a_Ipos_B.ManualSwitch1[255] = '\x00';
-      }
-
-      /* End of ManualSwitch: '<S1>/Manual Switch1' */
-      srUpdateBC(robotarm_student_2021a_Ipos_DW.Controller_SubsysRanBC);
+      /* Selector: '<S4>/Selector' */
+      robotarm_student_2021a_Ipos_B.Selector[robotarm_student_2021a_Ipos_B.i] =
+        robotarm_student_2021a_Ipos_B.fy2_tmp;
     }
 
-    /* End of Outputs for SubSystem: '<Root>/Controller' */
+    /* Selector: '<S1>/Selector' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector_g =
+      robotarm_student_2021a_Ipos_B.Selector2[0];
 
-    /* Switch: '<S26>/Homing Running Switch' incorporates:
-     *  UnitDelay: '<S21>/Unit Delay1'
+    /* S-Function (getSystemClockTimeval): '<S4>/S-Function Builder' */
+    getSystemClockTimeval_Outputs_wrapper
+      (&robotarm_student_2021a_Ipos_B.SFunctionBuilder);
+
+    /* Selector: '<S1>/Selector1' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector1 =
+      robotarm_student_2021a_Ipos_B.Selector2[1];
+
+    /* Constant: '<S1>/Object' */
+    robotarm_student_2021a_Ipos_B.Object =
+      robotarm_student_2021a_Ipos_P.Object_Value;
+
+    /* Chart: '<S1>/Stateflow 1' */
+    if (robotarm_student_2021a_Ipos_DW.isNotInit) {
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m0 < 16383U) {
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i1_m0++;
+      }
+
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i2 < MAX_uint32_T) {
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i2++;
+      }
+
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i3 < 8191U) {
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i3++;
+      }
+
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i4 < 16383U) {
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i4++;
+      }
+
+      if (robotarm_student_2021a_Ipos_DW.temporalCounter_i5 < 8191U) {
+        robotarm_student_2021a_Ipos_DW.temporalCounter_i5++;
+      }
+    }
+
+    robotarm_student_2021a_Ipos_DW.isNotInit = true;
+    robotarm_student_2021a_Ipos_DW.sfEvent_e = robotarm_student_202_CALL_EVENT;
+    c4_robotarm_student_2021a_Ipos();
+
+    /* End of Chart: '<S1>/Stateflow 1' */
+
+    /* SignalConversion: '<S1>/Signal Conversion1' */
+    robotarm_student_2021a_Ipos_B.SignalConversion1 =
+      robotarm_student_2021a_Ipos_B.Gain1;
+
+    /* MATLAB Function: '<S1>/quintic trajectory time1' incorporates:
+     *  Constant: '<S1>/Constant'
+     */
+    robotarm__quintictrajectorytime(robotarm_student_2021a_Ipos_B.X_rad,
+      robotarm_student_2021a_Ipos_P.Constant_Value,
+      robotarm_student_2021a_Ipos_B.SignalConversion1,
+      &robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime1,
+      &robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1);
+
+    /* Gain: '<S12>/Gain1' incorporates:
+     *  Sum: '<S1>/Sum1'
+     */
+    robotarm_student_2021a_Ipos_B.Gain1_b =
+      (robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime1.path -
+       robotarm_student_2021a_Ipos_B.SignalConversion1) *
+      robotarm_student_2021a_Ipos_P.Gain1_Gain;
+
+    /* SignalConversion: '<S1>/Signal Conversion2' */
+    robotarm_student_2021a_Ipos_B.SignalConversion2 =
+      robotarm_student_2021a_Ipos_B.Gain;
+
+    /* MATLAB Function: '<S1>/quintic trajectory time' incorporates:
+     *  Constant: '<S1>/Constant'
+     */
+    robotarm__quintictrajectorytime(robotarm_student_2021a_Ipos_B.R_rad,
+      robotarm_student_2021a_Ipos_P.Constant_Value,
+      robotarm_student_2021a_Ipos_B.SignalConversion2,
+      &robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime,
+      &robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime);
+
+    /* Gain: '<S17>/Gain1' incorporates:
+     *  Sum: '<S1>/Sum2'
+     */
+    robotarm_student_2021a_Ipos_B.Gain1_c =
+      (robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime.path -
+       robotarm_student_2021a_Ipos_B.SignalConversion2) *
+      robotarm_student_2021a_Ipos_P.Gain1_Gain_g;
+
+    /* S-Function (dleadlag): '<S17>/Dctleadlag2' */
+
+    /* Level2 S-Function Block: '<S17>/Dctleadlag2' (dleadlag) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[0];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dweakint): '<S17>/Dctintegrator3' */
+
+    /* Level2 S-Function Block: '<S17>/Dctintegrator3' (dweakint) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[1];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dleadlag): '<S12>/Dctleadlag2' */
+
+    /* Level2 S-Function Block: '<S12>/Dctleadlag2' (dleadlag) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[2];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dlowpass1): '<S12>/Dct1lowpass3' */
+
+    /* Level2 S-Function Block: '<S12>/Dct1lowpass3' (dlowpass1) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[3];
+      sfcnOutputs(rts,0);
+    }
+
+    /* Sum: '<S1>/Sum5' */
+    robotarm_student_2021a_Ipos_B.Sum5 =
+      robotarm_student_2021a_Ipos_B.Dct1lowpass3;
+
+    /* SignalConversion: '<S1>/Signal Conversion' */
+    robotarm_student_2021a_Ipos_B.SignalConversion =
+      robotarm_student_2021a_Ipos_B.Gain2;
+
+    /* MATLAB Function: '<S1>/quintic trajectory time2' incorporates:
+     *  Constant: '<S1>/Constant'
+     */
+    robotarm__quintictrajectorytime(robotarm_student_2021a_Ipos_B.Z_rad,
+      robotarm_student_2021a_Ipos_P.Constant_Value,
+      robotarm_student_2021a_Ipos_B.SignalConversion,
+      &robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime2,
+      &robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2);
+
+    /* Gain: '<S10>/Gain1' incorporates:
+     *  Sum: '<S1>/Sum7'
+     */
+    robotarm_student_2021a_Ipos_B.Gain1_cy =
+      (robotarm_student_2021a_Ipos_B.sf_quintictrajectorytime2.path -
+       robotarm_student_2021a_Ipos_B.SignalConversion) *
+      robotarm_student_2021a_Ipos_P.Gain1_Gain_h;
+
+    /* S-Function (dleadlag): '<S10>/Dctleadlag2' */
+
+    /* Level2 S-Function Block: '<S10>/Dctleadlag2' (dleadlag) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[4];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dlowpass1): '<S10>/Dct1lowpass3' */
+
+    /* Level2 S-Function Block: '<S10>/Dct1lowpass3' (dlowpass1) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[5];
+      sfcnOutputs(rts,0);
+    }
+
+    /* Sum: '<S1>/Sum6' */
+    robotarm_student_2021a_Ipos_B.Sum6 =
+      robotarm_student_2021a_Ipos_B.Dct1lowpass3_h;
+
+    /* S-Function (dlowpass1): '<S17>/Dct1lowpass' */
+
+    /* Level2 S-Function Block: '<S17>/Dct1lowpass' (dlowpass1) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[6];
+      sfcnOutputs(rts,0);
+    }
+
+    /* Gain: '<S5>/Gain1' incorporates:
+     *  DiscreteIntegrator: '<S1>/Discrete  integrator'
+     *  Sum: '<S1>/Sum3'
+     */
+    robotarm_student_2021a_Ipos_B.Gain1_g =
+      (robotarm_student_2021a_Ipos_DW.Discreteintegrator_DSTATE -
+       robotarm_student_2021a_Ipos_B.Gain3) *
+      robotarm_student_2021a_Ipos_P.Gain1_Gain_gq;
+
+    /* S-Function (dweakint): '<S5>/Dctintegrator3' */
+
+    /* Level2 S-Function Block: '<S5>/Dctintegrator3' (dweakint) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[7];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dlowpass1): '<S5>/Dct1lowpass' */
+
+    /* Level2 S-Function Block: '<S5>/Dct1lowpass' (dlowpass1) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[8];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dleadlag): '<S5>/Dctleadlag' */
+
+    /* Level2 S-Function Block: '<S5>/Dctleadlag' (dleadlag) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[9];
+      sfcnOutputs(rts,0);
+    }
+
+    /* Gain: '<S9>/Gain1' */
+    robotarm_student_2021a_Ipos_B.Gain1_l =
+      robotarm_student_2021a_Ipos_P.Gain1_Gain_p * 0.0;
+
+    /* S-Function (dpd): '<S9>/Dctpd2' */
+
+    /* Level2 S-Function Block: '<S9>/Dctpd2' (dpd) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[10];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dleadlag): '<S9>/Dctleadlag3' */
+
+    /* Level2 S-Function Block: '<S9>/Dctleadlag3' (dleadlag) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[11];
+      sfcnOutputs(rts,0);
+    }
+
+    /* Gain: '<S8>/Gain1' */
+    robotarm_student_2021a_Ipos_B.Gain1_pg =
+      robotarm_student_2021a_Ipos_P.Gain1_Gain_a * 0.0;
+
+    /* S-Function (dpd): '<S8>/Dctpd2' */
+
+    /* Level2 S-Function Block: '<S8>/Dctpd2' (dpd) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[12];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dleadlag): '<S8>/Dctleadlag3' */
+
+    /* Level2 S-Function Block: '<S8>/Dctleadlag3' (dleadlag) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[13];
+      sfcnOutputs(rts,0);
+    }
+
+    /* Gain: '<S11>/Gain1' */
+    robotarm_student_2021a_Ipos_B.Gain1_oc =
+      robotarm_student_2021a_Ipos_P.Gain1_Gain_i * 0.0;
+
+    /* S-Function (dpd): '<S11>/Dctpd2' */
+
+    /* Level2 S-Function Block: '<S11>/Dctpd2' (dpd) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[14];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dleadlag): '<S11>/Dctleadlag3' */
+
+    /* Level2 S-Function Block: '<S11>/Dctleadlag3' (dleadlag) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[15];
+      sfcnOutputs(rts,0);
+    }
+
+    /* Gain: '<S16>/Gain1' */
+    robotarm_student_2021a_Ipos_B.Gain1_oz =
+      robotarm_student_2021a_Ipos_P.Gain1_Gain_e * 0.0;
+
+    /* S-Function (dleadlag): '<S16>/Dctleadlag2' */
+
+    /* Level2 S-Function Block: '<S16>/Dctleadlag2' (dleadlag) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[16];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dweakint): '<S16>/Dctintegrator3' */
+
+    /* Level2 S-Function Block: '<S16>/Dctintegrator3' (dweakint) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[17];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dnotch): '<S16>/Dctnotch4' */
+
+    /* Level2 S-Function Block: '<S16>/Dctnotch4' (dnotch) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[18];
+      sfcnOutputs(rts,0);
+    }
+
+    /* S-Function (dpd): '<S16>/Dctpd5' */
+
+    /* Level2 S-Function Block: '<S16>/Dctpd5' (dpd) */
+    {
+      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[19];
+      sfcnOutputs(rts,0);
+    }
+
+    /* Sum: '<S1>/Sum4' */
+    robotarm_student_2021a_Ipos_B.Sum4 =
+      robotarm_student_2021a_Ipos_B.Dctintegrator3_c;
+
+    /* Constant: '<S1>/Plot' */
+    robotarm_student_2021a_Ipos_B.Plot =
+      robotarm_student_2021a_Ipos_P.Plot_Value;
+
+    /* Constant: '<S1>/Stop' */
+    robotarm_student_2021a_Ipos_B.Stop =
+      robotarm_student_2021a_Ipos_P.Stop_Value;
+
+    /* Outputs for Enabled SubSystem: '<S4>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S19>/Enable'
+     */
+    /* RelationalOperator: '<S18>/FixPt Relational Operator' incorporates:
+     *  Inport: '<S19>/In1'
+     */
+    if (robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[0] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[1] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[2] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[3] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[4] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[5] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[6] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[7] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[8] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[9] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[10] ||
+        robotarm_student_2021a_Ipos_B.FixPtRelationalOperator[11]) {
+      robotarm_student_2021a_Ipos_B.In1 =
+        robotarm_student_2021a_Ipos_B.SFunctionBuilder;
+      srUpdateBC(robotarm_student_2021a_Ipos_DW.EnabledSubsystem_SubsysRanBC);
+    }
+
+    /* End of Outputs for SubSystem: '<S4>/Enabled Subsystem' */
+
+    /* Sum: '<S4>/Sum' incorporates:
+     *  Constant: '<S4>/Object detection matrix'
+     *  Selector: '<S4>/Selector3'
+     */
+    robotarm_student_2021a_Ipos_B.Sum = robotarm_student_2021a_Ipos_B.In1 -
+      robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[9];
+
+    /* Selector: '<S1>/Selector2' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector2_i =
+      robotarm_student_2021a_Ipos_B.Selector2[2];
+
+    /* Selector: '<S1>/Selector4' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector4 =
+      robotarm_student_2021a_Ipos_B.Selector2[4];
+
+    /* Selector: '<S1>/Selector5' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector5 =
+      robotarm_student_2021a_Ipos_B.Selector2[5];
+
+    /* Selector: '<S1>/Selector6' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector6 =
+      robotarm_student_2021a_Ipos_B.Selector2[6];
+
+    /* Selector: '<S1>/Selector7' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector7 =
+      robotarm_student_2021a_Ipos_B.Selector2[7];
+
+    /* Selector: '<S1>/Selector8' incorporates:
+     *  Selector: '<S4>/Selector2'
+     */
+    robotarm_student_2021a_Ipos_B.Selector8 =
+      robotarm_student_2021a_Ipos_B.Selector2[5];
+
+    /* Gain: '<S6>/Gain1' incorporates:
+     *  Constant: '<S1>/Reference Vacuum [bar]'
+     *  Sum: '<S1>/Sum9'
+     */
+    robotarm_student_2021a_Ipos_B.Gain1_o1 =
+      (robotarm_student_2021a_Ipos_P.ReferenceVacuumbar_Value -
+       robotarm_student_2021a_Ipos_B.Gain5) *
+      robotarm_student_2021a_Ipos_P.Gain1_Gain_b;
+
+    /* Saturate: '<S1>/Saturation ' incorporates:
+     *  Constant: '<S1>/Conveyor speed [mm//s]'
+     */
+    if (robotarm_student_2021a_Ipos_P.Conveyorspeedmms_Value >
+        robotarm_student_2021a_Ipos_P.Saturation_UpperSat) {
+      /* Saturate: '<S1>/Saturation ' */
+      robotarm_student_2021a_Ipos_B.Saturation =
+        robotarm_student_2021a_Ipos_P.Saturation_UpperSat;
+    } else if (robotarm_student_2021a_Ipos_P.Conveyorspeedmms_Value <
+               robotarm_student_2021a_Ipos_P.Saturation_LowerSat) {
+      /* Saturate: '<S1>/Saturation ' */
+      robotarm_student_2021a_Ipos_B.Saturation =
+        robotarm_student_2021a_Ipos_P.Saturation_LowerSat;
+    } else {
+      /* Saturate: '<S1>/Saturation ' */
+      robotarm_student_2021a_Ipos_B.Saturation =
+        robotarm_student_2021a_Ipos_P.Conveyorspeedmms_Value;
+    }
+
+    /* End of Saturate: '<S1>/Saturation ' */
+
+    /* ManualSwitch: '<S1>/Manual Switch1' incorporates:
+     *  StringConstant: '<S1>/Color; set with string; black or white'
+     *  StringConstant: '<S1>/Color; specified in 6 hex digits, rrggbb'
+     */
+    if (robotarm_student_2021a_Ipos_P.ManualSwitch1_CurrentSetting == 1) {
+      strncpy(&robotarm_student_2021a_Ipos_B.ManualSwitch1[0],
+              &robotarm_student_2021a_Ipos_P.Colorspecifiedin6hexdigitsrrggb[0],
+              255U);
+      robotarm_student_2021a_Ipos_B.ManualSwitch1[255] = '\x00';
+    } else {
+      strncpy(&robotarm_student_2021a_Ipos_B.ManualSwitch1[0],
+              &robotarm_student_2021a_Ipos_P.Colorsetwithstringblackorwhite_[0],
+              255U);
+      robotarm_student_2021a_Ipos_B.ManualSwitch1[255] = '\x00';
+    }
+
+    /* End of ManualSwitch: '<S1>/Manual Switch1' */
+    srUpdateBC(robotarm_student_2021a_Ipos_DW.Controller_SubsysRanBC);
+  }
+
+  /* End of Outputs for SubSystem: '<Root>/Controller' */
+
+  /* Switch: '<S26>/Homing Running Switch' incorporates:
+   *  UnitDelay: '<S21>/Unit Delay1'
+   */
+  if (robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE >=
+      robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_l) {
+    /* Switch: '<S26>/Homing Running Switch1' incorporates:
+     *  StringConstant: '<S21>/Homing Orange'
+     *  Switch: '<S26>/Homing Running Switch'
      */
     if (robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE >=
-        robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_l) {
-      /* Switch: '<S26>/Homing Running Switch1' incorporates:
-       *  StringConstant: '<S21>/Homing Orange'
+        robotarm_student_2021a_Ipos_P.HomingRunningSwitch1_Threshold) {
+      /* Switch: '<S26>/Homing Running Switch2' incorporates:
+       *  StringConstant: '<S21>/Airbag Red'
+       *  StringConstant: '<S21>/Ready Green'
        *  Switch: '<S26>/Homing Running Switch'
        */
       if (robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE >=
-          robotarm_student_2021a_Ipos_P.HomingRunningSwitch1_Threshold) {
-        /* Switch: '<S26>/Homing Running Switch2' incorporates:
-         *  StringConstant: '<S21>/Airbag Red'
-         *  StringConstant: '<S21>/Ready Green'
-         *  Switch: '<S26>/Homing Running Switch'
-         */
-        if (robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE >=
-            robotarm_student_2021a_Ipos_P.HomingRunningSwitch2_Threshold) {
-          strncpy(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
-                  &robotarm_student_2021a_Ipos_P.ReadyGreen_String[0], 255U);
-          robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
-        } else {
-          strncpy(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
-                  &robotarm_student_2021a_Ipos_P.AirbagRed_String[0], 255U);
-          robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
-        }
-
-        /* End of Switch: '<S26>/Homing Running Switch2' */
+          robotarm_student_2021a_Ipos_P.HomingRunningSwitch2_Threshold) {
+        strncpy(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
+                &robotarm_student_2021a_Ipos_P.ReadyGreen_String[0], 255U);
+        robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
       } else {
         strncpy(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
-                &robotarm_student_2021a_Ipos_P.HomingOrange_String[0], 255U);
+                &robotarm_student_2021a_Ipos_P.AirbagRed_String[0], 255U);
         robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
       }
 
-      /* End of Switch: '<S26>/Homing Running Switch1' */
+      /* End of Switch: '<S26>/Homing Running Switch2' */
     } else {
       strncpy(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
-              &robotarm_student_2021a_Ipos_B.ManualSwitch1[0], 255U);
+              &robotarm_student_2021a_Ipos_P.HomingOrange_String[0], 255U);
       robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
     }
 
-    /* End of Switch: '<S26>/Homing Running Switch' */
+    /* End of Switch: '<S26>/Homing Running Switch1' */
+  } else {
+    strncpy(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
+            &robotarm_student_2021a_Ipos_B.ManualSwitch1[0], 255U);
+    robotarm_student_2021a_Ipos_B.HomingRunningSwitch[255] = '\x00';
+  }
 
-    /* Outputs for Enabled SubSystem: '<S31>/Subsystem3' incorporates:
-     *  EnablePort: '<S33>/Enable'
-     */
-    /* Logic: '<S32>/NOT' incorporates:
-     *  Delay: '<S32>/Delay'
-     *  StringCompare: '<S32>/String Compare'
+  /* End of Switch: '<S26>/Homing Running Switch' */
+
+  /* Outputs for Enabled SubSystem: '<S31>/Subsystem3' incorporates:
+   *  EnablePort: '<S33>/Enable'
+   */
+  /* Logic: '<S32>/NOT' incorporates:
+   *  Delay: '<S32>/Delay'
+   *  StringCompare: '<S32>/String Compare'
+   */
+  if (strcmp(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
+             &robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0]) != 0) {
+    /* If: '<S33>/If' incorporates:
+     *  Constant: '<S34>/Constant1'
+     *  Constant: '<S35>/Constant'
+     *  StringCompare: '<S33>/String Compare'
+     *  StringConstant: '<S33>/String Constant4'
      */
     if (strcmp(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
-               &robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0]) != 0) {
-      /* If: '<S33>/If' incorporates:
+               &robotarm_student_2021a_Ipos_P.StringConstant4_String[0]) == 0) {
+      /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem' incorporates:
+       *  ActionPort: '<S34>/Action Port'
+       */
+      /* StringToASCII: '<S34>/String to ASCII1' */
+      strncpy(&robotarm_student_2021a_Ipos_B.cv[0],
+              &robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0], 31U);
+      for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
+           31; robotarm_student_2021a_Ipos_B.i++) {
+        robotarm_student_2021a_Ipos_B.MatrixConcatenate1[robotarm_student_2021a_Ipos_B.i]
+          = (uint8_T)
+          robotarm_student_2021a_Ipos_B.cv[robotarm_student_2021a_Ipos_B.i];
+      }
+
+      /* End of StringToASCII: '<S34>/String to ASCII1' */
+      robotarm_student_2021a_Ipos_B.MatrixConcatenate1[31] =
+        robotarm_student_2021a_Ipos_P.Constant1_Value_j;
+      robotarm_student_2_SerialWrite1
+        (robotarm_student_2021a_Ipos_B.MatrixConcatenate1,
+         &robotarm_student_2021a_Ipos_DW.SerialWrite1);
+
+      /* End of Outputs for SubSystem: '<S33>/If Action Subsystem' */
+
+      /* Update for IfAction SubSystem: '<S33>/If Action Subsystem' incorporates:
+       *  ActionPort: '<S34>/Action Port'
+       */
+      /* Update for If: '<S33>/If' incorporates:
        *  Constant: '<S34>/Constant1'
-       *  Constant: '<S35>/Constant'
-       *  StringCompare: '<S33>/String Compare'
-       *  StringConstant: '<S33>/String Constant4'
        */
-      if (strcmp(&robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0],
-                 &robotarm_student_2021a_Ipos_P.StringConstant4_String[0]) == 0)
-      {
-        /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem' incorporates:
-         *  ActionPort: '<S34>/Action Port'
-         */
-        /* StringToASCII: '<S34>/String to ASCII1' */
-        strncpy(&robotarm_student_2021a_Ipos_B.cv[0],
-                &robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0], 31U);
-        for (robotarm_student_2021a_Ipos_B.i = 0;
-             robotarm_student_2021a_Ipos_B.i < 31;
-             robotarm_student_2021a_Ipos_B.i++) {
-          robotarm_student_2021a_Ipos_B.MatrixConcatenate1[robotarm_student_2021a_Ipos_B.i]
-            = (uint8_T)
-            robotarm_student_2021a_Ipos_B.cv[robotarm_student_2021a_Ipos_B.i];
-        }
+      srUpdateBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem_SubsysRanBC);
 
-        /* End of StringToASCII: '<S34>/String to ASCII1' */
-        robotarm_student_2021a_Ipos_B.MatrixConcatenate1[31] =
-          robotarm_student_2021a_Ipos_P.Constant1_Value_j;
-        robotarm_student_2_SerialWrite1
-          (robotarm_student_2021a_Ipos_B.MatrixConcatenate1,
-           &robotarm_student_2021a_Ipos_DW.SerialWrite1);
-
-        /* End of Outputs for SubSystem: '<S33>/If Action Subsystem' */
-
-        /* Update for IfAction SubSystem: '<S33>/If Action Subsystem' incorporates:
-         *  ActionPort: '<S34>/Action Port'
-         */
-        /* Update for If: '<S33>/If' incorporates:
-         *  Constant: '<S34>/Constant1'
-         */
-        srUpdateBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem_SubsysRanBC);
-
-        /* End of Update for SubSystem: '<S33>/If Action Subsystem' */
-      } else {
-        /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem1' incorporates:
-         *  ActionPort: '<S35>/Action Port'
-         */
-        /* StringConcatenate: '<S35>/String Concatenate' incorporates:
-         *  StringConstant: '<S35>/String Constant1'
-         *  StringConstant: '<S35>/String Constant3'
-         */
-        robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0] = '\x00';
-        strncat(&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0],
-                &robotarm_student_2021a_Ipos_P.StringConstant3_String[0], 255U);
-        robotarm_student_2021a_Ipos_B.i = (int32_T)strlen
-          (&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0]);
-        strncat
-          (&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[robotarm_student_2021a_Ipos_B.i],
-           &robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0], 255U -
-           robotarm_student_2021a_Ipos_B.i);
-        robotarm_student_2021a_Ipos_B.i += (int32_T)strlen
-          (&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[robotarm_student_2021a_Ipos_B.i]);
-        strncat
-          (&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[robotarm_student_2021a_Ipos_B.i],
-           &robotarm_student_2021a_Ipos_P.StringConstant1_String[0], 255U -
-           robotarm_student_2021a_Ipos_B.i);
-
-        /* StringToASCII: '<S35>/String to ASCII' incorporates:
-         *  StringConcatenate: '<S35>/String Concatenate'
-         */
-        strncpy(&robotarm_student_2021a_Ipos_B.cv[0],
-                &robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0], 31U);
-        for (robotarm_student_2021a_Ipos_B.i = 0;
-             robotarm_student_2021a_Ipos_B.i < 31;
-             robotarm_student_2021a_Ipos_B.i++) {
-          robotarm_student_2021a_Ipos_B.MatrixConcatenate[robotarm_student_2021a_Ipos_B.i]
-            = (uint8_T)
-            robotarm_student_2021a_Ipos_B.cv[robotarm_student_2021a_Ipos_B.i];
-        }
-
-        /* End of StringToASCII: '<S35>/String to ASCII' */
-        robotarm_student_2021a_Ipos_B.MatrixConcatenate[31] =
-          robotarm_student_2021a_Ipos_P.Constant_Value_d;
-        robotarm_student_2_SerialWrite1
-          (robotarm_student_2021a_Ipos_B.MatrixConcatenate,
-           &robotarm_student_2021a_Ipos_DW.SerialWrite);
-
-        /* End of Outputs for SubSystem: '<S33>/If Action Subsystem1' */
-
-        /* Update for IfAction SubSystem: '<S33>/If Action Subsystem1' incorporates:
-         *  ActionPort: '<S35>/Action Port'
-         */
-        /* Update for If: '<S33>/If' incorporates:
-         *  Constant: '<S35>/Constant'
-         */
-        srUpdateBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem1_SubsysRanBC);
-
-        /* End of Update for SubSystem: '<S33>/If Action Subsystem1' */
-      }
-
-      /* End of If: '<S33>/If' */
-      srUpdateBC(robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC);
-    }
-
-    /* End of Logic: '<S32>/NOT' */
-    /* End of Outputs for SubSystem: '<S31>/Subsystem3' */
-
-    /* S-Function (ec_IposResetEnc): '<S27>/Reset EncoderR' */
-
-    /* Level2 S-Function Block: '<S27>/Reset EncoderR' (ec_IposResetEnc) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[22];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Gain: '<S36>/Gain' */
-    robotarm_student_2021a_Ipos_B.Gain_h =
-      robotarm_student_2021a_Ipos_P.Gain_Gain_h *
-      robotarm_student_2021a_Ipos_B.Sum2;
-
-    /* S-Function (dweakint): '<S36>/Dctintegrator' */
-
-    /* Level2 S-Function Block: '<S36>/Dctintegrator' (dweakint) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[23];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dleadlag): '<S36>/Dctleadlag' */
-
-    /* Level2 S-Function Block: '<S36>/Dctleadlag' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[24];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dlowpass1): '<S36>/Dct1lowpass' */
-
-    /* Level2 S-Function Block: '<S36>/Dct1lowpass' (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[25];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Gain: '<S37>/Gain' incorporates:
-     *  Sum: '<S27>/Sum1'
-     */
-    robotarm_student_2021a_Ipos_B.Gain_p =
-      (robotarm_student_2021a_Ipos_B.airBagRef_g -
-       robotarm_student_2021a_Ipos_B.Gain) *
-      robotarm_student_2021a_Ipos_P.Gain_Gain_c;
-
-    /* S-Function (dleadlag): '<S37>/Dctleadlag' */
-
-    /* Level2 S-Function Block: '<S37>/Dctleadlag' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[26];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dlowpass1): '<S37>/Dct1lowpass' */
-
-    /* Level2 S-Function Block: '<S37>/Dct1lowpass' (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[27];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Switch: '<S27>/AirbagSwitch' incorporates:
-     *  Logic: '<S27>/Logical Operator1'
-     */
-    if (!(robotarm_student_2021a_Ipos_B.airBagEnabled_f != 0.0)) {
-      /* Switch: '<S27>/Homing Running Switch' incorporates:
-       *  Product: '<S27>/Product'
-       */
-      if (robotarm_student_2021a_Ipos_B.homingBusy_l >=
-          robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold) {
-        robotarm_student_2021a_Ipos_B.fy2_tmp =
-          robotarm_student_2021a_Ipos_B.Dct1lowpass *
-          robotarm_student_2021a_Ipos_B.homeControllerEnabled_o;
-      } else {
-        robotarm_student_2021a_Ipos_B.fy2_tmp =
-          robotarm_student_2021a_Ipos_B.Sum4;
-      }
-
-      /* End of Switch: '<S27>/Homing Running Switch' */
+      /* End of Update for SubSystem: '<S33>/If Action Subsystem' */
     } else {
-      robotarm_student_2021a_Ipos_B.fy2_tmp =
-        robotarm_student_2021a_Ipos_B.Dct1lowpass_i;
+      /* Outputs for IfAction SubSystem: '<S33>/If Action Subsystem1' incorporates:
+       *  ActionPort: '<S35>/Action Port'
+       */
+      /* StringConcatenate: '<S35>/String Concatenate' incorporates:
+       *  StringConstant: '<S35>/String Constant1'
+       *  StringConstant: '<S35>/String Constant3'
+       */
+      robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0] = '\x00';
+      strncat(&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0],
+              &robotarm_student_2021a_Ipos_P.StringConstant3_String[0], 255U);
+      robotarm_student_2021a_Ipos_B.i = (int32_T)strlen
+        (&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0]);
+      strncat
+        (&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[robotarm_student_2021a_Ipos_B.i],
+         &robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0], 255U -
+         robotarm_student_2021a_Ipos_B.i);
+      robotarm_student_2021a_Ipos_B.i += (int32_T)strlen
+        (&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[robotarm_student_2021a_Ipos_B.i]);
+      strncat
+        (&robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[robotarm_student_2021a_Ipos_B.i],
+         &robotarm_student_2021a_Ipos_P.StringConstant1_String[0], 255U -
+         robotarm_student_2021a_Ipos_B.i);
+
+      /* StringToASCII: '<S35>/String to ASCII' incorporates:
+       *  StringConcatenate: '<S35>/String Concatenate'
+       */
+      strncpy(&robotarm_student_2021a_Ipos_B.cv[0],
+              &robotarm_student_2021a_Ipos_B.rtb_StringConcatenate_m[0], 31U);
+      for (robotarm_student_2021a_Ipos_B.i = 0; robotarm_student_2021a_Ipos_B.i <
+           31; robotarm_student_2021a_Ipos_B.i++) {
+        robotarm_student_2021a_Ipos_B.MatrixConcatenate[robotarm_student_2021a_Ipos_B.i]
+          = (uint8_T)
+          robotarm_student_2021a_Ipos_B.cv[robotarm_student_2021a_Ipos_B.i];
+      }
+
+      /* End of StringToASCII: '<S35>/String to ASCII' */
+      robotarm_student_2021a_Ipos_B.MatrixConcatenate[31] =
+        robotarm_student_2021a_Ipos_P.Constant_Value_d;
+      robotarm_student_2_SerialWrite1
+        (robotarm_student_2021a_Ipos_B.MatrixConcatenate,
+         &robotarm_student_2021a_Ipos_DW.SerialWrite);
+
+      /* End of Outputs for SubSystem: '<S33>/If Action Subsystem1' */
+
+      /* Update for IfAction SubSystem: '<S33>/If Action Subsystem1' incorporates:
+       *  ActionPort: '<S35>/Action Port'
+       */
+      /* Update for If: '<S33>/If' incorporates:
+       *  Constant: '<S35>/Constant'
+       */
+      srUpdateBC(robotarm_student_2021a_Ipos_DW.IfActionSubsystem1_SubsysRanBC);
+
+      /* End of Update for SubSystem: '<S33>/If Action Subsystem1' */
     }
 
-    /* End of Switch: '<S27>/AirbagSwitch' */
+    /* End of If: '<S33>/If' */
+    srUpdateBC(robotarm_student_2021a_Ipos_DW.Subsystem3_SubsysRanBC);
+  }
 
+  /* End of Logic: '<S32>/NOT' */
+  /* End of Outputs for SubSystem: '<S31>/Subsystem3' */
+
+  /* S-Function (ec_IposResetEnc): '<S27>/Reset EncoderR' */
+
+  /* Level2 S-Function Block: '<S27>/Reset EncoderR' (ec_IposResetEnc) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[22];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Gain: '<S36>/Gain' */
+  robotarm_student_2021a_Ipos_B.Gain_h =
+    robotarm_student_2021a_Ipos_P.Gain_Gain_h *
+    robotarm_student_2021a_Ipos_B.Sum2;
+
+  /* S-Function (dweakint): '<S36>/Dctintegrator' */
+
+  /* Level2 S-Function Block: '<S36>/Dctintegrator' (dweakint) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[23];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dleadlag): '<S36>/Dctleadlag' */
+
+  /* Level2 S-Function Block: '<S36>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[24];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dlowpass1): '<S36>/Dct1lowpass' */
+
+  /* Level2 S-Function Block: '<S36>/Dct1lowpass' (dlowpass1) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[25];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Gain: '<S37>/Gain' incorporates:
+   *  Sum: '<S27>/Sum1'
+   */
+  robotarm_student_2021a_Ipos_B.Gain_p =
+    (robotarm_student_2021a_Ipos_B.airBagRef_g -
+     robotarm_student_2021a_Ipos_B.Gain) *
+    robotarm_student_2021a_Ipos_P.Gain_Gain_c;
+
+  /* S-Function (dleadlag): '<S37>/Dctleadlag' */
+
+  /* Level2 S-Function Block: '<S37>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[26];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dlowpass1): '<S37>/Dct1lowpass' */
+
+  /* Level2 S-Function Block: '<S37>/Dct1lowpass' (dlowpass1) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[27];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Switch: '<S27>/AirbagSwitch' incorporates:
+   *  Logic: '<S27>/Logical Operator1'
+   */
+  if (!(robotarm_student_2021a_Ipos_B.airBagEnabled_f != 0.0)) {
+    /* Switch: '<S27>/Homing Running Switch' incorporates:
+     *  Product: '<S27>/Product'
+     */
+    if (robotarm_student_2021a_Ipos_B.homingBusy_l >=
+        robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold) {
+      robotarm_student_2021a_Ipos_B.fy2_tmp =
+        robotarm_student_2021a_Ipos_B.Dct1lowpass *
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_o;
+    } else {
+      robotarm_student_2021a_Ipos_B.fy2_tmp = robotarm_student_2021a_Ipos_B.Sum4;
+    }
+
+    /* End of Switch: '<S27>/Homing Running Switch' */
+  } else {
+    robotarm_student_2021a_Ipos_B.fy2_tmp =
+      robotarm_student_2021a_Ipos_B.Dct1lowpass_i;
+  }
+
+  /* End of Switch: '<S27>/AirbagSwitch' */
+
+  /* Gain: '<S27>/Gain1' incorporates:
+   *  Product: '<S27>/Product1'
+   */
+  robotarm_student_2021a_Ipos_B.Saturation1 =
+    robotarm_student_2021a_Ipos_B.fy2_tmp *
+    robotarm_student_2021a_Ipos_B.controlEnabled_l *
+    robotarm_student_2021a_Ipos_P.Gain1_Gain_m;
+
+  /* Saturate: '<S27>/Saturation1' */
+  if (robotarm_student_2021a_Ipos_B.Saturation1 >
+      robotarm_student_2021a_Ipos_P.Saturation1_UpperSat) {
     /* Gain: '<S27>/Gain1' incorporates:
-     *  Product: '<S27>/Product1'
+     *  Saturate: '<S27>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1 =
-      robotarm_student_2021a_Ipos_B.fy2_tmp *
-      robotarm_student_2021a_Ipos_B.controlEnabled_l *
-      robotarm_student_2021a_Ipos_P.Gain1_Gain_m;
-
-    /* Saturate: '<S27>/Saturation1' */
-    if (robotarm_student_2021a_Ipos_B.Saturation1 >
-        robotarm_student_2021a_Ipos_P.Saturation1_UpperSat) {
-      /* Gain: '<S27>/Gain1' incorporates:
-       *  Saturate: '<S27>/Saturation1'
-       */
-      robotarm_student_2021a_Ipos_B.Saturation1 =
-        robotarm_student_2021a_Ipos_P.Saturation1_UpperSat;
-    } else if (robotarm_student_2021a_Ipos_B.Saturation1 <
-               robotarm_student_2021a_Ipos_P.Saturation1_LowerSat) {
-      /* Gain: '<S27>/Gain1' incorporates:
-       *  Saturate: '<S27>/Saturation1'
-       */
-      robotarm_student_2021a_Ipos_B.Saturation1 =
-        robotarm_student_2021a_Ipos_P.Saturation1_LowerSat;
-    }
-
-    /* End of Saturate: '<S27>/Saturation1' */
-
-    /* S-Function (ec_IposResetEnc): '<S28>/Reset EncoderR1' */
-
-    /* Level2 S-Function Block: '<S28>/Reset EncoderR1' (ec_IposResetEnc) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[28];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Gain: '<S43>/Gain1' */
-    robotarm_student_2021a_Ipos_B.Gain1_p =
-      robotarm_student_2021a_Ipos_P.Gain1_Gain_ov *
-      robotarm_student_2021a_Ipos_B.Sum2_a;
-
-    /* S-Function (dweakint): '<S43>/Dctintegrator' */
-
-    /* Level2 S-Function Block: '<S43>/Dctintegrator' (dweakint) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[29];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dleadlag): '<S43>/Dctleadlag' */
-
-    /* Level2 S-Function Block: '<S43>/Dctleadlag' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[30];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dlowpass1): '<S43>/Dct1lowpass' */
-
-    /* Level2 S-Function Block: '<S43>/Dct1lowpass' (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[31];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Product: '<S28>/Product' */
-    robotarm_student_2021a_Ipos_B.Product =
-      robotarm_student_2021a_Ipos_B.Dct1lowpass_k *
-      robotarm_student_2021a_Ipos_B.homeControllerEnabled_k;
-
-    /* Logic: '<S28>/Logical Operator1' */
-    robotarm_student_2021a_Ipos_B.LogicalOperator1 =
-      !(robotarm_student_2021a_Ipos_B.airBagEnabled_o != 0.0);
-
-    /* Gain: '<S44>/Gain1' incorporates:
-     *  Sum: '<S28>/Sum1'
+      robotarm_student_2021a_Ipos_P.Saturation1_UpperSat;
+  } else if (robotarm_student_2021a_Ipos_B.Saturation1 <
+             robotarm_student_2021a_Ipos_P.Saturation1_LowerSat) {
+    /* Gain: '<S27>/Gain1' incorporates:
+     *  Saturate: '<S27>/Saturation1'
      */
-    robotarm_student_2021a_Ipos_B.Gain1_o =
-      (robotarm_student_2021a_Ipos_B.airBagRef_a -
-       robotarm_student_2021a_Ipos_B.Gain1) *
-      robotarm_student_2021a_Ipos_P.Gain1_Gain_hw;
+    robotarm_student_2021a_Ipos_B.Saturation1 =
+      robotarm_student_2021a_Ipos_P.Saturation1_LowerSat;
+  }
 
-    /* S-Function (dleadlag): '<S44>/Dctleadlag' */
+  /* End of Saturate: '<S27>/Saturation1' */
 
-    /* Level2 S-Function Block: '<S44>/Dctleadlag' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[32];
-      sfcnOutputs(rts,0);
-    }
+  /* S-Function (ec_IposResetEnc): '<S28>/Reset EncoderR1' */
 
-    /* S-Function (dlowpass1): '<S44>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S28>/Reset EncoderR1' (ec_IposResetEnc) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[28];
+    sfcnOutputs(rts,0);
+  }
 
-    /* Level2 S-Function Block: '<S44>/Dct1lowpass' (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[33];
-      sfcnOutputs(rts,0);
-    }
+  /* Gain: '<S43>/Gain1' */
+  robotarm_student_2021a_Ipos_B.Gain1_p =
+    robotarm_student_2021a_Ipos_P.Gain1_Gain_o *
+    robotarm_student_2021a_Ipos_B.Sum2_a;
 
-    /* Switch: '<S28>/AirbagSwitch' */
-    if (robotarm_student_2021a_Ipos_B.LogicalOperator1) {
-      /* Switch: '<S28>/Homing Running Switch' */
-      if (robotarm_student_2021a_Ipos_B.homingBusy_j >=
-          robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_j) {
-        robotarm_student_2021a_Ipos_B.fy2_tmp =
-          robotarm_student_2021a_Ipos_B.Product;
-      } else {
-        robotarm_student_2021a_Ipos_B.fy2_tmp =
-          robotarm_student_2021a_Ipos_B.Sum5;
-      }
+  /* S-Function (dweakint): '<S43>/Dctintegrator' */
 
-      /* End of Switch: '<S28>/Homing Running Switch' */
-    } else {
+  /* Level2 S-Function Block: '<S43>/Dctintegrator' (dweakint) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[29];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dleadlag): '<S43>/Dctleadlag' */
+
+  /* Level2 S-Function Block: '<S43>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[30];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dlowpass1): '<S43>/Dct1lowpass' */
+
+  /* Level2 S-Function Block: '<S43>/Dct1lowpass' (dlowpass1) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[31];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Gain: '<S44>/Gain1' incorporates:
+   *  Sum: '<S28>/Sum1'
+   */
+  robotarm_student_2021a_Ipos_B.Gain1_o =
+    (robotarm_student_2021a_Ipos_B.airBagRef_a -
+     robotarm_student_2021a_Ipos_B.Gain1) *
+    robotarm_student_2021a_Ipos_P.Gain1_Gain_hw;
+
+  /* S-Function (dleadlag): '<S44>/Dctleadlag' */
+
+  /* Level2 S-Function Block: '<S44>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[32];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dlowpass1): '<S44>/Dct1lowpass' */
+
+  /* Level2 S-Function Block: '<S44>/Dct1lowpass' (dlowpass1) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[33];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Switch: '<S28>/AirbagSwitch' incorporates:
+   *  Logic: '<S28>/Logical Operator1'
+   */
+  if (!(robotarm_student_2021a_Ipos_B.airBagEnabled_o != 0.0)) {
+    /* Switch: '<S28>/Homing Running Switch' incorporates:
+     *  Product: '<S28>/Product'
+     */
+    if (robotarm_student_2021a_Ipos_B.homingBusy_j >=
+        robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_j) {
       robotarm_student_2021a_Ipos_B.fy2_tmp =
-        robotarm_student_2021a_Ipos_B.Dct1lowpass_j;
+        robotarm_student_2021a_Ipos_B.Dct1lowpass_k *
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_k;
+    } else {
+      robotarm_student_2021a_Ipos_B.fy2_tmp = robotarm_student_2021a_Ipos_B.Sum5;
     }
 
-    /* End of Switch: '<S28>/AirbagSwitch' */
+    /* End of Switch: '<S28>/Homing Running Switch' */
+  } else {
+    robotarm_student_2021a_Ipos_B.fy2_tmp =
+      robotarm_student_2021a_Ipos_B.Dct1lowpass_j;
+  }
 
+  /* End of Switch: '<S28>/AirbagSwitch' */
+
+  /* Gain: '<S28>/Gain' incorporates:
+   *  Product: '<S28>/Product1'
+   */
+  robotarm_student_2021a_Ipos_B.Saturation1_n =
+    robotarm_student_2021a_Ipos_B.fy2_tmp *
+    robotarm_student_2021a_Ipos_B.controlEnabled_a *
+    robotarm_student_2021a_Ipos_P.Gain_Gain_cj;
+
+  /* Saturate: '<S28>/Saturation1' */
+  if (robotarm_student_2021a_Ipos_B.Saturation1_n >
+      robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_e) {
     /* Gain: '<S28>/Gain' incorporates:
-     *  Product: '<S28>/Product1'
+     *  Saturate: '<S28>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1_n =
-      robotarm_student_2021a_Ipos_B.fy2_tmp *
-      robotarm_student_2021a_Ipos_B.controlEnabled_a *
-      robotarm_student_2021a_Ipos_P.Gain_Gain_cj;
-
-    /* Saturate: '<S28>/Saturation1' */
-    if (robotarm_student_2021a_Ipos_B.Saturation1_n >
-        robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_e) {
-      /* Gain: '<S28>/Gain' incorporates:
-       *  Saturate: '<S28>/Saturation1'
-       */
-      robotarm_student_2021a_Ipos_B.Saturation1_n =
-        robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_e;
-    } else if (robotarm_student_2021a_Ipos_B.Saturation1_n <
-               robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_p) {
-      /* Gain: '<S28>/Gain' incorporates:
-       *  Saturate: '<S28>/Saturation1'
-       */
-      robotarm_student_2021a_Ipos_B.Saturation1_n =
-        robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_p;
-    }
-
-    /* End of Saturate: '<S28>/Saturation1' */
-
-    /* S-Function (ec_IposResetEnc): '<S29>/Reset EncoderR1' */
-
-    /* Level2 S-Function Block: '<S29>/Reset EncoderR1' (ec_IposResetEnc) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[34];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Gain: '<S52>/Gain' */
-    robotarm_student_2021a_Ipos_B.Gain_i =
-      robotarm_student_2021a_Ipos_P.Gain_Gain_cr *
-      robotarm_student_2021a_Ipos_B.Sum2_e;
-
-    /* S-Function (dweakint): '<S52>/Dctintegrator' */
-
-    /* Level2 S-Function Block: '<S52>/Dctintegrator' (dweakint) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[35];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dleadlag): '<S52>/Dctleadlag' */
-
-    /* Level2 S-Function Block: '<S52>/Dctleadlag' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[36];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dlowpass1): '<S52>/Dct1lowpass' */
-
-    /* Level2 S-Function Block: '<S52>/Dct1lowpass' (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[37];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Product: '<S29>/Product' */
-    robotarm_student_2021a_Ipos_B.Product_n =
-      robotarm_student_2021a_Ipos_B.Dct1lowpass_p *
-      robotarm_student_2021a_Ipos_B.homeControllerEnabled_b;
-
-    /* Gain: '<S53>/Gain' incorporates:
-     *  Sum: '<S29>/Sum1'
+      robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_e;
+  } else if (robotarm_student_2021a_Ipos_B.Saturation1_n <
+             robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_p) {
+    /* Gain: '<S28>/Gain' incorporates:
+     *  Saturate: '<S28>/Saturation1'
      */
-    robotarm_student_2021a_Ipos_B.Gain_f =
-      (robotarm_student_2021a_Ipos_B.airBagRef -
-       robotarm_student_2021a_Ipos_B.Gain2) *
-      robotarm_student_2021a_Ipos_P.Gain_Gain_l;
+    robotarm_student_2021a_Ipos_B.Saturation1_n =
+      robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_p;
+  }
 
-    /* S-Function (dleadlag): '<S53>/Dctleadlag' */
+  /* End of Saturate: '<S28>/Saturation1' */
 
-    /* Level2 S-Function Block: '<S53>/Dctleadlag' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[38];
-      sfcnOutputs(rts,0);
-    }
+  /* S-Function (ec_IposResetEnc): '<S29>/Reset EncoderR1' */
 
-    /* S-Function (dlowpass1): '<S53>/Dct1lowpass' */
+  /* Level2 S-Function Block: '<S29>/Reset EncoderR1' (ec_IposResetEnc) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[34];
+    sfcnOutputs(rts,0);
+  }
 
-    /* Level2 S-Function Block: '<S53>/Dct1lowpass' (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[39];
-      sfcnOutputs(rts,0);
-    }
+  /* Gain: '<S52>/Gain' */
+  robotarm_student_2021a_Ipos_B.Gain_i =
+    robotarm_student_2021a_Ipos_P.Gain_Gain_cr *
+    robotarm_student_2021a_Ipos_B.Sum2_e;
 
-    /* Logic: '<S29>/Logical Operator1' */
-    robotarm_student_2021a_Ipos_B.LogicalOperator1_i =
-      !(robotarm_student_2021a_Ipos_B.airBagEnabled != 0.0);
+  /* S-Function (dweakint): '<S52>/Dctintegrator' */
 
-    /* Switch: '<S29>/AirbagSwitch' */
-    if (robotarm_student_2021a_Ipos_B.LogicalOperator1_i) {
-      /* Switch: '<S29>/Homing Running Switch' */
-      if (robotarm_student_2021a_Ipos_B.homingBusy_n >=
-          robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_d) {
-        robotarm_student_2021a_Ipos_B.fy2_tmp =
-          robotarm_student_2021a_Ipos_B.Product_n;
-      } else {
-        robotarm_student_2021a_Ipos_B.fy2_tmp =
-          robotarm_student_2021a_Ipos_B.Sum6;
-      }
+  /* Level2 S-Function Block: '<S52>/Dctintegrator' (dweakint) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[35];
+    sfcnOutputs(rts,0);
+  }
 
-      /* End of Switch: '<S29>/Homing Running Switch' */
-    } else {
+  /* S-Function (dleadlag): '<S52>/Dctleadlag' */
+
+  /* Level2 S-Function Block: '<S52>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[36];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dlowpass1): '<S52>/Dct1lowpass' */
+
+  /* Level2 S-Function Block: '<S52>/Dct1lowpass' (dlowpass1) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[37];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Gain: '<S53>/Gain' incorporates:
+   *  Sum: '<S29>/Sum1'
+   */
+  robotarm_student_2021a_Ipos_B.Gain_f =
+    (robotarm_student_2021a_Ipos_B.airBagRef -
+     robotarm_student_2021a_Ipos_B.Gain2) *
+    robotarm_student_2021a_Ipos_P.Gain_Gain_l;
+
+  /* S-Function (dleadlag): '<S53>/Dctleadlag' */
+
+  /* Level2 S-Function Block: '<S53>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[38];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dlowpass1): '<S53>/Dct1lowpass' */
+
+  /* Level2 S-Function Block: '<S53>/Dct1lowpass' (dlowpass1) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[39];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Switch: '<S29>/AirbagSwitch' incorporates:
+   *  Logic: '<S29>/Logical Operator1'
+   */
+  if (!(robotarm_student_2021a_Ipos_B.airBagEnabled != 0.0)) {
+    /* Switch: '<S29>/Homing Running Switch' incorporates:
+     *  Product: '<S29>/Product'
+     */
+    if (robotarm_student_2021a_Ipos_B.homingBusy_n >=
+        robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshold_d) {
       robotarm_student_2021a_Ipos_B.fy2_tmp =
-        robotarm_student_2021a_Ipos_B.Dct1lowpass_a;
+        robotarm_student_2021a_Ipos_B.Dct1lowpass_p *
+        robotarm_student_2021a_Ipos_B.homeControllerEnabled_b;
+    } else {
+      robotarm_student_2021a_Ipos_B.fy2_tmp = robotarm_student_2021a_Ipos_B.Sum6;
     }
 
-    /* End of Switch: '<S29>/AirbagSwitch' */
+    /* End of Switch: '<S29>/Homing Running Switch' */
+  } else {
+    robotarm_student_2021a_Ipos_B.fy2_tmp =
+      robotarm_student_2021a_Ipos_B.Dct1lowpass_a;
+  }
 
+  /* End of Switch: '<S29>/AirbagSwitch' */
+
+  /* Gain: '<S29>/Gain' incorporates:
+   *  Product: '<S29>/Product1'
+   */
+  robotarm_student_2021a_Ipos_B.Saturation1_a =
+    robotarm_student_2021a_Ipos_B.fy2_tmp *
+    robotarm_student_2021a_Ipos_B.controlEnabled *
+    robotarm_student_2021a_Ipos_P.Gain_Gain_g;
+
+  /* Saturate: '<S29>/Saturation1' */
+  if (robotarm_student_2021a_Ipos_B.Saturation1_a >
+      robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_i) {
     /* Gain: '<S29>/Gain' incorporates:
-     *  Product: '<S29>/Product1'
+     *  Saturate: '<S29>/Saturation1'
      */
     robotarm_student_2021a_Ipos_B.Saturation1_a =
-      robotarm_student_2021a_Ipos_B.fy2_tmp *
-      robotarm_student_2021a_Ipos_B.controlEnabled *
-      robotarm_student_2021a_Ipos_P.Gain_Gain_g;
-
-    /* Saturate: '<S29>/Saturation1' */
-    if (robotarm_student_2021a_Ipos_B.Saturation1_a >
-        robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_i) {
-      /* Gain: '<S29>/Gain' incorporates:
-       *  Saturate: '<S29>/Saturation1'
-       */
-      robotarm_student_2021a_Ipos_B.Saturation1_a =
-        robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_i;
-    } else if (robotarm_student_2021a_Ipos_B.Saturation1_a <
-               robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_n) {
-      /* Gain: '<S29>/Gain' incorporates:
-       *  Saturate: '<S29>/Saturation1'
-       */
-      robotarm_student_2021a_Ipos_B.Saturation1_a =
-        robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_n;
-    }
-
-    /* End of Saturate: '<S29>/Saturation1' */
-
-    /* S-Function (ec_IposResetEnc): '<S30>/Reset EncoderR1' */
-
-    /* Level2 S-Function Block: '<S30>/Reset EncoderR1' (ec_IposResetEnc) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[40];
-      sfcnOutputs(rts,0);
-    }
-
-    /* DiscreteIntegrator: '<S30>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_i =
-      robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_k;
-
-    /* Gain: '<S62>/Gain1' incorporates:
-     *  Sum: '<S30>/Sum1'
+      robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_i;
+  } else if (robotarm_student_2021a_Ipos_B.Saturation1_a <
+             robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_n) {
+    /* Gain: '<S29>/Gain' incorporates:
+     *  Saturate: '<S29>/Saturation1'
      */
-    robotarm_student_2021a_Ipos_B.Gain1_a =
-      (robotarm_student_2021a_Ipos_B.DiscreteTimeIntegrator_i -
-       robotarm_student_2021a_Ipos_B.Gain3) *
-      robotarm_student_2021a_Ipos_P.Gain1_Gain_j;
-
-    /* S-Function (dweakint): '<S62>/Dctintegrator3' */
-
-    /* Level2 S-Function Block: '<S62>/Dctintegrator3' (dweakint) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[41];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dlowpass1): '<S62>/Dct1lowpass' */
-
-    /* Level2 S-Function Block: '<S62>/Dct1lowpass' (dlowpass1) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[42];
-      sfcnOutputs(rts,0);
-    }
-
-    /* S-Function (dleadlag): '<S62>/Dctleadlag' */
-
-    /* Level2 S-Function Block: '<S62>/Dctleadlag' (dleadlag) */
-    {
-      SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[43];
-      sfcnOutputs(rts,0);
-    }
-
-    /* Switch: '<S30>/Homing Running Switch' incorporates:
-     *  Product: '<S30>/Product'
-     */
-    if (robotarm_student_2021a_Ipos_B.homingBusy >=
-        robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshol_lq) {
-      robotarm_student_2021a_Ipos_B.fy2_tmp =
-        robotarm_student_2021a_Ipos_B.Dctleadlag_k *
-        robotarm_student_2021a_Ipos_B.homeControllerEnabled;
-    } else {
-      robotarm_student_2021a_Ipos_B.fy2_tmp =
-        robotarm_student_2021a_Ipos_B.Dctleadlag_d;
-    }
-
-    /* End of Switch: '<S30>/Homing Running Switch' */
-
-    /* Gain: '<S30>/Gain' */
-    robotarm_student_2021a_Ipos_B.Saturation1_d =
-      robotarm_student_2021a_Ipos_P.Gain_Gain_j *
-      robotarm_student_2021a_Ipos_B.fy2_tmp;
-
-    /* Saturate: '<S30>/Saturation1' */
-    if (robotarm_student_2021a_Ipos_B.Saturation1_d >
-        robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_o) {
-      /* Gain: '<S30>/Gain' incorporates:
-       *  Saturate: '<S30>/Saturation1'
-       */
-      robotarm_student_2021a_Ipos_B.Saturation1_d =
-        robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_o;
-    } else if (robotarm_student_2021a_Ipos_B.Saturation1_d <
-               robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_g) {
-      /* Gain: '<S30>/Gain' incorporates:
-       *  Saturate: '<S30>/Saturation1'
-       */
-      robotarm_student_2021a_Ipos_B.Saturation1_d =
-        robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_g;
-    }
-
-    /* End of Saturate: '<S30>/Saturation1' */
-
-    /* Sum: '<S21>/Add' */
-    robotarm_student_2021a_Ipos_B.Add = ((robotarm_student_2021a_Ipos_B.Ready_a
-      + robotarm_student_2021a_Ipos_B.Ready_i) +
-      robotarm_student_2021a_Ipos_B.Ready_n) +
-      robotarm_student_2021a_Ipos_B.Ready;
-
-    /* Stop: '<S30>/Stop Simulation' */
-    if (robotarm_student_2021a_Ipos_B.StopSim != 0.0) {
-      rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
-    }
-
-    /* End of Stop: '<S30>/Stop Simulation' */
-
-    /* Stop: '<S29>/Stop Simulation' */
-    if (robotarm_student_2021a_Ipos_B.StopSim_n != 0.0) {
-      rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
-    }
-
-    /* End of Stop: '<S29>/Stop Simulation' */
-
-    /* Sum: '<S42>/Diff' incorporates:
-     *  Sum: '<S55>/Sum'
-     */
-    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-      robotarm_student_2021a_Ipos_B.toPoint
-      + robotarm_student_2021a_Ipos_B.Constant1_f;
-
-    /* RateLimiter: '<S55>/Limit Speed' */
-    robotarm_student_2021a_Ipos_B.fy2_tmp =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
-      robotarm_student_2021a_Ipos_DW.PrevY;
-    if (robotarm_student_2021a_Ipos_B.fy2_tmp >
-        robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim *
-        robotarm_student_2021a_I_period) {
-      /* Sum: '<S42>/Diff' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-        robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY;
-    } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
-               robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim *
-               robotarm_student_2021a_I_period) {
-      /* Sum: '<S42>/Diff' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-        robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY;
-    }
-
-    robotarm_student_2021a_Ipos_DW.PrevY =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
-
-    /* End of RateLimiter: '<S55>/Limit Speed' */
-
-    /* SampleTimeMath: '<S61>/TSamp'
-     *
-     * About '<S61>/TSamp':
-     *  y = u * K where K = 1 / ( w * Ts )
-     */
-    robotarm_student_2021a_Ipos_B.TSamp =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
-      robotarm_student_2021a_Ipos_P.TSamp_WtEt;
-
-    /* Sum: '<S42>/Diff' incorporates:
-     *  Sum: '<S61>/Diff'
-     *  UnitDelay: '<S61>/UD'
-     */
-    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-      robotarm_student_2021a_Ipos_B.TSamp -
-      robotarm_student_2021a_Ipos_DW.UD_DSTATE;
-
-    /* RateLimiter: '<S55>/Limit Acceleration' */
-    robotarm_student_2021a_Ipos_B.fy2_tmp =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
-      robotarm_student_2021a_Ipos_DW.PrevY_j;
-    if (robotarm_student_2021a_Ipos_B.fy2_tmp >
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim *
-        robotarm_student_2021a_I_period) {
-      /* RateLimiter: '<S55>/Limit Acceleration' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration =
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_j;
-    } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
-               robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim *
-               robotarm_student_2021a_I_period) {
-      /* RateLimiter: '<S55>/Limit Acceleration' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration =
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_j;
-    } else {
-      /* RateLimiter: '<S55>/Limit Acceleration' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration =
-        robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
-    }
-
-    robotarm_student_2021a_Ipos_DW.PrevY_j =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration;
-
-    /* End of RateLimiter: '<S55>/Limit Acceleration' */
-    /* Stop: '<S28>/Stop Simulation' */
-    if (robotarm_student_2021a_Ipos_B.StopSim_o != 0.0) {
-      rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
-    }
-
-    /* End of Stop: '<S28>/Stop Simulation' */
-
-    /* Sum: '<S42>/Diff' incorporates:
-     *  Sum: '<S45>/Sum'
-     */
-    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-      robotarm_student_2021a_Ipos_B.toPoint_e +
-      robotarm_student_2021a_Ipos_B.Constant1_e;
-
-    /* RateLimiter: '<S45>/Limit Speed' */
-    robotarm_student_2021a_Ipos_B.fy2_tmp =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
-      robotarm_student_2021a_Ipos_DW.PrevY_d;
-    if (robotarm_student_2021a_Ipos_B.fy2_tmp >
-        robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_i *
-        robotarm_student_2021a_I_period) {
-      /* Sum: '<S42>/Diff' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-        robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_i *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_d;
-    } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
-               robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_k *
-               robotarm_student_2021a_I_period) {
-      /* Sum: '<S42>/Diff' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-        robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_k *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_d;
-    }
-
-    robotarm_student_2021a_Ipos_DW.PrevY_d =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
-
-    /* End of RateLimiter: '<S45>/Limit Speed' */
-
-    /* SampleTimeMath: '<S51>/TSamp'
-     *
-     * About '<S51>/TSamp':
-     *  y = u * K where K = 1 / ( w * Ts )
-     */
-    robotarm_student_2021a_Ipos_B.TSamp_d =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
-      robotarm_student_2021a_Ipos_P.TSamp_WtEt_d;
-
-    /* Sum: '<S42>/Diff' incorporates:
-     *  Sum: '<S51>/Diff'
-     *  UnitDelay: '<S51>/UD'
-     */
-    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-      robotarm_student_2021a_Ipos_B.TSamp_d -
-      robotarm_student_2021a_Ipos_DW.UD_DSTATE_c;
-
-    /* RateLimiter: '<S45>/Limit Acceleration' */
-    robotarm_student_2021a_Ipos_B.fy2_tmp =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
-      robotarm_student_2021a_Ipos_DW.PrevY_f;
-    if (robotarm_student_2021a_Ipos_B.fy2_tmp >
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_k *
-        robotarm_student_2021a_I_period) {
-      /* RateLimiter: '<S45>/Limit Acceleration' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_k *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_f;
-    } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
-               robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_m *
-               robotarm_student_2021a_I_period) {
-      /* RateLimiter: '<S45>/Limit Acceleration' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_m *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_f;
-    } else {
-      /* RateLimiter: '<S45>/Limit Acceleration' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
-        robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
-    }
-
-    robotarm_student_2021a_Ipos_DW.PrevY_f =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_b;
-
-    /* End of RateLimiter: '<S45>/Limit Acceleration' */
-    /* Stop: '<S27>/Stop Simulation' */
-    if (robotarm_student_2021a_Ipos_B.StopSim_j != 0.0) {
-      rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
-    }
-
-    /* End of Stop: '<S27>/Stop Simulation' */
-
-    /* Sum: '<S42>/Diff' incorporates:
-     *  Sum: '<S39>/Sum'
-     */
-    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-      robotarm_student_2021a_Ipos_B.toPoint_b +
-      robotarm_student_2021a_Ipos_B.Constant1;
-
-    /* RateLimiter: '<S39>/Limit Speed' */
-    robotarm_student_2021a_Ipos_B.fy2_tmp =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
-      robotarm_student_2021a_Ipos_DW.PrevY_i;
-    if (robotarm_student_2021a_Ipos_B.fy2_tmp >
-        robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_iu *
-        robotarm_student_2021a_I_period) {
-      /* Sum: '<S42>/Diff' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-        robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_iu *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_i;
-    } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
-               robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_j *
-               robotarm_student_2021a_I_period) {
-      /* Sum: '<S42>/Diff' */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-        robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_j *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_i;
-    }
-
-    robotarm_student_2021a_Ipos_DW.PrevY_i =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
-
-    /* End of RateLimiter: '<S39>/Limit Speed' */
-
-    /* SampleTimeMath: '<S42>/TSamp'
-     *
-     * About '<S42>/TSamp':
-     *  y = u * K where K = 1 / ( w * Ts )
-     */
-    robotarm_student_2021a_Ipos_B.TSamp_k =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
-      robotarm_student_2021a_Ipos_P.TSamp_WtEt_g;
-
-    /* Sum: '<S42>/Diff' incorporates:
-     *  UnitDelay: '<S42>/UD'
-     */
-    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-      robotarm_student_2021a_Ipos_B.TSamp_k -
-      robotarm_student_2021a_Ipos_DW.UD_DSTATE_cc;
-
-    /* RateLimiter: '<S39>/Limit Acceleration' */
-    robotarm_student_2021a_Ipos_B.fy2_tmp =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
-      robotarm_student_2021a_Ipos_DW.PrevY_k;
-    if (robotarm_student_2021a_Ipos_B.fy2_tmp >
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_m *
-        robotarm_student_2021a_I_period) {
-      /* Sum: '<S42>/Diff' incorporates:
-       *  RateLimiter: '<S39>/Limit Acceleration'
-       */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_m *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_k;
-    } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
-               robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_k *
-               robotarm_student_2021a_I_period) {
-      /* Sum: '<S42>/Diff' incorporates:
-       *  RateLimiter: '<S39>/Limit Acceleration'
-       */
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
-        robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_k *
-        robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_k;
-    }
-
-    robotarm_student_2021a_Ipos_DW.PrevY_k =
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
-
-    /* End of RateLimiter: '<S39>/Limit Acceleration' */
+    robotarm_student_2021a_Ipos_B.Saturation1_a =
+      robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_n;
   }
 
+  /* End of Saturate: '<S29>/Saturation1' */
+
+  /* S-Function (ec_IposResetEnc): '<S30>/Reset EncoderR1' */
+
+  /* Level2 S-Function Block: '<S30>/Reset EncoderR1' (ec_IposResetEnc) */
   {
-    real_T *lastU;
-
-    /* Update for DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE +=
-      robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainval *
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
-
-    /* Update for DiscreteIntegrator: '<S27>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_g +=
-      robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_i *
-      robotarm_student_2021a_Ipos_B.jogSpeed_o;
-
-    /* Update for DiscreteIntegrator: '<S28>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_m +=
-      robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_h *
-      robotarm_student_2021a_Ipos_B.jogSpeed_c;
-
-    /* Update for DiscreteIntegrator: '<S45>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_o +=
-      robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_j *
-      robotarm_student_2021a_Ipos_B.LimitAcceleration_b;
-
-    /* Update for DiscreteIntegrator: '<S29>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_a +=
-      robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_o *
-      robotarm_student_2021a_Ipos_B.jogSpeed_i;
-
-    /* Update for DiscreteIntegrator: '<S55>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_j +=
-      robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_n *
-      robotarm_student_2021a_Ipos_B.LimitAcceleration;
-
-    /* Update for UnitDelay: '<S21>/Unit Delay' */
-    robotarm_student_2021a_Ipos_DW.UnitDelay_DSTATE =
-      robotarm_student_2021a_Ipos_B.Add;
-
-    /* Update for Enabled SubSystem: '<Root>/Controller' incorporates:
-     *  EnablePort: '<S1>/Enable '
-     */
-    if (robotarm_student_2021a_Ipos_DW.Controller_MODE) {
-      /* Update for UnitDelay: '<S18>/Delay Input1' incorporates:
-       *  Constant: '<S4>/Object detection matrix'
-       */
-      memcpy(&robotarm_student_2021a_Ipos_DW.DelayInput1_DSTATE[0],
-             &robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[0], 12U *
-             sizeof(real_T));
-
-      /* Update for Derivative: '<S1>/Derivative' */
-      if (robotarm_student_2021a_Ipos_DW.TimeStampA == (rtInf)) {
-        robotarm_student_2021a_Ipos_DW.TimeStampA =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA;
-      } else if (robotarm_student_2021a_Ipos_DW.TimeStampB == (rtInf)) {
-        robotarm_student_2021a_Ipos_DW.TimeStampB =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB;
-      } else if (robotarm_student_2021a_Ipos_DW.TimeStampA <
-                 robotarm_student_2021a_Ipos_DW.TimeStampB) {
-        robotarm_student_2021a_Ipos_DW.TimeStampA =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA;
-      } else {
-        robotarm_student_2021a_Ipos_DW.TimeStampB =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB;
-      }
-
-      *lastU = robotarm_student_2021a_Ipos_B.SineWave;
-
-      /* End of Update for Derivative: '<S1>/Derivative' */
-
-      /* Update for Derivative: '<S1>/Derivative1' */
-      if (robotarm_student_2021a_Ipos_DW.TimeStampA_o == (rtInf)) {
-        robotarm_student_2021a_Ipos_DW.TimeStampA_o =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_g;
-      } else if (robotarm_student_2021a_Ipos_DW.TimeStampB_i == (rtInf)) {
-        robotarm_student_2021a_Ipos_DW.TimeStampB_i =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_b;
-      } else if (robotarm_student_2021a_Ipos_DW.TimeStampA_o <
-                 robotarm_student_2021a_Ipos_DW.TimeStampB_i) {
-        robotarm_student_2021a_Ipos_DW.TimeStampA_o =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_g;
-      } else {
-        robotarm_student_2021a_Ipos_DW.TimeStampB_i =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_b;
-      }
-
-      *lastU = robotarm_student_2021a_Ipos_B.Derivative;
-
-      /* End of Update for Derivative: '<S1>/Derivative1' */
-
-      /* Update for Derivative: '<S1>/Derivative2' */
-      if (robotarm_student_2021a_Ipos_DW.TimeStampA_p == (rtInf)) {
-        robotarm_student_2021a_Ipos_DW.TimeStampA_p =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_gt;
-      } else if (robotarm_student_2021a_Ipos_DW.TimeStampB_o == (rtInf)) {
-        robotarm_student_2021a_Ipos_DW.TimeStampB_o =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_k;
-      } else if (robotarm_student_2021a_Ipos_DW.TimeStampA_p <
-                 robotarm_student_2021a_Ipos_DW.TimeStampB_o) {
-        robotarm_student_2021a_Ipos_DW.TimeStampA_p =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_gt;
-      } else {
-        robotarm_student_2021a_Ipos_DW.TimeStampB_o =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_k;
-      }
-
-      *lastU = robotarm_student_2021a_Ipos_B.SineWave;
-
-      /* End of Update for Derivative: '<S1>/Derivative2' */
-
-      /* Update for Derivative: '<S1>/Derivative3' */
-      if (robotarm_student_2021a_Ipos_DW.TimeStampA_pg == (rtInf)) {
-        robotarm_student_2021a_Ipos_DW.TimeStampA_pg =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_j;
-      } else if (robotarm_student_2021a_Ipos_DW.TimeStampB_k == (rtInf)) {
-        robotarm_student_2021a_Ipos_DW.TimeStampB_k =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_d;
-      } else if (robotarm_student_2021a_Ipos_DW.TimeStampA_pg <
-                 robotarm_student_2021a_Ipos_DW.TimeStampB_k) {
-        robotarm_student_2021a_Ipos_DW.TimeStampA_pg =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeA_j;
-      } else {
-        robotarm_student_2021a_Ipos_DW.TimeStampB_k =
-          robotarm_student_2021a_Ipos_M->Timing.t[0];
-        lastU = &robotarm_student_2021a_Ipos_DW.LastUAtTimeB_d;
-      }
-
-      *lastU = robotarm_student_2021a_Ipos_B.Derivative2;
-
-      /* End of Update for Derivative: '<S1>/Derivative3' */
-
-      /* Update for DiscreteIntegrator: '<S1>/Discrete  integrator' */
-      robotarm_student_2021a_Ipos_DW.Discreteintegrator_DSTATE +=
-        robotarm_student_2021a_Ipos_P.Discreteintegrator_gainval *
-        robotarm_student_2021a_Ipos_B.Saturation;
-    }
-
-    /* End of Update for SubSystem: '<Root>/Controller' */
-
-    /* Update for UnitDelay: '<S21>/Unit Delay1' */
-    robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE =
-      robotarm_student_2021a_Ipos_B.Add2;
-
-    /* Update for Delay: '<S32>/Delay' */
-    strncpy(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0],
-            &robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0], 255U);
-    robotarm_student_2021a_Ipos_DW.Delay_DSTATE[255] = '\x00';
-
-    /* Update for DiscreteIntegrator: '<S30>/Discrete-Time Integrator' */
-    robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_k +=
-      robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_g *
-      robotarm_student_2021a_Ipos_B.jogSpeed;
-
-    /* Update for UnitDelay: '<S61>/UD' */
-    robotarm_student_2021a_Ipos_DW.UD_DSTATE =
-      robotarm_student_2021a_Ipos_B.TSamp;
-
-    /* Update for UnitDelay: '<S51>/UD' */
-    robotarm_student_2021a_Ipos_DW.UD_DSTATE_c =
-      robotarm_student_2021a_Ipos_B.TSamp_d;
-
-    /* Update for UnitDelay: '<S42>/UD' */
-    robotarm_student_2021a_Ipos_DW.UD_DSTATE_cc =
-      robotarm_student_2021a_Ipos_B.TSamp_k;
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[40];
+    sfcnOutputs(rts,0);
   }
+
+  /* Gain: '<S62>/Gain1' incorporates:
+   *  DiscreteIntegrator: '<S30>/Discrete-Time Integrator'
+   *  Sum: '<S30>/Sum1'
+   */
+  robotarm_student_2021a_Ipos_B.Gain1_a =
+    (robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_k -
+     robotarm_student_2021a_Ipos_B.Gain3) *
+    robotarm_student_2021a_Ipos_P.Gain1_Gain_j;
+
+  /* S-Function (dweakint): '<S62>/Dctintegrator3' */
+
+  /* Level2 S-Function Block: '<S62>/Dctintegrator3' (dweakint) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[41];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dlowpass1): '<S62>/Dct1lowpass' */
+
+  /* Level2 S-Function Block: '<S62>/Dct1lowpass' (dlowpass1) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[42];
+    sfcnOutputs(rts,0);
+  }
+
+  /* S-Function (dleadlag): '<S62>/Dctleadlag' */
+
+  /* Level2 S-Function Block: '<S62>/Dctleadlag' (dleadlag) */
+  {
+    SimStruct *rts = robotarm_student_2021a_Ipos_M->childSfunctions[43];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Switch: '<S30>/Homing Running Switch' incorporates:
+   *  Product: '<S30>/Product'
+   */
+  if (robotarm_student_2021a_Ipos_B.homingBusy >=
+      robotarm_student_2021a_Ipos_P.HomingRunningSwitch_Threshol_lq) {
+    robotarm_student_2021a_Ipos_B.fy2_tmp =
+      robotarm_student_2021a_Ipos_B.Dctleadlag_k *
+      robotarm_student_2021a_Ipos_B.homeControllerEnabled;
+  } else {
+    robotarm_student_2021a_Ipos_B.fy2_tmp =
+      robotarm_student_2021a_Ipos_B.Dctleadlag_d;
+  }
+
+  /* End of Switch: '<S30>/Homing Running Switch' */
+
+  /* Gain: '<S30>/Gain' */
+  robotarm_student_2021a_Ipos_B.Saturation1_d =
+    robotarm_student_2021a_Ipos_P.Gain_Gain_j *
+    robotarm_student_2021a_Ipos_B.fy2_tmp;
+
+  /* Saturate: '<S30>/Saturation1' */
+  if (robotarm_student_2021a_Ipos_B.Saturation1_d >
+      robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_o) {
+    /* Gain: '<S30>/Gain' incorporates:
+     *  Saturate: '<S30>/Saturation1'
+     */
+    robotarm_student_2021a_Ipos_B.Saturation1_d =
+      robotarm_student_2021a_Ipos_P.Saturation1_UpperSat_o;
+  } else if (robotarm_student_2021a_Ipos_B.Saturation1_d <
+             robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_g) {
+    /* Gain: '<S30>/Gain' incorporates:
+     *  Saturate: '<S30>/Saturation1'
+     */
+    robotarm_student_2021a_Ipos_B.Saturation1_d =
+      robotarm_student_2021a_Ipos_P.Saturation1_LowerSat_g;
+  }
+
+  /* End of Saturate: '<S30>/Saturation1' */
+
+  /* Sum: '<S21>/Add' */
+  robotarm_student_2021a_Ipos_B.Add = ((robotarm_student_2021a_Ipos_B.Ready_a +
+    robotarm_student_2021a_Ipos_B.Ready_i) +
+    robotarm_student_2021a_Ipos_B.Ready_n) + robotarm_student_2021a_Ipos_B.Ready;
+
+  /* Stop: '<S30>/Stop Simulation' */
+  if (robotarm_student_2021a_Ipos_B.StopSim != 0.0) {
+    rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
+  }
+
+  /* End of Stop: '<S30>/Stop Simulation' */
+
+  /* Stop: '<S29>/Stop Simulation' */
+  if (robotarm_student_2021a_Ipos_B.StopSim_n != 0.0) {
+    rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
+  }
+
+  /* End of Stop: '<S29>/Stop Simulation' */
+
+  /* Sum: '<S42>/Diff' incorporates:
+   *  Sum: '<S55>/Sum'
+   */
+  robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+    robotarm_student_2021a_Ipos_B.toPoint
+    + robotarm_student_2021a_Ipos_B.Constant1_f;
+
+  /* RateLimiter: '<S55>/Limit Speed' */
+  robotarm_student_2021a_Ipos_B.fy2_tmp =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
+    robotarm_student_2021a_Ipos_DW.PrevY;
+  if (robotarm_student_2021a_Ipos_B.fy2_tmp >
+      robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim *
+      robotarm_student_2021a_I_period) {
+    /* Sum: '<S42>/Diff' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+      robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY;
+  } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
+             robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim *
+             robotarm_student_2021a_I_period) {
+    /* Sum: '<S42>/Diff' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+      robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY;
+  }
+
+  robotarm_student_2021a_Ipos_DW.PrevY =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
+
+  /* End of RateLimiter: '<S55>/Limit Speed' */
+
+  /* SampleTimeMath: '<S61>/TSamp'
+   *
+   * About '<S61>/TSamp':
+   *  y = u * K where K = 1 / ( w * Ts )
+   */
+  robotarm_student_2021a_Ipos_B.TSamp =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
+    robotarm_student_2021a_Ipos_P.TSamp_WtEt;
+
+  /* Sum: '<S42>/Diff' incorporates:
+   *  Sum: '<S61>/Diff'
+   *  UnitDelay: '<S61>/UD'
+   */
+  robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+    robotarm_student_2021a_Ipos_B.TSamp -
+    robotarm_student_2021a_Ipos_DW.UD_DSTATE;
+
+  /* RateLimiter: '<S55>/Limit Acceleration' */
+  robotarm_student_2021a_Ipos_B.fy2_tmp =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
+    robotarm_student_2021a_Ipos_DW.PrevY_j;
+  if (robotarm_student_2021a_Ipos_B.fy2_tmp >
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim *
+      robotarm_student_2021a_I_period) {
+    /* RateLimiter: '<S55>/Limit Acceleration' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration =
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_j;
+  } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
+             robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim *
+             robotarm_student_2021a_I_period) {
+    /* RateLimiter: '<S55>/Limit Acceleration' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration =
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_j;
+  } else {
+    /* RateLimiter: '<S55>/Limit Acceleration' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration =
+      robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
+  }
+
+  robotarm_student_2021a_Ipos_DW.PrevY_j =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration;
+
+  /* End of RateLimiter: '<S55>/Limit Acceleration' */
+  /* Stop: '<S28>/Stop Simulation' */
+  if (robotarm_student_2021a_Ipos_B.StopSim_o != 0.0) {
+    rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
+  }
+
+  /* End of Stop: '<S28>/Stop Simulation' */
+
+  /* Sum: '<S42>/Diff' incorporates:
+   *  Sum: '<S45>/Sum'
+   */
+  robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+    robotarm_student_2021a_Ipos_B.toPoint_e +
+    robotarm_student_2021a_Ipos_B.Constant1_e;
+
+  /* RateLimiter: '<S45>/Limit Speed' */
+  robotarm_student_2021a_Ipos_B.fy2_tmp =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
+    robotarm_student_2021a_Ipos_DW.PrevY_d;
+  if (robotarm_student_2021a_Ipos_B.fy2_tmp >
+      robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_i *
+      robotarm_student_2021a_I_period) {
+    /* Sum: '<S42>/Diff' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+      robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_i *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_d;
+  } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
+             robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_k *
+             robotarm_student_2021a_I_period) {
+    /* Sum: '<S42>/Diff' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+      robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_k *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_d;
+  }
+
+  robotarm_student_2021a_Ipos_DW.PrevY_d =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
+
+  /* End of RateLimiter: '<S45>/Limit Speed' */
+
+  /* SampleTimeMath: '<S51>/TSamp'
+   *
+   * About '<S51>/TSamp':
+   *  y = u * K where K = 1 / ( w * Ts )
+   */
+  robotarm_student_2021a_Ipos_B.TSamp_d =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
+    robotarm_student_2021a_Ipos_P.TSamp_WtEt_d;
+
+  /* Sum: '<S42>/Diff' incorporates:
+   *  Sum: '<S51>/Diff'
+   *  UnitDelay: '<S51>/UD'
+   */
+  robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+    robotarm_student_2021a_Ipos_B.TSamp_d -
+    robotarm_student_2021a_Ipos_DW.UD_DSTATE_c;
+
+  /* RateLimiter: '<S45>/Limit Acceleration' */
+  robotarm_student_2021a_Ipos_B.fy2_tmp =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
+    robotarm_student_2021a_Ipos_DW.PrevY_f;
+  if (robotarm_student_2021a_Ipos_B.fy2_tmp >
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_k *
+      robotarm_student_2021a_I_period) {
+    /* RateLimiter: '<S45>/Limit Acceleration' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_k *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_f;
+  } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
+             robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_m *
+             robotarm_student_2021a_I_period) {
+    /* RateLimiter: '<S45>/Limit Acceleration' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_m *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_f;
+  } else {
+    /* RateLimiter: '<S45>/Limit Acceleration' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_b =
+      robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
+  }
+
+  robotarm_student_2021a_Ipos_DW.PrevY_f =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_b;
+
+  /* End of RateLimiter: '<S45>/Limit Acceleration' */
+  /* Stop: '<S27>/Stop Simulation' */
+  if (robotarm_student_2021a_Ipos_B.StopSim_j != 0.0) {
+    rtmSetStopRequested(robotarm_student_2021a_Ipos_M, 1);
+  }
+
+  /* End of Stop: '<S27>/Stop Simulation' */
+
+  /* Sum: '<S42>/Diff' incorporates:
+   *  Sum: '<S39>/Sum'
+   */
+  robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+    robotarm_student_2021a_Ipos_B.toPoint_b +
+    robotarm_student_2021a_Ipos_B.Constant1;
+
+  /* RateLimiter: '<S39>/Limit Speed' */
+  robotarm_student_2021a_Ipos_B.fy2_tmp =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
+    robotarm_student_2021a_Ipos_DW.PrevY_i;
+  if (robotarm_student_2021a_Ipos_B.fy2_tmp >
+      robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_iu *
+      robotarm_student_2021a_I_period) {
+    /* Sum: '<S42>/Diff' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+      robotarm_student_2021a_Ipos_P.LimitSpeed_RisingLim_iu *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_i;
+  } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
+             robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_j *
+             robotarm_student_2021a_I_period) {
+    /* Sum: '<S42>/Diff' */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+      robotarm_student_2021a_Ipos_P.LimitSpeed_FallingLim_j *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_i;
+  }
+
+  robotarm_student_2021a_Ipos_DW.PrevY_i =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
+
+  /* End of RateLimiter: '<S39>/Limit Speed' */
+
+  /* SampleTimeMath: '<S42>/TSamp'
+   *
+   * About '<S42>/TSamp':
+   *  y = u * K where K = 1 / ( w * Ts )
+   */
+  robotarm_student_2021a_Ipos_B.TSamp_k =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h *
+    robotarm_student_2021a_Ipos_P.TSamp_WtEt_g;
+
+  /* Sum: '<S42>/Diff' incorporates:
+   *  UnitDelay: '<S42>/UD'
+   */
+  robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+    robotarm_student_2021a_Ipos_B.TSamp_k -
+    robotarm_student_2021a_Ipos_DW.UD_DSTATE_cc;
+
+  /* RateLimiter: '<S39>/Limit Acceleration' */
+  robotarm_student_2021a_Ipos_B.fy2_tmp =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h -
+    robotarm_student_2021a_Ipos_DW.PrevY_k;
+  if (robotarm_student_2021a_Ipos_B.fy2_tmp >
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_m *
+      robotarm_student_2021a_I_period) {
+    /* Sum: '<S42>/Diff' incorporates:
+     *  RateLimiter: '<S39>/Limit Acceleration'
+     */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_RisingLim_m *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_k;
+  } else if (robotarm_student_2021a_Ipos_B.fy2_tmp <
+             robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_k *
+             robotarm_student_2021a_I_period) {
+    /* Sum: '<S42>/Diff' incorporates:
+     *  RateLimiter: '<S39>/Limit Acceleration'
+     */
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h =
+      robotarm_student_2021a_Ipos_P.LimitAcceleration_FallingLim_k *
+      robotarm_student_2021a_I_period + robotarm_student_2021a_Ipos_DW.PrevY_k;
+  }
+
+  robotarm_student_2021a_Ipos_DW.PrevY_k =
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
+
+  /* End of RateLimiter: '<S39>/Limit Acceleration' */
+
+  /* Update for DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE +=
+    robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainval *
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_h;
+
+  /* Update for DiscreteIntegrator: '<S27>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_g +=
+    robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_i *
+    robotarm_student_2021a_Ipos_B.jogSpeed_o;
+
+  /* Update for DiscreteIntegrator: '<S28>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_m +=
+    robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_h *
+    robotarm_student_2021a_Ipos_B.jogSpeed_c;
+
+  /* Update for DiscreteIntegrator: '<S45>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_o +=
+    robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_j *
+    robotarm_student_2021a_Ipos_B.LimitAcceleration_b;
+
+  /* Update for DiscreteIntegrator: '<S29>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_a +=
+    robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_o *
+    robotarm_student_2021a_Ipos_B.jogSpeed_i;
+
+  /* Update for DiscreteIntegrator: '<S55>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_j +=
+    robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_n *
+    robotarm_student_2021a_Ipos_B.LimitAcceleration;
+
+  /* Update for UnitDelay: '<S21>/Unit Delay' */
+  robotarm_student_2021a_Ipos_DW.UnitDelay_DSTATE =
+    robotarm_student_2021a_Ipos_B.Add;
+
+  /* Update for Enabled SubSystem: '<Root>/Controller' incorporates:
+   *  EnablePort: '<S1>/Enable '
+   */
+  if (robotarm_student_2021a_Ipos_DW.Controller_MODE) {
+    /* Update for UnitDelay: '<S18>/Delay Input1' incorporates:
+     *  Constant: '<S4>/Object detection matrix'
+     */
+    memcpy(&robotarm_student_2021a_Ipos_DW.DelayInput1_DSTATE[0],
+           &robotarm_student_2021a_Ipos_P.Objectdetectionmatrix_Value[0], 12U *
+           sizeof(real_T));
+
+    /* Update for DiscreteIntegrator: '<S1>/Discrete  integrator' */
+    robotarm_student_2021a_Ipos_DW.Discreteintegrator_DSTATE +=
+      robotarm_student_2021a_Ipos_P.Discreteintegrator_gainval *
+      robotarm_student_2021a_Ipos_B.Saturation;
+  }
+
+  /* End of Update for SubSystem: '<Root>/Controller' */
+
+  /* Update for UnitDelay: '<S21>/Unit Delay1' */
+  robotarm_student_2021a_Ipos_DW.UnitDelay1_DSTATE =
+    robotarm_student_2021a_Ipos_B.Add2;
+
+  /* Update for Delay: '<S32>/Delay' */
+  strncpy(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0],
+          &robotarm_student_2021a_Ipos_B.HomingRunningSwitch[0], 255U);
+  robotarm_student_2021a_Ipos_DW.Delay_DSTATE[255] = '\x00';
+
+  /* Update for DiscreteIntegrator: '<S30>/Discrete-Time Integrator' */
+  robotarm_student_2021a_Ipos_DW.DiscreteTimeIntegrator_DSTATE_k +=
+    robotarm_student_2021a_Ipos_P.DiscreteTimeIntegrator_gainva_g *
+    robotarm_student_2021a_Ipos_B.jogSpeed;
+
+  /* Update for UnitDelay: '<S61>/UD' */
+  robotarm_student_2021a_Ipos_DW.UD_DSTATE = robotarm_student_2021a_Ipos_B.TSamp;
+
+  /* Update for UnitDelay: '<S51>/UD' */
+  robotarm_student_2021a_Ipos_DW.UD_DSTATE_c =
+    robotarm_student_2021a_Ipos_B.TSamp_d;
+
+  /* Update for UnitDelay: '<S42>/UD' */
+  robotarm_student_2021a_Ipos_DW.UD_DSTATE_cc =
+    robotarm_student_2021a_Ipos_B.TSamp_k;
 
   /* External mode */
   rtExtModeUploadCheckTrigger(2);
@@ -4007,15 +3676,15 @@ void robotarm_student_2021a_Ipos_initialize(void)
   robotarm_student_2021a_Ipos_M->Timing.stepSize1 = 0.00048828125;
 
   /* External mode info */
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[0] = (3530763660U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[1] = (3159121100U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[2] = (2389194234U);
-  robotarm_student_2021a_Ipos_M->Sizes.checksums[3] = (2170549285U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[0] = (1867431425U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[1] = (2548558129U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[2] = (3201816758U);
+  robotarm_student_2021a_Ipos_M->Sizes.checksums[3] = (3208897460U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
     static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[25];
+    static const sysRanDType *systemRan[27];
     robotarm_student_2021a_Ipos_M->extModeInfo = (&rt_ExtModeInfo);
     rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
     systemRan[0] = &rtAlwaysEnabled;
@@ -4054,6 +3723,8 @@ void robotarm_student_2021a_Ipos_initialize(void)
     systemRan[22] = &rtAlwaysEnabled;
     systemRan[23] = &rtAlwaysEnabled;
     systemRan[24] = &rtAlwaysEnabled;
+    systemRan[25] = &rtAlwaysEnabled;
+    systemRan[26] = &rtAlwaysEnabled;
     rteiSetModelMappingInfoPtr(robotarm_student_2021a_Ipos_M->extModeInfo,
       &robotarm_student_2021a_Ipos_M->SpecialInfo.mappingInfo);
     rteiSetChecksumsPtr(robotarm_student_2021a_Ipos_M->extModeInfo,
@@ -7980,9 +7651,9 @@ void robotarm_student_2021a_Ipos_initialize(void)
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.0);
+      ssSetSampleTime(rts, 0, 0.00048828125);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
+      sfcnTsMap[0] = 1;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCs(rts, 0);
@@ -12196,22 +11867,6 @@ void robotarm_student_2021a_Ipos_initialize(void)
 
     /* End of InitializeConditions for UnitDelay: '<S18>/Delay Input1' */
 
-    /* InitializeConditions for Derivative: '<S1>/Derivative' */
-    robotarm_student_2021a_Ipos_DW.TimeStampA = (rtInf);
-    robotarm_student_2021a_Ipos_DW.TimeStampB = (rtInf);
-
-    /* InitializeConditions for Derivative: '<S1>/Derivative1' */
-    robotarm_student_2021a_Ipos_DW.TimeStampA_o = (rtInf);
-    robotarm_student_2021a_Ipos_DW.TimeStampB_i = (rtInf);
-
-    /* InitializeConditions for Derivative: '<S1>/Derivative2' */
-    robotarm_student_2021a_Ipos_DW.TimeStampA_p = (rtInf);
-    robotarm_student_2021a_Ipos_DW.TimeStampB_o = (rtInf);
-
-    /* InitializeConditions for Derivative: '<S1>/Derivative3' */
-    robotarm_student_2021a_Ipos_DW.TimeStampA_pg = (rtInf);
-    robotarm_student_2021a_Ipos_DW.TimeStampB_k = (rtInf);
-
     /* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete  integrator' */
     robotarm_student_2021a_Ipos_DW.Discreteintegrator_DSTATE =
       robotarm_student_2021a_Ipos_P.Discreteintegrator_IC;
@@ -12281,6 +11936,10 @@ void robotarm_student_2021a_Ipos_initialize(void)
       robotarm_student_2_IN_No_action;
     robotarm_student_2021a_Ipos_DW.action = 0.0;
 
+    /* SystemInitialize for MATLAB Function: '<S1>/quintic trajectory time1' */
+    robo_quintictrajectorytime_Init
+      (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1);
+
     /* SystemInitialize for MATLAB Function: '<S1>/quintic trajectory time' */
     robo_quintictrajectorytime_Init
       (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime);
@@ -12288,10 +11947,6 @@ void robotarm_student_2021a_Ipos_initialize(void)
     /* SystemInitialize for MATLAB Function: '<S1>/quintic trajectory time2' */
     robo_quintictrajectorytime_Init
       (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2);
-
-    /* SystemInitialize for MATLAB Function: '<S1>/quintic trajectory time1' */
-    robo_quintictrajectorytime_Init
-      (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1);
 
     /* SystemInitialize for Enabled SubSystem: '<S4>/Enabled Subsystem' */
     /* SystemInitialize for Outport: '<S19>/Delay [s]' incorporates:
@@ -12666,6 +12321,10 @@ void robotarm_student_2021a_Ipos_terminate(void)
   }
 
   /* CleanupRuntimeResources for Enabled SubSystem: '<Root>/Controller' */
+  /* CleanupRuntimeResources for MATLAB Function: '<S1>/quintic trajectory time1' */
+  quintictrajectorytim_CleanupRTR
+    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1);
+
   /* CleanupRuntimeResources for MATLAB Function: '<S1>/quintic trajectory time' */
   quintictrajectorytim_CleanupRTR
     (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime);
@@ -12673,10 +12332,4 @@ void robotarm_student_2021a_Ipos_terminate(void)
   /* CleanupRuntimeResources for MATLAB Function: '<S1>/quintic trajectory time2' */
   quintictrajectorytim_CleanupRTR
     (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime2);
-
-  /* CleanupRuntimeResources for MATLAB Function: '<S1>/quintic trajectory time1' */
-  quintictrajectorytim_CleanupRTR
-    (&robotarm_student_2021a_Ipos_DW.sf_quintictrajectorytime1);
-
-  /* End of CleanupRuntimeResources for SubSystem: '<Root>/Controller' */
 }

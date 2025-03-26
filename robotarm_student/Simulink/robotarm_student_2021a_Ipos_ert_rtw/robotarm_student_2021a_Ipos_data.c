@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.166
+ * Model version              : 2.167
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Tue Mar 25 17:07:42 2025
+ * C source code generated on : Wed Mar 26 16:35:34 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -73,10 +73,10 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.0,
 
-  /* Expression: [0                    0                    0      1737814705.7963;0  0  0  0;0  0  0  0]
+  /* Expression: [0                    0                    0      1737857082.1363;0  0  0  0;0  0  0  0]
    * Referenced by: '<S4>/Object detection matrix'
    */
-  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7378147057963E+9, 0.0, 0.0 },
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7378570821363E+9, 0.0, 0.0 },
 
   /* Expression: 1
    * Referenced by: '<S1>/Object'
@@ -87,6 +87,11 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    * Referenced by: '<S1>/Constant'
    */
   2.0,
+
+  /* Expression: 8
+   * Referenced by: '<S12>/Gain1'
+   */
+  8.0,
 
   /* Expression: 25
    * Referenced by: '<S17>/Gain1'
@@ -143,31 +148,6 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.001,
 
-  /* Expression: 0.25
-   * Referenced by: '<S1>/Sine Wave'
-   */
-  0.25,
-
-  /* Expression: 0
-   * Referenced by: '<S1>/Sine Wave'
-   */
-  0.0,
-
-  /* Expression: 1
-   * Referenced by: '<S1>/Sine Wave'
-   */
-  1.0,
-
-  /* Expression: 0
-   * Referenced by: '<S1>/Sine Wave'
-   */
-  0.0,
-
-  /* Expression: 8
-   * Referenced by: '<S12>/Gain1'
-   */
-  8.0,
-
   /* Computed Parameter: Dctleadlag2_P1_Size_l
    * Referenced by: '<S12>/Dctleadlag2'
    */
@@ -217,21 +197,6 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    * Referenced by: '<S12>/Dct1lowpass3'
    */
   0.001,
-
-  /* Expression: 0.2
-   * Referenced by: '<S1>/Gain'
-   */
-  0.2,
-
-  /* Expression: 1
-   * Referenced by: '<S1>/Gain1'
-   */
-  1.0,
-
-  /* Expression: 0.1
-   * Referenced by: '<S1>/Gain7'
-   */
-  0.1,
 
   /* Expression: 9.5
    * Referenced by: '<S10>/Gain1'
@@ -287,21 +252,6 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    * Referenced by: '<S10>/Dct1lowpass3'
    */
   0.001,
-
-  /* Expression: 0.25
-   * Referenced by: '<S1>/Gain2'
-   */
-  0.25,
-
-  /* Expression: 0.9
-   * Referenced by: '<S1>/Gain3'
-   */
-  0.9,
-
-  /* Expression: 0.1
-   * Referenced by: '<S1>/Gain6'
-   */
-  0.1,
 
   /* Computed Parameter: Dct1lowpass_P1_Size
    * Referenced by: '<S17>/Dct1lowpass'

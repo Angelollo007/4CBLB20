@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.166
+ * Model version              : 2.167
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Tue Mar 25 17:07:42 2025
+ * C source code generated on : Wed Mar 26 16:35:34 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -182,17 +182,14 @@ typedef struct {
   real_T Gain;                         /* '<S20>/Gain' */
   real_T Constant1;                    /* '<S39>/Constant1' */
   real_T DiscreteTimeIntegrator;       /* '<S39>/Discrete-Time Integrator' */
-  real_T Sum;                          /* '<S27>/Sum' */
   real_T Sum2;                         /* '<S27>/Sum2' */
   real_T Gain1;                        /* '<S20>/Gain1' */
   real_T Constant1_e;                  /* '<S45>/Constant1' */
   real_T DiscreteTimeIntegrator_e;     /* '<S45>/Discrete-Time Integrator' */
-  real_T Sum_p;                        /* '<S28>/Sum' */
   real_T Sum2_a;                       /* '<S28>/Sum2' */
   real_T Gain2;                        /* '<S20>/Gain2' */
   real_T Constant1_f;                  /* '<S55>/Constant1' */
   real_T DiscreteTimeIntegrator_p;     /* '<S55>/Discrete-Time Integrator' */
-  real_T Sum_o;                        /* '<S29>/Sum' */
   real_T Sum2_e;                       /* '<S29>/Sum2' */
   real_T set_robot_calibration_r;      /* '<S21>/set_robot_calibration_r' */
   real_T set_robot_calibration_x;      /* '<S21>/set_robot_calibration_x' */
@@ -212,7 +209,6 @@ typedef struct {
   real_T Dctintegrator_g;              /* '<S43>/Dctintegrator' */
   real_T Dctleadlag_h;                 /* '<S43>/Dctleadlag' */
   real_T Dct1lowpass_k;                /* '<S43>/Dct1lowpass' */
-  real_T Product;                      /* '<S28>/Product' */
   real_T Gain1_o;                      /* '<S44>/Gain1' */
   real_T Dctleadlag_b;                 /* '<S44>/Dctleadlag' */
   real_T Dct1lowpass_j;                /* '<S44>/Dct1lowpass' */
@@ -221,12 +217,10 @@ typedef struct {
   real_T Dctintegrator_i;              /* '<S52>/Dctintegrator' */
   real_T Dctleadlag_m;                 /* '<S52>/Dctleadlag' */
   real_T Dct1lowpass_p;                /* '<S52>/Dct1lowpass' */
-  real_T Product_n;                    /* '<S29>/Product' */
   real_T Gain_f;                       /* '<S53>/Gain' */
   real_T Dctleadlag_e;                 /* '<S53>/Dctleadlag' */
   real_T Dct1lowpass_a;                /* '<S53>/Dct1lowpass' */
   real_T Saturation1_a;                /* '<S29>/Saturation1' */
-  real_T DiscreteTimeIntegrator_i;     /* '<S30>/Discrete-Time Integrator' */
   real_T Gain1_a;                      /* '<S62>/Gain1' */
   real_T Dctintegrator3;               /* '<S62>/Dctintegrator3' */
   real_T Dct1lowpass_g;                /* '<S62>/Dct1lowpass' */
@@ -277,25 +271,21 @@ typedef struct {
   real_T SFunctionBuilder;             /* '<S4>/S-Function Builder' */
   real_T Selector1;                    /* '<S1>/Selector1' */
   real_T Object;                       /* '<S1>/Object' */
+  real_T SignalConversion1;            /* '<S1>/Signal Conversion1' */
+  real_T Gain1_b;                      /* '<S12>/Gain1' */
   real_T SignalConversion2;            /* '<S1>/Signal Conversion2' */
   real_T Gain1_c;                      /* '<S17>/Gain1' */
   real_T Dctleadlag2;                  /* '<S17>/Dctleadlag2' */
   real_T Dctintegrator3_c;             /* '<S17>/Dctintegrator3' */
-  real_T SignalConversion1;            /* '<S1>/Signal Conversion1' */
-  real_T SineWave;                     /* '<S1>/Sine Wave' */
-  real_T Gain1_b;                      /* '<S12>/Gain1' */
   real_T Dctleadlag2_g;                /* '<S12>/Dctleadlag2' */
   real_T Dct1lowpass3;                 /* '<S12>/Dct1lowpass3' */
-  real_T Derivative;                   /* '<S1>/Derivative' */
   real_T Sum5;                         /* '<S1>/Sum5' */
   real_T SignalConversion;             /* '<S1>/Signal Conversion' */
   real_T Gain1_cy;                     /* '<S10>/Gain1' */
   real_T Dctleadlag2_p;                /* '<S10>/Dctleadlag2' */
   real_T Dct1lowpass3_h;               /* '<S10>/Dct1lowpass3' */
-  real_T Derivative2;                  /* '<S1>/Derivative2' */
   real_T Sum6;                         /* '<S1>/Sum6' */
   real_T Dct1lowpass_b;                /* '<S17>/Dct1lowpass' */
-  real_T Conveyorreferencemm;          /* '<S1>/Discrete  integrator' */
   real_T Gain1_g;                      /* '<S5>/Gain1' */
   real_T Dctintegrator3_n;             /* '<S5>/Dctintegrator3' */
   real_T Dct1lowpass_ab;               /* '<S5>/Dct1lowpass' */
@@ -317,7 +307,7 @@ typedef struct {
   real_T Sum4;                         /* '<S1>/Sum4' */
   real_T Plot;                         /* '<S1>/Plot' */
   real_T Stop;                         /* '<S1>/Stop' */
-  real_T Sum_m;                        /* '<S4>/Sum' */
+  real_T Sum;                          /* '<S4>/Sum' */
   real_T Selector2_i;                  /* '<S1>/Selector2' */
   real_T Selector4;                    /* '<S1>/Selector4' */
   real_T Selector5;                    /* '<S1>/Selector5' */
@@ -331,7 +321,7 @@ typedef struct {
   real_T Blow_suck;                    /* '<S1>/Stateflow 1' */
   real_T In1;                          /* '<S19>/In1' */
   real_T d12;
-  real_T Gain_m;                       /* '<S29>/Gain' */
+  real_T fx1_tmp;
   real_T fy1_tmp;
   real_T fy2_tmp;
   real_T d12_tmp;
@@ -361,8 +351,6 @@ typedef struct {
   boolean_T RelationalOperator_k;      /* '<S29>/Relational Operator' */
   boolean_T Compare;                   /* '<S24>/Compare' */
   boolean_T Compare_j;                 /* '<S23>/Compare' */
-  boolean_T LogicalOperator1;          /* '<S28>/Logical Operator1' */
-  boolean_T LogicalOperator1_i;        /* '<S29>/Logical Operator1' */
   B_quintictrajectorytime_robot_T sf_quintictrajectorytime2;/* '<S1>/quintic trajectory time2' */
   B_quintictrajectorytime_robot_T sf_quintictrajectorytime1;/* '<S1>/quintic trajectory time1' */
   B_quintictrajectorytime_robot_T sf_quintictrajectorytime;/* '<S1>/quintic trajectory time' */
@@ -394,22 +382,6 @@ typedef struct {
   real_T currentcarPos;                /* '<S29>/Supervisor' */
   real_T currentcarPos_d;              /* '<S28>/Supervisor2' */
   real_T currentcarPos_l;              /* '<S27>/Supervisor' */
-  real_T TimeStampA;                   /* '<S1>/Derivative' */
-  real_T LastUAtTimeA;                 /* '<S1>/Derivative' */
-  real_T TimeStampB;                   /* '<S1>/Derivative' */
-  real_T LastUAtTimeB;                 /* '<S1>/Derivative' */
-  real_T TimeStampA_o;                 /* '<S1>/Derivative1' */
-  real_T LastUAtTimeA_g;               /* '<S1>/Derivative1' */
-  real_T TimeStampB_i;                 /* '<S1>/Derivative1' */
-  real_T LastUAtTimeB_b;               /* '<S1>/Derivative1' */
-  real_T TimeStampA_p;                 /* '<S1>/Derivative2' */
-  real_T LastUAtTimeA_gt;              /* '<S1>/Derivative2' */
-  real_T TimeStampB_o;                 /* '<S1>/Derivative2' */
-  real_T LastUAtTimeB_k;               /* '<S1>/Derivative2' */
-  real_T TimeStampA_pg;                /* '<S1>/Derivative3' */
-  real_T LastUAtTimeA_j;               /* '<S1>/Derivative3' */
-  real_T TimeStampB_k;                 /* '<S1>/Derivative3' */
-  real_T LastUAtTimeB_d;               /* '<S1>/Derivative3' */
   real_T treshold;                     /* '<S1>/Stateflow 1' */
   real_T x;                            /* '<S1>/Stateflow 1' */
   real_T y;                            /* '<S1>/Stateflow 1' */
@@ -481,11 +453,11 @@ typedef struct {
 
   struct {
     void *LoggedData[2];
-  } Scope1_PWORK;                      /* '<S1>/Scope1' */
+  } Scope2_PWORK;                      /* '<S1>/Scope2' */
 
   struct {
     void *LoggedData[2];
-  } Scope2_PWORK;                      /* '<S1>/Scope2' */
+  } Scope1_PWORK;                      /* '<S1>/Scope1' */
 
   int32_T sfEvent;                     /* '<S30>/Supervisor' */
   int32_T sfEvent_n;                   /* '<S29>/Supervisor' */
@@ -577,7 +549,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
                                         * Referenced by: '<S1>/Vacuum [V] '
                                         */
   real_T Objectdetectionmatrix_Value[12];
-  /* Expression: [0                    0                    0      1737814705.7963;0  0  0  0;0  0  0  0]
+  /* Expression: [0                    0                    0      1737857082.1363;0  0  0  0;0  0  0  0]
    * Referenced by: '<S4>/Object detection matrix'
    */
   real_T Object_Value;                 /* Expression: 1
@@ -586,7 +558,10 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Constant_Value;               /* Expression: 2
                                         * Referenced by: '<S1>/Constant'
                                         */
-  real_T Gain1_Gain;                   /* Expression: 25
+  real_T Gain1_Gain;                   /* Expression: 8
+                                        * Referenced by: '<S12>/Gain1'
+                                        */
+  real_T Gain1_Gain_g;                 /* Expression: 25
                                         * Referenced by: '<S17>/Gain1'
                                         */
   real_T Dctleadlag2_P1_Size[2];      /* Computed Parameter: Dctleadlag2_P1_Size
@@ -619,21 +594,6 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Dctintegrator3_P2;            /* Expression: 0.001
                                         * Referenced by: '<S17>/Dctintegrator3'
                                         */
-  real_T SineWave_Amp;                 /* Expression: 0.25
-                                        * Referenced by: '<S1>/Sine Wave'
-                                        */
-  real_T SineWave_Bias;                /* Expression: 0
-                                        * Referenced by: '<S1>/Sine Wave'
-                                        */
-  real_T SineWave_Freq;                /* Expression: 1
-                                        * Referenced by: '<S1>/Sine Wave'
-                                        */
-  real_T SineWave_Phase;               /* Expression: 0
-                                        * Referenced by: '<S1>/Sine Wave'
-                                        */
-  real_T Gain1_Gain_o;                 /* Expression: 8
-                                        * Referenced by: '<S12>/Gain1'
-                                        */
   real_T Dctleadlag2_P1_Size_l[2];  /* Computed Parameter: Dctleadlag2_P1_Size_l
                                      * Referenced by: '<S12>/Dctleadlag2'
                                      */
@@ -663,15 +623,6 @@ struct P_robotarm_student_2021a_Ipos_T_ {
                                       */
   real_T Dct1lowpass3_P2;              /* Expression: 0.001
                                         * Referenced by: '<S12>/Dct1lowpass3'
-                                        */
-  real_T Gain_Gain;                    /* Expression: 0.2
-                                        * Referenced by: '<S1>/Gain'
-                                        */
-  real_T Gain1_Gain_p;                 /* Expression: 1
-                                        * Referenced by: '<S1>/Gain1'
-                                        */
-  real_T Gain7_Gain;                   /* Expression: 0.1
-                                        * Referenced by: '<S1>/Gain7'
                                         */
   real_T Gain1_Gain_h;                 /* Expression: 9.5
                                         * Referenced by: '<S10>/Gain1'
@@ -706,15 +657,6 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Dct1lowpass3_P2_l;            /* Expression: 0.001
                                         * Referenced by: '<S10>/Dct1lowpass3'
                                         */
-  real_T Gain2_Gain;                   /* Expression: 0.25
-                                        * Referenced by: '<S1>/Gain2'
-                                        */
-  real_T Gain3_Gain;                   /* Expression: 0.9
-                                        * Referenced by: '<S1>/Gain3'
-                                        */
-  real_T Gain6_Gain;                   /* Expression: 0.1
-                                        * Referenced by: '<S1>/Gain6'
-                                        */
   real_T Dct1lowpass_P1_Size[2];      /* Computed Parameter: Dct1lowpass_P1_Size
                                        * Referenced by: '<S17>/Dct1lowpass'
                                        */
@@ -734,7 +676,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Discreteintegrator_IC;        /* Expression: 0
                                         * Referenced by: '<S1>/Discrete  integrator'
                                         */
-  real_T Gain1_Gain_g;                 /* Expression: 0.05
+  real_T Gain1_Gain_gq;                /* Expression: 0.05
                                         * Referenced by: '<S5>/Gain1'
                                         */
   real_T Dctintegrator3_P1_Size_d[2];
@@ -781,7 +723,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Dctleadlag_P3;                /* Expression: 0.001
                                         * Referenced by: '<S5>/Dctleadlag'
                                         */
-  real_T Gain1_Gain_pl;                /* Expression: 1
+  real_T Gain1_Gain_p;                 /* Expression: 1
                                         * Referenced by: '<S9>/Gain1'
                                         */
   real_T Dctpd2_P1_Size[2];            /* Computed Parameter: Dctpd2_P1_Size
@@ -1035,7 +977,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T ec_Ipos_P1;                   /* Expression: link_id
                                         * Referenced by: '<S22>/ec_Ipos'
                                         */
-  real_T Gain_Gain_n;                  /* Expression: 1/16000*9/150*2*pi
+  real_T Gain_Gain;                    /* Expression: 1/16000*9/150*2*pi
                                         * Referenced by: '<S20>/Gain'
                                         */
   real_T Constant1_Value;              /* Expression: 0
@@ -1075,7 +1017,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Constant_Value_f;             /* Expression: -0.1
                                         * Referenced by: '<S28>/Constant'
                                         */
-  real_T Gain2_Gain_d;                 /* Expression: 1/16000*9/100*2*pi
+  real_T Gain2_Gain;                   /* Expression: 1/16000*9/100*2*pi
                                         * Referenced by: '<S20>/Gain2'
                                         */
   real_T DiscreteTimeIntegrator_gainva_o;
@@ -1113,7 +1055,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Constant_Value_m;             /* Expression: 1
                                         * Referenced by: '<S25>/Constant'
                                         */
-  real_T Gain3_Gain_n;                 /* Expression: 1/16000*2*pi*2.05*10
+  real_T Gain3_Gain;                   /* Expression: 1/16000*2*pi*2.05*10
                                         * Referenced by: '<S20>/Gain3'
                                         */
   real_T Gain4_Gain;                   /* Expression: 1/65535
@@ -1227,7 +1169,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T ResetEncoderR1_P1;            /* Expression: ipos_id
                                         * Referenced by: '<S28>/Reset EncoderR1'
                                         */
-  real_T Gain1_Gain_ov;                /* Expression: 20
+  real_T Gain1_Gain_o;                 /* Expression: 20
                                         * Referenced by: '<S43>/Gain1'
                                         */
   real_T Dctintegrator_P1_Size_i[2];
@@ -2446,15 +2388,29 @@ extern RT_MODEL_robotarm_student_2021a_Ipos_T *const
  * These blocks were eliminated from the model due to optimizations:
  *
  * Block '<S1>/ Blow' : Unused code path elimination
+ * Block '<S1>/Derivative' : Unused code path elimination
+ * Block '<S1>/Derivative1' : Unused code path elimination
+ * Block '<S1>/Derivative2' : Unused code path elimination
+ * Block '<S1>/Derivative3' : Unused code path elimination
  * Block '<S1>/Derivative4' : Unused code path elimination
  * Block '<S1>/Derivative5' : Unused code path elimination
+ * Block '<S1>/Gain' : Unused code path elimination
+ * Block '<S1>/Gain1' : Unused code path elimination
+ * Block '<S1>/Gain2' : Unused code path elimination
+ * Block '<S1>/Gain3' : Unused code path elimination
  * Block '<S1>/Gain4' : Unused code path elimination
  * Block '<S1>/Gain5' : Unused code path elimination
+ * Block '<S1>/Gain6' : Unused code path elimination
+ * Block '<S1>/Gain7' : Unused code path elimination
  * Block '<S1>/Gain8' : Unused code path elimination
  * Block '<S1>/Manual Switch' : Unused code path elimination
+ * Block '<S1>/Sign' : Unused code path elimination
+ * Block '<S1>/Sign1' : Unused code path elimination
  * Block '<S1>/Sign2' : Unused code path elimination
  * Block '<S1>/Suck' : Unused code path elimination
+ * Block '<S1>/Sum' : Unused code path elimination
  * Block '<S1>/Sum10' : Unused code path elimination
+ * Block '<S1>/Sum8' : Unused code path elimination
  * Block '<S22>/Saturation' : Unused code path elimination
  * Block '<S42>/Data Type Duplicate' : Unused code path elimination
  * Block '<S51>/Data Type Duplicate' : Unused code path elimination
