@@ -20,11 +20,11 @@ mask_object_3 = @example_mask_red;
 % Blob area; minimum and maximum area for the blob analysis per object
 % in pixels
 min_blob_area_object_1 = 37000;  % Minimal blob area in pixels for object 1
-max_blob_area_object_1 = 450000; % Maximum blob area in pixels for object 1       
-min_blob_area_object_2 = 37000;  % Minimal blob area in pixels for object 2
-max_blob_area_object_2 = 450000; % Maximum blob area in pixels for object 2     
-min_blob_area_object_3 = 37000;  % Minimal blob area in pixels for object 3
-max_blob_area_object_3 = 450000; % Maximum blob area in pixels for object 3       
+max_blob_area_object_1 = 45000; % Maximum blob area in pixels for object 1       
+min_blob_area_object_2 = 25000;  % Minimal blob area in pixels for object 2
+max_blob_area_object_2 = 40000; % Maximum blob area in pixels for object 2     
+min_blob_area_object_3 = 25000;  % Minimal blob area in pixels for object 3
+max_blob_area_object_3 = 45000; % Maximum blob area in pixels for object 3       
 
 % Framerate in Hz of the object detection; set this lower if you notice
 % that the model is running slow. Do not set it higher than 5. 
@@ -94,8 +94,12 @@ while stop_detection ~= 1 %&& strcmp(get_param(file_name_simulink,...
     position_matrix = zeros(max_objects+1,3);
     
     % Get values from Simulink
-    wanted_object = str2double(get_param(file_name_simulink...
-        + "/Controller/Object",'Value'));
+    
+    % Get values from Simulink
+    tmp = get_param(file_name_simulink...
+        + "/Controller/Mask",'RuntimeObject');
+    wanted_object = tmp.InputPort(1).Data;
+    
     plot_detection = str2double(get_param(file_name_simulink...
         + "/Controller/Plot",'Value'));
     stop_detection = str2double(get_param(file_name_simulink...

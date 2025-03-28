@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.161
+ * Model version              : 2.185
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 21 15:55:08 2025
+ * C source code generated on : Fri Mar 28 10:13:42 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -73,245 +73,25 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.0,
 
-  /* Expression: [0                    0                    0      1737808486.1783;0  0  0  0;0  0  0  0]
+  /* Expression: [0                    0                    0      1641839818.3053;0  0  0  0;0  0  0  0]
    * Referenced by: '<S4>/Object detection matrix'
    */
-  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7378084861783E+9, 0.0, 0.0 },
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.6418398183053E+9, 0.0, 0.0 },
 
   /* Expression: 1
-   * Referenced by: '<S1>/Object'
-   */
-  1.0,
-
-  /* Expression: 2
    * Referenced by: '<S1>/Constant'
    */
-  2.0,
-
-  /* Expression: 1.5
-   * Referenced by: '<S17>/Gain1'
-   */
-  1.5,
-
-  /* Computed Parameter: Dctleadlag2_P1_Size
-   * Referenced by: '<S17>/Dctleadlag2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S17>/Dctleadlag2'
-   */
-  3.0,
-
-  /* Computed Parameter: Dctleadlag2_P2_Size
-   * Referenced by: '<S17>/Dctleadlag2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S17>/Dctleadlag2'
-   */
-  30.0,
-
-  /* Computed Parameter: Dctleadlag2_P3_Size
-   * Referenced by: '<S17>/Dctleadlag2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S17>/Dctleadlag2'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctintegrator3_P1_Size
-   * Referenced by: '<S17>/Dctintegrator3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S17>/Dctintegrator3'
-   */
   1.0,
 
-  /* Computed Parameter: Dctintegrator3_P2_Size
-   * Referenced by: '<S17>/Dctintegrator3'
+  /* Expression: 10
+   * Referenced by: '<S1>/Conveyor speed [mm//s]'
    */
-  { 1.0, 1.0 },
+  10.0,
 
-  /* Expression: 0.001
-   * Referenced by: '<S17>/Dctintegrator3'
-   */
-  0.001,
-
-  /* Computed Parameter: Dct1lowpass_P1_Size
-   * Referenced by: '<S17>/Dct1lowpass'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S17>/Dct1lowpass'
-   */
-  100.0,
-
-  /* Computed Parameter: Dct1lowpass_P2_Size
-   * Referenced by: '<S17>/Dct1lowpass'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S17>/Dct1lowpass'
-   */
-  0.001,
-
-  /* Expression: 8
-   * Referenced by: '<S11>/Gain1'
-   */
-  8.0,
-
-  /* Computed Parameter: Dctleadlag3_P1_Size
-   * Referenced by: '<S11>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S11>/Dctleadlag3'
-   */
-  3.0,
-
-  /* Computed Parameter: Dctleadlag3_P2_Size
-   * Referenced by: '<S11>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S11>/Dctleadlag3'
-   */
-  30.0,
-
-  /* Computed Parameter: Dctleadlag3_P3_Size
-   * Referenced by: '<S11>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S11>/Dctleadlag3'
-   */
-  0.001,
-
-  /* Computed Parameter: Dct1lowpass_P1_Size_h
-   * Referenced by: '<S11>/Dct1lowpass'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S11>/Dct1lowpass'
-   */
-  100.0,
-
-  /* Computed Parameter: Dct1lowpass_P2_Size_i
-   * Referenced by: '<S11>/Dct1lowpass'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S11>/Dct1lowpass'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctintegrator_P1_Size
-   * Referenced by: '<S11>/Dctintegrator'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S11>/Dctintegrator'
-   */
-  1.0,
-
-  /* Computed Parameter: Dctintegrator_P2_Size
-   * Referenced by: '<S11>/Dctintegrator'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S11>/Dctintegrator'
-   */
-  0.001,
-
-  /* Expression: 8
+  /* Expression: 25
    * Referenced by: '<S12>/Gain1'
    */
-  8.0,
-
-  /* Computed Parameter: Dctleadlag3_P1_Size_k
-   * Referenced by: '<S12>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S12>/Dctleadlag3'
-   */
-  3.0,
-
-  /* Computed Parameter: Dctleadlag3_P2_Size_k
-   * Referenced by: '<S12>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S12>/Dctleadlag3'
-   */
-  30.0,
-
-  /* Computed Parameter: Dctleadlag3_P3_Size_b
-   * Referenced by: '<S12>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S12>/Dctleadlag3'
-   */
-  0.001,
-
-  /* Computed Parameter: Dct1lowpass_P1_Size_hh
-   * Referenced by: '<S12>/Dct1lowpass'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S12>/Dct1lowpass'
-   */
-  100.0,
-
-  /* Computed Parameter: Dct1lowpass_P2_Size_g
-   * Referenced by: '<S12>/Dct1lowpass'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S12>/Dct1lowpass'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctintegrator_P1_Size_p
-   * Referenced by: '<S12>/Dctintegrator'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S12>/Dctintegrator'
-   */
-  1.0,
-
-  /* Computed Parameter: Dctintegrator_P2_Size_i
-   * Referenced by: '<S12>/Dctintegrator'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S12>/Dctintegrator'
-   */
-  0.001,
+  25.0,
 
   /* Computed Parameter: Discreteintegrator_gainval
    * Referenced by: '<S1>/Discrete  integrator'
@@ -328,7 +108,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.05,
 
-  /* Computed Parameter: Dctintegrator3_P1_Size_d
+  /* Computed Parameter: Dctintegrator3_P1_Size
    * Referenced by: '<S5>/Dctintegrator3'
    */
   { 1.0, 1.0 },
@@ -338,7 +118,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.05,
 
-  /* Computed Parameter: Dctintegrator3_P2_Size_c
+  /* Computed Parameter: Dctintegrator3_P2_Size
    * Referenced by: '<S5>/Dctintegrator3'
    */
   { 1.0, 1.0 },
@@ -348,7 +128,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.001,
 
-  /* Computed Parameter: Dct1lowpass_P1_Size_l
+  /* Computed Parameter: Dct1lowpass_P1_Size
    * Referenced by: '<S5>/Dct1lowpass'
    */
   { 1.0, 1.0 },
@@ -358,7 +138,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   40.0,
 
-  /* Computed Parameter: Dct1lowpass_P2_Size_o
+  /* Computed Parameter: Dct1lowpass_P2_Size
    * Referenced by: '<S5>/Dct1lowpass'
    */
   { 1.0, 1.0 },
@@ -398,6 +178,186 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.001,
 
+  /* Expression: 25
+   * Referenced by: '<S17>/Gain1'
+   */
+  25.0,
+
+  /* Computed Parameter: Dctleadlag2_P1_Size
+   * Referenced by: '<S17>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S17>/Dctleadlag2'
+   */
+  5.0,
+
+  /* Computed Parameter: Dctleadlag2_P2_Size
+   * Referenced by: '<S17>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S17>/Dctleadlag2'
+   */
+  50.0,
+
+  /* Computed Parameter: Dctleadlag2_P3_Size
+   * Referenced by: '<S17>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S17>/Dctleadlag2'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctintegrator3_P1_Size_h
+   * Referenced by: '<S17>/Dctintegrator3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S17>/Dctintegrator3'
+   */
+  2.0,
+
+  /* Computed Parameter: Dctintegrator3_P2_Size_f
+   * Referenced by: '<S17>/Dctintegrator3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S17>/Dctintegrator3'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctintegrator_P1_Size
+   * Referenced by: '<S12>/Dctintegrator'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S12>/Dctintegrator'
+   */
+  1.2,
+
+  /* Computed Parameter: Dctintegrator_P2_Size
+   * Referenced by: '<S12>/Dctintegrator'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S12>/Dctintegrator'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctleadlag2_P1_Size_l
+   * Referenced by: '<S12>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S12>/Dctleadlag2'
+   */
+  8.0,
+
+  /* Computed Parameter: Dctleadlag2_P2_Size_e
+   * Referenced by: '<S12>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S12>/Dctleadlag2'
+   */
+  50.0,
+
+  /* Computed Parameter: Dctleadlag2_P3_Size_p
+   * Referenced by: '<S12>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S12>/Dctleadlag2'
+   */
+  0.001,
+
+  /* Expression: 30
+   * Referenced by: '<S10>/Gain1'
+   */
+  30.0,
+
+  /* Computed Parameter: Dctleadlag2_P1_Size_d
+   * Referenced by: '<S10>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S10>/Dctleadlag2'
+   */
+  8.0,
+
+  /* Computed Parameter: Dctleadlag2_P2_Size_ec
+   * Referenced by: '<S10>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S10>/Dctleadlag2'
+   */
+  50.0,
+
+  /* Computed Parameter: Dctleadlag2_P3_Size_c
+   * Referenced by: '<S10>/Dctleadlag2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S10>/Dctleadlag2'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctintegrator_P1_Size_c
+   * Referenced by: '<S10>/Dctintegrator'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S10>/Dctintegrator'
+   */
+  1.5,
+
+  /* Computed Parameter: Dctintegrator_P2_Size_c
+   * Referenced by: '<S10>/Dctintegrator'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S10>/Dctintegrator'
+   */
+  0.001,
+
+  /* Computed Parameter: Dct1lowpass_P1_Size_g
+   * Referenced by: '<S17>/Dct1lowpass'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S17>/Dct1lowpass'
+   */
+  100.0,
+
+  /* Computed Parameter: Dct1lowpass_P2_Size_p
+   * Referenced by: '<S17>/Dct1lowpass'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S17>/Dct1lowpass'
+   */
+  0.001,
+
   /* Expression: 1
    * Referenced by: '<S9>/Gain1'
    */
@@ -433,7 +393,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.001,
 
-  /* Computed Parameter: Dctleadlag3_P1_Size_k5
+  /* Computed Parameter: Dctleadlag3_P1_Size
    * Referenced by: '<S9>/Dctleadlag3'
    */
   { 1.0, 1.0 },
@@ -443,7 +403,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   20.0,
 
-  /* Computed Parameter: Dctleadlag3_P2_Size_i
+  /* Computed Parameter: Dctleadlag3_P2_Size
    * Referenced by: '<S9>/Dctleadlag3'
    */
   { 1.0, 1.0 },
@@ -453,7 +413,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   -5.0,
 
-  /* Computed Parameter: Dctleadlag3_P3_Size_o
+  /* Computed Parameter: Dctleadlag3_P3_Size
    * Referenced by: '<S9>/Dctleadlag3'
    */
   { 1.0, 1.0 },
@@ -529,67 +489,67 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
   0.001,
 
   /* Expression: 1
-   * Referenced by: '<S10>/Gain1'
+   * Referenced by: '<S11>/Gain1'
    */
   1.0,
 
   /* Computed Parameter: Dctpd2_P1_Size_l
-   * Referenced by: '<S10>/Dctpd2'
+   * Referenced by: '<S11>/Dctpd2'
    */
   { 1.0, 1.0 },
 
   /* Expression: kp
-   * Referenced by: '<S10>/Dctpd2'
+   * Referenced by: '<S11>/Dctpd2'
    */
   100.0,
 
   /* Computed Parameter: Dctpd2_P2_Size_n
-   * Referenced by: '<S10>/Dctpd2'
+   * Referenced by: '<S11>/Dctpd2'
    */
   { 1.0, 1.0 },
 
   /* Expression: kv
-   * Referenced by: '<S10>/Dctpd2'
+   * Referenced by: '<S11>/Dctpd2'
    */
   0.08,
 
   /* Computed Parameter: Dctpd2_P3_Size_o
-   * Referenced by: '<S10>/Dctpd2'
+   * Referenced by: '<S11>/Dctpd2'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S10>/Dctpd2'
+   * Referenced by: '<S11>/Dctpd2'
    */
   0.001,
 
   /* Computed Parameter: Dctleadlag3_P1_Size_g
-   * Referenced by: '<S10>/Dctleadlag3'
+   * Referenced by: '<S11>/Dctleadlag3'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_num
-   * Referenced by: '<S10>/Dctleadlag3'
+   * Referenced by: '<S11>/Dctleadlag3'
    */
   20.0,
 
   /* Computed Parameter: Dctleadlag3_P2_Size_d
-   * Referenced by: '<S10>/Dctleadlag3'
+   * Referenced by: '<S11>/Dctleadlag3'
    */
   { 1.0, 1.0 },
 
   /* Expression: f_den
-   * Referenced by: '<S10>/Dctleadlag3'
+   * Referenced by: '<S11>/Dctleadlag3'
    */
   -2.5,
 
   /* Computed Parameter: Dctleadlag3_P3_Size_f
-   * Referenced by: '<S10>/Dctleadlag3'
+   * Referenced by: '<S11>/Dctleadlag3'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S10>/Dctleadlag3'
+   * Referenced by: '<S11>/Dctleadlag3'
    */
   0.001,
 
@@ -638,7 +598,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   3.1,
 
-  /* Computed Parameter: Dctintegrator3_P2_Size_c3
+  /* Computed Parameter: Dctintegrator3_P2_Size_c
    * Referenced by: '<S16>/Dctintegrator3'
    */
   { 1.0, 1.0 },
@@ -738,6 +698,16 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   0.0,
 
+  /* Expression: 100
+   * Referenced by: '<S1>/Saturation '
+   */
+  100.0,
+
+  /* Expression: -100
+   * Referenced by: '<S1>/Saturation '
+   */
+  -100.0,
+
   /* Expression: 0.2
    * Referenced by: '<S1>/Reference Vacuum [bar]'
    */
@@ -748,20 +718,10 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   -100.0,
 
-  /* Expression: 10
-   * Referenced by: '<S1>/Conveyor speed [mm//s]'
+  /* Expression: 1
+   * Referenced by: '<S1>/Switch'
    */
-  10.0,
-
-  /* Expression: 100
-   * Referenced by: '<S1>/Saturation '
-   */
-  100.0,
-
-  /* Expression: -100
-   * Referenced by: '<S1>/Saturation '
-   */
-  -100.0,
+  1.0,
 
   /* Expression: 50
    * Referenced by: '<S26>/Homing Running Switch2'
@@ -1038,7 +998,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   100.0,
 
-  /* Computed Parameter: Dct1lowpass_P2_Size_os
+  /* Computed Parameter: Dct1lowpass_P2_Size_o
    * Referenced by: '<S36>/Dct1lowpass'
    */
   { 1.0, 1.0 },
@@ -1248,7 +1208,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   200.0,
 
-  /* Computed Parameter: Dct1lowpass_P2_Size_gg
+  /* Computed Parameter: Dct1lowpass_P2_Size_g
    * Referenced by: '<S44>/Dct1lowpass'
    */
   { 1.0, 1.0 },
@@ -1288,7 +1248,7 @@ P_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_P = {
    */
   20.0,
 
-  /* Computed Parameter: Dctintegrator_P1_Size_pg
+  /* Computed Parameter: Dctintegrator_P1_Size_p
    * Referenced by: '<S52>/Dctintegrator'
    */
   { 1.0, 1.0 },

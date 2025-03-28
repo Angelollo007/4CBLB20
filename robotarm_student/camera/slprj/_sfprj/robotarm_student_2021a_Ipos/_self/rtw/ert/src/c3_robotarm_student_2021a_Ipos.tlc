@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   25 \
+    NumChartData   36 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -36,34 +36,66 @@
       IsTestPoint  1\
     }\
     ChartData {\
-      Name         "is_Object_Detection"\
+      Name         "is_Vacuum"\
       Description  "StateActiveChild"\
-      SFName       "is_Object_Detection"\
-      Path         "Object_Detection.is_Object_Detection"\
+      SFName       "is_Vacuum"\
+      Path         "Vacuum.is_Vacuum"\
       SrcLocation  ""\
       IsTestPoint  1\
     }\
     ChartData {\
-      Name         "is_active_Object_Detection"\
+      Name         "is_active_Vacuum"\
       Description  "StateIsActive"\
-      SFName       "is_active_Object_Detection"\
-      Path         "Object_Detection.is_active_Object_Detection"\
+      SFName       "is_active_Vacuum"\
+      Path         "Vacuum.is_active_Vacuum"\
       SrcLocation  ""\
       IsTestPoint  1\
     }\
     ChartData {\
-      Name         "is_Belt"\
+      Name         "is_Object_picked"\
       Description  "StateActiveChild"\
-      SFName       "is_Belt"\
-      Path         "Belt.is_Belt"\
+      SFName       "is_Object_picked"\
+      Path         "Object_picked.is_Object_picked"\
       SrcLocation  ""\
       IsTestPoint  1\
     }\
     ChartData {\
-      Name         "is_active_Belt"\
+      Name         "is_active_Object_picked"\
       Description  "StateIsActive"\
-      SFName       "is_active_Belt"\
-      Path         "Belt.is_active_Belt"\
+      SFName       "is_active_Object_picked"\
+      Path         "Object_picked.is_active_Object_picked"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_ActionDone"\
+      Description  "StateActiveChild"\
+      SFName       "is_ActionDone"\
+      Path         "ActionDone.is_ActionDone"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_ActionDone"\
+      Description  "StateIsActive"\
+      SFName       "is_active_ActionDone"\
+      Path         "ActionDone.is_active_ActionDone"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_Mask_identit"\
+      Description  "StateActiveChild"\
+      SFName       "is_Mask_identit"\
+      Path         "Mask_identit.is_Mask_identit"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_Mask_identit"\
+      Description  "StateIsActive"\
+      SFName       "is_active_Mask_identit"\
+      Path         "Mask_identit.is_active_Mask_identit"\
       SrcLocation  ""\
       IsTestPoint  1\
     }\
@@ -84,80 +116,20 @@
       IsTestPoint  1\
     }\
     ChartData {\
-      Name         "is_Vacuum"\
+      Name         "is_Object_tracking"\
       Description  "StateActiveChild"\
-      SFName       "is_Vacuum"\
-      Path         "Vacuum.is_Vacuum"\
+      SFName       "is_Object_tracking"\
+      Path         "Object_tracking.is_Object_tracking"\
       SrcLocation  ""\
       IsTestPoint  1\
     }\
     ChartData {\
-      Name         "is_active_Vacuum"\
+      Name         "is_active_Object_tracking"\
       Description  "StateIsActive"\
-      SFName       "is_active_Vacuum"\
-      Path         "Vacuum.is_active_Vacuum"\
+      SFName       "is_active_Object_tracking"\
+      Path         "Object_tracking.is_active_Object_tracking"\
       SrcLocation  ""\
       IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_inreach"\
-      Description  "StateActiveChild"\
-      SFName       "is_inreach"\
-      Path         "inreach.is_inreach"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_active_inreach"\
-      Description  "StateIsActive"\
-      SFName       "is_active_inreach"\
-      Path         "inreach.is_active_inreach"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_Invkin"\
-      Description  "StateActiveChild"\
-      SFName       "is_Invkin"\
-      Path         "Invkin.is_Invkin"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "is_active_Invkin"\
-      Description  "StateIsActive"\
-      SFName       "is_active_Invkin"\
-      Path         "Invkin.is_active_Invkin"\
-      SrcLocation  ""\
-      IsTestPoint  1\
-    }\
-    ChartData {\
-      Name         "treshold"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "treshold"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "x"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "x"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "y"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "y"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "z"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "z"\
-      SrcLocation  ""\
     }\
     ChartData {\
       Name         "X_pos"\
@@ -181,6 +153,97 @@
       SrcLocation  ""\
     }\
     ChartData {\
+      Name         "elapTime"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "elapTime"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "yTracked"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "yTracked"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "track"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "track"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "action"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "action"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y1m1"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y1m1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y1m2"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y1m2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y2m1"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y2m1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y2m2"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y2m2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y3m1"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y3m1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Y3m2"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Y3m2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Ymax"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Ymax"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temp"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "temp"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Ytemp"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Ytemp"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
       Name         "temporalCounter_i1"\
       Description  "TemporalCounter"\
       SFName       ""\
@@ -189,6 +252,20 @@
     }\
     ChartData {\
       Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i3"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i4"\
       Description  "TemporalCounter"\
       SFName       ""\
       Path         ""\

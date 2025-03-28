@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.161
+ * Model version              : 2.185
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Fri Mar 21 15:55:08 2025
+ * C source code generated on : Fri Mar 28 10:13:42 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -270,58 +270,61 @@ typedef struct {
   real_T Selector_g;                   /* '<S1>/Selector' */
   real_T SFunctionBuilder;             /* '<S4>/S-Function Builder' */
   real_T Selector1;                    /* '<S1>/Selector1' */
-  real_T Object;                       /* '<S1>/Object' */
-  real_T SignalConversion;             /* '<S1>/Signal Conversion' */
-  real_T SignalConversion2;            /* '<S1>/Signal Conversion2' */
-  real_T Gain1_c;                      /* '<S17>/Gain1' */
-  real_T Dctleadlag2;                  /* '<S17>/Dctleadlag2' */
-  real_T Dctintegrator3_c;             /* '<S17>/Dctintegrator3' */
-  real_T Dct1lowpass_b;                /* '<S17>/Dct1lowpass' */
+  real_T Constant;                     /* '<S1>/Constant' */
+  real_T Conveyorspeedmms;             /* '<S1>/Conveyor speed [mm//s]' */
+  real_T Selector4;                    /* '<S1>/Selector4' */
+  real_T Selector7;                    /* '<S1>/Selector7' */
   real_T SignalConversion1;            /* '<S1>/Signal Conversion1' */
-  real_T Gain1_m;                      /* '<S11>/Gain1' */
-  real_T Dctleadlag3;                  /* '<S11>/Dctleadlag3' */
-  real_T Dct1lowpass_a5;               /* '<S11>/Dct1lowpass' */
-  real_T Dctintegrator_j;              /* '<S11>/Dctintegrator' */
-  real_T Sum5;                         /* '<S1>/Sum5' */
-  real_T Gain1_l;                      /* '<S12>/Gain1' */
-  real_T Dctleadlag3_i;                /* '<S12>/Dctleadlag3' */
-  real_T Dct1lowpass_h;                /* '<S12>/Dct1lowpass' */
-  real_T Dctintegrator_h;              /* '<S12>/Dctintegrator' */
-  real_T Sum6;                         /* '<S1>/Sum6' */
+  real_T Sum1;                         /* '<S1>/Sum1' */
+  real_T Gain1_b;                      /* '<S12>/Gain1' */
   real_T Gain1_g;                      /* '<S5>/Gain1' */
   real_T Dctintegrator3_n;             /* '<S5>/Dctintegrator3' */
   real_T Dct1lowpass_ab;               /* '<S5>/Dct1lowpass' */
   real_T Dctleadlag_d;                 /* '<S5>/Dctleadlag' */
-  real_T Gain1_lo;                     /* '<S9>/Gain1' */
+  real_T SignalConversion2;            /* '<S1>/Signal Conversion2' */
+  real_T Gain1_c;                      /* '<S17>/Gain1' */
+  real_T Dctleadlag2;                  /* '<S17>/Dctleadlag2' */
+  real_T Dctintegrator3_c;             /* '<S17>/Dctintegrator3' */
+  real_T Dctintegrator_f;              /* '<S12>/Dctintegrator' */
+  real_T Dctleadlag2_g;                /* '<S12>/Dctleadlag2' */
+  real_T Sum5;                         /* '<S1>/Sum5' */
+  real_T SignalConversion;             /* '<S1>/Signal Conversion' */
+  real_T Gain1_cy;                     /* '<S10>/Gain1' */
+  real_T Dctleadlag2_p;                /* '<S10>/Dctleadlag2' */
+  real_T Dctintegrator_l;              /* '<S10>/Dctintegrator' */
+  real_T Sum6;                         /* '<S1>/Sum6' */
+  real_T Dct1lowpass_b;                /* '<S17>/Dct1lowpass' */
+  real_T Gain1_l;                      /* '<S9>/Gain1' */
   real_T Dctpd2;                       /* '<S9>/Dctpd2' */
-  real_T Dctleadlag3_o;                /* '<S9>/Dctleadlag3' */
+  real_T Dctleadlag3;                  /* '<S9>/Dctleadlag3' */
   real_T Gain1_pg;                     /* '<S8>/Gain1' */
   real_T Dctpd2_a;                     /* '<S8>/Dctpd2' */
-  real_T Dctleadlag3_id;               /* '<S8>/Dctleadlag3' */
-  real_T Gain1_oc;                     /* '<S10>/Gain1' */
-  real_T Dctpd2_j;                     /* '<S10>/Dctpd2' */
-  real_T Dctleadlag3_f;                /* '<S10>/Dctleadlag3' */
+  real_T Dctleadlag3_i;                /* '<S8>/Dctleadlag3' */
+  real_T Gain1_oc;                     /* '<S11>/Gain1' */
+  real_T Dctpd2_j;                     /* '<S11>/Dctpd2' */
+  real_T Dctleadlag3_f;                /* '<S11>/Dctleadlag3' */
   real_T Gain1_oz;                     /* '<S16>/Gain1' */
   real_T Dctleadlag2_l;                /* '<S16>/Dctleadlag2' */
   real_T Dctintegrator3_l;             /* '<S16>/Dctintegrator3' */
   real_T Dctnotch4;                    /* '<S16>/Dctnotch4' */
   real_T Dctpd5;                       /* '<S16>/Dctpd5' */
   real_T Sum4;                         /* '<S1>/Sum4' */
+  real_T Sum11;                        /* '<S1>/Sum11' */
   real_T Plot;                         /* '<S1>/Plot' */
   real_T Stop;                         /* '<S1>/Stop' */
   real_T Sum;                          /* '<S4>/Sum' */
-  real_T Selector2_i;                  /* '<S1>/Selector2' */
+  real_T Selector2_l;                  /* '<S1>/Selector2' */
   real_T Selector3;                    /* '<S1>/Selector3' */
-  real_T Selector4;                    /* '<S1>/Selector4' */
   real_T Selector5;                    /* '<S1>/Selector5' */
   real_T Selector6;                    /* '<S1>/Selector6' */
-  real_T Selector7;                    /* '<S1>/Selector7' */
   real_T Selector8;                    /* '<S1>/Selector8' */
   real_T Gain1_o1;                     /* '<S6>/Gain1' */
-  real_T R_rad;                        /* '<S1>/Stateflow 1' */
-  real_T X_rad;                        /* '<S1>/Stateflow 1' */
-  real_T Z_rad;                        /* '<S1>/Stateflow 1' */
-  real_T Blow_suck;                    /* '<S1>/Stateflow 1' */
+  real_T Switch;                       /* '<S1>/Switch' */
+  real_T R_rad;                        /* '<S1>/Stateflow 2' */
+  real_T X_rad;                        /* '<S1>/Stateflow 2' */
+  real_T Z_rad;                        /* '<S1>/Stateflow 2' */
+  real_T Blow_suck;                    /* '<S1>/Stateflow 2' */
+  real_T maskNo;                       /* '<S1>/Stateflow 2' */
   real_T In1;                          /* '<S19>/In1' */
   real_T d12;
   real_T fx1_tmp;
@@ -385,21 +388,22 @@ typedef struct {
   real_T currentcarPos;                /* '<S29>/Supervisor' */
   real_T currentcarPos_d;              /* '<S28>/Supervisor2' */
   real_T currentcarPos_l;              /* '<S27>/Supervisor' */
-  real_T treshold;                     /* '<S1>/Stateflow 1' */
-  real_T x;                            /* '<S1>/Stateflow 1' */
-  real_T y;                            /* '<S1>/Stateflow 1' */
-  real_T z;                            /* '<S1>/Stateflow 1' */
-  real_T X_pos;                        /* '<S1>/Stateflow 1' */
-  real_T Y_pos;                        /* '<S1>/Stateflow 1' */
-  real_T Z_pos;                        /* '<S1>/Stateflow 1' */
-  real_T elapTime;                     /* '<S1>/Stateflow 1' */
-  real_T yTracked;                     /* '<S1>/Stateflow 1' */
-  real_T track;                        /* '<S1>/Stateflow 1' */
-  real_T ObjectType;                   /* '<S1>/Stateflow 1' */
-  real_T reachability;                 /* '<S1>/Stateflow 1' */
-  real_T action;                       /* '<S1>/Stateflow 1' */
-  real_T EndTime;                      /* '<S1>/Stateflow 1' */
-  real_T velocity;                     /* '<S1>/Stateflow 1' */
+  real_T X_pos;                        /* '<S1>/Stateflow 2' */
+  real_T Y_pos;                        /* '<S1>/Stateflow 2' */
+  real_T Z_pos;                        /* '<S1>/Stateflow 2' */
+  real_T elapTime;                     /* '<S1>/Stateflow 2' */
+  real_T yTracked;                     /* '<S1>/Stateflow 2' */
+  real_T track;                        /* '<S1>/Stateflow 2' */
+  real_T action;                       /* '<S1>/Stateflow 2' */
+  real_T Y1m1;                         /* '<S1>/Stateflow 2' */
+  real_T Y1m2;                         /* '<S1>/Stateflow 2' */
+  real_T Y2m1;                         /* '<S1>/Stateflow 2' */
+  real_T Y2m2;                         /* '<S1>/Stateflow 2' */
+  real_T Y3m1;                         /* '<S1>/Stateflow 2' */
+  real_T Y3m2;                         /* '<S1>/Stateflow 2' */
+  real_T Ymax;                         /* '<S1>/Stateflow 2' */
+  real_T temp;                         /* '<S1>/Stateflow 2' */
+  real_T Ytemp;                        /* '<S1>/Stateflow 2' */
   real_T Dctintegrator_RWORK[2];       /* '<S36>/Dctintegrator' */
   real_T Dctleadlag_RWORK[2];          /* '<S36>/Dctleadlag' */
   real_T Dct1lowpass_RWORK[2];         /* '<S36>/Dct1lowpass' */
@@ -418,24 +422,22 @@ typedef struct {
   real_T Dctintegrator3_RWORK[2];      /* '<S62>/Dctintegrator3' */
   real_T Dct1lowpass_RWORK_ay[2];      /* '<S62>/Dct1lowpass' */
   real_T Dctleadlag_RWORK_o[2];        /* '<S62>/Dctleadlag' */
-  real_T Dctleadlag2_RWORK[2];         /* '<S17>/Dctleadlag2' */
-  real_T Dctintegrator3_RWORK_e[2];    /* '<S17>/Dctintegrator3' */
-  real_T Dct1lowpass_RWORK_m[2];       /* '<S17>/Dct1lowpass' */
-  real_T Dctleadlag3_RWORK[2];         /* '<S11>/Dctleadlag3' */
-  real_T Dct1lowpass_RWORK_gi[2];      /* '<S11>/Dct1lowpass' */
-  real_T Dctintegrator_RWORK_h[2];     /* '<S11>/Dctintegrator' */
-  real_T Dctleadlag3_RWORK_l[2];       /* '<S12>/Dctleadlag3' */
-  real_T Dct1lowpass_RWORK_l[2];       /* '<S12>/Dct1lowpass' */
-  real_T Dctintegrator_RWORK_l[2];     /* '<S12>/Dctintegrator' */
   real_T Dctintegrator3_RWORK_g[2];    /* '<S5>/Dctintegrator3' */
   real_T Dct1lowpass_RWORK_c[2];       /* '<S5>/Dct1lowpass' */
   real_T Dctleadlag_RWORK_gp[2];       /* '<S5>/Dctleadlag' */
+  real_T Dctleadlag2_RWORK[2];         /* '<S17>/Dctleadlag2' */
+  real_T Dctintegrator3_RWORK_e[2];    /* '<S17>/Dctintegrator3' */
+  real_T Dctintegrator_RWORK_ir[2];    /* '<S12>/Dctintegrator' */
+  real_T Dctleadlag2_RWORK_d[2];       /* '<S12>/Dctleadlag2' */
+  real_T Dctleadlag2_RWORK_h[2];       /* '<S10>/Dctleadlag2' */
+  real_T Dctintegrator_RWORK_b[2];     /* '<S10>/Dctintegrator' */
+  real_T Dct1lowpass_RWORK_m[2];       /* '<S17>/Dct1lowpass' */
   real_T Dctpd2_RWORK[2];              /* '<S9>/Dctpd2' */
-  real_T Dctleadlag3_RWORK_f[2];       /* '<S9>/Dctleadlag3' */
+  real_T Dctleadlag3_RWORK[2];         /* '<S9>/Dctleadlag3' */
   real_T Dctpd2_RWORK_d[2];            /* '<S8>/Dctpd2' */
   real_T Dctleadlag3_RWORK_c[2];       /* '<S8>/Dctleadlag3' */
-  real_T Dctpd2_RWORK_j[2];            /* '<S10>/Dctpd2' */
-  real_T Dctleadlag3_RWORK_cb[2];      /* '<S10>/Dctleadlag3' */
+  real_T Dctpd2_RWORK_j[2];            /* '<S11>/Dctpd2' */
+  real_T Dctleadlag3_RWORK_cb[2];      /* '<S11>/Dctleadlag3' */
   real_T Dctleadlag2_RWORK_j[2];       /* '<S16>/Dctleadlag2' */
   real_T Dctintegrator3_RWORK_gh[2];   /* '<S16>/Dctintegrator3' */
   real_T Dctnotch4_RWORK[4];           /* '<S16>/Dctnotch4' */
@@ -454,6 +456,10 @@ typedef struct {
 
   struct {
     void *LoggedData[2];
+  } Scope1_PWORK;                      /* '<S1>/Scope1' */
+
+  struct {
+    void *LoggedData[2];
   } Scope_PWORK_b;                     /* '<S1>/Scope' */
 
   struct {
@@ -461,35 +467,32 @@ typedef struct {
   } Scope2_PWORK;                      /* '<S1>/Scope2' */
 
   struct {
-    void *LoggedData[2];
-  } Scope1_PWORK;                      /* '<S1>/Scope1' */
+    void *LoggedData;
+  } Scope3_PWORK;                      /* '<S1>/Scope3' */
 
   int32_T sfEvent;                     /* '<S30>/Supervisor' */
   int32_T sfEvent_n;                   /* '<S29>/Supervisor' */
   int32_T sfEvent_h;                   /* '<S28>/Supervisor2' */
   int32_T sfEvent_k;                   /* '<S27>/Supervisor' */
-  int32_T sfEvent_e;                   /* '<S1>/Stateflow 1' */
+  int32_T sfEvent_g;                   /* '<S1>/Stateflow 2' */
   uint32_T is_c1_robotarm_student_2021a_Ip;/* '<S30>/Supervisor' */
   uint32_T is_c18_robotarm_student_2021a_I;/* '<S29>/Supervisor' */
   uint32_T is_c16_robotarm_student_2021a_I;/* '<S28>/Supervisor2' */
   uint32_T is_c12_robotarm_student_2021a_I;/* '<S27>/Supervisor' */
-  uint32_T is_Object_Detection;        /* '<S1>/Stateflow 1' */
-  uint32_T is_Belt;                    /* '<S1>/Stateflow 1' */
-  uint32_T is_Identification;          /* '<S1>/Stateflow 1' */
-  uint32_T is_Vacuum;                  /* '<S1>/Stateflow 1' */
-  uint32_T is_Object_picked;           /* '<S1>/Stateflow 1' */
-  uint32_T is_ActionDone;              /* '<S1>/Stateflow 1' */
-  uint32_T is_Robot_Arm;               /* '<S1>/Stateflow 1' */
-  uint32_T is_Object_tracking;         /* '<S1>/Stateflow 1' */
-  uint32_T temporalCounter_i2;         /* '<S1>/Stateflow 1' */
-  uint16_T temporalCounter_i1;         /* '<S30>/Supervisor' */
+  uint32_T is_Vacuum;                  /* '<S1>/Stateflow 2' */
+  uint32_T is_Object_picked;           /* '<S1>/Stateflow 2' */
+  uint32_T is_ActionDone;              /* '<S1>/Stateflow 2' */
+  uint32_T is_Mask_identit;            /* '<S1>/Stateflow 2' */
+  uint32_T is_Robot_Arm;               /* '<S1>/Stateflow 2' */
+  uint32_T is_Object_tracking;         /* '<S1>/Stateflow 2' */
+  uint32_T temporalCounter_i1;         /* '<S1>/Stateflow 2' */
+  uint16_T temporalCounter_i1_i;       /* '<S30>/Supervisor' */
   uint16_T temporalCounter_i1_m;       /* '<S29>/Supervisor' */
   uint16_T temporalCounter_i1_me;      /* '<S28>/Supervisor2' */
   uint16_T temporalCounter_i1_c;       /* '<S27>/Supervisor' */
-  uint16_T temporalCounter_i1_m0;      /* '<S1>/Stateflow 1' */
-  uint16_T temporalCounter_i3;         /* '<S1>/Stateflow 1' */
-  uint16_T temporalCounter_i4;         /* '<S1>/Stateflow 1' */
-  uint16_T temporalCounter_i5;         /* '<S1>/Stateflow 1' */
+  uint16_T temporalCounter_i2;         /* '<S1>/Stateflow 2' */
+  uint16_T temporalCounter_i3;         /* '<S1>/Stateflow 2' */
+  uint16_T temporalCounter_i4;         /* '<S1>/Stateflow 2' */
   int8_T Subsystem3_SubsysRanBC;       /* '<S31>/Subsystem3' */
   int8_T IfActionSubsystem1_SubsysRanBC;/* '<S33>/If Action Subsystem1' */
   int8_T IfActionSubsystem_SubsysRanBC;/* '<S33>/If Action Subsystem' */
@@ -499,17 +502,15 @@ typedef struct {
   uint8_T is_active_c18_robotarm_student_;/* '<S29>/Supervisor' */
   uint8_T is_active_c16_robotarm_student_;/* '<S28>/Supervisor2' */
   uint8_T is_active_c12_robotarm_student_;/* '<S27>/Supervisor' */
-  uint8_T is_active_c4_robotarm_student_2;/* '<S1>/Stateflow 1' */
-  uint8_T is_active_Object_Detection;  /* '<S1>/Stateflow 1' */
-  uint8_T is_active_Belt;              /* '<S1>/Stateflow 1' */
-  uint8_T is_active_Identification;    /* '<S1>/Stateflow 1' */
-  uint8_T is_active_Vacuum;            /* '<S1>/Stateflow 1' */
-  uint8_T is_active_Object_picked;     /* '<S1>/Stateflow 1' */
-  uint8_T is_active_ActionDone;        /* '<S1>/Stateflow 1' */
-  uint8_T is_active_Robot_Arm;         /* '<S1>/Stateflow 1' */
-  uint8_T is_active_Object_tracking;   /* '<S1>/Stateflow 1' */
-  boolean_T doneDoubleBufferReInit;    /* '<S1>/Stateflow 1' */
-  boolean_T isNotInit;                 /* '<S1>/Stateflow 1' */
+  uint8_T is_active_c3_robotarm_student_2;/* '<S1>/Stateflow 2' */
+  uint8_T is_active_Vacuum;            /* '<S1>/Stateflow 2' */
+  uint8_T is_active_Object_picked;     /* '<S1>/Stateflow 2' */
+  uint8_T is_active_ActionDone;        /* '<S1>/Stateflow 2' */
+  uint8_T is_active_Mask_identit;      /* '<S1>/Stateflow 2' */
+  uint8_T is_active_Robot_Arm;         /* '<S1>/Stateflow 2' */
+  uint8_T is_active_Object_tracking;   /* '<S1>/Stateflow 2' */
+  boolean_T doneDoubleBufferReInit;    /* '<S1>/Stateflow 2' */
+  boolean_T isNotInit;                 /* '<S1>/Stateflow 2' */
   boolean_T Controller_MODE;           /* '<Root>/Controller' */
   DW_SerialWrite1_robotarm_stud_T SerialWrite;/* '<S34>/Serial Write1' */
   DW_SerialWrite1_robotarm_stud_T SerialWrite1;/* '<S34>/Serial Write1' */
@@ -554,16 +555,71 @@ struct P_robotarm_student_2021a_Ipos_T_ {
                                         * Referenced by: '<S1>/Vacuum [V] '
                                         */
   real_T Objectdetectionmatrix_Value[12];
-  /* Expression: [0                    0                    0      1737808486.1783;0  0  0  0;0  0  0  0]
+  /* Expression: [0                    0                    0      1641839818.3053;0  0  0  0;0  0  0  0]
    * Referenced by: '<S4>/Object detection matrix'
    */
-  real_T Object_Value;                 /* Expression: 1
-                                        * Referenced by: '<S1>/Object'
-                                        */
-  real_T Constant_Value;               /* Expression: 2
+  real_T Constant_Value;               /* Expression: 1
                                         * Referenced by: '<S1>/Constant'
                                         */
-  real_T Gain1_Gain;                   /* Expression: 1.5
+  real_T Conveyorspeedmms_Value;       /* Expression: 10
+                                        * Referenced by: '<S1>/Conveyor speed [mm//s]'
+                                        */
+  real_T Gain1_Gain;                   /* Expression: 25
+                                        * Referenced by: '<S12>/Gain1'
+                                        */
+  real_T Discreteintegrator_gainval;
+                               /* Computed Parameter: Discreteintegrator_gainval
+                                * Referenced by: '<S1>/Discrete  integrator'
+                                */
+  real_T Discreteintegrator_IC;        /* Expression: 0
+                                        * Referenced by: '<S1>/Discrete  integrator'
+                                        */
+  real_T Gain1_Gain_g;                 /* Expression: 0.05
+                                        * Referenced by: '<S5>/Gain1'
+                                        */
+  real_T Dctintegrator3_P1_Size[2];/* Computed Parameter: Dctintegrator3_P1_Size
+                                    * Referenced by: '<S5>/Dctintegrator3'
+                                    */
+  real_T Dctintegrator3_P1;            /* Expression: f_num
+                                        * Referenced by: '<S5>/Dctintegrator3'
+                                        */
+  real_T Dctintegrator3_P2_Size[2];/* Computed Parameter: Dctintegrator3_P2_Size
+                                    * Referenced by: '<S5>/Dctintegrator3'
+                                    */
+  real_T Dctintegrator3_P2;            /* Expression: 0.001
+                                        * Referenced by: '<S5>/Dctintegrator3'
+                                        */
+  real_T Dct1lowpass_P1_Size[2];      /* Computed Parameter: Dct1lowpass_P1_Size
+                                       * Referenced by: '<S5>/Dct1lowpass'
+                                       */
+  real_T Dct1lowpass_P1;               /* Expression: f_den
+                                        * Referenced by: '<S5>/Dct1lowpass'
+                                        */
+  real_T Dct1lowpass_P2_Size[2];      /* Computed Parameter: Dct1lowpass_P2_Size
+                                       * Referenced by: '<S5>/Dct1lowpass'
+                                       */
+  real_T Dct1lowpass_P2;               /* Expression: 0.001
+                                        * Referenced by: '<S5>/Dct1lowpass'
+                                        */
+  real_T Dctleadlag_P1_Size[2];        /* Computed Parameter: Dctleadlag_P1_Size
+                                        * Referenced by: '<S5>/Dctleadlag'
+                                        */
+  real_T Dctleadlag_P1;                /* Expression: f_num
+                                        * Referenced by: '<S5>/Dctleadlag'
+                                        */
+  real_T Dctleadlag_P2_Size[2];        /* Computed Parameter: Dctleadlag_P2_Size
+                                        * Referenced by: '<S5>/Dctleadlag'
+                                        */
+  real_T Dctleadlag_P2;                /* Expression: f_den
+                                        * Referenced by: '<S5>/Dctleadlag'
+                                        */
+  real_T Dctleadlag_P3_Size[2];        /* Computed Parameter: Dctleadlag_P3_Size
+                                        * Referenced by: '<S5>/Dctleadlag'
+                                        */
+  real_T Dctleadlag_P3;                /* Expression: 0.001
+                                        * Referenced by: '<S5>/Dctleadlag'
+                                        */
+  real_T Gain1_Gain_g2;                /* Expression: 25
                                         * Referenced by: '<S17>/Gain1'
                                         */
   real_T Dctleadlag2_P1_Size[2];      /* Computed Parameter: Dctleadlag2_P1_Size
@@ -584,175 +640,96 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Dctleadlag2_P3;               /* Expression: 0.001
                                         * Referenced by: '<S17>/Dctleadlag2'
                                         */
-  real_T Dctintegrator3_P1_Size[2];/* Computed Parameter: Dctintegrator3_P1_Size
-                                    * Referenced by: '<S17>/Dctintegrator3'
-                                    */
-  real_T Dctintegrator3_P1;            /* Expression: f_num
+  real_T Dctintegrator3_P1_Size_h[2];
+                                 /* Computed Parameter: Dctintegrator3_P1_Size_h
+                                  * Referenced by: '<S17>/Dctintegrator3'
+                                  */
+  real_T Dctintegrator3_P1_h;          /* Expression: f_num
                                         * Referenced by: '<S17>/Dctintegrator3'
                                         */
-  real_T Dctintegrator3_P2_Size[2];/* Computed Parameter: Dctintegrator3_P2_Size
-                                    * Referenced by: '<S17>/Dctintegrator3'
-                                    */
-  real_T Dctintegrator3_P2;            /* Expression: 0.001
+  real_T Dctintegrator3_P2_Size_f[2];
+                                 /* Computed Parameter: Dctintegrator3_P2_Size_f
+                                  * Referenced by: '<S17>/Dctintegrator3'
+                                  */
+  real_T Dctintegrator3_P2_e;          /* Expression: 0.001
                                         * Referenced by: '<S17>/Dctintegrator3'
-                                        */
-  real_T Dct1lowpass_P1_Size[2];      /* Computed Parameter: Dct1lowpass_P1_Size
-                                       * Referenced by: '<S17>/Dct1lowpass'
-                                       */
-  real_T Dct1lowpass_P1;               /* Expression: f_den
-                                        * Referenced by: '<S17>/Dct1lowpass'
-                                        */
-  real_T Dct1lowpass_P2_Size[2];      /* Computed Parameter: Dct1lowpass_P2_Size
-                                       * Referenced by: '<S17>/Dct1lowpass'
-                                       */
-  real_T Dct1lowpass_P2;               /* Expression: 0.001
-                                        * Referenced by: '<S17>/Dct1lowpass'
-                                        */
-  real_T Gain1_Gain_h;                 /* Expression: 8
-                                        * Referenced by: '<S11>/Gain1'
-                                        */
-  real_T Dctleadlag3_P1_Size[2];      /* Computed Parameter: Dctleadlag3_P1_Size
-                                       * Referenced by: '<S11>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P1;               /* Expression: f_num
-                                        * Referenced by: '<S11>/Dctleadlag3'
-                                        */
-  real_T Dctleadlag3_P2_Size[2];      /* Computed Parameter: Dctleadlag3_P2_Size
-                                       * Referenced by: '<S11>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P2;               /* Expression: f_den
-                                        * Referenced by: '<S11>/Dctleadlag3'
-                                        */
-  real_T Dctleadlag3_P3_Size[2];      /* Computed Parameter: Dctleadlag3_P3_Size
-                                       * Referenced by: '<S11>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P3;               /* Expression: 0.001
-                                        * Referenced by: '<S11>/Dctleadlag3'
-                                        */
-  real_T Dct1lowpass_P1_Size_h[2];  /* Computed Parameter: Dct1lowpass_P1_Size_h
-                                     * Referenced by: '<S11>/Dct1lowpass'
-                                     */
-  real_T Dct1lowpass_P1_a;             /* Expression: f_den
-                                        * Referenced by: '<S11>/Dct1lowpass'
-                                        */
-  real_T Dct1lowpass_P2_Size_i[2];  /* Computed Parameter: Dct1lowpass_P2_Size_i
-                                     * Referenced by: '<S11>/Dct1lowpass'
-                                     */
-  real_T Dct1lowpass_P2_d;             /* Expression: 0.001
-                                        * Referenced by: '<S11>/Dct1lowpass'
                                         */
   real_T Dctintegrator_P1_Size[2];  /* Computed Parameter: Dctintegrator_P1_Size
-                                     * Referenced by: '<S11>/Dctintegrator'
+                                     * Referenced by: '<S12>/Dctintegrator'
                                      */
   real_T Dctintegrator_P1;             /* Expression: f_num
-                                        * Referenced by: '<S11>/Dctintegrator'
+                                        * Referenced by: '<S12>/Dctintegrator'
                                         */
   real_T Dctintegrator_P2_Size[2];  /* Computed Parameter: Dctintegrator_P2_Size
-                                     * Referenced by: '<S11>/Dctintegrator'
+                                     * Referenced by: '<S12>/Dctintegrator'
                                      */
   real_T Dctintegrator_P2;             /* Expression: 0.001
-                                        * Referenced by: '<S11>/Dctintegrator'
+                                        * Referenced by: '<S12>/Dctintegrator'
                                         */
-  real_T Gain1_Gain_c;                 /* Expression: 8
-                                        * Referenced by: '<S12>/Gain1'
-                                        */
-  real_T Dctleadlag3_P1_Size_k[2];  /* Computed Parameter: Dctleadlag3_P1_Size_k
-                                     * Referenced by: '<S12>/Dctleadlag3'
+  real_T Dctleadlag2_P1_Size_l[2];  /* Computed Parameter: Dctleadlag2_P1_Size_l
+                                     * Referenced by: '<S12>/Dctleadlag2'
                                      */
-  real_T Dctleadlag3_P1_g;             /* Expression: f_num
-                                        * Referenced by: '<S12>/Dctleadlag3'
+  real_T Dctleadlag2_P1_p;             /* Expression: f_num
+                                        * Referenced by: '<S12>/Dctleadlag2'
                                         */
-  real_T Dctleadlag3_P2_Size_k[2];  /* Computed Parameter: Dctleadlag3_P2_Size_k
-                                     * Referenced by: '<S12>/Dctleadlag3'
+  real_T Dctleadlag2_P2_Size_e[2];  /* Computed Parameter: Dctleadlag2_P2_Size_e
+                                     * Referenced by: '<S12>/Dctleadlag2'
                                      */
-  real_T Dctleadlag3_P2_c;             /* Expression: f_den
-                                        * Referenced by: '<S12>/Dctleadlag3'
+  real_T Dctleadlag2_P2_d;             /* Expression: f_den
+                                        * Referenced by: '<S12>/Dctleadlag2'
                                         */
-  real_T Dctleadlag3_P3_Size_b[2];  /* Computed Parameter: Dctleadlag3_P3_Size_b
-                                     * Referenced by: '<S12>/Dctleadlag3'
+  real_T Dctleadlag2_P3_Size_p[2];  /* Computed Parameter: Dctleadlag2_P3_Size_p
+                                     * Referenced by: '<S12>/Dctleadlag2'
                                      */
-  real_T Dctleadlag3_P3_c;             /* Expression: 0.001
-                                        * Referenced by: '<S12>/Dctleadlag3'
+  real_T Dctleadlag2_P3_l;             /* Expression: 0.001
+                                        * Referenced by: '<S12>/Dctleadlag2'
                                         */
-  real_T Dct1lowpass_P1_Size_hh[2];/* Computed Parameter: Dct1lowpass_P1_Size_hh
-                                    * Referenced by: '<S12>/Dct1lowpass'
+  real_T Gain1_Gain_h;                 /* Expression: 30
+                                        * Referenced by: '<S10>/Gain1'
+                                        */
+  real_T Dctleadlag2_P1_Size_d[2];  /* Computed Parameter: Dctleadlag2_P1_Size_d
+                                     * Referenced by: '<S10>/Dctleadlag2'
+                                     */
+  real_T Dctleadlag2_P1_m;             /* Expression: f_num
+                                        * Referenced by: '<S10>/Dctleadlag2'
+                                        */
+  real_T Dctleadlag2_P2_Size_ec[2];/* Computed Parameter: Dctleadlag2_P2_Size_ec
+                                    * Referenced by: '<S10>/Dctleadlag2'
                                     */
-  real_T Dct1lowpass_P1_c;             /* Expression: f_den
-                                        * Referenced by: '<S12>/Dct1lowpass'
+  real_T Dctleadlag2_P2_a;             /* Expression: f_den
+                                        * Referenced by: '<S10>/Dctleadlag2'
                                         */
-  real_T Dct1lowpass_P2_Size_g[2];  /* Computed Parameter: Dct1lowpass_P2_Size_g
-                                     * Referenced by: '<S12>/Dct1lowpass'
+  real_T Dctleadlag2_P3_Size_c[2];  /* Computed Parameter: Dctleadlag2_P3_Size_c
+                                     * Referenced by: '<S10>/Dctleadlag2'
                                      */
-  real_T Dct1lowpass_P2_o;             /* Expression: 0.001
-                                        * Referenced by: '<S12>/Dct1lowpass'
+  real_T Dctleadlag2_P3_k;             /* Expression: 0.001
+                                        * Referenced by: '<S10>/Dctleadlag2'
                                         */
-  real_T Dctintegrator_P1_Size_p[2];
-                                  /* Computed Parameter: Dctintegrator_P1_Size_p
-                                   * Referenced by: '<S12>/Dctintegrator'
+  real_T Dctintegrator_P1_Size_c[2];
+                                  /* Computed Parameter: Dctintegrator_P1_Size_c
+                                   * Referenced by: '<S10>/Dctintegrator'
                                    */
   real_T Dctintegrator_P1_i;           /* Expression: f_num
-                                        * Referenced by: '<S12>/Dctintegrator'
+                                        * Referenced by: '<S10>/Dctintegrator'
                                         */
-  real_T Dctintegrator_P2_Size_i[2];
-                                  /* Computed Parameter: Dctintegrator_P2_Size_i
-                                   * Referenced by: '<S12>/Dctintegrator'
+  real_T Dctintegrator_P2_Size_c[2];
+                                  /* Computed Parameter: Dctintegrator_P2_Size_c
+                                   * Referenced by: '<S10>/Dctintegrator'
                                    */
-  real_T Dctintegrator_P2_n;           /* Expression: 0.001
-                                        * Referenced by: '<S12>/Dctintegrator'
+  real_T Dctintegrator_P2_m;           /* Expression: 0.001
+                                        * Referenced by: '<S10>/Dctintegrator'
                                         */
-  real_T Discreteintegrator_gainval;
-                               /* Computed Parameter: Discreteintegrator_gainval
-                                * Referenced by: '<S1>/Discrete  integrator'
-                                */
-  real_T Discreteintegrator_IC;        /* Expression: 0
-                                        * Referenced by: '<S1>/Discrete  integrator'
-                                        */
-  real_T Gain1_Gain_g;                 /* Expression: 0.05
-                                        * Referenced by: '<S5>/Gain1'
-                                        */
-  real_T Dctintegrator3_P1_Size_d[2];
-                                 /* Computed Parameter: Dctintegrator3_P1_Size_d
-                                  * Referenced by: '<S5>/Dctintegrator3'
-                                  */
-  real_T Dctintegrator3_P1_k;          /* Expression: f_num
-                                        * Referenced by: '<S5>/Dctintegrator3'
-                                        */
-  real_T Dctintegrator3_P2_Size_c[2];
-                                 /* Computed Parameter: Dctintegrator3_P2_Size_c
-                                  * Referenced by: '<S5>/Dctintegrator3'
-                                  */
-  real_T Dctintegrator3_P2_g;          /* Expression: 0.001
-                                        * Referenced by: '<S5>/Dctintegrator3'
-                                        */
-  real_T Dct1lowpass_P1_Size_l[2];  /* Computed Parameter: Dct1lowpass_P1_Size_l
-                                     * Referenced by: '<S5>/Dct1lowpass'
+  real_T Dct1lowpass_P1_Size_g[2];  /* Computed Parameter: Dct1lowpass_P1_Size_g
+                                     * Referenced by: '<S17>/Dct1lowpass'
                                      */
-  real_T Dct1lowpass_P1_o;             /* Expression: f_den
-                                        * Referenced by: '<S5>/Dct1lowpass'
+  real_T Dct1lowpass_P1_l;             /* Expression: f_den
+                                        * Referenced by: '<S17>/Dct1lowpass'
                                         */
-  real_T Dct1lowpass_P2_Size_o[2];  /* Computed Parameter: Dct1lowpass_P2_Size_o
-                                     * Referenced by: '<S5>/Dct1lowpass'
+  real_T Dct1lowpass_P2_Size_p[2];  /* Computed Parameter: Dct1lowpass_P2_Size_p
+                                     * Referenced by: '<S17>/Dct1lowpass'
                                      */
-  real_T Dct1lowpass_P2_dq;            /* Expression: 0.001
-                                        * Referenced by: '<S5>/Dct1lowpass'
-                                        */
-  real_T Dctleadlag_P1_Size[2];        /* Computed Parameter: Dctleadlag_P1_Size
-                                        * Referenced by: '<S5>/Dctleadlag'
-                                        */
-  real_T Dctleadlag_P1;                /* Expression: f_num
-                                        * Referenced by: '<S5>/Dctleadlag'
-                                        */
-  real_T Dctleadlag_P2_Size[2];        /* Computed Parameter: Dctleadlag_P2_Size
-                                        * Referenced by: '<S5>/Dctleadlag'
-                                        */
-  real_T Dctleadlag_P2;                /* Expression: f_den
-                                        * Referenced by: '<S5>/Dctleadlag'
-                                        */
-  real_T Dctleadlag_P3_Size[2];        /* Computed Parameter: Dctleadlag_P3_Size
-                                        * Referenced by: '<S5>/Dctleadlag'
-                                        */
-  real_T Dctleadlag_P3;                /* Expression: 0.001
-                                        * Referenced by: '<S5>/Dctleadlag'
+  real_T Dct1lowpass_P2_b;             /* Expression: 0.001
+                                        * Referenced by: '<S17>/Dct1lowpass'
                                         */
   real_T Gain1_Gain_p;                 /* Expression: 1
                                         * Referenced by: '<S9>/Gain1'
@@ -775,22 +752,22 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Dctpd2_P3;                    /* Expression: 0.001
                                         * Referenced by: '<S9>/Dctpd2'
                                         */
-  real_T Dctleadlag3_P1_Size_k5[2];/* Computed Parameter: Dctleadlag3_P1_Size_k5
-                                    * Referenced by: '<S9>/Dctleadlag3'
-                                    */
-  real_T Dctleadlag3_P1_o;             /* Expression: f_num
+  real_T Dctleadlag3_P1_Size[2];      /* Computed Parameter: Dctleadlag3_P1_Size
+                                       * Referenced by: '<S9>/Dctleadlag3'
+                                       */
+  real_T Dctleadlag3_P1;               /* Expression: f_num
                                         * Referenced by: '<S9>/Dctleadlag3'
                                         */
-  real_T Dctleadlag3_P2_Size_i[2];  /* Computed Parameter: Dctleadlag3_P2_Size_i
-                                     * Referenced by: '<S9>/Dctleadlag3'
-                                     */
-  real_T Dctleadlag3_P2_e;             /* Expression: f_den
+  real_T Dctleadlag3_P2_Size[2];      /* Computed Parameter: Dctleadlag3_P2_Size
+                                       * Referenced by: '<S9>/Dctleadlag3'
+                                       */
+  real_T Dctleadlag3_P2;               /* Expression: f_den
                                         * Referenced by: '<S9>/Dctleadlag3'
                                         */
-  real_T Dctleadlag3_P3_Size_o[2];  /* Computed Parameter: Dctleadlag3_P3_Size_o
-                                     * Referenced by: '<S9>/Dctleadlag3'
-                                     */
-  real_T Dctleadlag3_P3_j;             /* Expression: 0.001
+  real_T Dctleadlag3_P3_Size[2];      /* Computed Parameter: Dctleadlag3_P3_Size
+                                       * Referenced by: '<S9>/Dctleadlag3'
+                                       */
+  real_T Dctleadlag3_P3;               /* Expression: 0.001
                                         * Referenced by: '<S9>/Dctleadlag3'
                                         */
   real_T Gain1_Gain_a;                 /* Expression: 1
@@ -833,43 +810,43 @@ struct P_robotarm_student_2021a_Ipos_T_ {
                                         * Referenced by: '<S8>/Dctleadlag3'
                                         */
   real_T Gain1_Gain_i;                 /* Expression: 1
-                                        * Referenced by: '<S10>/Gain1'
+                                        * Referenced by: '<S11>/Gain1'
                                         */
   real_T Dctpd2_P1_Size_l[2];          /* Computed Parameter: Dctpd2_P1_Size_l
-                                        * Referenced by: '<S10>/Dctpd2'
+                                        * Referenced by: '<S11>/Dctpd2'
                                         */
   real_T Dctpd2_P1_a;                  /* Expression: kp
-                                        * Referenced by: '<S10>/Dctpd2'
+                                        * Referenced by: '<S11>/Dctpd2'
                                         */
   real_T Dctpd2_P2_Size_n[2];          /* Computed Parameter: Dctpd2_P2_Size_n
-                                        * Referenced by: '<S10>/Dctpd2'
+                                        * Referenced by: '<S11>/Dctpd2'
                                         */
   real_T Dctpd2_P2_g;                  /* Expression: kv
-                                        * Referenced by: '<S10>/Dctpd2'
+                                        * Referenced by: '<S11>/Dctpd2'
                                         */
   real_T Dctpd2_P3_Size_o[2];          /* Computed Parameter: Dctpd2_P3_Size_o
-                                        * Referenced by: '<S10>/Dctpd2'
+                                        * Referenced by: '<S11>/Dctpd2'
                                         */
   real_T Dctpd2_P3_c;                  /* Expression: 0.001
-                                        * Referenced by: '<S10>/Dctpd2'
+                                        * Referenced by: '<S11>/Dctpd2'
                                         */
   real_T Dctleadlag3_P1_Size_g[2];  /* Computed Parameter: Dctleadlag3_P1_Size_g
-                                     * Referenced by: '<S10>/Dctleadlag3'
+                                     * Referenced by: '<S11>/Dctleadlag3'
                                      */
   real_T Dctleadlag3_P1_b;             /* Expression: f_num
-                                        * Referenced by: '<S10>/Dctleadlag3'
+                                        * Referenced by: '<S11>/Dctleadlag3'
                                         */
   real_T Dctleadlag3_P2_Size_d[2];  /* Computed Parameter: Dctleadlag3_P2_Size_d
-                                     * Referenced by: '<S10>/Dctleadlag3'
+                                     * Referenced by: '<S11>/Dctleadlag3'
                                      */
   real_T Dctleadlag3_P2_k;             /* Expression: f_den
-                                        * Referenced by: '<S10>/Dctleadlag3'
+                                        * Referenced by: '<S11>/Dctleadlag3'
                                         */
   real_T Dctleadlag3_P3_Size_f[2];  /* Computed Parameter: Dctleadlag3_P3_Size_f
-                                     * Referenced by: '<S10>/Dctleadlag3'
+                                     * Referenced by: '<S11>/Dctleadlag3'
                                      */
-  real_T Dctleadlag3_P3_jk;            /* Expression: 0.001
-                                        * Referenced by: '<S10>/Dctleadlag3'
+  real_T Dctleadlag3_P3_j;             /* Expression: 0.001
+                                        * Referenced by: '<S11>/Dctleadlag3'
                                         */
   real_T Gain1_Gain_e;                 /* Expression: 1
                                         * Referenced by: '<S16>/Gain1'
@@ -899,10 +876,10 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Dctintegrator3_P1_j;          /* Expression: f_num
                                         * Referenced by: '<S16>/Dctintegrator3'
                                         */
-  real_T Dctintegrator3_P2_Size_c3[2];
-                                /* Computed Parameter: Dctintegrator3_P2_Size_c3
-                                 * Referenced by: '<S16>/Dctintegrator3'
-                                 */
+  real_T Dctintegrator3_P2_Size_c[2];
+                                 /* Computed Parameter: Dctintegrator3_P2_Size_c
+                                  * Referenced by: '<S16>/Dctintegrator3'
+                                  */
   real_T Dctintegrator3_P2_b;          /* Expression: 0.001
                                         * Referenced by: '<S16>/Dctintegrator3'
                                         */
@@ -960,20 +937,20 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Stop_Value;                   /* Expression: 0
                                         * Referenced by: '<S1>/Stop'
                                         */
+  real_T Saturation_UpperSat;          /* Expression: 100
+                                        * Referenced by: '<S1>/Saturation '
+                                        */
+  real_T Saturation_LowerSat;          /* Expression: -100
+                                        * Referenced by: '<S1>/Saturation '
+                                        */
   real_T ReferenceVacuumbar_Value;     /* Expression: 0.2
                                         * Referenced by: '<S1>/Reference Vacuum [bar]'
                                         */
   real_T Gain1_Gain_b;                 /* Expression: -100
                                         * Referenced by: '<S6>/Gain1'
                                         */
-  real_T Conveyorspeedmms_Value;       /* Expression: 10
-                                        * Referenced by: '<S1>/Conveyor speed [mm//s]'
-                                        */
-  real_T Saturation_UpperSat;          /* Expression: 100
-                                        * Referenced by: '<S1>/Saturation '
-                                        */
-  real_T Saturation_LowerSat;          /* Expression: -100
-                                        * Referenced by: '<S1>/Saturation '
+  real_T Switch_Threshold;             /* Expression: 1
+                                        * Referenced by: '<S1>/Switch'
                                         */
   real_T HomingRunningSwitch2_Threshold;/* Expression: 50
                                          * Referenced by: '<S26>/Homing Running Switch2'
@@ -1028,7 +1005,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Constant_Value_i;             /* Expression: -0.05
                                         * Referenced by: '<S27>/Constant'
                                         */
-  real_T Gain1_Gain_g2;                /* Expression: 1/16000*9/100*2*pi
+  real_T Gain1_Gain_g2w;               /* Expression: 1/16000*9/100*2*pi
                                         * Referenced by: '<S20>/Gain1'
                                         */
   real_T DiscreteTimeIntegrator_gainva_h;
@@ -1148,9 +1125,9 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Dct1lowpass_P1_e;             /* Expression: f_den
                                         * Referenced by: '<S36>/Dct1lowpass'
                                         */
-  real_T Dct1lowpass_P2_Size_os[2];/* Computed Parameter: Dct1lowpass_P2_Size_os
-                                    * Referenced by: '<S36>/Dct1lowpass'
-                                    */
+  real_T Dct1lowpass_P2_Size_o[2];  /* Computed Parameter: Dct1lowpass_P2_Size_o
+                                     * Referenced by: '<S36>/Dct1lowpass'
+                                     */
   real_T Dct1lowpass_P2_a;             /* Expression: 0.001
                                         * Referenced by: '<S36>/Dct1lowpass'
                                         */
@@ -1216,7 +1193,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
                                   /* Computed Parameter: Dctintegrator_P2_Size_p
                                    * Referenced by: '<S43>/Dctintegrator'
                                    */
-  real_T Dctintegrator_P2_nk;          /* Expression: 0.001
+  real_T Dctintegrator_P2_n;           /* Expression: 0.001
                                         * Referenced by: '<S43>/Dctintegrator'
                                         */
   real_T Dctleadlag_P1_Size_d[2];    /* Computed Parameter: Dctleadlag_P1_Size_d
@@ -1276,10 +1253,10 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Dct1lowpass_P1_h;             /* Expression: f_den
                                         * Referenced by: '<S44>/Dct1lowpass'
                                         */
-  real_T Dct1lowpass_P2_Size_gg[2];/* Computed Parameter: Dct1lowpass_P2_Size_gg
-                                    * Referenced by: '<S44>/Dct1lowpass'
-                                    */
-  real_T Dct1lowpass_P2_b;             /* Expression: 0.001
+  real_T Dct1lowpass_P2_Size_g[2];  /* Computed Parameter: Dct1lowpass_P2_Size_g
+                                     * Referenced by: '<S44>/Dct1lowpass'
+                                     */
+  real_T Dct1lowpass_P2_bm;            /* Expression: 0.001
                                         * Referenced by: '<S44>/Dct1lowpass'
                                         */
   real_T Gain_Gain_cj;                 /* Expression: 32
@@ -1301,10 +1278,10 @@ struct P_robotarm_student_2021a_Ipos_T_ {
   real_T Gain_Gain_cr;                 /* Expression: 20
                                         * Referenced by: '<S52>/Gain'
                                         */
-  real_T Dctintegrator_P1_Size_pg[2];
-                                 /* Computed Parameter: Dctintegrator_P1_Size_pg
-                                  * Referenced by: '<S52>/Dctintegrator'
-                                  */
+  real_T Dctintegrator_P1_Size_p[2];
+                                  /* Computed Parameter: Dctintegrator_P1_Size_p
+                                   * Referenced by: '<S52>/Dctintegrator'
+                                   */
   real_T Dctintegrator_P1_k;           /* Expression: f_num
                                         * Referenced by: '<S52>/Dctintegrator'
                                         */
@@ -1312,7 +1289,7 @@ struct P_robotarm_student_2021a_Ipos_T_ {
                                  /* Computed Parameter: Dctintegrator_P2_Size_o4
                                   * Referenced by: '<S52>/Dctintegrator'
                                   */
-  real_T Dctintegrator_P2_m;           /* Expression: 0.001
+  real_T Dctintegrator_P2_mn;          /* Expression: 0.001
                                         * Referenced by: '<S52>/Dctintegrator'
                                         */
   real_T Dctleadlag_P1_Size_ch[2];  /* Computed Parameter: Dctleadlag_P1_Size_ch
@@ -1589,15 +1566,15 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
   struct {
     RTWSfcnInfo sfcnInfo;
     time_T *taskTimePtrs[2];
-    SimStruct childSFunctions[46];
-    SimStruct *childSFunctionPtrs[46];
-    struct _ssBlkInfo2 blkInfo2[46];
-    struct _ssSFcnModelMethods2 methods2[46];
-    struct _ssSFcnModelMethods3 methods3[46];
-    struct _ssSFcnModelMethods4 methods4[46];
-    struct _ssStatesInfo2 statesInfo2[46];
-    ssPeriodicStatesInfo periodicStatesInfo[46];
-    struct _ssPortInfo2 inputOutputPortInfo2[46];
+    SimStruct childSFunctions[44];
+    SimStruct *childSFunctionPtrs[44];
+    struct _ssBlkInfo2 blkInfo2[44];
+    struct _ssSFcnModelMethods2 methods2[44];
+    struct _ssSFcnModelMethods3 methods3[44];
+    struct _ssSFcnModelMethods4 methods4[44];
+    struct _ssStatesInfo2 statesInfo2[44];
+    ssPeriodicStatesInfo periodicStatesInfo[44];
+    struct _ssPortInfo2 inputOutputPortInfo2[44];
     struct {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
@@ -1609,8 +1586,8 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
+      uint_T attribs[2];
+      mxArray *params[2];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn0;
@@ -1643,8 +1620,8 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
+      uint_T attribs[3];
+      mxArray *params[3];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn2;
@@ -1728,8 +1705,8 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
+      uint_T attribs[3];
+      mxArray *params[3];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn7;
@@ -1779,8 +1756,8 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
+      uint_T attribs[3];
+      mxArray *params[3];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn10;
@@ -1898,45 +1875,11 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn17;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
-      struct _ssInPortUnit inputPortUnits[1];
-      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
-      real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn18;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
-      struct _ssInPortUnit inputPortUnits[1];
-      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
-      real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
       uint_T attribs[2];
       mxArray *params[2];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn19;
+    } Sfcn17;
 
     struct {
       time_T sfcnPeriod[1];
@@ -1953,7 +1896,7 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       mxArray *params[5];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn20;
+    } Sfcn18;
 
     struct {
       time_T sfcnPeriod[1];
@@ -1970,7 +1913,7 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       mxArray *params[3];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn21;
+    } Sfcn19;
 
     struct {
       time_T sfcnPeriod[1];
@@ -1981,7 +1924,7 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
       uint_T attribs[2];
       mxArray *params[2];
-    } Sfcn22;
+    } Sfcn20;
 
     struct {
       time_T sfcnPeriod[1];
@@ -2001,7 +1944,7 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[5];
       uint_T attribs[1];
       mxArray *params[1];
-    } Sfcn23;
+    } Sfcn21;
 
     struct {
       time_T sfcnPeriod[1];
@@ -2013,6 +1956,40 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       real_T const *UPtrs0[1];
       uint_T attribs[1];
       mxArray *params[1];
+    } Sfcn22;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortInputs inputPortInfo[1];
+      struct _ssInPortUnit inputPortUnits[1];
+      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
+      real_T const *UPtrs0[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[2];
+      mxArray *params[2];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
+    } Sfcn23;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortInputs inputPortInfo[1];
+      struct _ssInPortUnit inputPortUnits[1];
+      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
+      real_T const *UPtrs0[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[3];
+      mxArray *params[3];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn24;
 
     struct {
@@ -2074,13 +2051,8 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssInPortUnit inputPortUnits[1];
       struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
       real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
+      uint_T attribs[1];
+      mxArray *params[1];
     } Sfcn28;
 
     struct {
@@ -2108,8 +2080,13 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssInPortUnit inputPortUnits[1];
       struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
       real_T const *UPtrs0[1];
-      uint_T attribs[1];
-      mxArray *params[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[3];
+      mxArray *params[3];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn30;
 
     struct {
@@ -2171,13 +2148,8 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssInPortUnit inputPortUnits[1];
       struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
       real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
+      uint_T attribs[1];
+      mxArray *params[1];
     } Sfcn34;
 
     struct {
@@ -2205,8 +2177,13 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssInPortUnit inputPortUnits[1];
       struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
       real_T const *UPtrs0[1];
-      uint_T attribs[1];
-      mxArray *params[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[3];
+      mxArray *params[3];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn36;
 
     struct {
@@ -2268,13 +2245,8 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssInPortUnit inputPortUnits[1];
       struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
       real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
+      uint_T attribs[1];
+      mxArray *params[1];
     } Sfcn40;
 
     struct {
@@ -2302,43 +2274,14 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       struct _ssInPortUnit inputPortUnits[1];
       struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
       real_T const *UPtrs0[1];
-      uint_T attribs[1];
-      mxArray *params[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[2];
+      mxArray *params[2];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn42;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
-      struct _ssInPortUnit inputPortUnits[1];
-      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
-      real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn43;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
-      struct _ssInPortUnit inputPortUnits[1];
-      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
-      real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn44;
 
     struct {
       time_T sfcnPeriod[1];
@@ -2355,7 +2298,7 @@ struct tag_RTM_robotarm_student_2021a_Ipos_T {
       mxArray *params[3];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn45;
+    } Sfcn43;
   } NonInlinedSFcns;
 
   boolean_T zCCacheNeedsReset;
@@ -2439,6 +2382,9 @@ extern B_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_B;
 /* Block states (default storage) */
 extern DW_robotarm_student_2021a_Ipos_T robotarm_student_2021a_Ipos_DW;
 
+/* External data declarations for dependent source files */
+extern const real_T robotarm_student_2021a_Ipos_RGND;/* real_T ground */
+
 /* Model entry point functions */
 extern void robotarm_student_2021a_Ipos_initialize(void);
 extern void robotarm_student_2021a_Ipos_step(void);
@@ -2464,6 +2410,9 @@ extern RT_MODEL_robotarm_student_2021a_Ipos_T *const
  * Block '<S1>/Gain3' : Unused code path elimination
  * Block '<S1>/Gain4' : Unused code path elimination
  * Block '<S1>/Gain5' : Unused code path elimination
+ * Block '<S1>/Gain6' : Unused code path elimination
+ * Block '<S1>/Gain7' : Unused code path elimination
+ * Block '<S1>/Gain8' : Unused code path elimination
  * Block '<S1>/Manual Switch' : Unused code path elimination
  * Block '<S1>/Sign' : Unused code path elimination
  * Block '<S1>/Sign1' : Unused code path elimination
@@ -2499,12 +2448,12 @@ extern RT_MODEL_robotarm_student_2021a_Ipos_T *const
  * '<S4>'   : 'robotarm_student_2021a_Ipos/Controller/Camera'
  * '<S5>'   : 'robotarm_student_2021a_Ipos/Controller/Controller Conveyor'
  * '<S6>'   : 'robotarm_student_2021a_Ipos/Controller/Controller Vacuum'
- * '<S7>'   : 'robotarm_student_2021a_Ipos/Controller/Stateflow 1'
+ * '<S7>'   : 'robotarm_student_2021a_Ipos/Controller/Stateflow 2'
  * '<S8>'   : 'robotarm_student_2021a_Ipos/Controller/controller'
  * '<S9>'   : 'robotarm_student_2021a_Ipos/Controller/controller1'
- * '<S10>'  : 'robotarm_student_2021a_Ipos/Controller/controller_x_direction'
- * '<S11>'  : 'robotarm_student_2021a_Ipos/Controller/controller_x_direction1'
- * '<S12>'  : 'robotarm_student_2021a_Ipos/Controller/controller_x_direction2'
+ * '<S10>'  : 'robotarm_student_2021a_Ipos/Controller/controller_Z'
+ * '<S11>'  : 'robotarm_student_2021a_Ipos/Controller/controller_x_direction'
+ * '<S12>'  : 'robotarm_student_2021a_Ipos/Controller/controller_x_direction1'
  * '<S13>'  : 'robotarm_student_2021a_Ipos/Controller/quintic trajectory time'
  * '<S14>'  : 'robotarm_student_2021a_Ipos/Controller/quintic trajectory time1'
  * '<S15>'  : 'robotarm_student_2021a_Ipos/Controller/quintic trajectory time2'

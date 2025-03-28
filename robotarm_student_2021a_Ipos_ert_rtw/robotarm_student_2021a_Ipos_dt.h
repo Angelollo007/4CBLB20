@@ -7,9 +7,9 @@
  *
  * Code generation for model "robotarm_student_2021a_Ipos".
  *
- * Model version              : 2.169
+ * Model version              : 2.185
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Wed Mar 26 10:43:16 2025
+ * C source code generated on : Fri Mar 28 10:10:02 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -85,10 +85,10 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.Delay_DSTATE[0]), 15, 0, 1 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_DW.PrevY), 0, 0, 108 },
+  { (char_T *)(&robotarm_student_2021a_Ipos_DW.PrevY), 0, 0, 103 },
 
-  { (char_T *)(&robotarm_student_2021a_Ipos_DW.Scope_PWORK.LoggedData), 11, 0, 9
-  },
+  { (char_T *)(&robotarm_student_2021a_Ipos_DW.Scope_PWORK.LoggedData), 11, 0,
+    10 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.sfEvent), 6, 0, 5 },
 
@@ -101,7 +101,7 @@ static DataTypeTransition rtBTransitions[] = {
   },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.is_active_c1_robotarm_student_2),
-    3, 0, 12 },
+    3, 0, 11 },
 
   { (char_T *)(&robotarm_student_2021a_Ipos_DW.doneDoubleBufferReInit), 8, 0, 3
   },
